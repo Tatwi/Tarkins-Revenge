@@ -1810,6 +1810,7 @@ schematics = {
 	{path="object/draft_schematic/furniture/bestine/painting_bestine_ronka.iff"},
 	{path="object/draft_schematic/item/theme_park/alderaan/act2/dead_eye_decoder.iff"},
 	{path="object/draft_schematic/item/quest_item/fs_medic_puzzle_heal_pack.iff"},
+<<<<<<< ours
 
 --Tarkin Custom
 
@@ -2563,5 +2564,8 @@ schematics = {
 	{path="object/draft_schematic/clothing/clothing_backpack_s09.iff"},
 
 	--Chiss Poacher Backpack
-	{path="object/draft_schematic/clothing/ep3_chiss_poacher_backpack.iff"}
+	{path="object/draft_schematic/clothing/ep3_chiss_poacher_backpack.iff"},
+	
+	-- Bio-Engineer Tarkin New
+	{path="object/draft_schematic/bio_engineer/utilities/dna_extractor.iff"}
 };

@@ -152,6 +152,7 @@
 #include "server/zone/objects/tangible/components/droid/DroidPersonalityModuleDataComponent.h"
 #include "server/zone/objects/tangible/components/impTravelTerminalMenuComponent.h"
 #include "server/zone/objects/tangible/components/rebTravelTerminalMenuComponent.h"
+#include "server/zone/objects/tangible/components/DnaExtractorMenuComponent.h"
 
 ComponentManager::ComponentManager() {
 	components.put("ContainerComponent", new ContainerComponent());
@@ -348,4 +349,7 @@ ComponentManager::ComponentManager() {
 	dataObjectFactory.registerObject<DroidTrapModuleDataComponent>("DroidTrapModuleDataComponent");
 	dataObjectFactory.registerObject<DroidHarvestModuleDataComponent>("DroidHarvestModuleDataComponent");
 	dataObjectFactory.registerObject<DroidPersonalityModuleDataComponent>("DroidPersonalityModuleDataComponent");
+	
+	// Legend of Hondo
+	components.put("DnaExtractorMenuComponent", new DnaExtractorMenuComponent());
 }
