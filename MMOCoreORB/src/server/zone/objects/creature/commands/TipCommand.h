@@ -8,6 +8,7 @@
 #include "server/zone/objects/scene/SceneObject.h"
 #include "server/zone/objects/player/PlayerObject.h"
 #include "server/zone/objects/player/sui/callbacks/TipCommandSuiCallback.h"
+#include "server/zone/managers/statistics/StatisticsManager.h"
 
 class TipCommand: public QueueCommand {
 private:
@@ -188,11 +189,17 @@ public:
 			creature->sendSystemMessage("@error_message:target_self_disallowed"); // You cannot target yourself with this command.
 			return GENERALERROR;
 		}
-
-		if (isBank || !targetPlayer->isOnline()) // Default to bank tip if player is offline
+		
+		
+		if (isBank || !targetPlayer->isOnline()){ // Default to bank tip if player is offline
+			StatisticsManager::instance()->lumberjack(creature, targetPlayer, amount, 2);
+			
 			return performBankTip(creature, targetPlayer, amount);
-		else
+		} else{
+			StatisticsManager::instance()->lumberjack(creature, targetPlayer, amount, 1);
+			
 			return performTip(creature, targetPlayer, amount);
+		}
 	}
 
 };

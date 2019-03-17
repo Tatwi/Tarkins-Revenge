@@ -6,6 +6,10 @@
 #define STATISTICSMANAGER_H_
 
 #include "server/zone/objects/mission/MissionTypes.h"
+#include "server/zone/objects/player/PlayerObject.h"
+#include "server/zone/managers/player/PlayerManager.h"
+#include "server/login/account/Account.h"
+#include "server/zone/ZoneClientSession.h"
 
 class StatisticsManager : public Singleton<StatisticsManager>, public Logger, public Object {
 	AtomicLong numberOfCompletedMissionsBounty;
@@ -85,6 +89,61 @@ public:
 
 	void reset() {
 		resetMissionStatistics();
+	}
+	
+	void lumberjack(CreatureObject* sender, CreatureObject* receiver, int value, int transactionType){
+		if (sender == NULL || receiver == NULL){
+			Logger::console.error("Lumberjack: Requires CreatureObject sender, CreatureObject receiver, int, int. When there isn't a reciever, such as logging deleted characters, use sender for both.");
+			return;
+		}
+		
+		Reference<PlayerObject*> senderGhost = sender->getPlayerObject();
+		ManagedReference<Account*> senderAccount = senderGhost->getAccount();	
+		Reference<PlayerObject*> receiverGhost = receiver->getPlayerObject();
+		ManagedReference<Account*> receiverAccount = receiverGhost->getAccount();
+
+		/* Get Data
+		* timestamp,transaction_type,credit_amount,sender_account_id,sender_username,sender_ip_address,sender_firstname,
+		* sender_character_oid,sender_creationdate,reciever_account_id,reciever_username,reciever_ip_address,reciever_firstname,
+		* reciever_character_oid,reciever_creationdate
+		* 
+		* timestamp, senderAccountID, senderAccountName, senderAccountAge, senderIPAddress, senderCharacterName, senderCharacterCreationDate
+		* */
+		Time now;
+		String timestamp = now.getFormattedTime();
+
+		// Sender
+		String sAccID = String::valueOf(senderAccount->getStationID());
+		String sAccName = senderAccount->getUsername();
+		Time createdTime(senderAccount->getTimeCreated());
+		String sAccBorn = createdTime.getFormattedTime();
+		auto session = sender->getClient();
+		String sIP = session->getAddress();	
+		String sCharName = sender->getFirstName();
+		String sCharBorn = "";
+		
+		
+		if (sender != receiver){
+			
+		}
+		
+		
+		// Log to file
+		String fileName = "tips"; // sales, deleted_characters
+		String outputText = timestamp + "," + sAccID + "," + sAccName + "," + sAccBorn + "," + sIP + "," + sCharName + "," + sCharBorn + "," + String::valueOf(value) + ",";
+		File* file = new File("log/lumberjack/" + fileName + ".log");
+		FileWriter* writer = new FileWriter(file, true); // true for appending new lines
+
+		writer->writeLine(outputText);
+
+		writer->close();
+		delete file;
+		delete writer;
+		
+		// Log to SQL
+		
+		// console debugging
+		//Logger::console.info(sender->getFirstName(), true);
 	}
 
 private:
