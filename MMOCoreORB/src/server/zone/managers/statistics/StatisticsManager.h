@@ -91,56 +91,135 @@ public:
 		resetMissionStatistics();
 	}
 	
+	/**
+	 * Logs player activity
+	 * @param sender Creature object of character who sent credits or bought an item. Also used for the character that was deleted when logged deleted character.
+	 * @param receiver Creature object of character that received the credits.
+	 * @param value The amount of credits that were exchanged.
+	 * @param transactionType The use case for this function. Transaction Types: character deleted 0, tip 1, bank tip 2, bazaar sale 3, vendor sale 4.
+	 */
 	void lumberjack(CreatureObject* sender, CreatureObject* receiver, int value, int transactionType){
 		if (sender == NULL || receiver == NULL){
 			Logger::console.error("Lumberjack: Requires CreatureObject sender, CreatureObject receiver, int, int. When there isn't a reciever, such as logging deleted characters, use sender for both.");
 			return;
 		}
 		
+		Logger::console.info("Lumberjack: sender/receiver OK", true);
+		
 		Reference<PlayerObject*> senderGhost = sender->getPlayerObject();
 		ManagedReference<Account*> senderAccount = senderGhost->getAccount();	
 		Reference<PlayerObject*> receiverGhost = receiver->getPlayerObject();
 		ManagedReference<Account*> receiverAccount = receiverGhost->getAccount();
+		
+		Logger::console.info("Lumberjack: references OK", true);
 
-		/* Get Data
-		* timestamp,transaction_type,credit_amount,sender_account_id,sender_username,sender_ip_address,sender_firstname,
-		* sender_character_oid,sender_creationdate,reciever_account_id,reciever_username,reciever_ip_address,reciever_firstname,
-		* reciever_character_oid,reciever_creationdate
-		* 
-		* timestamp, senderAccountID, senderAccountName, senderAccountAge, senderIPAddress, senderCharacterName, senderCharacterCreationDate
-		* */
+		// Gather data
 		Time now;
 		String timestamp = now.getFormattedTime();
 
 		// Sender
 		String sAccID = String::valueOf(senderAccount->getStationID());
 		String sAccName = senderAccount->getUsername();
-		Time createdTime(senderAccount->getTimeCreated());
-		String sAccBorn = createdTime.getFormattedTime();
-		auto session = sender->getClient();
-		String sIP = session->getAddress();	
+		Time sCreatedTime(senderAccount->getTimeCreated());
+		String sAccBorn = sCreatedTime.getFormattedTime();
+		auto sSession = sender->getClient();
+		String sIP = "0.0.0.0:0";
+		if (sSession != NULL) // Prevent segfault if sender disconnects
+			sIP = sSession->getAddress();
+		
 		String sCharName = sender->getFirstName();
-		String sCharBorn = "";
+		String sCharAge = String::valueOf(senderGhost->getCharacterAgeInDays());
 		
+		Logger::console.info("Lumberjack: sender data OK", true);
 		
+		// Reciever
+		String rAccID = "";
+		String rAccName = "";
+		String rAccBorn = "";
+		String rIP = "";
+		String rCharName = "";
+		String rCharAge = "";
+		
+		Logger::console.info("Lumberjack: receiver strings OK", true);
+		
+		// Don't pull data that won't be used
 		if (sender != receiver){
+			rAccID = String::valueOf(receiverAccount->getStationID());
+			Logger::console.info("Lumberjack: rAccID data OK", true);
 			
+			rAccName = receiverAccount->getUsername();
+			Logger::console.info("Lumberjack: receiver data OK", true);
+			
+			Time rCreatedTime(receiverAccount->getTimeCreated());
+			Logger::console.info("Lumberjack: rAccName data OK", true);
+			
+			rAccBorn = rCreatedTime.getFormattedTime();
+			Logger::console.info("Lumberjack: rAccBorn data OK", true);
+			
+			auto rSession = receiver->getClient();
+			Logger::console.info("Lumberjack: rSession data OK", true);
+			
+			if (rSession == NULL)
+				rIP = "0.0.0.0:0"; // Not online, can't pull IP
+			else
+				rIP = rSession->getAddress();
+			Logger::console.info("Lumberjack: rIP data OK", true);
+			
+			rCharName = receiver->getFirstName();
+			Logger::console.info("Lumberjack: rCharName data OK", true);
+			
+			rCharAge = String::valueOf(receiverGhost->getCharacterAgeInDays());
+			Logger::console.info("Lumberjack: rCharAge data OK", true);
 		}
 		
+		Logger::console.info("Lumberjack: receiver data OK", true);
+		
+		// Bools for use until server config options are made
+		bool LumberjackTXT = true;
+		bool LumberjackSQL = false;
 		
 		// Log to file
-		String fileName = "tips"; // sales, deleted_characters
-		String outputText = timestamp + "," + sAccID + "," + sAccName + "," + sAccBorn + "," + sIP + "," + sCharName + "," + sCharBorn + "," + String::valueOf(value) + ",";
-		File* file = new File("log/lumberjack/" + fileName + ".log");
-		FileWriter* writer = new FileWriter(file, true); // true for appending new lines
+		if (LumberjackTXT){
+			Logger::console.info("Lumberjack: LumberjackTXT OK", true);
+			
+			String outputText = "";
+			
+			String fileName = "tips";
+			
+			if (transactionType == 1){
+				outputText = timestamp + "," + sAccID + "," + sAccName + "," + sAccBorn + "," + sIP + "," + sCharName + "," + sCharAge + "," + String::valueOf(value) + "," + rAccID + "," + rAccName + "," + rAccBorn + "," + rIP + "," + rCharName + "," + rCharAge + ",";
+			} else if (transactionType == 2) {
+				fileName = "banktips";
+				outputText = timestamp + "," + sAccID + "," + sAccName + "," + sAccBorn + "," + sIP + "," + sCharName + "," + sCharAge + "," + String::valueOf(value) + "," + rAccID + "," + rAccName + "," + rAccBorn + "," + rIP + "," + rCharName + "," + rCharAge + ",";
+			} else if  (transactionType == 3){
+				fileName = "bazaarsales";
+				outputText = timestamp + "," + sAccID + "," + sAccName + "," + sAccBorn + "," + sIP + "," + sCharName + "," + sCharAge + "," + String::valueOf(value) + "," + rAccID + "," + rAccName + "," + rAccBorn + "," + rIP + "," + rCharName + "," + rCharAge + ",";
+			} else if  (transactionType == 4){
+				fileName = "vendorsales";
+				outputText = timestamp + "," + sAccID + "," + sAccName + "," + sAccBorn + "," + sIP + "," + sCharName + "," + sCharAge + "," + String::valueOf(value) + "," + rAccID + "," + rAccName + "," + rAccBorn + "," + rIP + "," + rCharName + "," + rCharAge + ",";
+			}  else if  (transactionType == 0){
+				fileName = "deletedcharacters";
+				outputText = timestamp + "," + sAccID + "," + sAccName + "," + sAccBorn + "," + sIP + "," + sCharName + "," + sCharAge + ",";
+			}
+			
+			Logger::console.info("Lumberjack: outputText OK", true);
+			
+			File* file = new File("log/lumberjack/" + fileName + ".log");
+			FileWriter* writer = new FileWriter(file, true); // true for appending new lines
 
-		writer->writeLine(outputText);
+			writer->writeLine(outputText);
 
-		writer->close();
-		delete file;
-		delete writer;
+			writer->close();
+			delete file;
+			delete writer;
+		}
 		
 		// Log to SQL
+		if (LumberjackSQL){
+			// This functionality will be created at a later date. It will push data to separate DB that is dedicated to logging player activity.
+		}
+		
+		Logger::console.info("Lumberjack: finished OK", true);
 		
 		// console debugging
 		//Logger::console.info(sender->getFirstName(), true);

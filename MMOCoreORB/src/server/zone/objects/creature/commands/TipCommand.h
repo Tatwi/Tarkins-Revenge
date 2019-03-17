@@ -51,6 +51,8 @@ private:
 		tipself.setDI(amount);
 		tipself.setTT(targetPlayer->getCreatureName());
 		player->sendSystemMessage(tipself);
+		
+		StatisticsManager::instance()->lumberjack(player, targetPlayer, amount, 1);
 
 		return SUCCESS;
 	}
@@ -87,6 +89,8 @@ private:
 
 		ghost->addSuiBox(confirmbox);
 		player->sendMessage(confirmbox->generateMessage());
+		
+		StatisticsManager::instance()->lumberjack(player, targetPlayer, amount, 2);
 
 		return SUCCESS;
 	}
@@ -189,17 +193,11 @@ public:
 			creature->sendSystemMessage("@error_message:target_self_disallowed"); // You cannot target yourself with this command.
 			return GENERALERROR;
 		}
-		
-		
-		if (isBank || !targetPlayer->isOnline()){ // Default to bank tip if player is offline
-			StatisticsManager::instance()->lumberjack(creature, targetPlayer, amount, 2);
-			
+
+		if (isBank || !targetPlayer->isOnline()) // Default to bank tip if player is offline
 			return performBankTip(creature, targetPlayer, amount);
-		} else{
-			StatisticsManager::instance()->lumberjack(creature, targetPlayer, amount, 1);
-			
+		else
 			return performTip(creature, targetPlayer, amount);
-		}
 	}
 
 };
