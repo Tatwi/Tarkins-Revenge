@@ -99,6 +99,16 @@ public:
 	 * @param transactionType The use case for this function. Transaction Types: character deleted 0, tip 1, bank tip 2, bazaar sale 3, vendor sale 4.
 	 */
 	void lumberjack(CreatureObject* sender, CreatureObject* receiver, int value, int transactionType){
+		// Bools for use until server config options are made
+		bool LumberjackBazaar = true;
+		bool LumberjackVendor = true;
+		
+		if (transactionType == 3 && !LumberjackBazaar)
+			return;
+			
+		if (transactionType == 4 && !LumberjackVendor)
+			return;
+		
 		if (sender == NULL || receiver == NULL){
 			Logger::console.error("Lumberjack: Requires CreatureObject sender, CreatureObject receiver, int, int. When there isn't a reciever, such as logging deleted characters, use sender for both.");
 			return;
@@ -122,10 +132,17 @@ public:
 		String sAccName = senderAccount->getUsername();
 		Time sCreatedTime(senderAccount->getTimeCreated());
 		String sAccBorn = sCreatedTime.getFormattedTime();
-		auto sSession = sender->getClient();
+		
+		StringBuffer query;
+		query << "SELECT ip_address, MIN(timestamp) FROM account_log WHERE account_id = '" << senderAccount->getAccountID() << "';";
+		ResultSet* result = ServerDatabase::instance()->executeQuery(query);
+		Logger::console.info("Lumberjack: Direct query result OK", true);
+		
 		String sIP = "0.0.0.0:0";
-		if (sSession != NULL) // Prevent segfault if sender disconnects
-			sIP = sSession->getAddress();
+		
+		if (result->next())
+			sIP = result->getString(0);
+		Logger::console.info("Lumberjack: Direct query of IP = " + sIP, true);
 		
 		String sCharName = sender->getFirstName();
 		String sCharAge = String::valueOf(senderGhost->getCharacterAgeInDays());
@@ -136,7 +153,7 @@ public:
 		String rAccID = "";
 		String rAccName = "";
 		String rAccBorn = "";
-		String rIP = "";
+		String rIP = "0.0.0.0:0";
 		String rCharName = "";
 		String rCharAge = "";
 		
@@ -156,15 +173,15 @@ public:
 			rAccBorn = rCreatedTime.getFormattedTime();
 			Logger::console.info("Lumberjack: rAccBorn data OK", true);
 			
-			auto rSession = receiver->getClient();
-			Logger::console.info("Lumberjack: rSession data OK", true);
+			StringBuffer query2;
+			query2 << "SELECT ip_address, MIN(timestamp) FROM account_log WHERE account_id = '" << receiverAccount->getAccountID() << "';";
+			result = ServerDatabase::instance()->executeQuery(query2);
+			Logger::console.info("Lumberjack: Direct query result for receiver OK", true);
 			
-			if (rSession == NULL)
-				rIP = "0.0.0.0:0"; // Not online, can't pull IP
-			else
-				rIP = rSession->getAddress();
-			Logger::console.info("Lumberjack: rIP data OK", true);
-			
+			if (result->next())
+				rIP = result->getString(0);
+			Logger::console.info("Lumberjack: Direct query of IP = " + rIP, true);
+
 			rCharName = receiver->getFirstName();
 			Logger::console.info("Lumberjack: rCharName data OK", true);
 			
@@ -182,10 +199,9 @@ public:
 		if (LumberjackTXT){
 			Logger::console.info("Lumberjack: LumberjackTXT OK", true);
 			
-			String outputText = "";
-			
+			String outputText = "";	
 			String fileName = "tips";
-			
+
 			if (transactionType == 1){
 				outputText = timestamp + "," + sAccID + "," + sAccName + "," + sAccBorn + "," + sIP + "," + sCharName + "," + sCharAge + "," + String::valueOf(value) + "," + rAccID + "," + rAccName + "," + rAccBorn + "," + rIP + "," + rCharName + "," + rCharAge + ",";
 			} else if (transactionType == 2) {
