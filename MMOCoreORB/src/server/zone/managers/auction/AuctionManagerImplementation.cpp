@@ -33,6 +33,7 @@
 #include "server/zone/objects/tangible/components/vendor/AuctionTerminalDataComponent.h"
 #include "server/zone/objects/player/sessions/TradeSession.h"
 #include "AuctionSearchTask.h"
+#include "server/zone/managers/statistics/StatisticsManager.h"
 
 void AuctionManagerImplementation::initialize() {
 
@@ -749,6 +750,8 @@ void AuctionManagerImplementation::doInstantBuy(CreatureObject* player, AuctionI
 
 		if(auctionMap->getVendorItemCount(vendor, true) == 0)
 			sendVendorUpdateMail(vendor, true);
+			
+		StatisticsManager::instance()->lumberjack(player, seller, itemPrice, itemName, 4);
 
 	} else {
 
@@ -796,7 +799,8 @@ void AuctionManagerImplementation::doInstantBuy(CreatureObject* player, AuctionI
 		UnicodeString blankBody;
 		cman->sendMail(sender, sellerSubject, blankBody, sellerName, &sellerBodyVector, &sellerWaypointVector);
 		cman->sendMail(sender, buyerSubject, blankBody, item->getBidderName(), &buyerBodyVector, &buyerWaypointVector);
-
+		
+		StatisticsManager::instance()->lumberjack(player, seller, itemPrice, itemName, 3);
 	}
 
 	if (seller == NULL) {

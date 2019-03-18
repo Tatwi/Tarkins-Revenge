@@ -52,7 +52,7 @@ private:
 		tipself.setTT(targetPlayer->getCreatureName());
 		player->sendSystemMessage(tipself);
 		
-		StatisticsManager::instance()->lumberjack(player, targetPlayer, amount, 1);
+		StatisticsManager::instance()->lumberjack(player, targetPlayer, amount, "na", 1);
 
 		return SUCCESS;
 	}
@@ -90,7 +90,7 @@ private:
 		ghost->addSuiBox(confirmbox);
 		player->sendMessage(confirmbox->generateMessage());
 		
-		StatisticsManager::instance()->lumberjack(player, targetPlayer, amount, 2);
+		StatisticsManager::instance()->lumberjack(player, targetPlayer, amount, "na", 2);
 
 		return SUCCESS;
 	}
