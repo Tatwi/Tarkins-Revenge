@@ -10,6 +10,7 @@
 #include "server/zone/managers/player/PlayerManager.h"
 #include "server/login/account/Account.h"
 #include "server/zone/ZoneClientSession.h"
+#include "server/ServerCore.h"
 
 class StatisticsManager : public Singleton<StatisticsManager>, public Logger, public Object {
 	AtomicLong numberOfCompletedMissionsBounty;
@@ -97,18 +98,30 @@ public:
 	 * @param receiver Creature object of character that received the credits.
 	 * @param value The amount of credits that were exchanged.
 	 * @param name Name of the item bought from the vendor/bazaar and future misc string usage.
-	 * @param transactionType The use case for this function. Transaction Types: character deleted 0, tip 1, bank tip 2, bazaar sale 3, vendor sale 4.
+	 * @param transactionType The use case for this function. Transaction Types: tip 1, bank tip 2, bazaar sale 3, vendor sale 4.
 	 */
 	void lumberjack(CreatureObject* sender, CreatureObject* receiver, int value, String name, int transactionType){
-		// Bools for use until server config options are made
-		bool LumberjackBazaar = true;
-		bool LumberjackVendor = true;
+		// Get server config
+		int logTips = ConfigManager::instance()->getLumberjackTips();
+		int logBazaar = ConfigManager::instance()->getLumberjackBazaar();
+		int logVendor = ConfigManager::instance()->getLumberjackVendor();
+		int logToTXT = ConfigManager::instance()->getLumberjackTXT();
+		int logToSQL = ConfigManager::instance()->getLumberjackSQL();
 		
-		if (transactionType == 3 && !LumberjackBazaar)
+		if ((transactionType == 1 || transactionType == 2) && !logTips && value < logTips){
+			Logger::console.info("Lumberjack: Tip logging is off.", true);
 			return;
+		}
+		
+		if (transactionType == 3 && !logBazaar && value < logBazaar){
+			Logger::console.info("Lumberjack: Bazaar logging is off.", true);
+			return;
+		}
 			
-		if (transactionType == 4 && !LumberjackVendor)
+		if (transactionType == 4 && !logVendor && value < logVendor){
+			Logger::console.info("Lumberjack: Vendor logging is off.", true);
 			return;
+		}
 		
 		if (sender == NULL || receiver == NULL){
 			Logger::console.error("Lumberjack: Requires CreatureObject sender, CreatureObject receiver, int, string, int. When there isn't a reciever, such as logging deleted characters, use sender for both.");
@@ -167,12 +180,8 @@ public:
 			rCharAge = String::valueOf(receiverGhost->getCharacterAgeInDays());
 		}
 		
-		// Bools for use until server config options are made
-		bool LumberjackTXT = true;
-		bool LumberjackSQL = false;
-		
 		// Log to file
-		if (LumberjackTXT){			
+		if (logToTXT){			
 			String outputText = "";	
 			String fileName = "tips";
 
@@ -187,9 +196,6 @@ public:
 			} else if  (transactionType == 4){
 				fileName = "vendorsales";
 				outputText = timestamp + "," + sAccID + "," + sAccName + "," + sAccBorn + "," + sIP + "," + sCharName + "," + sCharAge + "," + String::valueOf(value) + "," + name+ "," + rAccID + "," + rAccName + "," + rAccBorn + "," + rIP + "," + rCharName + "," + rCharAge + ",";
-			}  else if  (transactionType == 0){
-				fileName = "deletedcharacters";
-				outputText = timestamp + "," + sAccID + "," + sAccName + "," + sAccBorn + "," + sIP + "," + sCharName + "," + sCharAge + ",";
 			}
 			
 			File* file = new File("log/lumberjack/" + fileName + ".log");
@@ -203,9 +209,64 @@ public:
 		}
 		
 		// Log to SQL
-		if (LumberjackSQL){
+		if (logToSQL){
 			// This functionality will be created at a later date. It will push data to separate DB that is dedicated to logging player activity.
 		}
+	}
+	
+	/**
+	 * Logs player activity
+	 * @param accountId Account ID
+	 * @param charId Character ID
+	 */
+	void lumberjack(uint32 accountId, uint64 charId){
+		int logDeleted = ConfigManager::instance()->getLumberjackDeleted();
+		
+		if (!logDeleted){
+			Logger::console.info("Lumberjack: Deleted character logging is off.", true);
+			return;
+		}
+		
+		int logToTXT = ConfigManager::instance()->getLumberjackTXT();
+		int logToSQL = ConfigManager::instance()->getLumberjackSQL();
+		
+		ZoneServer* server = ServerCore::getZoneServer();
+		ManagedReference<CreatureObject*> creature = server->getObject(charId).castTo<CreatureObject*>();
+		
+		if (creature == nullptr){
+			Logger::console.info("Lumberjack: Character not found when logging deletion of charID: " + String::valueOf(charId) + " on accountID: " + String::valueOf(accountId), true);
+			return;
+		}
+		
+		Reference<PlayerObject*> ghost = creature->getPlayerObject();
+		ManagedReference<Account*> account = ghost->getAccount();
+		
+		// Gather data
+		Time now;
+		String timestamp = now.getFormattedTime();
+		String accName = account->getUsername();
+		Time rCreatedTime(account->getTimeCreated());
+		String accBorn = rCreatedTime.getFormattedTime();
+		String charName = creature->getFirstName();		
+		String charAge = String::valueOf(ghost->getCharacterAgeInDays());	
+		
+		String outputText = timestamp + "," + String::valueOf(accountId) + "," + accName + "," + accBorn + "," + charName + "," + charAge + ",";
+		
+		if (logToTXT){	
+			File* file = new File("log/lumberjack/deletedcharacters.log");
+			FileWriter* writer = new FileWriter(file, true); // true for appending new lines
+
+			writer->writeLine(outputText);
+
+			writer->close();
+			delete file;
+			delete writer;
+		}
+		
+		if (logToSQL){
+			// This functionality will be created at a later date. It will push data to separate DB that is dedicated to logging player activity.
+		}
+		
 	}
 
 private:

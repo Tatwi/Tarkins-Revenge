@@ -169,6 +169,13 @@ bool ConfigManager::loadConfigData() {
 	tosVersion = getGlobalInt("TermsOfServiceVersion");
 
 	restPort = getGlobalInt("RESTServerPort");
+	
+	lumberjackTips = getGlobalInt("LumberjackTips");
+	lumberjackBazaar = getGlobalInt("LumberjackBazaar");
+	lumberjackVendor = getGlobalInt("LumberjackVendor");
+	lumberjackDeleted = getGlobalInt("LumberjackDeleted");
+	lumberjackTXT = getGlobalInt("LumberjackTXT");
+	lumberjackSQL = getGlobalInt("LumberjackSQL"); 
 
 	return true;
 }

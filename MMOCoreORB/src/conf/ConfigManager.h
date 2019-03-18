@@ -92,6 +92,13 @@ namespace conf {
 		int tosVersion;
 
 		int restPort = 0;
+		
+		int lumberjackTips = 0;
+		int lumberjackBazaar = 0;
+		int lumberjackVendor = 0;
+		int lumberjackDeleted = 0;
+		int lumberjackTXT = 0;
+		int lumberjackSQL = 0; 
 
 	public:
 		ConfigManager();
@@ -368,6 +375,30 @@ namespace conf {
 
 		inline int getRESTPort() const {
 			return restPort;
+		}
+		
+		inline int getLumberjackTips() const {
+			return lumberjackTips;
+		}
+		
+		inline int getLumberjackBazaar() const {
+			return lumberjackBazaar;
+		}
+		
+		inline int getLumberjackVendor() const {
+			return lumberjackVendor;
+		}
+		
+		inline int getLumberjackDeleted() const {
+			return lumberjackDeleted;
+		}
+		
+		inline int getLumberjackTXT() const {
+			return lumberjackTXT;
+		}
+		
+		inline int getLumberjackSQL() const {
+			return lumberjackTXT;
 		}
 	};
 }
