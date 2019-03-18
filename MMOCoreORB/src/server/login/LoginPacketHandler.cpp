@@ -10,6 +10,7 @@
 #include "LoginProcessServerImplementation.h"
 
 #include "account/AccountManager.h"
+#include "server/zone/managers/statistics/StatisticsManager.h"
 
 LoginPacketHandler::LoginPacketHandler(const String& s, LoginProcessServerImplementation* serv)
 		: Logger(s) {
@@ -149,6 +150,8 @@ void LoginPacketHandler::handleDeleteCharacterMessage(LoginClient* client, Messa
 
    	Message* msg = new DeleteCharacterReplyMessage(dbDelete);
 	client->sendMessage(msg);
+	
+	StatisticsManager::instance()->lumberjack(accountId, charId);
 }
 
 

@@ -123,7 +123,7 @@ public:
 			return;
 		}
 		
-		if (sender == NULL || receiver == NULL){
+		if (sender == nullptr || receiver == nullptr){
 			Logger::console.error("Lumberjack: Requires CreatureObject sender, CreatureObject receiver, int, string, int. When there isn't a reciever, such as logging deleted characters, use sender for both.");
 			return;
 		}
@@ -138,7 +138,7 @@ public:
 		String timestamp = now.getFormattedTime();
 
 		// Sender
-		String sAccID = String::valueOf(senderAccount->getStationID());
+		String sAccID = String::valueOf(senderAccount->getAccountID());
 		String sAccName = senderAccount->getUsername();
 		Time sCreatedTime(senderAccount->getTimeCreated());
 		String sAccBorn = sCreatedTime.getFormattedTime();
@@ -165,7 +165,7 @@ public:
 		
 		// Don't pull data that won't be used
 		if (sender != receiver){
-			rAccID = String::valueOf(receiverAccount->getStationID());
+			rAccID = String::valueOf(receiverAccount->getAccountID());
 			rAccName = receiverAccount->getUsername();		
 			Time rCreatedTime(receiverAccount->getTimeCreated());		
 			rAccBorn = rCreatedTime.getFormattedTime();		
