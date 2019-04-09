@@ -12,7 +12,7 @@
 #include "server/zone/ZoneClientSession.h"
 #include "server/ServerCore.h"
 #include "server/zone/objects/tangible/components/vendor/VendorDataComponent.h"
-#include "TrackLootTask.h"
+
 
 class StatisticsManager : public Singleton<StatisticsManager>, public Logger, public Object {
 	AtomicLong numberOfCompletedMissionsBounty;
@@ -394,9 +394,7 @@ public:
 	 * @param level Exceptional 1, Legendary 2
 	 */
 	void lumberjack(TangibleObject* loot, int level){
-		// Schedule item tracking
-		Reference<Task*> newTask = new TrackLootTask(loot, String::valueOf(level));
-		newTask->schedule(500);
+
 	}
 
 private:

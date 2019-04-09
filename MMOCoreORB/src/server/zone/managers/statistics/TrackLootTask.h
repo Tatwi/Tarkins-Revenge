@@ -3,6 +3,10 @@
  *
  *  Created on: 07/03/2019
  *      Author: Tatwi
+ * 
+ * Sadly, I had to shelve this tracker, because the loot boxes around the world would crash the server, 
+ * for reasons unkown. Too bad, because it worked great for NPCs!
+ * Leaving this file the repo for reference.
  */
 
 #ifndef TRACKLOOTTASK_H_
@@ -25,31 +29,31 @@ public:
 		if (lootItem == nullptr)
 			return;
 			
-		ManagedReference<SceneObject*> myParent = lootItem->getParent().get();
+		ManagedReference<SceneObject*> container = lootItem->getParent().get();
 		
 		// If loot doesn't have parent, recheck later
-		if (myParent == nullptr) {
+		if (container == nullptr) {
+			lootItem->removePendingTask("track");
 			Reference<Task*> newTask = new TrackLootTask(lootItem, orgData);
-			newTask->schedule(500);
+			lootItem->addPendingTask("track", newTask, 500);
+			
+			Logger::console.info("TrackLootTask: loot doesn't have parent, recheck later");
 			
 			return;
 		}
 		
 		// Gather loot origin data once
 		if (orgData.length() < 2){
-			StringBuffer pos;	
+			StringBuffer info;
+			
+			ManagedReference<CreatureObject*> npc = container->getParent().get().castTo<CreatureObject*>();
+			ManagedReference<SceneObject*> myParent = container->getParent().get();	
 			
 			// Is loot on a corpse or in a container
-			if (myParent->isAiAgent()){
-				ManagedReference<CreatureObject*> npc = lootItem->getParentRecursively(SceneObjectType::CREATURE).castTo<CreatureObject*>();
-				
-				if (npc != nullptr)
-					pos << int(npc->getWorldPositionX()) << " " << int(npc->getWorldPositionY()) << " " << npc->getZone()->getZoneName();
-				else
-					pos << "?? ?? " << myParent->getZone()->getZoneName();
-				
+			if (npc != nullptr){
+				info << npc->getDisplayedName() << "," << int(npc->getWorldPositionX()) << " " << int(npc->getWorldPositionY()) << " " << npc->getZone()->getZoneName();
 			} else {
-				pos << int(myParent->getWorldPositionX()) << " " << int(myParent->getWorldPositionY()) << " " << myParent->getZone()->getZoneName();
+				info << container->getDisplayedName() << "," << int(myParent->getWorldPositionX()) << " " << int(myParent->getWorldPositionY()) << " " << myParent->getZone()->getZoneName();
 			}
 			
 			if (orgData == "1"){
@@ -58,15 +62,20 @@ public:
 				orgData = "Legendary,"; // Passed in as 2
 			}
 								
-			orgData += myParent->getDisplayedName() + "," + pos.toString();
+			orgData += info.toString();
+			
+			Logger::console.info("TrackLootTask: loot information gathered for object " + String::valueOf(lootItem->getObjectID()) + " " + orgData + " generated into container " + String::valueOf(container->getObjectID()));
 		}
 		
 		ManagedReference<CreatureObject*> player = lootItem->getParentRecursively(SceneObjectType::PLAYERCREATURE).castTo<CreatureObject*>();
-
+		
 		// If loot is still on corpse or in loot container, recheck later 
 		if (player == nullptr){
+			Logger::console.info("TrackLootTask: loot object " + String::valueOf(lootItem->getObjectID()) + " has not yet been looted. Rescheduling...");
+			
+			lootItem->removePendingTask("track");
 			Reference<Task*> newTask = new TrackLootTask(lootItem, orgData);
-			newTask->schedule(1000);
+			lootItem->addPendingTask("track", newTask, 1000);
 			
 			return;
 		}
