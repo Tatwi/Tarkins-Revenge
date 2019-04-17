@@ -204,6 +204,7 @@ namespace server {
 		static int getBadgeListByType(lua_State* L);
 
 		static int adminPlaceStructure(lua_State* L);
+		static int setStructureOwner(lua_State* L);
 
 	private:
 		void setupLuaPackagePath(Lua* luaEngine);

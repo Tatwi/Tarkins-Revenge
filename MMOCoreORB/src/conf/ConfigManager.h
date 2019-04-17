@@ -101,6 +101,8 @@ namespace conf {
 		int lumberjackSQL = 0;
 		int lumberjackTradedCredits = 0;
 		int lumberjackRareLoot = 0;
+		
+		String adminOwnerNames = "";
 
 	public:
 		ConfigManager();
@@ -409,6 +411,10 @@ namespace conf {
 		
 		inline int getLumberjackRareLoot() const {
 			return lumberjackRareLoot;
+		}
+		
+		inline const String& getAdminOwnerNames() const {
+			return adminOwnerNames;
 		}
 	};
 }

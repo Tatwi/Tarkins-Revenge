@@ -67,3 +67,21 @@ function HelperFuncs:isTableASubset(table1, table2)
 
 	return true
 end
+
+-- Looks for value in luaTable and returns the index number where value is found.
+function HelperFuncs:getTableIndex(value, luaTable)
+	local index={}
+	for k,v in pairs(luaTable) do
+	   index[v]=k
+	end
+	return index[value]	
+end
+
+-- Returns the filename from a path and file name
+function HelperFuncs:getFileNameFromPath(str)
+	local tbl = {}
+	for word in string.gmatch(str, '([^/]+)') do
+		table.insert(tbl, word)
+	end
+	return tbl[#tbl] -- last entry is the file name
+end

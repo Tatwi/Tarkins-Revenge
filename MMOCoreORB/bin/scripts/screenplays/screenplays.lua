@@ -678,6 +678,7 @@ includeFile("tools/star_tours.lua")
 includeFile("tools/star_tours_table.lua")
 includeFile("tools/mission_level_choice.lua")
 includeFile("caves/lok_kimogila_cave.lua")
+includeFile("tools/tarkin_housing_system.lua")
 
 --Tarkin Custom City
 includeFile("cities/tarkin_custom/tarkin_tatooine_mos_entha.lua")

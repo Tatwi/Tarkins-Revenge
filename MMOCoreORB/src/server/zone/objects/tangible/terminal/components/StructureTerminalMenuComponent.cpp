@@ -18,6 +18,7 @@
 #include "server/chat/StringIdChatParameter.h"
 #include "server/zone/objects/intangible/PetControlDevice.h"
 #include "server/zone/managers/creature/PetManager.h"
+#include "server/zone/managers/director/DirectorManager.h"
 
 void StructureTerminalMenuComponent::fillObjectMenuResponse(SceneObject* sceneObject, ObjectMenuResponse* menuResponse, CreatureObject* creature) const {
 
@@ -60,6 +61,10 @@ void StructureTerminalMenuComponent::fillObjectMenuResponse(SceneObject* sceneOb
 
 		return;
 	}
+	
+	// Buy structure (Tarkin's Revenge)
+	String adminNames = ConfigManager::instance()->getAdminOwnerNames();
+	String ownerName = structureObject->getOwnerCreatureObject()->getFirstName();
 
 	if (structureObject->isOnAdminList(creature)) {
 		menuResponse->addRadialMenuItem(118, 3, "@player_structure:management"); //Structure Management
@@ -124,6 +129,9 @@ void StructureTerminalMenuComponent::fillObjectMenuResponse(SceneObject* sceneOb
 			menuResponse->addRadialMenuItem(118, 3, "@player_structure:management"); //Structure Management
 			menuResponse->addRadialMenuItemToRadialID(118, 130, 3, "@player_structure:create_vendor"); //Create Vendor
 		}
+	} else if(adminNames.contains(ownerName)) {
+		// If owner is special admin character, grant option to buy structure
+		menuResponse->addRadialMenuItem(135, 3, "Buy Structure"); 
 	}
 }
 
@@ -264,8 +272,18 @@ int StructureTerminalMenuComponent::handleObjectMenuSelect(SceneObject* sceneObj
 		if (creature->hasSkill("crafting_artisan_business_03")) {
 			creature->executeObjectControllerAction(STRING_HASHCODE("createvendor")); // Create Vendor
 		}
-	}
+	} 
+	
+	if(selectedID == 135) {
+		Lua* lua = DirectorManager::instance()->getLuaInstance();
 
+		Reference<LuaFunction*> buyStructure = lua->createFunction("TarkinHousingSystem", "openWindow", 0);
+		*buyStructure << creature;
+		*buyStructure << structureObject;
+		*buyStructure << structureObject->getObjectID();
+
+		buyStructure->callFunction();
+	}
 
 	return 0;
 }

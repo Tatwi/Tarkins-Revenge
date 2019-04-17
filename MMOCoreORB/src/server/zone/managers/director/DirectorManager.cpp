@@ -421,6 +421,7 @@ void DirectorManager::initializeLuaEngine(Lua* luaEngine) {
 	lua_register(luaEngine->getLuaState(), "getBadgeListByType", getBadgeListByType);
 
 	lua_register(luaEngine->getLuaState(), "adminPlaceStructure", adminPlaceStructure);
+	lua_register(luaEngine->getLuaState(), "setStructureOwner", setStructureOwner);
 
 	//Navigation Mesh Management
 	lua_register(luaEngine->getLuaState(), "createNavMesh", createNavMesh);
@@ -3704,4 +3705,32 @@ int DirectorManager::getBadgeListByType(lua_State* L) {
 	}
 
 	return 1;
+}
+
+/*
+* Tarkin's Revenge
+* Transfer ownership of a structure to a player
+* lua: setStructureOwner(pPlayer, pStrucSceneObj)
+*/
+int DirectorManager::setStructureOwner(lua_State* L) {
+	if (checkArgumentCount(L, 2) == 1) {
+		String err = "incorrect number of arguments passed to DirectorManager::setStructureOwner";
+		printTraceError(L, err);
+		ERROR_CODE = INCORRECT_ARGUMENTS;
+		return 0;
+	}
+	
+	Reference<CreatureObject*> creature = (CreatureObject*)lua_touserdata(L, -2);
+	Reference<SceneObject*> obj = (SceneObject*) lua_touserdata(L, -1);
+	
+	StructureObject* structureObject = cast<StructureObject*>(obj.get());
+	
+	if (structureObject != nullptr){
+		structureObject->setOwner(creature->getObjectID());
+	} else {
+		String err = "structureObject not found in DirectorManager::setStructureOwner";
+		printTraceError(L, err);
+	}
+	
+	return 0;
 }
