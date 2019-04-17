@@ -75,8 +75,8 @@ function TarkinHousingSystem:openWindow(pPlayer, pStructure, StructureObjectID)
 
 	local promptText = "This structure belongs to Imperial Housing Authority and may be purchased.\n\n"
 	promptText = (promptText .. "Instructions:\n")
-	promptText = (promptText .. "1. Remain inside the structure.\n")
-	promptText = (promptText .. "2. Have the correct deed in your inventory.\n")
+	promptText = (promptText .. "1. Remain inside the structure or nearby the factory.\n")
+	promptText = (promptText .. "2. Have the correct deed in your inventory. If you have multiple compatible deeds, the first one found will be used.\n")
 	promptText = (promptText .. "3. Have enough credits to purchase the structure.\n")
 	promptText = (promptText .. "4. Press OK to make the purchase.\n\n")
 	promptText = (promptText .. "Price: " .. tostring(price) .." credits\n\n")

@@ -10,15 +10,26 @@
 #include "server/zone/packets/object/ObjectMenuResponse.h"
 #include "server/zone/objects/creature/CreatureObject.h"
 #include "server/zone/objects/installation/factory/FactoryObject.h"
+#include "server/zone/managers/director/DirectorManager.h"
 
 void FactoryObjectMenuComponent::fillObjectMenuResponse(SceneObject* sceneObject, ObjectMenuResponse* menuResponse, CreatureObject* player) const {
 	if (!sceneObject->isFactory())
 		return;
-
+		
 	FactoryObject* factory = cast<FactoryObject*>(sceneObject);
 
-	if (!factory->isOnAdminList(player))
+	if (!factory->isOnAdminList(player)){
+		// Buy structure (Tarkin's Revenge)
+		String adminNames = ConfigManager::instance()->getAdminOwnerNames();
+		String ownerName = factory->getOwnerCreatureObject()->getFirstName();
+		
+		if(adminNames.contains(ownerName)) {
+			// If owner is special admin character, grant option to buy structure
+			menuResponse->addRadialMenuItem(135, 3, "Buy Structure"); 
+		}
+		
 		return;
+	}
 
 	InstallationObjectMenuComponent::fillObjectMenuResponse(sceneObject, menuResponse, player);
 
@@ -43,6 +54,19 @@ void FactoryObjectMenuComponent::fillObjectMenuResponse(SceneObject* sceneObject
 int FactoryObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, CreatureObject* player, byte selectedID) const {
 	if (!sceneObject->isFactory())
 		return 1;
+		
+	if(selectedID == 135) {
+		StructureObject* structureObject = cast<StructureObject*>(sceneObject);
+		
+		Lua* lua = DirectorManager::instance()->getLuaInstance();
+
+		Reference<LuaFunction*> buyStructure = lua->createFunction("TarkinHousingSystem", "openWindow", 0);
+		*buyStructure << player;
+		*buyStructure << structureObject;
+		*buyStructure << structureObject->getObjectID();
+
+		buyStructure->callFunction();
+	}
 
 	FactoryObject* factory = cast<FactoryObject*>(sceneObject);
 
