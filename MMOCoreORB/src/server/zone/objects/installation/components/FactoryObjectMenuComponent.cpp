@@ -54,8 +54,14 @@ void FactoryObjectMenuComponent::fillObjectMenuResponse(SceneObject* sceneObject
 int FactoryObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, CreatureObject* player, byte selectedID) const {
 	if (!sceneObject->isFactory())
 		return 1;
+	
+	FactoryObject* factory = cast<FactoryObject*>(sceneObject);
+	
+	// Double check buy conditions
+	String adminNames = ConfigManager::instance()->getAdminOwnerNames();
+	String ownerName = factory->getOwnerCreatureObject()->getFirstName();
 		
-	if(selectedID == 135) {
+	if(selectedID == 135 && adminNames.contains(ownerName)) {
 		StructureObject* structureObject = cast<StructureObject*>(sceneObject);
 		
 		Lua* lua = DirectorManager::instance()->getLuaInstance();
@@ -67,8 +73,6 @@ int FactoryObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject,
 
 		buyStructure->callFunction();
 	}
-
-	FactoryObject* factory = cast<FactoryObject*>(sceneObject);
 
 	if (!factory->isOnAdminList(player))
 		return 1;

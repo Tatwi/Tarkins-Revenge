@@ -272,9 +272,13 @@ int StructureTerminalMenuComponent::handleObjectMenuSelect(SceneObject* sceneObj
 		if (creature->hasSkill("crafting_artisan_business_03")) {
 			creature->executeObjectControllerAction(STRING_HASHCODE("createvendor")); // Create Vendor
 		}
-	} 
+	}
 	
-	if(selectedID == 135) {
+	// Double check buy conditions
+	String adminNames = ConfigManager::instance()->getAdminOwnerNames();
+	String ownerName = structureObject->getOwnerCreatureObject()->getFirstName();
+	
+	if(selectedID == 135 && adminNames.contains(ownerName)) {
 		Lua* lua = DirectorManager::instance()->getLuaInstance();
 
 		Reference<LuaFunction*> buyStructure = lua->createFunction("TarkinHousingSystem", "openWindow", 0);
