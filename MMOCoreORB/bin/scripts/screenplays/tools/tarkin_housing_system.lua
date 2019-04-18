@@ -1,6 +1,6 @@
 -- Tarkin's Revenge Housing System
 -- Allows players to purchase admin-placed structures by selecting the Buy option on the structure terminal
--- Custom Lua calls: setStructureOwner(pPlayer, pStrucSceneObj)
+-- Custom Lua calls: setStructureOwner(pPlayer, pStrucSceneObj), hasEnoughLots(pPlayer, pStructure)
 
 local ObjectManager = require("managers.object.object_manager")
 includeFile("tools/tarkin_housing_system_table.lua")
@@ -15,8 +15,14 @@ function TarkinHousingSystem:openWindow(pPlayer, pStructure, StructureObjectID)
 		return
 	end
 	
-	local structTemplateName = HelperFuncs:getFileNameFromPath(SceneObject(pStructure):getTemplateObjectPath())
+	local hasEnoughLots = hasEnoughLots(pPlayer, pStructure) -- Returns: lotSize for not enough, 0 player when enough lots
 	
+	if (hasEnoughLots ~= 0) then
+		CreatureObject(pPlayer):sendSystemMessage("You do not have enough lots available to purchase this structure. Lots required: " .. tostring(hasEnoughLots))
+		return
+	end
+	
+	local structTemplateName = HelperFuncs:getFileNameFromPath(SceneObject(pStructure):getTemplateObjectPath())
 	local structIndex = HelperFuncs:getTableIndex(structTemplateName, housingSystemTable)
 	
 		-- Bail on unsupported structure types owned by valid admin characters (such as city halls)

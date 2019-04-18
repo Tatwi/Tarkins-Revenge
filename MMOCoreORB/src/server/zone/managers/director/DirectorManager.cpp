@@ -422,6 +422,7 @@ void DirectorManager::initializeLuaEngine(Lua* luaEngine) {
 
 	lua_register(luaEngine->getLuaState(), "adminPlaceStructure", adminPlaceStructure);
 	lua_register(luaEngine->getLuaState(), "setStructureOwner", setStructureOwner);
+	lua_register(luaEngine->getLuaState(), "hasEnoughLots", hasEnoughLots);
 
 	//Navigation Mesh Management
 	lua_register(luaEngine->getLuaState(), "createNavMesh", createNavMesh);
@@ -3709,6 +3710,29 @@ int DirectorManager::getBadgeListByType(lua_State* L) {
 
 /*
 * Tarkin's Revenge
+* See if player has enough lots to buy structure
+* Returns: lotSize for not enough, 0 player when enough lots
+* lua: setStructureOwner(pPlayer, pStrucSceneObj)
+*/
+int DirectorManager::hasEnoughLots(lua_State* L) {
+	Reference<CreatureObject*> targetCreature = (CreatureObject*)lua_touserdata(L, -2);
+	Reference<SceneObject*> obj = (SceneObject*) lua_touserdata(L, -1);
+	
+	ManagedReference<PlayerObject*> targetGhost = targetCreature->getPlayerObject();
+	StructureObject* structure = cast<StructureObject*>(obj.get());
+	
+	int lotSize = structure->getLotSize();
+	
+	if (!targetGhost->hasLotsRemaining(lotSize))
+		lua_pushinteger(L, lotSize);
+	else
+		lua_pushinteger(L, 0);
+
+	return 1;
+}
+
+/*
+* Tarkin's Revenge
 * Transfer ownership of a structure to a player
 * lua: setStructureOwner(pPlayer, pStrucSceneObj)
 */
@@ -3720,15 +3744,54 @@ int DirectorManager::setStructureOwner(lua_State* L) {
 		return 0;
 	}
 	
-	Reference<CreatureObject*> creature = (CreatureObject*)lua_touserdata(L, -2);
+	Reference<CreatureObject*> targetCreature = (CreatureObject*)lua_touserdata(L, -2);
 	Reference<SceneObject*> obj = (SceneObject*) lua_touserdata(L, -1);
 	
-	StructureObject* structureObject = cast<StructureObject*>(obj.get());
+	ManagedReference<PlayerObject*> targetGhost = targetCreature->getPlayerObject();
+	StructureObject* structure = cast<StructureObject*>(obj.get());
 	
-	if (structureObject != nullptr){
-		structureObject->setOwner(creature->getObjectID());
+	ManagedReference<CreatureObject*> owner = structure->getOwnerCreatureObject();
+	Reference<PlayerObject*> ghost = owner->getPlayerObject();
+	
+	if (structure != nullptr){
+		if (ghost != NULL) {
+			Locker lock(owner);
+
+			ghost->removeOwnedStructure(structure);
+
+			lock.release();
+		}
+
+		Locker targetLock(targetCreature);
+
+		targetGhost->addOwnedStructure(structure);
+
+		Locker clocker(structure, targetCreature);
+
+		//Setup permissions.
+		structure->revokeAllPermissions(targetCreature->getObjectID());
+		structure->grantPermission("ADMIN", targetCreature->getObjectID());
+
+		structure->setOwner(targetCreature->getObjectID());
+
+		if (owner != NULL)
+			structure->revokePermission("ADMIN", owner->getObjectID());
+
+		//Update the cell permissions if the structure is private and a building.
+		if (structure->isBuildingObject()) {
+			BuildingObject* buildingObject = cast<BuildingObject*>( structure);
+
+			buildingObject->setResidence(false);
+
+			if (!structure->isPublicStructure()) {
+				buildingObject->updateCellPermissionsTo(targetCreature);
+
+				if (owner != NULL)
+					buildingObject->updateCellPermissionsTo(owner);
+			}
+		}
 	} else {
-		String err = "structureObject not found in DirectorManager::setStructureOwner";
+		String err = "structure not found in DirectorManager::setStructureOwner";
 		printTraceError(L, err);
 	}
 	
