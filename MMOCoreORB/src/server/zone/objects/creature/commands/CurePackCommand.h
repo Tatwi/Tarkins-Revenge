@@ -54,6 +54,25 @@ public:
 		if (inventory != NULL) {
 			for (int i = 0; i < inventory->getContainerObjectsSize(); ++i) {
 				SceneObject* object = inventory->getContainerObject(i);
+				
+				// LoH Find first usable Cure Pack in Medical Bag
+				if (object->isContainerObject() && object->getObjectName()->getFullPath().contains("medbag")) {
+					
+					for (int j = 0; j < object->getContainerObjectsSize(); j++) {
+						SceneObject* bagItem = object->getContainerObject(j);
+						
+						if (bagItem->isPharmaceuticalObject()){
+							PharmaceuticalObject* rightItem = cast<PharmaceuticalObject*>(bagItem);
+
+							if (rightItem->isCurePack()){
+								CurePack* cpk = cast<CurePack*>(rightItem);
+								
+								if (cpk->getMedicineUseRequired() <= medicineUse && cpk->getState() == state)
+									return cpk;
+							}
+						}
+					}
+				}
 
 				if (!object->isPharmaceuticalObject())
 					continue;
@@ -399,6 +418,18 @@ public:
 
 			if (inventory != NULL) {
 				curePack = inventory->getContainerObject(objectId).castTo<CurePack*>();
+			}
+			
+			// Check if it's in the medical bag
+			if (curePack == NULL) {
+				SceneObject* usedItem = creature->getZoneServer()->getObject(objectId);
+				
+				if (usedItem != nullptr){
+					ManagedReference<SceneObject*> myParent = usedItem->getParent().get();
+
+					if (myParent != nullptr && myParent->getObjectName()->getFullPath().contains("medbag") && usedItem->isPharmaceuticalObject())
+						curePack = cast<CurePack*>(usedItem);
+				}
 			}
 		}
 
