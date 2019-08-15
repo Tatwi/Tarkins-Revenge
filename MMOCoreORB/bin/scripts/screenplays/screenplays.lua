@@ -717,6 +717,7 @@ includeFile("caves/yavin4_temple_exar_kun.lua")
 includeFile("events/tarkin_custom/tarkin_world_boss.lua")
 includeFile("events/tarkin_custom/spawn_points_table.lua")
 --includeFile("events/tarkin_custom/bad_easter_bunny_terror.lua")
+includeFile("events/tarkin_custom/rasps_of_death.lua")
 
 --Tarkin Custom Event Conversation Handlers
 includeFile("events/tarkin_custom/conversations/weddingScavHuntConvoHandler.lua")

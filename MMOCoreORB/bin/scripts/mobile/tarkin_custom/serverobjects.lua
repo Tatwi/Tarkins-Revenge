@@ -256,6 +256,8 @@ includeFile("tarkin_custom/misc/junk_shop_owner.lua")
 --Event Mobiles
 --includeFile("tarkin_custom/event/easterbunny.lua")
 --includeFile("tarkin_custom/event/badeasterbunny.lua")
+includeFile("tarkin_custom/event/rasp_of_death.lua")
+includeFile("tarkin_custom/event/titanic_rasp_of_death.lua")
 includeFile("tarkin_custom/event/wedding_coordinator.lua")
 includeFile("tarkin_custom/event/wed_scav_husk_1.lua")
 includeFile("tarkin_custom/event/wed_scav_husk_2.lua")
