@@ -83,6 +83,7 @@ namespace scene {
 		int teleport(lua_State* L);
 		int switchZone(lua_State* L);
 		int setObjectMenuComponent(lua_State* L);
+		int setAttributeListComponent(lua_State* L);
 		int setContainerComponent(lua_State* L);
 		int setContainerInheritPermissionsFromParent(lua_State* L);
 		int setContainerAllowPermission(lua_State* L);

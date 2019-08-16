@@ -67,6 +67,7 @@ Luna<LuaSceneObject>::RegType LuaSceneObject::Register[] = {
 		{ "getTemplateObjectPath", &LuaSceneObject::getTemplateObjectPath },
 		{ "teleport", &LuaSceneObject::teleport },
 		{ "setObjectMenuComponent", &LuaSceneObject::setObjectMenuComponent },
+		{ "setAttributeListComponent", &LuaSceneObject::setAttributeListComponent },
 		{ "setContainerComponent", &LuaSceneObject::setContainerComponent },
 		{ "switchZone", &LuaSceneObject::switchZone },
 		{ "setContainerInheritPermissionsFromParent", &LuaSceneObject::setContainerInheritPermissionsFromParent },
@@ -123,6 +124,14 @@ int LuaSceneObject::setObjectMenuComponent(lua_State* L) {
 	realObject->setObjectMenuComponent(value);
 
 	return 0;
+}
+
+int LuaSceneObject::setAttributeListComponent(lua_State* L) {
+    String value = lua_tostring(L, -1);
+
+    realObject->setAttributeListComponent(value);
+
+    return 0;
 }
 
 int LuaSceneObject::setContainerComponent(lua_State* L) {

@@ -18,6 +18,11 @@ SuiInputBox.new = function (defaultCallback, defaultFunction)
 		self.setProperty("Prompt.lblPrompt", "Text", value)
 	end
 
+	self.setMaxLength = function (value)
+		self.setProperty("txtInput", "MaxLength", value)
+		
+	end
+
 	self.setCancelButtonText = function (text)
 		self.setProperty("btnCancel", "Text", text)
 	end

@@ -45,3 +45,123 @@ object_draft_schematic_item_tarkin_custom_shared_wed_scav_camp = SharedDraftSche
 }
 
 ObjectTemplates:addClientTemplate(object_draft_schematic_item_tarkin_custom_shared_wed_scav_camp, "object/draft_schematic/item/tarkin_custom/shared_wed_scav_camp.iff")
+
+object_draft_schematic_item_tarkin_custom_shared_noticeboard = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/item/tarkin_custom/shared_noticeboard.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_item_tarkin_custom_shared_noticeboard, "object/draft_schematic/item/tarkin_custom/shared_noticeboard.iff")
+
+object_draft_schematic_item_tarkin_custom_shared_personal_datapad = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/item/tarkin_custom/shared_personal_datapad.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_item_tarkin_custom_shared_personal_datapad, "object/draft_schematic/item/tarkin_custom/shared_personal_datapad.iff")
+
+object_draft_schematic_item_tarkin_custom_shared_data_screen = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/item/tarkin_custom/shared_data_screen.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_item_tarkin_custom_shared_data_screen, "object/draft_schematic/item/tarkin_custom/shared_data_screen.iff")
+
+object_draft_schematic_item_tarkin_custom_shared_data_disc = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/item/tarkin_custom/shared_data_disc.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_item_tarkin_custom_shared_data_disc, "object/draft_schematic/item/tarkin_custom/shared_data_disc.iff")
+
+object_draft_schematic_item_tarkin_custom_shared_leather_book_brown = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/item/tarkin_custom/shared_leather_book_brown.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_item_tarkin_custom_shared_leather_book_brown, "object/draft_schematic/item/tarkin_custom/shared_leather_book_brown.iff")
+
+object_draft_schematic_item_tarkin_custom_shared_tome_01 = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/item/tarkin_custom/shared_tome_01.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_item_tarkin_custom_shared_tome_01, "object/draft_schematic/item/tarkin_custom/shared_tome_01.iff")
+
+object_draft_schematic_item_tarkin_custom_shared_notebook = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/item/tarkin_custom/shared_notebook.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_item_tarkin_custom_shared_notebook, "object/draft_schematic/item/tarkin_custom/shared_notebook.iff")
+
+object_draft_schematic_item_tarkin_custom_shared_holoscroll = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/item/tarkin_custom/shared_holoscroll.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_item_tarkin_custom_shared_holoscroll, "object/draft_schematic/item/tarkin_custom/shared_holoscroll.iff")
+
+object_draft_schematic_item_tarkin_custom_shared_flimsiplast_01 = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/item/tarkin_custom/shared_flimsiplast_01.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_item_tarkin_custom_shared_flimsiplast_01, "object/draft_schematic/item/tarkin_custom/shared_flimsiplast_01.iff")
+
+object_draft_schematic_item_tarkin_custom_shared_sticky_flimsi_01 = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/item/tarkin_custom/shared_sticky_flimsi_01.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_item_tarkin_custom_shared_sticky_flimsi_01, "object/draft_schematic/item/tarkin_custom/shared_sticky_flimsi_01.iff")
+
+object_draft_schematic_item_tarkin_custom_shared_shop_sign_01 = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/item/tarkin_custom/shared_shop_sign_01.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_item_tarkin_custom_shared_shop_sign_01, "object/draft_schematic/item/tarkin_custom/shared_shop_sign_01.iff")
+
+object_draft_schematic_item_tarkin_custom_shared_public_notice = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/item/tarkin_custom/shared_public_notice.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_item_tarkin_custom_shared_public_notice, "object/draft_schematic/item/tarkin_custom/shared_public_notice.iff")
+
+object_draft_schematic_item_tarkin_custom_shared_newspaper = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/item/tarkin_custom/shared_newspaper.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_item_tarkin_custom_shared_newspaper, "object/draft_schematic/item/tarkin_custom/shared_newspaper.iff")
+
+object_draft_schematic_item_tarkin_custom_shared_menu_01 = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/item/tarkin_custom/shared_menu_01.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_item_tarkin_custom_shared_menu_01, "object/draft_schematic/item/tarkin_custom/shared_menu_01.iff")
+
+object_draft_schematic_item_tarkin_custom_shared_nameplate = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/item/tarkin_custom/shared_nameplate.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_item_tarkin_custom_shared_nameplate, "object/draft_schematic/item/tarkin_custom/shared_nameplate.iff")
+
+object_draft_schematic_item_tarkin_custom_shared_bulletin_board = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/item/tarkin_custom/shared_bulletin_board.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_item_tarkin_custom_shared_bulletin_board, "object/draft_schematic/item/tarkin_custom/shared_bulletin_board.iff")
+
+object_draft_schematic_item_tarkin_custom_shared_decoder = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/item/tarkin_custom/shared_decoder.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_item_tarkin_custom_shared_decoder, "object/draft_schematic/item/tarkin_custom/shared_decoder.iff")
+
+object_draft_schematic_item_tarkin_custom_shared_data_terminal_01 = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/item/tarkin_custom/shared_data_terminal_01.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_item_tarkin_custom_shared_data_terminal_01, "object/draft_schematic/item/tarkin_custom/shared_data_terminal_01.iff")
+
+object_draft_schematic_item_tarkin_custom_shared_envelope_01 = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/item/tarkin_custom/shared_envelope_01.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_item_tarkin_custom_shared_envelope_01, "object/draft_schematic/item/tarkin_custom/shared_envelope_01.iff")
+
+object_draft_schematic_item_tarkin_custom_shared_business_card_chip = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/item/tarkin_custom/shared_business_card_chip.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_item_tarkin_custom_shared_business_card_chip, "object/draft_schematic/item/tarkin_custom/shared_business_card_chip.iff")

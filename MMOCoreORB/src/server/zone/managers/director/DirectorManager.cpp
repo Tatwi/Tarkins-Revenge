@@ -57,6 +57,7 @@
 #include "server/zone/managers/skill/LuaSkillManager.h"
 #include "server/zone/objects/player/sui/LuaSuiBox.h"
 #include "server/zone/objects/scene/components/LuaObjectMenuResponse.h"
+#include "server/zone/objects/scene/components/LuaAttributeListMessage.h"
 #include "server/zone/objects/scene/variables/ContainerPermissions.h"
 #include "server/zone/objects/tangible/deed/Deed.h"
 #include "server/zone/managers/gcw/GCWManager.h"
@@ -595,6 +596,7 @@ void DirectorManager::initializeLuaEngine(Lua* luaEngine) {
 	Luna<LuaSuiManager>::Register(luaEngine->getLuaState());
 	Luna<LuaSuiBox>::Register(luaEngine->getLuaState());
 	Luna<LuaObjectMenuResponse>::Register(luaEngine->getLuaState());
+	Luna<LuaAttributeListMessage>::Register(luaEngine->getLuaState());
 	Luna<LuaDeed>::Register(luaEngine->getLuaState());
 	Luna<LuaCityRegion>::Register(luaEngine->getLuaState());
 	Luna<LuaStringIdChatParameter>::Register(luaEngine->getLuaState());

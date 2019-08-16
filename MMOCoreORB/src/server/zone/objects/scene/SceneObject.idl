@@ -179,6 +179,7 @@ class SceneObject extends QuadTreeEntry implements Logger, Metrics {
 	public abstract native void createComponents();
 	public abstract native void createContainerComponent();
 	public abstract native void createObjectMenuComponent();
+	public abstract native void createAttributeListComponent();
 
 	/**
 	 * Initializes the transient members of SceneObject, must call the inherited object method first.
@@ -1396,6 +1397,7 @@ class SceneObject extends QuadTreeEntry implements Logger, Metrics {
 
 	@local
 	public native void setObjectMenuComponent(final string name);
+	public native void setAttributeListComponent(final string name);
 
 	@local
 	public native void setContainerComponent(final string name);

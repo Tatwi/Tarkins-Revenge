@@ -2702,6 +2702,27 @@ schematics = {
 	--Wedding Reward Schematics
 	{path="object/draft_schematic/item/tarkin_custom/drink_wed_scav_reward_scotch.iff"},
 	{path="object/draft_schematic/item/tarkin_custom/wed_scav_camp.iff"},
-	{path="object/draft_schematic/bio_engineer/creature/creature_tcg_peko_peko_mount.iff"}
+	{path="object/draft_schematic/bio_engineer/creature/creature_tcg_peko_peko_mount.iff"},
 
+	--Writeables
+	{path="object/draft_schematic/item/tarkin_custom/noticeboard.iff"},
+	{path="object/draft_schematic/item/tarkin_custom/personal_datapad.iff"},
+	{path="object/draft_schematic/item/tarkin_custom/data_screen.iff"},
+	{path="object/draft_schematic/item/tarkin_custom/data_disc.iff"},
+	{path="object/draft_schematic/item/tarkin_custom/leather_book_brown.iff"},
+	{path="object/draft_schematic/item/tarkin_custom/tome_01.iff"},
+	{path="object/draft_schematic/item/tarkin_custom/notebook.iff"},
+	{path="object/draft_schematic/item/tarkin_custom/holoscroll.iff"},
+	{path="object/draft_schematic/item/tarkin_custom/flimsiplast_01.iff"},
+	{path="object/draft_schematic/item/tarkin_custom/sticky_flimsi_01.iff"},
+	{path="object/draft_schematic/item/tarkin_custom/shop_sign_01.iff"},
+	{path="object/draft_schematic/item/tarkin_custom/public_notice.iff"},
+	{path="object/draft_schematic/item/tarkin_custom/newspaper.iff"},
+	{path="object/draft_schematic/item/tarkin_custom/menu_01.iff"},
+	{path="object/draft_schematic/item/tarkin_custom/nameplate.iff"},
+	{path="object/draft_schematic/item/tarkin_custom/bulletin_board.iff"},
+	{path="object/draft_schematic/item/tarkin_custom/decoder.iff"},
+	{path="object/draft_schematic/item/tarkin_custom/data_terminal_01.iff"},
+	{path="object/draft_schematic/item/tarkin_custom/envelope_01.iff"},
+	{path="object/draft_schematic/item/tarkin_custom/business_card_chip.iff"}
 };
