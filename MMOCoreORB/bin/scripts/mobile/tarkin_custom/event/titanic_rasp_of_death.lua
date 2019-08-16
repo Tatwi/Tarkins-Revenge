@@ -218,7 +218,8 @@ titanic_rasp_of_death = Creature:new {
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {
-		{"creatureareaknockdown","stateAccuracyBonus=100"}
+		{"knockdownattack",""},
+		{"intimidationattack",""}
 	}
 }
 CreatureTemplates:addCreatureTemplate(titanic_rasp_of_death, "titanic_rasp_of_death")
