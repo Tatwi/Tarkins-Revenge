@@ -63,8 +63,8 @@ object_draft_schematic_clothing_clothing_wke_shirt_s02 = object_draft_schematic_
    customizationDefaults = {},
 
    ingredientTemplateNames = {"craft_clothing_ingredients_n", "craft_clothing_ingredients_n", "craft_clothing_ingredients_n", "craft_clothing_ingredients_n"},
-   ingredientTitleNames = {"heavy_shell", "binding_and_weatherproofing", "synthetic_cloth_enhancement, "reinforced_fiber_panel_enchancement"},
-   ingredientSlotType = {0, 0, 3, 3},
+   ingredientTitleNames = {"heavy_shell", "binding_and_weatherproofing", "synthetic_cloth", "reinforced_fiber_panels"},
+   ingredientSlotType = {0, 0, 1, 1},
    resourceTypes = {"hide", "petrochem_inert_polymer", "object/tangible/component/clothing/shared_synthetic_cloth.iff", "object/tangible/component/clothing/shared_reinforced_fiber_panels.iff"},
    resourceQuantities = {35, 5, 1, 1},
    contribution = {100, 100, 100, 100},

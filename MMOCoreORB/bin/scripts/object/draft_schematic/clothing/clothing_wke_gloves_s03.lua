@@ -63,9 +63,9 @@ object_draft_schematic_clothing_clothing_wke_gloves_s03 = object_draft_schematic
    customizationDefaults = {},
 
    ingredientTemplateNames = {"craft_clothing_ingredients_n", "craft_clothing_ingredients_n", "craft_clothing_ingredients_n", "craft_clothing_ingredients_n", "craft_clothing_ingredients_n"},
-   ingredientTitleNames = {"shell", "liner", "grip_pads", "synthetic_cloth_enhancement , "reinforced_fiber_panel_enchancement"},
+   ingredientTitleNames = {"shell", "liner", "grip_pads", "synthetic_cloth", "reinforced_fiber_panels"},
    ingredientSlotType = {0, 0, 0, 3, 3},
-   resourceTypes = {"fiberplast", "hide", "petrochem_inert","object/tangible/component/clothing/shared_synthetic_cloth.iff", "object/tangible/component/clothing/shared_reinforced_fiber_panels.iff"},
+   resourceTypes = {"fiberplast", "hide", "petrochem_inert", "object/tangible/component/clothing/shared_synthetic_cloth.iff", "object/tangible/component/clothing/shared_reinforced_fiber_panels.iff"},
    resourceQuantities = {15, 25, 20, 1, 1},
    contribution = {100, 100, 100, 100, 100},
 

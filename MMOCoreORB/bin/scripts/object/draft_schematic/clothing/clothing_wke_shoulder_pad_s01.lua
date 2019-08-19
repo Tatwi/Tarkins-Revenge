@@ -63,7 +63,7 @@ object_draft_schematic_clothing_clothing_wke_shoulder_pad_s01 = object_draft_sch
    customizationDefaults = {5, 29},
 
    ingredientTemplateNames = {"craft_clothing_ingredients_n", "craft_clothing_ingredients_n", "craft_clothing_ingredients_n", "craft_clothing_ingredients_n"},
-   ingredientTitleNames = {"body", "binding_and_hardware", "synthetic_cloth_enhancement, "reinforced_fiber_panel_enchancement"},
+   ingredientTitleNames = {"body", "binding_and_hardware", "synthetic_cloth", "reinforced_fiber_panels"},
    ingredientSlotType = {0, 0, 3, 3},
    resourceTypes = {"fiberplast", "bone", "object/tangible/component/clothing/shared_synthetic_cloth.iff", "object/tangible/component/clothing/shared_reinforced_fiber_panels.iff"},
    resourceQuantities = {15, 15, 1, 1},

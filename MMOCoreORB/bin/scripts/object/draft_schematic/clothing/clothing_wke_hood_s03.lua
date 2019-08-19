@@ -63,9 +63,9 @@ object_draft_schematic_clothing_clothing_wke_hood_s03 = object_draft_schematic_c
    customizationDefaults = {},
 
    ingredientTemplateNames = {"craft_clothing_ingredients_n", "craft_clothing_ingredients_n", "craft_clothing_ingredients_n", "craft_clothing_ingredients_n"},
-   ingredientTitleNames = {"shell_half", "shell_half2", "synthetic_cloth_enhancement, "reinforced_fiber_panel_enchancement},
+   ingredientTitleNames = {"shell_half", "shell_half2", "synthetic_cloth", "reinforced_fiber_panels"},
    ingredientSlotType = {0, 0, 3, 3},
-   resourceTypes = {"hide", "hide","object/tangible/component/clothing/shared_synthetic_cloth.iff", "object/tangible/component/clothing/shared_reinforced_fiber_panels.iff"},
+   resourceTypes = {"hide", "hide", "object/tangible/component/clothing/shared_synthetic_cloth.iff", "object/tangible/component/clothing/shared_reinforced_fiber_panels.iff"},
    resourceQuantities = {15, 10, 1, 1},
    contribution = {100, 100, 100, 100},
 

@@ -63,7 +63,7 @@ object_draft_schematic_clothing_clothing_wke_hat_s01 = object_draft_schematic_cl
    customizationDefaults = {},
 
    ingredientTemplateNames = {"craft_clothing_ingredients_n", "craft_clothing_ingredients_n", "craft_clothing_ingredients_n", "craft_clothing_ingredients_n"},
-   ingredientTitleNames = {"shell_half", "shell_half2", "binding_and_weatherproofing", "reinforced_fiber_panel_enchancement"},
+   ingredientTitleNames = {"shell_half", "shell_half2", "binding_and_weatherproofing", "reinforced_fiber_panels"},
    ingredientSlotType = {1, 1, 0, 3},
    resourceTypes = {"object/tangible/component/clothing/shared_synthetic_cloth.iff", "object/tangible/component/clothing/shared_synthetic_cloth.iff", "petrochem_inert", "object/tangible/component/clothing/shared_reinforced_fiber_panels.iff"},
    resourceQuantities = {1, 1, 35, 1},
