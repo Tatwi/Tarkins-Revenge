@@ -62,12 +62,12 @@ object_draft_schematic_clothing_clothing_wke_gloves_s02 = object_draft_schematic
    customizationStringNames = {"/private/index_color_1", "/private/index_color_2"},
    customizationDefaults = {12, 33},
 
-   ingredientTemplateNames = {"craft_clothing_ingredients_n", "craft_clothing_ingredients_n", "craft_clothing_ingredients_n"},
-   ingredientTitleNames = {"shell", "liner", "grip_pads"},
-   ingredientSlotType = {0, 0, 0},
-   resourceTypes = {"hide", "petrochem_inert", "petrochem_inert"},
-   resourceQuantities = {10, 3, 2},
-   contribution = {100, 100, 100},
+   ingredientTemplateNames = {"craft_clothing_ingredients_n", "craft_clothing_ingredients_n", "craft_clothing_ingredients_n", "craft_clothing_ingredients_n", "craft_clothing_ingredients_n"},
+   ingredientTitleNames = {"shell", "liner", "grip_pads", "synthetic_cloth_enhancement, "reinforced_fiber_panel_enchancement"},
+   ingredientSlotType = {0, 0, 0, 3, 3},
+   resourceTypes = {"hide", "petrochem_inert", "petrochem_inert","object/tangible/component/clothing/shared_synthetic_cloth.iff", "object/tangible/component/clothing/shared_reinforced_fiber_panels.iff"},
+   resourceQuantities = {10, 3, 2, 1, 1},
+   contribution = {100, 100, 100, 100, 100},
 
 
    targetTemplate = "object/tangible/wearables/wookiee/wke_gloves_s02.iff",

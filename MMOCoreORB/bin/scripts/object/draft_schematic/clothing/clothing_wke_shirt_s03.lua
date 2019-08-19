@@ -62,12 +62,12 @@ object_draft_schematic_clothing_clothing_wke_shirt_s03 = object_draft_schematic_
    customizationStringNames = {},
    customizationDefaults = {},
 
-   ingredientTemplateNames = {"craft_clothing_ingredients_n", "craft_clothing_ingredients_n", "craft_clothing_ingredients_n", "craft_clothing_ingredients_n", "craft_clothing_ingredients_n"},
-   ingredientTitleNames = {"heavy_shell", "binding_and_weatherproofing", "hardware", "liner_half", "liner_half2"},
-   ingredientSlotType = {0, 0, 1, 1, 1},
-   resourceTypes = {"hide", "petrochem_inert", "object/tangible/component/clothing/shared_metal_fasteners.iff", "object/tangible/component/clothing/shared_synthetic_cloth.iff", "object/tangible/component/clothing/shared_synthetic_cloth.iff"},
-   resourceQuantities = {20, 10, 1, 1, 1},
-   contribution = {100, 100, 100, 100, 100},
+   ingredientTemplateNames = {"craft_clothing_ingredients_n", "craft_clothing_ingredients_n", "craft_clothing_ingredients_n", "craft_clothing_ingredients_n", "craft_clothing_ingredients_n", "craft_clothing_ingredients_n"},
+   ingredientTitleNames = {"heavy_shell", "binding_and_weatherproofing", "hardware", "liner_half", "liner_half2", "reinforced_fiber_panel_enchancement"},
+   ingredientSlotType = {0, 0, 1, 1, 1, 3},
+   resourceTypes = {"hide", "petrochem_inert", "object/tangible/component/clothing/shared_metal_fasteners.iff", "object/tangible/component/clothing/shared_synthetic_cloth.iff", "object/tangible/component/clothing/shared_synthetic_cloth.iff", "object/tangible/component/clothing/shared_reinforced_fiber_panels.iff"},
+   resourceQuantities = {20, 10, 1, 1, 1, 1},
+   contribution = {100, 100, 100, 100, 100, 100},
 
 
    targetTemplate = "object/tangible/wearables/wookiee/wke_shirt_s03.iff",

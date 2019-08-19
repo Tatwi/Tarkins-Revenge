@@ -62,12 +62,12 @@ object_draft_schematic_clothing_clothing_robe_casual_18 = object_draft_schematic
    customizationStringNames = {"/private/index_color_1"},
    customizationDefaults = {19},
 
-   ingredientTemplateNames = {"craft_clothing_ingredients_n", "craft_clothing_ingredients_n"},
-   ingredientTitleNames = {"body", "trim"},
-   ingredientSlotType = {1, 0},
-   resourceTypes = {"object/tangible/component/clothing/shared_synthetic_cloth.iff", "hide"},
-   resourceQuantities = {3, 50},
-   contribution = {100, 100},
+   ingredientTemplateNames = {"craft_clothing_ingredients_n", "craft_clothing_ingredients_n", "craft_clothing_ingredients_n", "craft_clothing_ingredients_n"},
+   ingredientTitleNames = {"body", "trim", "reinforced_fiber_panel_enchancement"},
+   ingredientSlotType = {1, 0, 3},
+   resourceTypes = {"object/tangible/component/clothing/shared_synthetic_cloth.iff", "hide", "object/tangible/component/clothing/shared_reinforced_fiber_panels.iff"},
+   resourceQuantities = {3, 50, 1},
+   contribution = {100, 100, 100},
 
 
    targetTemplate = "object/tangible/wearables/robe/robe_s18.iff",

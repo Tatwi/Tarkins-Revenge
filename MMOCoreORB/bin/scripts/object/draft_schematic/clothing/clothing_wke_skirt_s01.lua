@@ -62,12 +62,12 @@ object_draft_schematic_clothing_clothing_wke_skirt_s01 = object_draft_schematic_
    customizationStringNames = {"/private/index_color_1", "/private/index_color_2"},
    customizationDefaults = {2, 2},
 
-   ingredientTemplateNames = {"craft_clothing_ingredients_n", "craft_clothing_ingredients_n", "craft_clothing_ingredients_n", "craft_clothing_ingredients_n", "craft_clothing_ingredients_n"},
-   ingredientTitleNames = {"trim_and_binding", "extra_trim", "hardware", "skirt_section", "skirt_section2"},
-   ingredientSlotType = {0, 1, 1, 1, 1},
-   resourceTypes = {"hide", "object/tangible/component/clothing/shared_synthetic_cloth.iff", "object/tangible/component/clothing/shared_metal_fasteners.iff", "object/tangible/component/clothing/shared_synthetic_cloth.iff", "object/tangible/component/clothing/shared_synthetic_cloth.iff"},
-   resourceQuantities = {40, 1, 1, 1, 1},
-   contribution = {100, 100, 100, 100, 100},
+   ingredientTemplateNames = {"craft_clothing_ingredients_n", "craft_clothing_ingredients_n", "craft_clothing_ingredients_n", "craft_clothing_ingredients_n", "craft_clothing_ingredients_n", "craft_clothing_ingredients_n"},
+   ingredientTitleNames = {"trim_and_binding", "extra_trim", "hardware", "skirt_section", "skirt_section2", "reinforced_fiber_panel_enchancement"},
+   ingredientSlotType = {0, 1, 1, 1, 1, 3},
+   resourceTypes = {"hide", "object/tangible/component/clothing/shared_synthetic_cloth.iff", "object/tangible/component/clothing/shared_metal_fasteners.iff", "object/tangible/component/clothing/shared_synthetic_cloth.iff", "object/tangible/component/clothing/shared_synthetic_cloth.iff", "object/tangible/component/clothing/shared_reinforced_fiber_panels.iff"},
+   resourceQuantities = {40, 1, 1, 1, 1, 1},
+   contribution = {100, 100, 100, 100, 100, 100},
 
 
    targetTemplate = "object/tangible/wearables/wookiee/wke_skirt_s01.iff",
