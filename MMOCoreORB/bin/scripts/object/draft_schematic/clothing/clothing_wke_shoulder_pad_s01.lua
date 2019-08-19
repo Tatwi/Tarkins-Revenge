@@ -62,12 +62,12 @@ object_draft_schematic_clothing_clothing_wke_shoulder_pad_s01 = object_draft_sch
    customizationStringNames = {"/private/index_color_1", "/private/index_color_2"},
    customizationDefaults = {5, 29},
 
-   ingredientTemplateNames = {"craft_clothing_ingredients_n", "craft_clothing_ingredients_n", "craft_clothing_ingredients_n", "craft_clothing_ingredients_n"},
-   ingredientTitleNames = {"body", "binding_and_hardware", "synthetic_cloth_enhancement, "reinforced_fiber_panel_enchancement"},
-   ingredientSlotType = {0, 0, 3, 3},
-   resourceTypes = {"fiberplast", "bone", "object/tangible/component/clothing/shared_synthetic_cloth.iff", "object/tangible/component/clothing/shared_reinforced_fiber_panels.iff"},
-   resourceQuantities = {15, 15, 1, 1},
-   contribution = {100, 100, 100, 100},
+   ingredientTemplateNames = {"craft_clothing_ingredients_n", "craft_clothing_ingredients_n"},
+   ingredientTitleNames = {"body", "binding_and_hardware"},
+   ingredientSlotType = {0, 0},
+   resourceTypes = {"fiberplast", "bone"},
+   resourceQuantities = {15, 15},
+   contribution = {100, 100},
 
 
    targetTemplate = "object/tangible/wearables/wookiee/wke_shoulder_pad_s01.iff",
