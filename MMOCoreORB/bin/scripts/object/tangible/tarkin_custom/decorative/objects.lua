@@ -2245,3 +2245,8 @@ object_tangible_tarkin_custom_decorative_shared_business_card_chip = SharedTangi
 	clientTemplateFileName = "object/tangible/tarkin_custom/decorative/shared_business_card_chip.iff"
 }
 ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_decorative_shared_business_card_chip, "object/tangible/tarkin_custom/decorative/shared_business_card_chip.iff")
+
+object_tangible_tarkin_custom_decorative_shared_billboard_rotating = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tarkin_custom/decorative/shared_billboard_rotating.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_decorative_shared_billboard_rotating, "object/tangible/tarkin_custom/decorative/shared_billboard_rotating.iff")

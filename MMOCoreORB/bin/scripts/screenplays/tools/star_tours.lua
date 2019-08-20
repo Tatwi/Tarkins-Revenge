@@ -29,7 +29,7 @@ star_tours = ScreenPlay:new {
 		{planetName = "talus", x = 4472.12, z = 2, y = 5381.11, ow = -0.146912, oy = 0.98915, cellID = 0}, --Nashal starport
 
 		--Tatooine
-		{planetName = "tatooine", x = 1042.07, z = 6.51263, y = 2991.87, ow = 0.654793, oy = 0.75581, cellID = 0}, --Mos Entha
+		{planetName = "tatooine", x = 1042.07, z = 7.02263, y = 2991.87, ow = 0.654793, oy = 0.75581, cellID = 0}, --Mos Entha
 		{planetName = "tatooine", x = -2811.65, z = 5, y = 2082.73, ow = -0.852166, oy = 0.523273, cellID = 0}, --Mos Espa
 		{planetName = "tatooine", x = -1390.49, z = 12, y = -3586.34, ow = 0.725999, oy = 0.687696, cellID = 0}, --Bestine
 		{planetName = "tatooine", x = 3632.02, z = 5, y = -4788.63, ow = 0.695864, oy = -0.718174, cellID = 0}, --Mos Eisley

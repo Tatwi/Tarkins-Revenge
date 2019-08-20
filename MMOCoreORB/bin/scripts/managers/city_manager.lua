@@ -83,6 +83,7 @@ RadiusPerRank = {250, 300, 400, 500, 550}
 DecorationsPerRank = 20
 TrainersPerRank = 7
 MissionTerminalsPerRank = 3
+BillboardsPerRank = 1
 
 -- Amount to discount city maintenance  float.  1 = 100%, .75 =75%, .5=50% etc
 maintenanceDiscount = 1.0

@@ -122,6 +122,9 @@ class CityRegion extends ManagedObject implements Logger {
 	protected SortedVector<SceneObject> cityMissionTerminals;
 
 	@dereferenced
+	protected SortedVector<SceneObject> cityBillboards;
+
+	@dereferenced
 	protected Vector<SceneObject> cityDecorations;
 
 	@dereferenced
@@ -560,6 +563,11 @@ class CityRegion extends ManagedObject implements Logger {
 	}
 
 	@dirty
+	public int getBillboardCount() {
+		return cityBillboards.size();
+	}
+
+	@dirty
 	public int getDecorationCount() {
 		return cityDecorations.size();
 	}
@@ -572,6 +580,11 @@ class CityRegion extends ManagedObject implements Logger {
 	@preLocked
 	public void addMissionTerminal(SceneObject mt) {
 		cityMissionTerminals.put(mt);
+	}
+
+	@preLocked
+	public void addBillboard(SceneObject billboard) {
+		cityBillboards.put(billboard);
 	}
 
 	public void addDecoration(SceneObject deco) {
@@ -590,6 +603,11 @@ class CityRegion extends ManagedObject implements Logger {
 	@preLocked
 	public void removeMissionTerminal(SceneObject mt) {
 		cityMissionTerminals.drop(mt);
+	}
+
+	@preLocked
+	public void removeBillboard(SceneObject billboard) {
+		cityBillboards.drop(billboard);
 	}
 
 	public void removeDecoration(SceneObject deco) {
@@ -623,6 +641,9 @@ class CityRegion extends ManagedObject implements Logger {
 
 	@preLocked
 	public native void removeAllTerminals();
+
+	@preLocked
+	public native void removeAllBillboards();
 
 	public native void removeAllDecorations();
 
@@ -809,6 +830,12 @@ class CityRegion extends ManagedObject implements Logger {
 
 	@local
 	@dirty
+	public SceneObject getCityBillboard(int indx) {
+		return cityBillboards.get(indx);
+	}
+
+	@local
+	@dirty
 	public SceneObject getCitySkillTrainer(int indx) {
 		return citySkillTrainers.get(indx);
 	}
@@ -827,6 +854,9 @@ class CityRegion extends ManagedObject implements Logger {
 	public native void removeTerminalsOutsideCity(int newRadius);
 
 	@preLocked
+	public native void removeBillboardsOutsideCity(int newRadius);
+
+	@preLocked
 	public native void removeStructuresOutsideCity(int newRadius);
 
 	@dirty
@@ -838,6 +868,7 @@ class CityRegion extends ManagedObject implements Logger {
 		removeDecorationsOutsideCity(newRadius);
 		removeTrainersOutsideCity(newRadius);
 		removeTerminalsOutsideCity(newRadius);
+		removeBillboardsOutsideCity(newRadius);
 	}
 
 	public native void sendDestroyOutsideObjectMail(SceneObject obj);
@@ -852,6 +883,8 @@ class CityRegion extends ManagedObject implements Logger {
 	public native void cleanupTrainers(int limit);
 	@preLocked
 	public native void cleanupMissionTerminals(int limit);
+	@preLocked
+	public native void cleanupBillboards(int limit);
 
 	@dirty
 	public native unsigned long getObjectID();
