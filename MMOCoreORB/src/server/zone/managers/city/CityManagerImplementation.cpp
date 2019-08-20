@@ -58,6 +58,7 @@ byte CityManagerImplementation::cityVotingCyclesUntilLocked = 0;
 int CityManagerImplementation::decorationsPerRank = 10;
 int CityManagerImplementation::trainersPerRank = 3;
 int CityManagerImplementation::missionTerminalsPerRank = 3;
+int CityManagerImplementation::billboardsPerRank = 1;
 float CityManagerImplementation::maintenanceDiscount = 1.0f;
 
 void CityManagerImplementation::loadLuaConfig() {
@@ -121,6 +122,7 @@ void CityManagerImplementation::loadLuaConfig() {
 	decorationsPerRank = lua->getGlobalInt("DecorationsPerRank");
 	trainersPerRank = lua->getGlobalInt("TrainersPerRank");
 	missionTerminalsPerRank = lua->getGlobalInt("MissionTerminalsPerRank");
+	billboardsPerRank = lua->getGlobalInt("BillboardsPerRank");
 	maintenanceDiscount = lua->getGlobalFloat("maintenanceDiscount");
 
 	luaObject = lua->getGlobalObject("CitizensPerRank");
@@ -461,6 +463,7 @@ void CityManagerImplementation::sendStatusReport(CityRegion* city, CreatureObjec
 
 	list->addMenuItem("@city/city:current_trainers " + String::valueOf(city->getSkillTrainerCount())); // Current Trainer Count:
 	list->addMenuItem("@city/city:current_mt " + String::valueOf(city->getMissionTerminalCount())); // Current Terminal Count:
+	list->addMenuItem("@city/city:current_billboard " + String::valueOf(city->getBillboardCount())); // Current Billboard Count:
 
 	for (int i = 0; i < cityTaxes.size(); ++i) {
 		const CityTax* cityTax = getCityTax(i);
@@ -884,6 +887,11 @@ void CityManagerImplementation::deductCityMaintenance(CityRegion* city) {
 		totalPaid += collectNonStructureMaintenance(city->getCityMissionTerminal(i), city, thisCost);
 	}
 
+	for(int i = city->getBillboardCount() - 1; i >= 0; i--) {
+		thisCost = maintenanceDiscount * 1500;
+		totalPaid += collectNonStructureMaintenance(city->getCityBillboard(i), city, thisCost);
+	}
+
 	for(int i = city->getSkillTrainerCount() -1; i >=0; i--) {
 		thisCost = maintenanceDiscount * 1500;
 		totalPaid += collectNonStructureMaintenance(city->getCitySkillTrainer(i), city, thisCost);
@@ -935,6 +943,8 @@ int CityManagerImplementation::collectNonStructureMaintenance(SceneObject* objec
 		// can probably be moved to cityregion notifyExit
 		if(object->isMissionTerminal())
 			city->removeMissionTerminal(object);
+		else if(object->isBillboard())
+			city->removeBillboard(object);
 		else if (object->isDecoration())
 			city->removeDecoration(object);
 		else if (object->isCreatureObject())
@@ -1296,6 +1306,7 @@ void CityManagerImplementation::contractCity(CityRegion* city) {
 	city->cleanupDecorations(decorationsPerRank * newRank);
 	city->cleanupTrainers(trainersPerRank * newRank);
 	city->cleanupMissionTerminals(missionTerminalsPerRank * newRank);
+	city->cleanupBillboards(billboardsPerRank * newRank);
 	city->sendStructureInvalidMails();
 }
 
@@ -1366,6 +1377,7 @@ void CityManagerImplementation::destroyCity(CityRegion* city) {
 	}
 
 	city->removeAllTerminals();
+	city->removeAllBillboards();
 	city->removeAllSkillTrainers();
 	city->removeAllDecorations();
 
@@ -1597,6 +1609,7 @@ void CityManagerImplementation::sendCityAdvancement(CityRegion* city, CreatureOb
 	listbox->addMenuItem("@city/city:max_decorations " + String::valueOf(rank * decorationsPerRank)); // Max Decorations:
 	listbox->addMenuItem("@city/city:max_trainers " + String::valueOf(rank * trainersPerRank)); // Max Skill Trainers:
 	listbox->addMenuItem("@city/city:max_terminals " + String::valueOf(rank * missionTerminalsPerRank)); // Max Mission Terminals:
+	listbox->addMenuItem("@city/city:max_billboards " + String::valueOf(rank * billboardsPerRank)); // Max Billboards:
 
 	listbox->addMenuItem("@city/city:rank_enabled_structures"); // Rank Enabled Structures
 
@@ -2056,6 +2069,16 @@ void CityManagerImplementation::sendMaintenanceReport(CityRegion* city, Creature
 		}
 	}
 
+	for (int i = 0; i < city->getBillboardCount(); i++) {
+		ManagedReference<SceneObject*> billboard = city->getCityBillboard(i);
+
+		if (billboard != NULL) {
+			int billboardCost = maintenanceDiscount * 1500;
+			totalcost += billboardCost;
+			maintList->addMenuItem("@city/city:default \t" + billboard->getObjectName()->getFullPath() + " : " + String::valueOf(billboardCost) + " @city/city:credits");
+		}
+	}
+
 	maintList->addMenuItem("@city/city:tot_maint " + String::valueOf(totalcost) + " @city/city:credits"); // Total Maintenance:
 
 	ghost->addSuiBox(maintList);
@@ -2320,6 +2343,13 @@ bool CityManagerImplementation::canSupportMoreMissionTerminals(CityRegion* city)
 		return false;
 
 	return city->getMissionTerminalCount() < (missionTerminalsPerRank * city->getCityRank());
+}
+
+bool CityManagerImplementation::canSupportMoreBillboards(CityRegion* city) {
+	if (city == NULL)
+		return false;
+
+	return city->getBillboardCount() < (billboardsPerRank * city->getCityRank());
 }
 
 void CityManagerImplementation::sendChangeCityName(CityRegion* city, CreatureObject* mayor){

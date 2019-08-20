@@ -1686,6 +1686,12 @@ bool SceneObjectImplementation::isDecoration() {
 					templateObject->getFullTemplateString().contains("object/building/player/city/garden")));
 }
 
+
+bool SceneObjectImplementation::isBillboard() {
+	return (templateObject != NULL &&
+			(templateObject->getFullTemplateString().contains("billboard_rotating")));
+}
+
 Reference<SceneObject*> SceneObjectImplementation::getContainerObjectRecursive(uint64 oid) {
 	Reference<SceneObject*> obj = containerObjects.get(oid);
 

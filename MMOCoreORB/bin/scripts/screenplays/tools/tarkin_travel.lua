@@ -26,7 +26,7 @@ tarkin_travel = ScreenPlay:new {
 		{planetName = "talus", x = 4474.16, z = 2, y = 5379.66, ow = -0.748354, oy = 0.6633, cellID = 0}, --Nashal starport
 
 		--Tatooine
-		{planetName = "tatooine", x = 1043.96, z = 6.72701, y = 2994.05, ow = -0.0278541, oy = 0.999613, cellID = 0}, --Mos Entha starport
+		{planetName = "tatooine", x = 1043.96, z = 7.21701, y = 2994.05, ow = -0.0278541, oy = 0.999613, cellID = 0}, --Mos Entha starport
 		{planetName = "tatooine", x = -2813.75, z = 5, y = 2081.38, ow = -0.961512, oy = -0.274765, cellID = 0}, --Mos Espa starport
 		{planetName = "tatooine", x = -1389.37, z = 12, y = -3583.92, ow = -0.0601424, oy = 0.99819, cellID = 0}, --Bestine starport
 		{planetName = "tatooine", x = 3630.8, z = 5, y = -4791.24, ow = 0.999876, oy = -0.0157754, cellID = 0}, --Mos Eisley starport

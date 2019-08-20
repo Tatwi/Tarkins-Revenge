@@ -832,3 +832,4 @@ RunSlashCommandsFile("launchIntoSpace.lua")
 RunSlashCommandsFile("createVendor.lua")
 
 RunSlashCommandsFile("tarkin.lua")
+RunSlashCommandsFile("installBillboard.lua")
