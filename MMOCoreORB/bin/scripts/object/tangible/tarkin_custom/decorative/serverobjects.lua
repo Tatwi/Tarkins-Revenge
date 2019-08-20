@@ -379,6 +379,7 @@ includeFile("tangible/tarkin_custom/decorative/zee_snap.lua")
 includeFile("tangible/tarkin_custom/decorative/tay_snap.lua")
 includeFile("tangible/tarkin_custom/decorative/lanko_snap.lua")
 includeFile("tangible/tarkin_custom/decorative/business_card_chip.lua")
+includeFile("tangible/tarkin_custom/decorative/billboard_rotating.lua")
 
 --Disagreeable Shader
 --includeFile("tangible/tarkin_custom/decorative/exarkun_sarcophagus.lua")

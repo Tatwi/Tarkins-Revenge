@@ -1395,6 +1395,8 @@ class SceneObject extends QuadTreeEntry implements Logger, Metrics {
 
 	public native boolean isDecoration();
 
+	public native boolean isBillboard();
+
 	@local
 	public native void setObjectMenuComponent(final string name);
 	public native void setAttributeListComponent(final string name);

@@ -86,6 +86,7 @@ void CityRegionImplementation::initialize() {
 	zoningRights.setNullValue(0);
 
 	cityMissionTerminals.setNoDuplicateInsertPlan();
+	cityBillboards.setNoDuplicateInsertPlan();
 	citySkillTrainers.setNoDuplicateInsertPlan();
 
 	bazaars.setNoDuplicateInsertPlan();
@@ -724,6 +725,18 @@ void CityRegionImplementation::removeAllTerminals() {
 	cityMissionTerminals.removeAll();
 }
 
+void CityRegionImplementation::removeAllBillboards() {
+	for (int i = cityBillboards.size() - 1; i >= 0 ; --i) {
+		Reference<SceneObject*> billboard = cityBillboards.get(i);
+
+		Locker locker(billboard);
+
+		billboard->destroyObjectFromWorld(false);
+		billboard->destroyObjectFromDatabase(true);
+	}
+
+	cityBillboards.removeAll();
+}
 void CityRegionImplementation::removeAllSkillTrainers() {
 	for (int i = citySkillTrainers.size() - 1; i >= 0 ; --i) {
 		Reference<SceneObject*> trainer = citySkillTrainers.get(i);
@@ -1035,12 +1048,31 @@ void CityRegionImplementation::removeTerminalsOutsideCity(int newRadius) {
 	if(cityHall == NULL)
 		return;
 
-	for(int i = getMissionTerminalCount() - 1; i >= 0; i--) {
-		ManagedReference<SceneObject*> obj = getCityMissionTerminal(i);
+	for(int i = getBillboardCount() - 1; i >= 0; i--) {
+		ManagedReference<SceneObject*> obj = getCityBillboard(i);
 		if(obj != NULL && !isInsideRadius(obj, newRadius)) {
-			//info("need to destroy the mission terminal" + obj->getObjectNameStringIdName(),true);
+			//info("need to destroy the billboard" + obj->getObjectNameStringIdName(),true);
 
-			removeMissionTerminal(obj);
+			removeBillboard(obj);
+			sendDestroyOutsideObjectMail(obj);
+
+			Locker clock(obj, _this.getReferenceUnsafeStaticCast());
+			obj->destroyObjectFromWorld(true);
+			obj->destroyObjectFromDatabase(true);
+		}
+	}
+}
+
+void CityRegionImplementation::removeBillboardsOutsideCity(int newRadius) {
+	if(cityHall == NULL)
+		return;
+
+	for(int i = getBillboardCount() - 1; i >= 0; i--) {
+		ManagedReference<SceneObject*> obj = getCityBillboard(i);
+		if(obj != NULL && !isInsideRadius(obj, newRadius)) {
+			//info("need to destroy the billboard" + obj->getObjectNameStringIdName(),true);
+
+			removeBillboard(obj);
 			sendDestroyOutsideObjectMail(obj);
 
 			Locker clock(obj, _this.getReferenceUnsafeStaticCast());
@@ -1274,6 +1306,29 @@ void CityRegionImplementation::cleanupMissionTerminals(int limit) {
 			terminal->destroyObjectFromDatabase(true);
 
 			cityMissionTerminals.removeElementAt(0);
+		}
+	}
+}
+
+void CityRegionImplementation::cleanupBillboards(int limit) {
+
+	int billboardsToRemove = cityBillboards.size() - limit;
+
+	if(billboardsToRemove <= 0)
+		return;
+
+	for(int i =  0; i < billboardsToRemove; i++) {
+
+		SceneObject* billboard = getCityBillboard(0);
+		if(billboard != NULL) {
+
+			sendDestroyObjectMail(billboard);
+
+			Locker clock(billboard, _this.getReferenceUnsafeStaticCast());
+			billboard->destroyObjectFromWorld(true);
+			billboard->destroyObjectFromDatabase(true);
+
+			cityBillboards.removeElementAt(0);
 		}
 	}
 }
