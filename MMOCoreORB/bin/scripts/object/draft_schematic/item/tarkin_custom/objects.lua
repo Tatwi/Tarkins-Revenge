@@ -165,3 +165,15 @@ object_draft_schematic_item_tarkin_custom_shared_business_card_chip = SharedDraf
 }
 
 ObjectTemplates:addClientTemplate(object_draft_schematic_item_tarkin_custom_shared_business_card_chip, "object/draft_schematic/item/tarkin_custom/shared_business_card_chip.iff")
+
+object_draft_schematic_item_tarkin_custom_shared_wanted_poster_human_male = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/item/tarkin_custom/shared_wanted_poster_human_male.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_item_tarkin_custom_shared_wanted_poster_human_male, "object/draft_schematic/item/tarkin_custom/shared_wanted_poster_human_male.iff")
+
+object_draft_schematic_item_tarkin_custom_shared_wanted_poster_human_female = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/item/tarkin_custom/shared_wanted_poster_human_female.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_item_tarkin_custom_shared_wanted_poster_human_female, "object/draft_schematic/item/tarkin_custom/shared_wanted_poster_human_female.iff")
