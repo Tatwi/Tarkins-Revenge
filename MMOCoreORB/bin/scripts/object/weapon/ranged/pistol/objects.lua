@@ -1623,7 +1623,7 @@ ObjectTemplates:addClientTemplate(object_weapon_ranged_pistol_shared_pistol_mand
 object_weapon_ranged_pistol_shared_som_ion_relic_pistol = SharedWeaponObjectTemplate:new {
 	clientTemplateFileName = "object/weapon/ranged/pistol/shared_som_ion_relic_pistol.iff"
 }
-ObjectTemplates:addClientTemplate(object_weapon_ranged_pistol_shared_som_ion_relic_pistol, "object/weapon/ranged/pistol/shared_som_ion_relic_pistoliff")
+ObjectTemplates:addClientTemplate(object_weapon_ranged_pistol_shared_som_ion_relic_pistol, "object/weapon/ranged/pistol/shared_som_ion_relic_pistol.iff")
 
 --Jawa Ion Pistol
 object_weapon_ranged_pistol_shared_pistol_jawa = SharedWeaponObjectTemplate:new {
