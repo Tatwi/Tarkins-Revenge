@@ -46,11 +46,11 @@ Liakhara (Github: stacy19201325) for merging original tarkin_scripts and TarkinI
 
 ParadymShift (Github: Spartan5150) for networking, hardware, and forum management, as well as world snapshot editing, and community relations.
 
-Tatwi, for the contributions he made through the various iterations of Tarkin: /tarkin command, houseplop, medical services terminals, skill training NPCs, hunting mission revamp, mission terminal renaming, new player email, CA/AA to drop with one stat only, pitch/roll/yaw, and numerous other quality of life improvements.  A HUGE thank you for delving into C# to update and add functionality to our launcher.  And finally, for Lumberjack, which will make it so much easier on staff to monitor suspicious activity.
+Tatwi, for the contributions he made through the various iterations of Tarkin: /tarkin command, houseplop, medical services terminals, skill training NPCs, hunting mission revamp, mission terminal renaming, new player email, CA/AA to drop with one stat only, pitch/roll/yaw, IHA housing system, creatures database, vendor improvements, and numerous other quality of life improvements.  A HUGE thank you for delving into C# to update and add functionality to our launcher.  And finally, for Lumberjack, which will make it so much easier on staff to monitor suspicious activity.
 
 Devereux (Github: Trakaa) for fixes correcting decrimenting of manufacturing schematics, making mind heal work on stims, recoloring armor with multiple palettes, making current resource list export in a format compatible with swgcraft, and Version 1 of our Launcher, on Tarkin II.
 
-Taylaria for some work on mobile templates on Tarkin II.
+Taylaria for some work on mobile templates on Tarkin II, and for Wanted Poster artwork.
 
 SealGunman for our knee-jerk hatred of Fixer, thanks to crashing our server repeatedly due to a screenplay bug on Tarkin II.
 
@@ -58,7 +58,7 @@ Sources and inspiration from other servers:
 
 Borrie for Wall Pack.
 
-Halyn's comments in ModtheGalaxy chat for slicing locked briefcases.
+Halyn for always being so helpful.
 
 Toxic for contributions of galaxy-wide invites, unstick command, and changes to /move on Tarkin II as well as inspiration to make a SUI window upon character creation to describe the server.
 
@@ -68,11 +68,13 @@ Cesta, Renik, Advantage, and Luminalflux for assistance with web-based account r
 
 Cesta again, for his Galaxy Harvester resource uploading functionality. Not having to upload manually is a complete game-changer.
 
-TinyPebble, for the ui_auc.inc.
+TheTinyPebble, for the ui_auc.inc and for terrain files around the Coronet and Mos Entha starports.
 
 dpwhittaker for Progor-Chat discord bot.
 
 pwillworth for Galaxy Harvester Web Application. 
+
+scscofield for work on optional BE tissue slots in Wookiee clothing items.
 
 The Mod the Galaxy team for the use of their TRE files.
 
