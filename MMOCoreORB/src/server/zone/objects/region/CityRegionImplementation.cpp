@@ -1048,12 +1048,12 @@ void CityRegionImplementation::removeTerminalsOutsideCity(int newRadius) {
 	if(cityHall == NULL)
 		return;
 
-	for(int i = getBillboardCount() - 1; i >= 0; i--) {
-		ManagedReference<SceneObject*> obj = getCityBillboard(i);
+	for(int i = getMissionTerminalCount() - 1; i >= 0; i--) {
+		ManagedReference<SceneObject*> obj = getCityMissionTerminal(i);
 		if(obj != NULL && !isInsideRadius(obj, newRadius)) {
-			//info("need to destroy the billboard" + obj->getObjectNameStringIdName(),true);
+			//info("need to destroy the mission terminal" + obj->getObjectNameStringIdName(),true);
 
-			removeBillboard(obj);
+			removeMissionTerminal(obj);
 			sendDestroyOutsideObjectMail(obj);
 
 			Locker clock(obj, _this.getReferenceUnsafeStaticCast());

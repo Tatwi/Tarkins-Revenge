@@ -624,7 +624,7 @@ bool PlayerCreationManager::createCharacter(ClientCreateCharacterCallback* callb
   	promptText << endl;
   	promptText << "\\#f2f5f9-- You are allowed one account per IP.  (Special requests can be made for multiple people in the same household, make your request in Discord or on our forums.)";
    	promptText << endl;
-  	promptText << "-- 4 characters per account";
+  	promptText << "-- 5 characters per account";
    	promptText << endl;
   	promptText << "-- 20 lots per character";
    	promptText << endl;
@@ -675,6 +675,12 @@ bool PlayerCreationManager::createCharacter(ClientCreateCharacterCallback* callb
    	promptText << "-- To start a Player City, you must first master Politician by running for mayor of an NPC city.  Once mastered, you may request a City Hall on the forums.  Additional NPC cities can also be opened for settlement if a master Politician has five players willing to settle in their city.";
    	promptText << endl;
    	promptText << "-- Guild halls are not craftable, and are only available by request for players starting an active guild.  (They are not freely available as residences.)  See our forums for more information.";
+   	promptText << endl;
+   	promptText << endl;
+   	promptText << endl;
+   	promptText << "\\#5bff71Tarkin's Revenge Website:";
+   	promptText << endl;
+   	promptText << "\\#f2f5f9www.home.tarkinswg.com";
    	promptText << endl;
    	promptText << endl;
    	promptText << endl;

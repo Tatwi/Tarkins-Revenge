@@ -2,7 +2,7 @@ planet_hologram_yavin = {
 	minimumLevel = 0,
 	maximumLevel = -1,
 	customObjectName = "",
-	directObjectTemplate = "object/tangible/saga_system/rewards/planet_hologram_yavin.iff",
+	directObjectTemplate = "object/tangible/saga_system/rewards/planet_hologram_yavin4.iff",
 	craftingValues = {
 	},
 	customizationStringNames = {},

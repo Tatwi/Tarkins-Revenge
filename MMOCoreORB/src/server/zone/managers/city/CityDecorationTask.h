@@ -160,7 +160,17 @@ public:
 		} else {
 			Locker tlock(obj, mayor);
 
-			if(	inv->transferObject(obj, -1, true)) {
+			if(obj->getObjectTemplate()->getFullTemplateString().contains("billboard_rotating")){
+				tlock.release();
+				Locker clock(city, mayor);
+				city->removeDecoration(obj);
+				Locker ilock(obj);
+					obj->destroyObjectFromWorld(true);
+					obj->destroyObjectFromDatabase(true);
+
+				mayor->sendSystemMessage("@city/city:mt_removed"); // The object has been removed from the city.			
+	
+			} else if(inv->transferObject(obj, -1, true)) {
 				inv->broadcastObject(obj, true);
 				tlock.release();
 				Locker clock(city, mayor);

@@ -3,7 +3,7 @@ heavy_weapons = {
 	minimumLevel = 0,
 	maximumLevel = 0,
 	lootItems = {
-		{itemTemplate = "heavy_rocket_launcher", weight = 990000},
+		{itemTemplate = "heavy_rocket_launcher", weight = 900000},
 		{itemTemplate = "heavy_acid_beam", weight = 1000000},
 		{itemTemplate = "heavy_lightning_beam", weight = 1000000},
 		{itemTemplate = "heavy_particle_beam", weight = 1000000},

@@ -54,7 +54,7 @@ zealot_of_lord_nyax_poi = Creature:new {
 			lootChance = 300000
 		}
 	},
-	weapons = {"aakuan_assassin_weapon"},
+	weapons = {"aakuan_assassin_weapons"},
 	conversationTemplate = "",
 	reactionStf = "@npc_reaction/fancy",
 	attacks = merge(riflemanmaster,tkamaster)

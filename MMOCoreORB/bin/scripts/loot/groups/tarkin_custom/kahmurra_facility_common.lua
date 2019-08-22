@@ -22,7 +22,7 @@ kahmurra_facility_common = {
 		{itemTemplate = "enzyme_extraction_canister", weight = 263158},
 		{itemTemplate = "enzyme_extraction_control", weight = 263158},
 		--{itemTemplate = "enzyme_extraction_unit", weight = 256410},
-		{itemTemplate = "enzyme_extraction_housing", weight = 263158},
+		{itemTemplate = "enzyme_extractor_housing", weight = 263158},
 		{itemTemplate = "processor_control", weight = 263158},
 		{itemTemplate = "processor_plasma_array", weight = 263158},
 		--{itemTemplate = "processor_unit", weight = 227273},

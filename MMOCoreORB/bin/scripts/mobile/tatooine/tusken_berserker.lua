@@ -46,7 +46,7 @@ tusken_berserker = Creature:new {
 		{
 			groups = {
 				{group = "color_crystals", chance = 5000000},
-				{group = "crystals_okay", chance = 5000000}
+				{group = "power_crystals", chance = 5000000}
 			},
 			lootChance = 1500000
 		}
