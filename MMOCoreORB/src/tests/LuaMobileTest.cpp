@@ -78,6 +78,7 @@ public:
 		files.add("string/en/theme_park/warren/warren_system_messages.stf");
 		files.add("string/en/newbie_tutorial/system_messages.stf");
 		files.add("string/en/chassis_npc.stf");
+		files.add("string/en/static_item_n.stf");
 
 		int count = 0;
 
@@ -220,7 +221,7 @@ TEST_F(LuaMobileTest, LuaMobileTemplatesTest) {
 		if (!controlDeviceTemplate.isEmpty()) {
 			SharedObjectTemplate* controlDeviceTemplateData = templateManager->getTemplate(controlDeviceTemplate.hashCode());
 			EXPECT_TRUE( controlDeviceTemplateData != NULL ) << "Control device template " << controlDeviceTemplate.toCharArray() << " from " << templateName << " does not exist.";
-			EXPECT_TRUE( controlDeviceTemplate.beginsWith("object/intangible/pet/") ) << "Control device template " << controlDeviceTemplate.toCharArray() << " from " << templateName << " is not a pet/droid control device template.";
+			EXPECT_TRUE( controlDeviceTemplate.beginsWith("object/intangible/pet/") || controlDeviceTemplate.beginsWith("object/intangible/beast/")  ) << "Control device template " << controlDeviceTemplate.toCharArray() << " from " << templateName << " is not a pet/droid control device template.";
 		}
 
 		// Verify that faction is valid

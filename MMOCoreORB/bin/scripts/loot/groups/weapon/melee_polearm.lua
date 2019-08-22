@@ -7,7 +7,7 @@ melee_polearm = {
 	lootItems = {
 		{itemTemplate = "polearm_lance", weight = 1500000},
 		{itemTemplate = "polearm_lance_vibrolance", weight = 1000000},
-		{itemTemplate = "polearm_staff_metal", weight = 1990000},
+		{itemTemplate = "polearm_staff_metal", weight = 1900000},
 		{itemTemplate = "polearm_staff_wood", weight = 2000000},
 		{itemTemplate = "polearm_staff_wood_reinforced", weight = 2000000},
 		{itemTemplate = "polearm_vibro_axe", weight = 1500000},

@@ -72,25 +72,41 @@ boss_dawnstrike = Creature:new {
 		},
 		{
 			groups = {
-				{group = "all_deco", chance = 10000000},
+				{group = "all_deco", chance = 2000000},
+				{group = "all_deco_two", chance = 2000000},
+				{group = "all_deco_three", chance = 2000000},
+				{group = "all_deco_four", chance = 2000000},
+				{group = "all_deco_five", chance = 2000000},
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "all_deco", chance = 10000000},
+				{group = "all_deco", chance = 2000000},
+				{group = "all_deco_two", chance = 2000000},
+				{group = "all_deco_three", chance = 2000000},
+				{group = "all_deco_four", chance = 2000000},
+				{group = "all_deco_five", chance = 2000000},
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "all_deco", chance = 10000000},
+				{group = "all_deco", chance = 2000000},
+				{group = "all_deco_two", chance = 2000000},
+				{group = "all_deco_three", chance = 2000000},
+				{group = "all_deco_four", chance = 2000000},
+				{group = "all_deco_five", chance = 2000000},
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "all_deco", chance = 10000000},
+				{group = "all_deco", chance = 2000000},
+				{group = "all_deco_two", chance = 2000000},
+				{group = "all_deco_three", chance = 2000000},
+				{group = "all_deco_four", chance = 2000000},
+				{group = "all_deco_five", chance = 2000000},
 			},
 			lootChance = 10000000
 		},

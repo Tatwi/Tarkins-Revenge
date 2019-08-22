@@ -2,7 +2,7 @@ event_lifeday07_painting_01 = {
 	minimumLevel = 0,
 	maximumLevel = -1,
 	customObjectName = "",
-	directObjectTemplate = "object/tangible/furniture/decorative/eevent_lifeday07_painting_01.iff",
+	directObjectTemplate = "object/tangible/furniture/decorative/event_lifeday07_painting_01.iff",
 	craftingValues = {
 	},
 	customizationStringNames = {},

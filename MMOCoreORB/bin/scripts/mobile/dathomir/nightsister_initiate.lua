@@ -37,9 +37,9 @@ nightsister_initiate = Creature:new {
 				{group = "armor_attachments", chance = 250000},
 				{group = "clothing_attachments", chance = 250000},
 				{group = "melee_weapons", chance = 875000},
-				{group = "rifles", chance = 875000},
-				{group = "pistols", chance = 875000},
-				{group = "carbines", chance = 875000},
+				{group = "rifles", chance = 708333},
+				{group = "pistols", chance = 708333},
+				{group = "carbines", chance = 708334},
 				{group = "wearables_common", chance = 500000},
 				{group = "ns_clothing", chance = 3000000}
 			},

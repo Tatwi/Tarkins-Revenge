@@ -31,7 +31,8 @@ titanic_rasp_of_death = Creature:new {
 	lootGroups = {
 		{
 			groups = {
-				{group = "paintings_all", chance = 3236301},
+				{group = "paintings_all", chance = 1618150},
+				{group = "paintings_all_two", chance = 1618151},
 				{group = "misc_decoloot_schemes", chance = 239726},
 				{group = "crystal_hunter_common", chance = 428082},
 				{group = "hutt_hideout_common", chance = 222603},
@@ -64,7 +65,8 @@ titanic_rasp_of_death = Creature:new {
 		},
 		{	
 	        groups = {
-				{group = "paintings_all", chance = 3236301},
+				{group = "paintings_all", chance = 1618150},
+				{group = "paintings_all_two", chance = 1618151},
 				{group = "misc_decoloot_schemes", chance = 239726},
 				{group = "crystal_hunter_common", chance = 428082},
 				{group = "hutt_hideout_common", chance = 222603},
@@ -97,7 +99,8 @@ titanic_rasp_of_death = Creature:new {
 		},
 		{	
 	        groups = {
-				{group = "paintings_all", chance = 3236301},
+				{group = "paintings_all", chance = 1618150},
+				{group = "paintings_all_two", chance = 1618151},
 				{group = "misc_decoloot_schemes", chance = 239726},
 				{group = "crystal_hunter_common", chance = 428082},
 				{group = "hutt_hideout_common", chance = 222603},
@@ -130,7 +133,8 @@ titanic_rasp_of_death = Creature:new {
 		},
 		{
 	        groups = {
-				{group = "paintings_all", chance = 3236301},
+				{group = "paintings_all", chance = 1618150},
+				{group = "paintings_all_two", chance = 1618151},
 				{group = "misc_decoloot_schemes", chance = 239726},
 				{group = "crystal_hunter_common", chance = 428082},
 				{group = "hutt_hideout_common", chance = 222603},

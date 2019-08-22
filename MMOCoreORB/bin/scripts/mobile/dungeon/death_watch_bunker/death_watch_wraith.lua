@@ -32,12 +32,12 @@ death_watch_wraith = Creature:new {
 	lootGroups = {
 		{
 			groups = {
-				{group = "death_watch_bunker_commoners",   chance = 6300000},
-				{group = "death_watch_bunker_lieutenants", chance = 3500000},
-				{group = "death_watch_bunker_ingredient_protective",  chance = 100000},
-				{group = "death_watch_bunker_ingredient_binary",  chance = 100000},
-				{group = "clothing_attachments", chance = 5000000},
-				{group = "armor_attachments", chance = 5000000}
+				{group = "death_watch_bunker_commoners",   chance = 3150000},
+				{group = "death_watch_bunker_lieutenants", chance = 1750000},
+				{group = "death_watch_bunker_ingredient_protective",  chance = 50000},
+				{group = "death_watch_bunker_ingredient_binary",  chance = 50000},
+				{group = "clothing_attachments", chance = 2500000},
+				{group = "armor_attachments", chance = 2500000}
 			},
 			lootChance = 4000000
 		},	

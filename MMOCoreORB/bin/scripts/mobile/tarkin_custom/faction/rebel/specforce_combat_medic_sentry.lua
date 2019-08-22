@@ -34,11 +34,11 @@ specforce_combat_medic_sentry = Creature:new {
 		{
 			groups = {
 				{group = "color_crystals", chance = 100000},
-				{group = "junk", chance = 4650000},
-				{group = "rifles", chance = 550000},
-				{group = "pistols", chance = 550000},
-                		{group = "melee_weapons", chance = 550000},
-		                {group = "carbines", chance = 550000},
+				{group = "junk", chance = 4525000},
+				{group = "rifles", chance = 1031250},
+				{group = "pistols", chance = 1031250},
+                		{group = "melee_weapons", chance = 1031250},
+		                {group = "carbines", chance = 1031250},
 				{group = "factional_imperial", chance = 1000000},
 				{group = "clothing_attachments", chance = 125000},
 				{group = "armor_attachments", chance = 125000}

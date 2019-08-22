@@ -53,7 +53,7 @@ bh_tusken_carnage_champion = Creature:new {
 		},
 		{
 			groups = {
-				{group = "crystals_poor", chance = 2500000},
+				{group = "power_crystals", chance = 2500000},
 				{group = "color_crystals", chance = 2500000},
 				{group = "armor_all", chance = 2000000},
 				{group = "armor_attachments", chance = 1500000},

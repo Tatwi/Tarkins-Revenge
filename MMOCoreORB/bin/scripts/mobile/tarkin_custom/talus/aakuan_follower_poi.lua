@@ -33,7 +33,7 @@ aakuan_follower_poi = Creature:new {
 	lootGroups = {
 		{
 			groups = {
-				{group = "junk", chance = 3400000},
+				{group = "junk", chance = 3200000},
 				{group = "aakuan_common", chance = 2300000},
 				{group = "armor_attachments", chance = 800000},
 				{group = "clothing_attachments", chance = 800000},

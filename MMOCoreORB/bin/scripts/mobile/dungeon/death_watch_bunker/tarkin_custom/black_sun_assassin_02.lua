@@ -44,8 +44,8 @@ black_sun_assassin_02 = Creature:new {
 		{
 			groups = {
 				{group = "deed_voucher", chance = 750000},
-				{group = "clothing_attachment", chance = 4500000},
-				{group = "armor_attachment", chance = 4500000},
+				{group = "clothing_attachments", chance = 4500000},
+				{group = "armor_attachments", chance = 4500000},
 				{group = "jetpack_base", chance = 250000}
 			},
 			lootChance = 2500000
