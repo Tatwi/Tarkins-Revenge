@@ -273,12 +273,6 @@ rori_destroy_missions = {
 			size = 25,
 		},
 		{
-			lairTemplateName = "rori_kai_tok_lair_neutral_medium",
-			minDifficulty = 19,
-			maxDifficulty = 23,
-			size = 25,
-		},
-		{
 			lairTemplateName = "rori_pygmy_torton_lair_neutral_medium",
 			minDifficulty = 19,
 			maxDifficulty = 23,

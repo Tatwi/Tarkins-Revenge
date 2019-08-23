@@ -2724,5 +2724,7 @@ schematics = {
 	{path="object/draft_schematic/item/tarkin_custom/decoder.iff"},
 	{path="object/draft_schematic/item/tarkin_custom/data_terminal_01.iff"},
 	{path="object/draft_schematic/item/tarkin_custom/envelope_01.iff"},
-	{path="object/draft_schematic/item/tarkin_custom/business_card_chip.iff"}
+	{path="object/draft_schematic/item/tarkin_custom/business_card_chip.iff"},
+	{path="object/draft_schematic/item/tarkin_custom/wanted_poster_human_male.iff"},
+	{path="object/draft_schematic/item/tarkin_custom/wanted_poster_human_female.iff"},
 };

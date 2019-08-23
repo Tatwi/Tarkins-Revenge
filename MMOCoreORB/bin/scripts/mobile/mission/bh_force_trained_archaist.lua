@@ -31,10 +31,10 @@ bh_force_trained_archaist = Creature:new {
 	lootGroups = {
 		{
 			groups = {
-				{group = "color_crystals", chance = 500000},
-				{group = "power_crystals", chance = 500000},
-				{group = "holocron_dark", chance = 500000},
-				{group = "holocron_light", chance = 500000},
+				{group = "color_crystals", chance = 1000000},
+				{group = "power_crystals", chance = 1000000},
+				{group = "holocron_dark", chance = 1000000},
+				{group = "holocron_light", chance = 1000000},
 				{group = "bounty_hunter_schemes", chance = 1000000},
 				{group = "armor_attachments", chance = 2500000},
 				{group = "clothing_attachments", chance = 2500000}

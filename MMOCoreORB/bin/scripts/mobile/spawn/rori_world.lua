@@ -1100,15 +1100,6 @@ rori_world = {
 			size = 25
 		},
 		{
-			lairTemplateName = "rori_kai_tok_lair_neutral_medium",
-			spawnLimit = -1,
-			minDifficulty = 21,
-			maxDifficulty = 25,
-			numberToSpawn = 0,
-			weighting = 15,
-			size = 25
-		},
-		{
 			lairTemplateName = "rori_torton_pack_neutral_none",
 			spawnLimit = -1,
 			minDifficulty = 24,

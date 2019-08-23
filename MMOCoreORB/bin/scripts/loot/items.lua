@@ -1826,6 +1826,7 @@ includeFile("items/tarkin_custom/crystal_hunter/unknown_shattered_shard_fragment
 includeFile("items/tarkin_custom/crystal_hunter/heroic_axkva_min_crystal_s01.lua")
 includeFile("items/tarkin_custom/crystal_hunter/heroic_axkva_min_crystal_s02.lua")
 includeFile("items/tarkin_custom/crystal_hunter/heroic_axkva_min_crystal_s03.lua")
+includeFile("items/tarkin_custom/crystal_hunter/prof_force_sensitive_crystal.lua")
 
 --Broken Lightsabers
 includeFile("items/tarkin_custom/broken_lightsabers/broken_lightsaber_hilt_001.lua")

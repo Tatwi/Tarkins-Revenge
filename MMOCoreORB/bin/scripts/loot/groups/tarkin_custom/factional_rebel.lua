@@ -14,7 +14,7 @@ factional_rebel = {
 		{itemTemplate = "decal_rebel_graffiti_02", weight = 769230},
 		{itemTemplate = "decal_rebel_graffiti_03", weight = 769230},
 		{itemTemplate = "decal_pgc_s02", weight = 769230},
-		{itemTemplate = "imperial_recruitment_poster_defaced", weight = 769228},
+		{itemTemplate = "imperial_recruitment_poster_defaced", weight = 769240},
 		{itemTemplate = "rebel_resistance_poster", weight = 769230}
 	}
 }

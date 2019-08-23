@@ -37,9 +37,9 @@ aakuan_steward_poi = Creature:new {
 				{group = "aakuan_common", chance = 2300000},
 				{group = "armor_attachments", chance = 800000},
 				{group = "clothing_attachments", chance = 800000},
-				{group = "rifles", chance = 900000},
-				{group = "carbines", chance = 900000},
-				{group = "pistols", chance = 900000},
+				{group = "rifles", chance = 833333},
+				{group = "carbines", chance = 833333},
+				{group = "pistols", chance = 833334},
 				{group = "aakuan_rare", chance = 200000}
 			},
 		    lootChance = 3000000
