@@ -40,6 +40,7 @@ object_draft_schematic_item_tarkin_custom_wanted_poster_human_male = object_draf
 		"object/tangible/tarkin_custom/decorative/shared_tarkin_wanted_poster_mon_cal_male.iff",
 		"object/tangible/tarkin_custom/decorative/shared_tarkin_wanted_poster_nautolan_male.iff",
 		"object/tangible/tarkin_custom/decorative/shared_tarkin_wanted_poster_rodian_male.iff",
+		"object/tangible/tarkin_custom/decorative/shared_tarkin_wanted_poster_sullustan_male.iff",
 		"object/tangible/tarkin_custom/decorative/shared_tarkin_wanted_poster_trandoshan_male.iff",
 		"object/tangible/tarkin_custom/decorative/shared_tarkin_wanted_poster_twilek_male.iff",
 		"object/tangible/tarkin_custom/decorative/shared_tarkin_wanted_poster_wookiee_male.iff",

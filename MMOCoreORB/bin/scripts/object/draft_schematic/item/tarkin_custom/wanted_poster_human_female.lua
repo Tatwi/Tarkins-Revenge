@@ -30,9 +30,11 @@ object_draft_schematic_item_tarkin_custom_wanted_poster_human_female = object_dr
 	targetTemplate = "object/tangible/tarkin_custom/decorative/tarkin_wanted_poster_human_female.iff",
 
 	additionalTemplates = {"object/tangible/tarkin_custom/decorative/shared_tarkin_wanted_poster_bothan_female.iff",
+		"object/tangible/tarkin_custom/decorative/shared_tarkin_wanted_poster_ithorian_female.iff",
 		"object/tangible/tarkin_custom/decorative/shared_tarkin_wanted_poster_mon_cal_female.iff",
 		"object/tangible/tarkin_custom/decorative/shared_tarkin_wanted_poster_nautolan_female.iff",
 		"object/tangible/tarkin_custom/decorative/shared_tarkin_wanted_poster_rodian_female.iff",
+		"object/tangible/tarkin_custom/decorative/shared_tarkin_wanted_poster_sullustan_female.iff",
 		"object/tangible/tarkin_custom/decorative/shared_tarkin_wanted_poster_togruta_female.iff",
 		"object/tangible/tarkin_custom/decorative/shared_tarkin_wanted_poster_trandoshan_female.iff",
 		"object/tangible/tarkin_custom/decorative/shared_tarkin_wanted_poster_twilek_female.iff",
