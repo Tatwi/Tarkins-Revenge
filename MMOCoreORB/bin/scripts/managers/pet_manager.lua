@@ -69,7 +69,7 @@ mountSpeedData = {
 	{"appearance/bolotaur.sat", 17, 1.286, 180, 600},
 	{"appearance/bol_elite.sat", 17, 1.286, 180, 600},
 	{"appearance/tusked_bull_thune.sat", 17, 1.286, 180, 600},
-	{"appearance/mutated_dewback.sat.sat", 17, 1.286, 180, 600},
+	{"appearance/mutated_dewback.sat", 17, 1.286, 180, 600},
 	{"appearance/mutated_cupa.sat", 17, 1.544, 120, 600},
 	{"appearance/mutated_borgax.sat", 17, 1.544, 120, 600},
 	{"appearance/nerf_hue.sat", 17, 1.286, 180, 600},
