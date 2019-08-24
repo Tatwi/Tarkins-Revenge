@@ -163,7 +163,7 @@ public:
 			if(obj->getObjectTemplate()->getFullTemplateString().contains("billboard_rotating")){
 				tlock.release();
 				Locker clock(city, mayor);
-				city->removeDecoration(obj);
+				city->removeBillboard(obj);
 				Locker ilock(obj);
 					obj->destroyObjectFromWorld(true);
 					obj->destroyObjectFromDatabase(true);
