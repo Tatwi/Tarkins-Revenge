@@ -18,7 +18,7 @@ maverick_gualama = Creature:new {
 	boneType = "bone_mammal",
 	boneAmount = 90,
 	milk = 0,
-	tamingChance = 0,
+	tamingChance = 0.25,
 	ferocity = 5,
 	pvpBitmask = AGGRESSIVE + ATTACKABLE + ENEMY,
 	creatureBitmask = NONE,
@@ -27,6 +27,7 @@ maverick_gualama = Creature:new {
 
 	templates = {"object/mobile/gualama_hue.iff"},
 	hues = { 24, 25, 26, 27, 28, 29, 30, 31 },
+	controlDeviceTemplate = "object/intangible/pet/gualama_hue.iff",
 	scale = 1.1,
 	lootGroups = {},
 	weapons = {},
