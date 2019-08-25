@@ -18,7 +18,7 @@ swarming_lesser_dewback = Creature:new {
 	boneType = "bone_mammal",
 	boneAmount = 100,
 	milk = 0,
-	tamingChance = 0,
+	tamingChance = 0.25,
 	ferocity = 0,
 	pvpBitmask = ATTACKABLE,
 	creatureBitmask = PACK + STALKER,
@@ -27,6 +27,7 @@ swarming_lesser_dewback = Creature:new {
 
 	templates = {"object/mobile/swarming_lesser_dewback.iff"},
 	hues = { 0, 1, 2, 3, 4, 5, 6, 7 },
+	controlDeviceTemplate = "object/intangible/pet/dewback_hue.iff",
 	scale = 0.9,
 	lootGroups = {},
 	weapons = {},

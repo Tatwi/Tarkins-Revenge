@@ -19,7 +19,7 @@ rogue_falumpaset = Creature:new {
 	boneAmount = 90,
 	milkType = "milk_wild",
 	milk = 125,
-	tamingChance = 0,
+	tamingChance = 0.25,
 	ferocity = 0,
 	pvpBitmask = AGGRESSIVE + ATTACKABLE + ENEMY,
 	creatureBitmask = NONE,
@@ -28,6 +28,7 @@ rogue_falumpaset = Creature:new {
 
 	templates = {"object/mobile/falumpaset_hue.iff"},
 	hues = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31 },
+	controlDeviceTemplate = "object/intangible/pet/falumpaset_hue.iff",
 	scale = 1.1,
 	lootGroups = {},
 	weapons = {"creature_spit_small_yellow"},

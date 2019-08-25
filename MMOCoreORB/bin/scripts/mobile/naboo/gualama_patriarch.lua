@@ -18,7 +18,7 @@ gualama_patriarch = Creature:new {
 	boneType = "bone_mammal",
 	boneAmount = 120,
 	milk = 0,
-	tamingChance = 0,
+	tamingChance = 0.25,
 	ferocity = 2,
 	pvpBitmask = ATTACKABLE,
 	creatureBitmask = PACK + HERD,
@@ -27,6 +27,7 @@ gualama_patriarch = Creature:new {
 
 	templates = {"object/mobile/gualama_patriarch.iff"},
 	hues = { 16, 17, 18, 19, 20, 21, 22, 23 },
+	controlDeviceTemplate = "object/intangible/pet/gualama_hue.iff",
 	scale = 1.15,
 	lootGroups = {},
 	weapons = {},

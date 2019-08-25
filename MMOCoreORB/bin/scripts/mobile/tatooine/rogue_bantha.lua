@@ -19,7 +19,7 @@ rogue_bantha = Creature:new {
 	boneAmount = 200,
 	milkType = "milk_wild",
 	milk = 200,
-	tamingChance = 0,
+	tamingChance = 0.25,
 	ferocity = 0,
 	pvpBitmask = ATTACKABLE,
 	creatureBitmask = NONE,
@@ -28,6 +28,7 @@ rogue_bantha = Creature:new {
 
 	templates = {"object/mobile/bantha_hue.iff"},
 	hues = { 0, 1, 2, 3, 7 },
+	controlDeviceTemplate = "object/intangible/pet/bantha_hue.iff",
 	scale = 1.1,
 	lootGroups = {},
 	weapons = {},

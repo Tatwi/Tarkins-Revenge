@@ -18,7 +18,7 @@ plains_hunter = Creature:new {
 	boneType = "bone_mammal",
 	boneAmount = 35,
 	milk = 0,
-	tamingChance = 0,
+	tamingChance = 0.25,
 	ferocity = 9,
 	pvpBitmask = AGGRESSIVE + ATTACKABLE + ENEMY,
 	creatureBitmask = PACK + KILLER + STALKER,
@@ -27,6 +27,7 @@ plains_hunter = Creature:new {
 
 	templates = {"object/mobile/tusk_cat_hue.iff"},
 	hues = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 11, 12, 13, 17, 18, 22, 27, 32, 48, 57, 62, 67, 72, 77, 82 },
+	controlDeviceTemplate = "object/intangible/pet/tusk_cat_hue.iff",
 	scale = 1.3,
 	lootGroups = {},
 	weapons = {},

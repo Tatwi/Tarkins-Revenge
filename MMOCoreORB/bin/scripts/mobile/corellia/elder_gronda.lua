@@ -18,7 +18,7 @@ elder_gronda = Creature:new {
 	boneType = "bone_mammal",
 	boneAmount = 420,
 	milk = 0,
-	tamingChance = 0,
+	tamingChance = 0.25,
 	ferocity = 0,
 	pvpBitmask = ATTACKABLE,
 	creatureBitmask = PACK + HERD + KILLER,
@@ -27,6 +27,7 @@ elder_gronda = Creature:new {
 
 	templates = {"object/mobile/gronda_hue.iff"},
 	hues = { 8, 9, 10, 11, 12, 13, 14, 15 },
+	controlDeviceTemplate = "object/intangible/pet/gronda_hue.iff",
 	scale = 1.15,
 	lootGroups = {},
 	weapons = {},

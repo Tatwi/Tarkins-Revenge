@@ -18,7 +18,7 @@ veermok_guard = Creature:new {
 	boneType = "bone_mammal",
 	boneAmount = 150,
 	milk = 0,
-	tamingChance = 0,
+	tamingChance = 0.25,
 	ferocity = 9,
 	pvpBitmask = AGGRESSIVE + ATTACKABLE + ENEMY,
 	creatureBitmask = PACK,
@@ -27,6 +27,7 @@ veermok_guard = Creature:new {
 
 	templates = {"object/mobile/veermok_hue.iff"},
 	hues = { 24, 25, 26, 27, 28, 29, 30, 31 },
+	controlDeviceTemplate = "object/intangible/pet/veermok_hue.iff",
 	scale = 1.1,
 	lootGroups = {},
 	weapons = {},

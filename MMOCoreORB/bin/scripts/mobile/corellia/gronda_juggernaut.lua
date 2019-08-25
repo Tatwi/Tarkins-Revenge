@@ -18,7 +18,7 @@ gronda_juggernaut = Creature:new {
 	boneType = "bone_mammal",
 	boneAmount = 435,
 	milk = 0,
-	tamingChance = 0,
+	tamingChance = 0.05,
 	ferocity = 14,
 	pvpBitmask = AGGRESSIVE + ATTACKABLE + ENEMY,
 	creatureBitmask = PACK + HERD + KILLER,
@@ -27,6 +27,7 @@ gronda_juggernaut = Creature:new {
 
 	templates = {"object/mobile/gronda_hue.iff"},
 	hues = { 24, 25, 26, 27, 28, 29, 30, 31 },
+	controlDeviceTemplate = "object/intangible/pet/gronda_hue.iff",
 	scale = 1.4,
 	lootGroups = {},
 	weapons = {},

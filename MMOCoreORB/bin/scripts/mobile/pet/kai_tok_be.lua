@@ -1,5 +1,5 @@
 kai_tok_be = Creature:new {
-	objectName = "@mob/creature_names:female_kai_tok",
+	objectName = "@mob/creature_names:kai_tok",
 	socialGroup = "kai_tok",
 	faction = "",
 	level = 5,
