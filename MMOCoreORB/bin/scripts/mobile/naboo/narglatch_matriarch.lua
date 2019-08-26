@@ -18,7 +18,7 @@ narglatch_matriarch = Creature:new {
 	boneType = "bone_mammal",
 	boneAmount = 35,
 	milk = 0,
-	tamingChance = 0,
+	tamingChance = 0.25,
 	ferocity = 9,
 	pvpBitmask = AGGRESSIVE + ATTACKABLE + ENEMY,
 	creatureBitmask = PACK + KILLER + STALKER,
@@ -27,6 +27,7 @@ narglatch_matriarch = Creature:new {
 
 	templates = {"object/mobile/narglatch_female_hue.iff"},
 	hues = { 2, 3 },
+	controlDeviceTemplate = "object/intangible/pet/female_narglatch.iff",
 	scale = 1.15,
 	lootGroups = {},
 	weapons = {},

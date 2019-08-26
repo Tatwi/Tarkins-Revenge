@@ -18,7 +18,7 @@ mountain_ikopi = Creature:new {
 	boneType = "bone_mammal",
 	boneAmount = 80,
 	milk = 0,
-	tamingChance = 0,
+	tamingChance = 0.25,
 	ferocity = 3,
 	pvpBitmask = ATTACKABLE,
 	creatureBitmask = PACK,
@@ -27,6 +27,7 @@ mountain_ikopi = Creature:new {
 
 	templates = {"object/mobile/ikopi_hue.iff"},
 	hues = { 8, 9, 10, 11, 12, 13, 14, 15 },
+	controlDeviceTemplate = "object/intangible/pet/ikopi_hue.iff",
 	scale = 1.1,
 	lootGroups = {},
 	weapons = {},

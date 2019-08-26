@@ -18,7 +18,7 @@ dwarf_gronda = Creature:new {
 	boneType = "bone_mammal",
 	boneAmount = 390,
 	milk = 0,
-	tamingChance = 0,
+	tamingChance = 0.25,
 	ferocity = 0,
 	pvpBitmask = ATTACKABLE,
 	creatureBitmask = HERD,
@@ -27,6 +27,7 @@ dwarf_gronda = Creature:new {
 
 	templates = {"object/mobile/dwarf_gronda.iff"},
 	hues = { 8, 9, 10, 11, 12, 13, 14, 15 },
+	controlDeviceTemplate = "object/intangible/pet/gronda_hue.iff",
 	scale = 0.8,
 	lootGroups = {},
 	weapons = {},

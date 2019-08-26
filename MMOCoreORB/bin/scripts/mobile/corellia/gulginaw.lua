@@ -18,7 +18,7 @@ gulginaw = Creature:new {
 	boneType = "bone_avian",
 	boneAmount = 45,
 	milk = 0,
-	tamingChance = 0,
+	tamingChance = 0.25,
 	ferocity = 0,
 	pvpBitmask = ATTACKABLE,
 	creatureBitmask = PACK + HERD,
@@ -27,6 +27,7 @@ gulginaw = Creature:new {
 
 	templates = {"object/mobile/gulginaw_hue.iff"},
 	hues = { 0, 1, 2, 3, 4, 5, 6, 7 },
+	controlDeviceTemplate = "object/intangible/pet/gulginaw_hue.iff",
 	lootGroups = {},
 	weapons = {},
 	conversationTemplate = "",

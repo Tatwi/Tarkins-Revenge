@@ -18,7 +18,7 @@ giant_cave_veermok = Creature:new {
 	boneType = "bone_mammal",
 	boneAmount = 160,
 	milk = 0,
-	tamingChance = 0,
+	tamingChance = 0.25,
 	ferocity = 0,
 	pvpBitmask = AGGRESSIVE + ATTACKABLE + ENEMY,
 	creatureBitmask = PACK + KILLER,
@@ -27,6 +27,7 @@ giant_cave_veermok = Creature:new {
 
 	templates = {"object/mobile/giant_veermok.iff"},
 	hues = { 8, 9, 10, 11, 12, 13, 14, 15 },
+	controlDeviceTemplate = "object/intangible/pet/veermok_hue.iff",
 	scale = 1.5,
 	lootGroups = {},
 	weapons = {},

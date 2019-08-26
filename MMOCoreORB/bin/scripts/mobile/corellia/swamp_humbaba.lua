@@ -19,7 +19,7 @@ swamp_humbaba = Creature:new {
 	boneAmount = 300,
 	milkType = "milk_domesticated",
 	milk = 175,
-	tamingChance = 0,
+	tamingChance = 0.25,
 	ferocity = 0,
 	pvpBitmask = ATTACKABLE,
 	creatureBitmask = PACK + HERD,
@@ -28,6 +28,7 @@ swamp_humbaba = Creature:new {
 
 	templates = {"object/mobile/savage_humbaba.iff"},
 	hues = { 16, 17, 18, 19, 20, 21, 22, 23 },
+	controlDeviceTemplate = "object/intangible/pet/falumpaset_hue.iff",
 	scale = 1.1,
 	lootGroups = {},
 	weapons = {},

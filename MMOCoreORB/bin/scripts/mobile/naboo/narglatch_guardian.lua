@@ -18,7 +18,7 @@ narglatch_guardian = Creature:new {
 	boneType = "bone_mammal",
 	boneAmount = 35,
 	milk = 0,
-	tamingChance = 0,
+	tamingChance = 0.25,
 	ferocity = 9,
 	pvpBitmask = AGGRESSIVE + ATTACKABLE + ENEMY,
 	creatureBitmask = PACK + KILLER + STALKER,
@@ -27,6 +27,7 @@ narglatch_guardian = Creature:new {
 
 	templates = {"object/mobile/narglatch_hue.iff"},
 	hues = { 2, 3 },
+	controlDeviceTemplate = "object/intangible/pet/narglatch_hue.iff",
 	scale = 0.95,
 	lootGroups = {},
 	weapons = {},

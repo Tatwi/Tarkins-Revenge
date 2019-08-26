@@ -18,7 +18,7 @@ dalyrake_matriarch = Creature:new {
 	boneType = "",
 	boneAmount = 0,
 	milk = 0,
-	tamingChance = 0,
+	tamingChance = 0.25,
 	ferocity = 0,
 	pvpBitmask = ATTACKABLE,
 	creatureBitmask = PACK,
@@ -27,6 +27,7 @@ dalyrake_matriarch = Creature:new {
 
 	templates = {"object/mobile/dalyrake_matriarch.iff"},
 	hues = { 0, 1, 2, 3, 4, 5, 6, 7 },
+	controlDeviceTemplate = "object/intangible/pet/dalyrake_hue.iff",
 	scale = 1.2,
 	lootGroups = {},
 	weapons = {"creature_spit_small_red"},
