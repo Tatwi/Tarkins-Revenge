@@ -44,6 +44,8 @@
 object_tangible_wearables_armor_chitin_armor_chitin_s01_leggings = object_tangible_wearables_armor_chitin_shared_armor_chitin_s01_leggings:new {
 	templateType = ARMOROBJECT,
 
+	objectMenuComponent = "ArmorObjectMenuComponent",
+
 	playerRaces = { "object/creature/player/bothan_male.iff",
 				"object/creature/player/bothan_female.iff",
 				"object/creature/player/human_male.iff",
@@ -87,10 +89,8 @@ object_tangible_wearables_armor_chitin_armor_chitin_s01_leggings = object_tangib
 				"object/mobile/vendor/zabrak_female.iff",
 				"object/mobile/vendor/zabrak_male.iff" },
 
-	-- Damagetypes in WeaponObject
-	vulnerability = STUN + HEAT + COLD + ELECTRICITY + LIGHTSABER,
-
-	objectMenuComponent = "ArmorObjectMenuComponent",
+	-- Damage types in WeaponObject
+	vulnerability = STUN + LIGHTSABER,
 
 	-- These are default Blue Frog stats
 	healthEncumbrance = 75,
@@ -111,7 +111,6 @@ object_tangible_wearables_armor_chitin_armor_chitin_s01_leggings = object_tangib
 	cold = 15,
 	acid = 15,
 	lightSaber = 0,
-
 
 	numberExperimentalProperties = {1, 1, 1, 2, 2, 2, 2, 2, 2, 1, 1, 2, 1},
 	experimentalProperties = {"XX", "XX", "XX", "OQ", "SR", "OQ", "SR", "OQ", "UT", "MA", "OQ", "MA", "OQ", "MA", "OQ", "XX", "XX", "OQ", "SR", "XX"},
