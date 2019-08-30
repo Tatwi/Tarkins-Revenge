@@ -195,6 +195,7 @@ public:
 	const static int DROIDMODULEPERSONALITY = 0x4000057;
 	const static int VEHICLE = 0x4000058;
 	const static int XPPURCHASE = 0x4000059;
+	const static int PETCUSTOMKIT = 0x400005A;
 public:
 	SharedObjectTemplate();
 
@@ -747,6 +748,10 @@ public:
 
 	virtual bool isNavUpdatesEnabled() {
 		return updatesNavMesh;
+	}
+
+	virtual bool isPetCustomKitTemplate() {
+	    	return false;
 	}
 };
 

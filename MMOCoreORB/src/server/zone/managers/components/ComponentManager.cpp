@@ -157,6 +157,7 @@
 #include "server/zone/objects/tangible/components/CentrifugeUnitMenuComponent.h"
 #include "server/zone/objects/tangible/components/CentrifugeTrayMenuComponent.h"
 #include "server/zone/objects/tangible/components/CombinerUnitMenuComponent.h"
+#include "server/zone/objects/tangible/components/PetGroomingKitObjectMenuComponent.h"
 
 ComponentManager::ComponentManager() {
 	components.put("ContainerComponent", new ContainerComponent());
@@ -362,4 +363,5 @@ ComponentManager::ComponentManager() {
 	components.put("CentrifugeUnitMenuComponent", new CentrifugeUnitMenuComponent());
 	components.put("CentrifugeTrayMenuComponent", new CentrifugeTrayMenuComponent());
 	components.put("CombinerUnitMenuComponent", new CombinerUnitMenuComponent());
+	components.put("PetGroomingKitObjectMenuComponent", new PetGroomingKitObjectMenuComponent());
 }

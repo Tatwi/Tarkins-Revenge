@@ -55,3 +55,9 @@ object_tangible_tarkin_custom_statted_shared_drink_wed_scav_reward_scotch = Shar
 	clientTemplateFileName = "object/tangible/tarkin_custom/statted/shared_drink_wed_scav_reward_scotch.iff"
 }
 ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_statted_shared_drink_wed_scav_reward_scotch, "object/tangible/tarkin_custom/statted/shared_drink_wed_scav_reward_scotch.iff")
+
+--Pet Grooming Kit
+object_tangible_tarkin_custom_statted_shared_pet_customization = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tarkin_custom/statted/shared_pet_customization.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_statted_shared_pet_customization, "object/tangible/tarkin_custom/statted/shared_pet_customization.iff")
