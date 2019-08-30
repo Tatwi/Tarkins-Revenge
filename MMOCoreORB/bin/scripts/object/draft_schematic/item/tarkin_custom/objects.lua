@@ -177,3 +177,10 @@ object_draft_schematic_item_tarkin_custom_shared_wanted_poster_human_female = Sh
 }
 
 ObjectTemplates:addClientTemplate(object_draft_schematic_item_tarkin_custom_shared_wanted_poster_human_female, "object/draft_schematic/item/tarkin_custom/shared_wanted_poster_human_female.iff")
+
+--Pet Grooming Kit
+object_draft_schematic_item_tarkin_custom_shared_pet_customization_kit = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/item/tarkin_custom/shared_pet_customization_kit.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_item_tarkin_custom_shared_pet_customization_kit, "object/draft_schematic/item/tarkin_custom/shared_pet_customization_kit.iff")
