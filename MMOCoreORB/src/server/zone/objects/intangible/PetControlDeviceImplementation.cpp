@@ -844,6 +844,7 @@ void PetControlDeviceImplementation::fillAttributeList(AttributeListMessage* alm
 		ManagedReference<AiAgent*> pet = cast<AiAgent*>(this->controlledObject.get().get());
 
 		if (pet != NULL) {
+			alm->insertAttribute("original_name_creature", pet->getObjectName()->getFullPath());
 			alm->insertAttribute("challenge_level", pet->getLevel());
 
 			if (petType == PetManager::CREATUREPET)
