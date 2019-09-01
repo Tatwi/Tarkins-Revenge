@@ -592,12 +592,26 @@ bool PetControlDeviceImplementation::growPet(CreatureObject* player, bool force,
 		return false;
 	}
 
-	if (adult)
+	if (adult) {
 		pet->setHeight(newHeight, true);
-	else
+
+	} else
 		pet->setHeight(newHeight, false);
 
 	pet->setPetLevel(newLevel);
+
+	// Remove (baby) from pet name once they reach adult level
+	if (newLevel == pet->getAdultLevel()) {
+		String petName = pet->getCustomObjectName().toString();
+		if (petName.contains(" (baby)")) {
+			int nameLength = petName.length();
+			UnicodeString newName = petName.subString(0, (nameLength - 7));
+			ManagedReference<AiAgent*> petAI = cast<AiAgent*>(controlledObject.get()); 
+
+			this->setCustomObjectName(newName, true);
+			petAI->setCustomObjectName(newName, true);
+		}	
+	}
 
 	growthStage = newStage;
 	lastGrowth.updateToCurrentTime();
