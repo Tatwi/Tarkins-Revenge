@@ -116,6 +116,8 @@
 #include "templates/tangible/WoundPackTemplate.h"
 #include "templates/tangible/XpPurchaseTemplate.h"
 
+#include "templates/tangible/PetGroomingKitTemplate.h"
+
 #include "templates/universe/SharedGroupObjectTemplate.h"
 #include "templates/universe/SharedGuildObjectTemplate.h"
 #include "templates/universe/SharedJediManagerTemplate.h"
@@ -576,6 +578,7 @@ void TemplateManager::registerTemplateObjects() {
 	templateFactory.registerObject<DroidPersonalityModuleTemplate>(SharedObjectTemplate::DROIDMODULEPERSONALITY);
 	templateFactory.registerObject<VehicleObjectTemplate>(SharedObjectTemplate::VEHICLE);
 	templateFactory.registerObject<XpPurchaseTemplate>(SharedObjectTemplate::XPPURCHASE);
+	templateFactory.registerObject<PetGroomingKitTemplate>(SharedObjectTemplate::PETCUSTOMKIT);
 }
 
 void TemplateManager::registerFunctions() {

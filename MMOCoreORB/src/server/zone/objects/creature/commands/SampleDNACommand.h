@@ -54,7 +54,7 @@ public:
 		Creature* cr = cast<Creature*>( creo);
 		Locker crosslocker(creo,creature);
 		
-		if (cr->getLevel() > 75){
+		if (creo->getLevel() > 75){
 			player->sendSystemMessage("@bio_engineer:harvest_dna_invalid_target"); // You cannot sample DNA from that target.
 			return GENERALERROR;
 		}

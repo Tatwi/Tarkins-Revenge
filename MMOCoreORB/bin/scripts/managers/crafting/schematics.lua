@@ -2727,4 +2727,7 @@ schematics = {
 	{path="object/draft_schematic/item/tarkin_custom/business_card_chip.iff"},
 	{path="object/draft_schematic/item/tarkin_custom/wanted_poster_human_male.iff"},
 	{path="object/draft_schematic/item/tarkin_custom/wanted_poster_human_female.iff"},
+
+	--Pet Grooming Kit
+	{path="object/draft_schematic/item/tarkin_custom/pet_customization_kit.iff"}
 };

@@ -37,6 +37,7 @@ function NabooImperialEmpRetreatScreenPlay:spawnMobiles()
 
 	spawnMobile("naboo", "stormtrooper_bombardier_sentry", 360, 2447.4, 292.0, -3900.9, -110, 0)
 	spawnMobile("naboo", "stormtrooper_bombardier_sentry", 360, 2437.4, 292.0, -3904.9, 70, 0)
-	
+
+	spawnMobile("naboo", "imperial_recruiter", 1, 2425.95, 292.0, -3910.45, 156, 0)	
 end
 
