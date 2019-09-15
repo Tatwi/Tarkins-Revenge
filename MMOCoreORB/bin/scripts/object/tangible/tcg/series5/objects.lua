@@ -108,3 +108,14 @@ object_tangible_tcg_series5_shared_decorative_trench_run_diorama = SharedTangibl
 }
 ObjectTemplates:addClientTemplate(object_tangible_tcg_series5_shared_decorative_trench_run_diorama, "object/tangible/tcg/series5/shared_decorative_trench_run_diorama.iff")
 
+--House Sign
+object_tangible_tcg_series5_shared_house_sign_tcg_hanging = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tcg/series5/shared_house_sign_tcg_hanging.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_tcg_series5_shared_house_sign_tcg_hanging, "object/tangible/tcg/series5/shared_house_sign_tcg_hanging.iff")
+
+--House Sign
+object_tangible_tcg_series5_shared_house_sign_tcg_standing = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tcg/series5/shared_house_sign_tcg_standing.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_tcg_series5_shared_house_sign_tcg_standing, "object/tangible/tcg/series5/shared_house_sign_tcg_standing.iff")

@@ -409,6 +409,9 @@ includeFile("tangible/tarkin_custom/decorative/tarkin_wanted_poster_wookiee_fema
 includeFile("tangible/tarkin_custom/decorative/tarkin_wanted_poster_wookiee_male.lua")
 includeFile("tangible/tarkin_custom/decorative/tarkin_wanted_poster_zabrak_female.lua")
 includeFile("tangible/tarkin_custom/decorative/tarkin_wanted_poster_zabrak_male.lua")
+includeFile("tangible/tarkin_custom/decorative/mun_kash_signpost_primitive_pointer_small_s01.lua")
+includeFile("tangible/tarkin_custom/decorative/mun_kash_signpost_refined_pointer_small_s01.lua")
+includeFile("tangible/tarkin_custom/decorative/tatooine_marker_sign.lua")
 
 --Disagreeable Shader
 --includeFile("tangible/tarkin_custom/decorative/exarkun_sarcophagus.lua")

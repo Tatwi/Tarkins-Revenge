@@ -14,9 +14,7 @@ object_building_player_yoda_house = object_building_player_shared_yoda_house:new
 	},
 	childObjects = {
 		{templateFile = "object/tangible/sign/player/house_address.iff", x = 3.95, z = 2.7, y =7.62, ox = 0, oy = -1, oz = 0, ow = 0, cellid = -1, containmentType = -1},
-		{templateFile = "object/tangible/terminal/terminal_player_structure.iff", x = -1.76809, z = 1.11599, y = -5.26192, ow = -0.707107, ox = 0, oz = 0, oy = -0.707107, cellid = 1, containmentType = -1},
---		{templateFile = "object/tangible/terminal/terminal_elevator_up.iff", x = -2.66109, z = -0.513074, y = 0.0544102, ow = -0.707107, ox = 0, oz = 0, oy = 0.707107, cellid = 7, containmentType = -1},
---		{templateFile = "object/tangible/terminal/terminal_elevator_down.iff", x = -2.65908, z = 5.39344, y = -0.0155522, ow = -0.707107, ox = 0, oz = 0, oy = 0.707107, cellid = 7, containmentType = -1}
+		{templateFile = "object/tangible/terminal/terminal_player_structure.iff", x = -1.86753, z = 1.11599, y = -5.27244, ow = -0.707107, ox = 0, oz = 0, oy = -0.707107, cellid = 1, containmentType = -1},
 	},
 	shopSigns = {
 		{templateFile = "object/tangible/sign/player/house_address.iff", x = 3.95, z = 2.7, y = 7.62, ox = 0, oy = -1, oz = 0, ow = 0, cellid = -1, containmentType = -1, requiredSkill = "", suiItem = "@player_structure:house_address"},
@@ -24,6 +22,14 @@ object_building_player_yoda_house = object_building_player_shared_yoda_house:new
 		{templateFile = "object/tangible/sign/player/shop_sign_s02.iff", x = 3.95, z = 1.19, y = 8.22, ox = 0, oy = 0, oz = 0, ow =  1, cellid = -1, containmentType = -1, requiredSkill = "", suiItem = "@player_structure:shop_sign2"},
 		{templateFile = "object/tangible/sign/player/shop_sign_s03.iff", x = 3.95, z = 1.19, y = 8.22, ox = 0, oy = 0, oz = 0, ow =  1, cellid = -1, containmentType = -1, requiredSkill = "", suiItem = "@player_structure:shop_sign3"},
 		{templateFile = "object/tangible/sign/player/shop_sign_s04.iff", x = 3.95, z = 1.19, y = 8.22, ox = 0, oy = 0, oz = 0, ow =  1, cellid = -1, containmentType = -1, requiredSkill = "", suiItem = "@player_structure:shop_sign4"},
+		{templateFile = "object/tangible/tarkin_custom/decorative/mun_kash_signpost_primitive_pointer_small_s01.iff", x = 3.95585, z = 1.2, y = 7.23207, ox = 0, oy = 0, oz = 0, ow = 1, cellid = -1, containmentType = -1, requiredSkill = "", suiItem = "@player_structure:mun_kash_signpost_primitive_pointer_small_s01"},
+		{templateFile = "object/tangible/tarkin_custom/decorative/mun_kash_signpost_refined_pointer_small_s01.iff", x = 3.95585, z = 1.2, y = 7.23207, ox = 0, oy = -1, oz = 0, ow = 0, cellid = -1, containmentType = -1, requiredSkill = "", suiItem = "@player_structure:mun_kash_signpost_refined_pointer_small_s01"},
+		{templateFile = "object/tangible/sign/player/wod_sm_hanging_sign_01.iff", x = 3.97693, z = 3.4, y = 7.09135, ox = 0, oy = -1, oz = 0, ow = 0, cellid = -1, containmentType = -1, requiredSkill = "", suiItem = "@player_structure:wod_sign_hanging"},
+		{templateFile = "object/tangible/sign/player/wod_sm_standing_sign_01.iff", x = 3.93396, z = 1.19, y = 6.89119, ox = 0, oy = -1, oz = 0, ow =  0, cellid = -1, containmentType = -1, requiredSkill = "", suiItem = "@player_structure:wod_sign_standing"},
+		{templateFile = "object/tangible/sign/player/efol_hanging_sign_01.iff", x = 3.836, z = 2.5, y = 7.33124, ox = 0, oy = -1, oz = 0, ow = 0, cellid = -1, containmentType = -1, requiredSkill = "", suiItem = "@player_structure:efol_sign_hanging"},
+		{templateFile = "object/tangible/sign/player/efol_standing_sign_01.iff", x = 3.95, z = 1.19, y = 8.22, ox = 0, oy = -0.707107, oz = 0, ow =  0.707107, cellid = -1, containmentType = -1, requiredSkill = "", suiItem = "@player_structure:efol_sign_standing"},
+		{templateFile = "object/tangible/sign/player/house_address_halloween_sign.iff", x = 3.90405, z = 2.91, y = 7.73863, ox = 0, oy = -1, oz = 0, ow = 0, cellid = -1, containmentType = -1, requiredSkill = "", suiItem = "@static_item_n:item_special_sign_halloween_hanging_sign"},
+		{templateFile = "object/tangible/sign/player/shop_sign_halloween_sign.iff", x = 4.27234, z = 1.19, y = 9.33782, ox = 0, oy = -0.707107, oz = 0, ow =  -0.707107, cellid = -1, containmentType = -1, requiredSkill = "", suiItem = "@static_item_n:item_special_sign_halloween_standing_sign"},
 	}
 }
 
