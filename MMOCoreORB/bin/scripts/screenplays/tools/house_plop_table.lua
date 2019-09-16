@@ -30,7 +30,9 @@ housePlopTable = {
 			"Theatre (NPC Empty + Sign)","object/building/player/player_npc_theater_corellia.iff",
 			"Hotel (NPC Empty + Sign)","object/building/player/player_npc_hotel_corellia.iff",
 			"Capitol (NPC Empty + Sign)", "object/building/player/player_npc_capitol_corellia.iff",
+			"Hospital (NPC Empty + Sign)", "object/building/player/player_npc_hospital_corellia.iff",
 		}
+
 	},
 	{catName = "Corellia - Player City (Housing System OK)",
 		 items = {
@@ -57,6 +59,7 @@ housePlopTable = {
 			"Theatre (NPC Empty + Sign)","object/building/player/player_npc_theater_naboo.iff",
 			"Hotel (NPC Empty + Sign)","object/building/player/player_npc_hotel_naboo.iff",
 			"Capitol (NPC Empty + Sign)", "object/building/player/player_npc_capitol_naboo.iff",
+			"Hospital (NPC Empty + Sign)", "object/building/player/player_npc_hospital_naboo.iff",
 		}
 	},
 	{catName = "Naboo - Player City (Housing System OK)",
@@ -88,6 +91,7 @@ housePlopTable = {
 			"Theatre (NPC Empty + Sign)","object/building/player/player_npc_theater_tatooine.iff",
 			"Hotel (NPC Empty + Sign)","object/building/player/player_npc_hotel_tatooine.iff",
 			"Capitol (NPC Empty + Sign)", "object/building/player/player_npc_capitol_tatooine.iff",
+			"Hospital (NPC Empty + Sign)", "object/building/player/player_npc_hospital_tatooine.iff",
 		}
 	},
 	{catName = "Tatooine - Player City (Housing System OK)",
@@ -258,9 +262,9 @@ housePlopTable = {
 			"Bunker Medium (Player)","object/building/player/player_npc_bunker_medium.iff",
 			"Bunker Small (Player)","object/building/player/player_npc_bunker_small.iff",
 			"Outpost Landing Pad","object/building/general/mun_all_landing_pad_s01.iff",
-			"Police Station: Imprerial","object/building/military/military_base_police_station_imperial_style_01.iff",
-			"Guard House: Imprerial","object/building/military/military_outpost_guard_house_imperial.iff",
-			"Gate House: Imprerial","object/building/military/military_outpost_guard_house_rebel.iff",
+			"Police Station: Imperial","object/building/military/military_base_police_station_imperial_style_01.iff",
+			"Guard House: Imperial","object/building/military/military_outpost_guard_house_imperial.iff",
+			"Gate House: Imperial","object/building/military/military_outpost_guard_house_rebel.iff",
 			"Police Station: Rebel","object/building/military/military_base_police_station_rebel_style_01.iff",
 			"Guard House: Rebel","object/building/military/military_base_gate_house_imperial.iff",
 			"Gate House: Rebel","object/building/military/military_base_gate_house_rebel.iff",
