@@ -72,3 +72,16 @@ object_tangible_tcg_series3_shared_decorative_jango_fett_memorial_statue = Share
 	clientTemplateFileName = "object/tangible/tcg/series3/shared_decorative_jango_fett_memorial_statue.iff"
 }
 ObjectTemplates:addClientTemplate(object_tangible_tcg_series3_shared_decorative_jango_fett_memorial_statue, "object/tangible/tcg/series3/shared_decorative_jango_fett_memorial_statue.iff")
+
+
+--House Sign
+object_tangible_tcg_series3_shared_house_sign_tcg_s01 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tcg/series3/shared_house_sign_tcg_s01.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_tcg_series3_shared_house_sign_tcg_s01, "object/tangible/tcg/series3/shared_house_sign_tcg_s01.iff")
+
+--House Sign
+object_tangible_tcg_series3_shared_house_sign_tcg_s02 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tcg/series3/shared_house_sign_tcg_s02.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_tcg_series3_shared_house_sign_tcg_s02, "object/tangible/tcg/series3/shared_house_sign_tcg_s02.iff")

@@ -1,0 +1,4 @@
+object_tangible_sign_player_house_address_halloween_sign = object_tangible_sign_player_shared_house_address_halloween_sign:new {
+}
+ObjectTemplates:addTemplate(object_tangible_sign_player_house_address_halloween_sign, "object/tangible/sign/player/house_address_halloween_sign.iff")
+

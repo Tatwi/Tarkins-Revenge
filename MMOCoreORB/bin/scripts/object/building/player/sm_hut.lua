@@ -57,9 +57,7 @@ object_building_player_sm_hut = object_building_player_shared_sm_hut:new {
 	},
 	childObjects = {
 		{templateFile = "object/tangible/sign/player/house_address.iff", x = -1.75, z = 2.7, y =5.22, ox = 0, oy = -1, oz = 0, ow = 0, cellid = -1, containmentType = -1},
-		{templateFile = "object/tangible/terminal/terminal_player_structure.iff", x = 2.11317, z = 0.702305, y = 2.73946, ow = 0, ox = 0, oz = 0, oy = -1, cellid = 1, containmentType = -1},
---		{templateFile = "object/tangible/terminal/terminal_elevator_up.iff", x = -2.66109, z = -0.513074, y = 0.0544102, ow = -0.707107, ox = 0, oz = 0, oy = 0.707107, cellid = 7, containmentType = -1},
---		{templateFile = "object/tangible/terminal/terminal_elevator_down.iff", x = -2.65908, z = 5.39344, y = -0.0155522, ow = -0.707107, ox = 0, oz = 0, oy = 0.707107, cellid = 7, containmentType = -1}
+		{templateFile = "object/tangible/terminal/terminal_player_structure.iff", x = 1.9918, z = 0.752993, y = 3.0267, ow = 0, ox = 0, oz = 0, oy = -1, cellid = 1, containmentType = -1},
 	},
 	shopSigns = {
 		{templateFile = "object/tangible/sign/player/house_address.iff", x = -1.75, z = 2.7, y = 5.22, ox = 0, oy = -1, oz = 0, ow = 0, cellid = -1, containmentType = -1, requiredSkill = "", suiItem = "@player_structure:house_address"},
@@ -67,6 +65,15 @@ object_building_player_sm_hut = object_building_player_shared_sm_hut:new {
 		{templateFile = "object/tangible/sign/player/shop_sign_s02.iff", x = -9.13, z = 0.79, y = 6.43, ox = 0, oy = 0, oz = 0, ow =  1, cellid = -1, containmentType = -1, requiredSkill = "", suiItem = "@player_structure:shop_sign2"},
 		{templateFile = "object/tangible/sign/player/shop_sign_s03.iff", x = -9.13, z = 0.79, y = 6.43, ox = 0, oy = 0, oz = 0, ow =  1, cellid = -1, containmentType = -1, requiredSkill = "", suiItem = "@player_structure:shop_sign3"},
 		{templateFile = "object/tangible/sign/player/shop_sign_s04.iff", x = -9.13, z = 0.79, y = 6.43, ox = 0, oy = 0, oz = 0, ow =  1, cellid = -1, containmentType = -1, requiredSkill = "", suiItem = "@player_structure:shop_sign4"},
+		{templateFile = "object/tangible/sign/player/wod_sm_hanging_sign_01.iff",  x = 1.44075, z = 4.76, y = 4.81014, ox = 0, oy = -1, oz = 0, ow = 0, cellid = -1, containmentType = -1, requiredSkill = "", suiItem = "@player_structure:wod_sign_hanging"},
+		{templateFile = "object/tangible/sign/player/wod_sm_standing_sign_01.iff", x = -7.63284, z = 0.79, y = 5.82241, ox = 0, oy = 0.707107, oz = 0, ow =  -0.707107, cellid = -1, containmentType = -1, requiredSkill = "", suiItem = "@player_structure:wod_sign_standing"},
+		{templateFile = "object/tangible/sign/player/efol_hanging_sign_01.iff", x = -1.68282, z = 3.09, y = 5.20784, ox = 0, oy = -1, oz = 0, ow = 0, cellid = -1, containmentType = -1, requiredSkill = "", suiItem = "@player_structure:efol_sign_hanging"},
+		{templateFile = "object/tangible/sign/player/efol_standing_sign_01.iff", x = -3.6328, z = 0.79, y = 5.81997, ox = 0, oy = 0.707107, oz = 0, ow =  -0.707107, cellid = -1, containmentType = -1, requiredSkill = "", suiItem = "@player_structure:efol_sign_standing"},
+		{templateFile = "object/tangible/sign/player/house_address_halloween_sign.iff", x = -1.54237, z = 4.69, y = 5.35816, ox = 0, oy = -1, oz = 0, ow = 0, cellid = -1, containmentType = -1, requiredSkill = "", suiItem = "@static_item_n:item_special_sign_halloween_hanging_sign"},
+		{templateFile = "object/tangible/sign/player/shop_sign_halloween_sign.iff", x = -4.6332, z = 0.79, y = 5.77612, ox = 0, oy = 0.707107, oz = 0, ow =  -0.707107, cellid = -1, containmentType = -1, requiredSkill = "", suiItem = "@static_item_n:item_special_sign_halloween_standing_sign"},
+		{templateFile = "object/tangible/sign/player/wod_sm_banner_sign_01.iff", x = -1.64631, z = 1.19, y = 5.31949, ox = 0, oy = -0.707107, oz = 0, ow = 0.707107, cellid = -1, containmentType = -1, requiredSkill = "", suiItem = "@player_structure:wod_sign_banner_01"},
+		{templateFile = "object/tangible/sign/player/wod_sm_banner_sign_02.iff", x = -1.64631, z = 1.19, y = 5.31949, ox = 0, oy = -0.707107, oz = 0, ow = 0.707107, cellid = -1, containmentType = -1, requiredSkill = "", suiItem = "@player_structure:wod_sign_banner_02"},
+		{templateFile = "object/tangible/sign/player/wod_sm_banner_sign_03.iff", x = -1.64631, z = 1.19, y = 5.31949, ox = 0, oy = -0.707107, oz = 0, ow = 0.707107, cellid = -1, containmentType = -1, requiredSkill = "", suiItem = "@player_structure:wod_sign_banner_03"},
 	}
 }
 
