@@ -46,6 +46,11 @@ public:
 
 			target->setCustomizationVariable(palette, index, true);
 
+			if(target->isPet() && target->isCreatureObject()) {
+				ManagedReference<CreatureObject*> pet = target.castTo<CreatureObject*>();
+				pet->setDyed(true);
+			}
+
 			clocker.release();
 
 			if (customizationKit != NULL) {

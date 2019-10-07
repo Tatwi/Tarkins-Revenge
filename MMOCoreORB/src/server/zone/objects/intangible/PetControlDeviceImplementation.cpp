@@ -361,7 +361,7 @@ void PetControlDeviceImplementation::spawnObject(CreatureObject* player) {
 		creature->setFaction(player->getFaction());
 		creature->setObjectMenuComponent("PetMenuComponent");
 
-		if (creature->getHueValue() >= 0)
+		if (!creature->isDyed() && creature->getHueValue() >= 0)
 			creature->setHue(creature->getHueValue());
 
 		if (player->getPvpStatusBitmask() & CreatureFlag::PLAYER)

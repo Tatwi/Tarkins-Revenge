@@ -47,7 +47,7 @@ import server.zone.managers.auction.AuctionSearchTask;
 class CreatureObject extends TangibleObject {
 	@weakReference
 	protected transient ZoneClientSession owner;
-
+	protected boolean dyed;
     	protected CreditObject creditObject;
 
     	// deprectated
@@ -224,7 +224,7 @@ class CreatureObject extends TangibleObject {
 	 */
 	public CreatureObject() {
 		Logger.setLoggingName("CreatureObject");
-
+		dyed = false;
 		initializeMembers();
 	}
 
@@ -2214,6 +2214,15 @@ class CreatureObject extends TangibleObject {
 	@read
 	public int getHueValue() {
 		return hueValue;
+	}
+
+	public void setDyed(boolean dye) {
+		dyed = dye;
+	}
+
+	@dirty
+	public boolean isDyed() {
+		return dyed;
 	}
 
 	@local

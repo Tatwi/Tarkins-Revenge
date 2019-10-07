@@ -59,7 +59,7 @@ public:
 
 		String name = arguments.toString();
 
-		if (name.isEmpty() || nameManager->isProfane(name) || name.length() > 128) {
+		if (name.isEmpty() || nameManager->isProfane(name) || name.length() > 256) {
 			creature->sendSystemMessage("@player_structure:obscene"); //That name was rejected by the name filter. Try a different name.
 			return INVALIDPARAMETERS;
 		}
