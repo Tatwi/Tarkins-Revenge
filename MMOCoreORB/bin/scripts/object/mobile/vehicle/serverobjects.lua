@@ -80,4 +80,4 @@ includeFile("mobile/vehicle/sith_speeder.lua")
 includeFile("mobile/vehicle/stap_speeder.lua")
 includeFile("mobile/vehicle/swamp_speeder.lua")
 includeFile("mobile/vehicle/xj6_air_speeder.lua")
-
+includeFile("mobile/vehicle/ghost_speederbike_flash.lua")

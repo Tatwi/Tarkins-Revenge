@@ -1887,6 +1887,7 @@ schematics = {
 	{path="object/draft_schematic/vehicle/civilian/speeder_stap.iff"},
 	{path="object/draft_schematic/vehicle/civilian/swamp_speeder.iff"},
 	{path="object/draft_schematic/vehicle/civilian/xj6_air_speeder.iff"},
+	{path="object/draft_schematic/vehicle/civilian/ghost_flash_speeder.iff"},
 
 	--NGE Houses
 	{path="object/draft_schematic/structure/atat_house_schem.iff"},
@@ -2687,6 +2688,7 @@ schematics = {
 	{path="object/draft_schematic/bio_engineer/creature/creature_murra_blanca.iff"},
 	{path="object/draft_schematic/bio_engineer/creature/creature_spiketail_blurrg.iff"},
 	{path="object/draft_schematic/bio_engineer/creature/creature_scorpion_kliknik.iff"},
+	{path="object/draft_schematic/bio_engineer/creature/creature_skeletal_tauntaun.iff"},
 
 	--Medical Bag
 	{path="object/draft_schematic/chemistry/tarkin_custom/medicine_bag.iff"},

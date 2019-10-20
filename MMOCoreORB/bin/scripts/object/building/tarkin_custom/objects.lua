@@ -1,0 +1,6 @@
+--Halloween Event Bunker
+object_building_tarkin_custom_shared_tarkin_bunker_halloween = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/tarkin_custom/shared_tarkin_bunker_halloween.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_building_tarkin_custom_shared_tarkin_bunker_halloween, "object/building/tarkin_custom/shared_tarkin_bunker_halloween.iff")

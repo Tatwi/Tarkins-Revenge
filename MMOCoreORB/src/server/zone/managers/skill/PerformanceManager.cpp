@@ -49,6 +49,7 @@ PerformanceManager::PerformanceManager() :
 	instrumentIdMap.put("western", 101);
 	instrumentIdMap.put("starwars4", 111);
 	instrumentIdMap.put("funk", 121);
+	instrumentIdMap.put("dirge", 131);
 
 }
 

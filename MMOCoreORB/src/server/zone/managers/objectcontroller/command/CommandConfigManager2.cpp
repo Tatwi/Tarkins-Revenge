@@ -428,6 +428,7 @@
 
 #include "server/zone/objects/creature/commands/TarkinCommand.h"
 #include "server/zone/objects/creature/commands/InstallBillboardCommand.h"
+#include "server/zone/objects/creature/commands/WearCostumeCommand.h"
 
 using namespace server::zone::managers::objectcontroller::command;
 
@@ -836,4 +837,5 @@ void CommandConfigManager::registerCommands2() {
 	// Tarkin Commands
 	commandFactory.registerCommand<TarkinCommand>(String("tarkin").toLowerCase());
 	commandFactory.registerCommand<InstallBillboardCommand>(String("installBillboard").toLowerCase());
+	commandFactory.registerCommand<WearCostumeCommand>(String("wearCostume").toLowerCase());
 }

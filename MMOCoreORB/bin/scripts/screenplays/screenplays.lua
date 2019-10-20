@@ -680,6 +680,7 @@ includeFile("tools/mission_level_choice.lua")
 includeFile("caves/lok_kimogila_cave.lua")
 includeFile("tools/tarkin_housing_system.lua")
 includeFile("tools/mission_direction_choice.lua")
+includeFile("tools/tarkin_costume_table.lua")
 
 --Tarkin Custom City
 includeFile("cities/tarkin_custom/tarkin_tatooine_mos_entha.lua")
@@ -721,6 +722,7 @@ includeFile("events/tarkin_custom/spawn_points_table.lua")
 
 --Tarkin Custom Event Conversation Handlers
 includeFile("events/tarkin_custom/conversations/weddingScavHuntConvoHandler.lua")
+includeFile("events/tarkin_custom/conversations/halloweenHostage2019ConvoHandler.lua")
 
 --Tarkin Custom Misc
 includeFile("misc/junk_shop.lua")

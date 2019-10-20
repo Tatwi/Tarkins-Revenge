@@ -1769,3 +1769,15 @@ object_tangible_event_perk_shared_frn_hologram_data_disk_s02 = SharedTangibleObj
 	clientTemplateFileName = "object/tangible/event_perk/shared_frn_hologram_data_disk_s02.iff"
 }
 ObjectTemplates:addClientTemplate(object_tangible_event_perk_shared_frn_hologram_data_disk_s02, "object/tangible/event_perk/shared_frn_hologram_data_disk_s02.iff")
+
+--Bat Pheromone
+object_tangible_event_perk_shared_gmf_crafted_bat_pheromone = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/event_perk/shared_gmf_crafted_bat_pheromone.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_event_perk_shared_gmf_crafted_bat_pheromone, "object/tangible/event_perk/shared_gmf_crafted_bat_pheromone.iff")
+
+--Spider Pheromone
+object_tangible_event_perk_shared_gmf_crafted_spider_pheromone = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/event_perk/shared_gmf_crafted_spider_pheromone.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_event_perk_shared_gmf_crafted_spider_pheromone, "object/tangible/event_perk/shared_gmf_crafted_spider_pheromone.iff")

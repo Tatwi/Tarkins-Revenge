@@ -1,0 +1,5 @@
+object_tangible_tarkin_custom_decorative_skeleton_ithorian_headandbody = object_tangible_tarkin_custom_decorative_shared_skeleton_ithorian_headandbody:new {
+
+}
+
+ObjectTemplates:addTemplate(object_tangible_tarkin_custom_decorative_skeleton_ithorian_headandbody, "object/tangible/tarkin_custom/decorative/skeleton_ithorian_headandbody.iff")

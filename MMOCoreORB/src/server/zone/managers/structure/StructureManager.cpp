@@ -515,6 +515,12 @@ StructureObject* StructureManager::placeStructure(CreatureObject* creature,
 	zone->transferObject(structureObject, -1, true);
 
 	structureObject->createChildObjects();
+	
+	// Tarkin custom event dungeon script - allows houseplopped buildings to spawn child creatures.  Only use on custom buildings intended for this purpose.
+	if(structureTemplatePath == "object/building/tarkin_custom/tarkin_bunker_halloween.iff") {
+		BuildingObject* buildingObject = structureObject->asBuildingObject();
+		buildingObject->spawnChildCreaturesFromTemplate();
+	}	
 
 	structureObject->notifyStructurePlaced(creature);
 

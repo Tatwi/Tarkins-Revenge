@@ -1,0 +1,12 @@
+--Skeleton Costume
+object_tangible_tarkin_custom_abilities_costumes_shared_costume_skeleton = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tarkin_custom/abilities/costumes/shared_costume_skeleton.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_abilities_costumes_shared_costume_skeleton, "object/tangible/tarkin_custom/abilities/costumes/shared_costume_skeleton.iff")
+
+object_tangible_tarkin_custom_abilities_costumes_shared_costume_undead = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tarkin_custom/abilities/costumes/shared_costume_undead.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_abilities_costumes_shared_costume_undead, "object/tangible/tarkin_custom/abilities/costumes/shared_costume_undead.iff")

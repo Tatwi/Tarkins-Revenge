@@ -117,6 +117,7 @@
 #include "templates/tangible/XpPurchaseTemplate.h"
 
 #include "templates/tangible/PetGroomingKitTemplate.h"
+#include "templates/tangible/TarkinGrantTemplate.h"
 
 #include "templates/universe/SharedGroupObjectTemplate.h"
 #include "templates/universe/SharedGuildObjectTemplate.h"
@@ -579,6 +580,7 @@ void TemplateManager::registerTemplateObjects() {
 	templateFactory.registerObject<VehicleObjectTemplate>(SharedObjectTemplate::VEHICLE);
 	templateFactory.registerObject<XpPurchaseTemplate>(SharedObjectTemplate::XPPURCHASE);
 	templateFactory.registerObject<PetGroomingKitTemplate>(SharedObjectTemplate::PETCUSTOMKIT);
+	templateFactory.registerObject<TarkinGrantTemplate>(SharedObjectTemplate::TARKINGRANT);
 }
 
 void TemplateManager::registerFunctions() {
@@ -765,6 +767,7 @@ void TemplateManager::registerGlobals() {
 	luaTemplatesInstance->setGlobalInt("DROIDPERSONALITYCHIP", SharedObjectTemplate::DROIDMODULEPERSONALITY);
 	luaTemplatesInstance->setGlobalInt("VEHICLE", SharedObjectTemplate::VEHICLE);
 	luaTemplatesInstance->setGlobalInt("XPPURCHASE", SharedObjectTemplate::XPPURCHASE);
+	luaTemplatesInstance->setGlobalInt("TARKINGRANT", SharedObjectTemplate::TARKINGRANT);
 
 	luaTemplatesInstance->setGlobalInt("NO_HITLOCATION", ArmorObjectTemplate::NOLOCATION);
 	luaTemplatesInstance->setGlobalInt("CHEST_HITLOCATION", ArmorObjectTemplate::CHEST);

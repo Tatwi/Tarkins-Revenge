@@ -8451,3 +8451,13 @@ object_tangible_loot_loot_schematic_shared_be_tcg_peko_peko_mount_schematic = Sh
 	clientTemplateFileName = "object/tangible/loot/loot_schematic/shared_be_tcg_peko_peko_mount_schematic.iff"
 }
 ObjectTemplates:addClientTemplate(object_tangible_loot_loot_schematic_shared_be_tcg_peko_peko_mount_schematic, "object/tangible/loot/loot_schematic/shared_be_tcg_peko_peko_mount_schematic.iff")
+
+object_tangible_loot_loot_schematic_shared_be_skeletal_tauntaun_schematic = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/loot/loot_schematic/shared_be_skeletal_tauntaun_schematic.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_loot_loot_schematic_shared_be_skeletal_tauntaun_schematic, "object/tangible/loot/loot_schematic/shared_be_skeletal_tauntaun_schematic.iff")
+
+object_tangible_loot_loot_schematic_shared_ghost_flash_speeder_schematic = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/loot/loot_schematic/shared_ghost_flash_speeder_schematic.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_loot_loot_schematic_shared_ghost_flash_speeder_schematic, "object/tangible/loot/loot_schematic/shared_ghost_flash_speeder_schematic.iff")

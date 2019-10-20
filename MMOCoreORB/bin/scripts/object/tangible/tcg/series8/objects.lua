@@ -48,7 +48,6 @@ object_tangible_tcg_series8_shared_decorative_palpatine_hologram = SharedTangibl
 }
 ObjectTemplates:addClientTemplate(object_tangible_tcg_series8_shared_decorative_palpatine_hologram, "object/tangible/tcg/series8/shared_decorative_palpatine_hologram.iff")
 
-
 --Dagobah R2
 object_tangible_tcg_series8_shared_decorative_r2d2_dagobah = SharedTangibleObjectTemplate:new {
 	clientTemplateFileName = "object/tangible/tcg/series8/shared_decorative_r2d2_dagobah.iff"
@@ -78,3 +77,9 @@ object_tangible_tcg_series8_shared_diorama_yoda_xwing = SharedTangibleObjectTemp
 	clientTemplateFileName = "object/tangible/tcg/series8/shared_diorama_yoda_xwing.iff"
 }
 ObjectTemplates:addClientTemplate(object_tangible_tcg_series8_shared_diorama_yoda_xwing, "object/tangible/tcg/series8/shared_diorama_yoda_xwing.iff")
+
+--Exogorth Gloves
+object_tangible_tcg_series8_shared_wearable_exogorth_gloves = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tcg/series8/shared_wearable_exogorth_gloves.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_tcg_series8_shared_wearable_exogorth_gloves, "object/tangible/tcg/series8/shared_wearable_exogorth_gloves.iff")

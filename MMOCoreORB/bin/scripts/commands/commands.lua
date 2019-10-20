@@ -833,3 +833,4 @@ RunSlashCommandsFile("createVendor.lua")
 
 RunSlashCommandsFile("tarkin.lua")
 RunSlashCommandsFile("installBillboard.lua")
+RunSlashCommandsFile("wearCostume.lua")

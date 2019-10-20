@@ -1,0 +1,12 @@
+--Skeleton Costume
+object_tangible_tarkin_custom_abilities_badges_shared_tarkin_badge_halloween_2019 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tarkin_custom/abilities/badges/shared_tarkin_badge_halloween_2019.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_abilities_badges_shared_tarkin_badge_halloween_2019, "object/tangible/tarkin_custom/abilities/badges/shared_tarkin_badge_halloween_2019.iff")
+
+object_tangible_tarkin_custom_abilities_badges_shared_tarkin_badge_halloween_2019_inert = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tarkin_custom/abilities/badges/shared_tarkin_badge_halloween_2019_inert.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_abilities_badges_shared_tarkin_badge_halloween_2019_inert, "object/tangible/tarkin_custom/abilities/badges/shared_tarkin_badge_halloween_2019_inert.iff")

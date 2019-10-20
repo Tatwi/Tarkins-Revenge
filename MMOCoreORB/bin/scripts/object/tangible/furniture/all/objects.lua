@@ -7199,3 +7199,45 @@ object_tangible_furniture_all_shared_frn_all_statuette_small_naboo_house = Share
 }
 
 ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_statuette_small_naboo_house, "object/tangible/furniture/all/frn_all_statuette_small_naboo_house.iff")
+
+--Deathtrooper Pile
+object_tangible_furniture_all_shared_outbreak_deathtrooper_pile = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_outbreak_deathtrooper_pile.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_outbreak_deathtrooper_pile, "object/tangible/furniture/all/shared_outbreak_deathtrooper_pile.iff")
+
+--Zombie Arm
+object_tangible_furniture_all_shared_undead_arm = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_undead_arm.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_undead_arm, "object/tangible/furniture/all/shared_undead_arm.iff")
+
+--Zombie Foot
+object_tangible_furniture_all_shared_undead_foot = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_undead_foot.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_undead_foot, "object/tangible/furniture/all/shared_undead_foot.iff")
+
+--Zombie Hand
+object_tangible_furniture_all_shared_undead_hand = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_undead_hand.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_undead_hand, "object/tangible/furniture/all/shared_undead_hand.iff")
+
+--Zombie Head
+object_tangible_furniture_all_shared_undead_head = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_undead_head.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_undead_head, "object/tangible/furniture/all/shared_undead_head.iff")
+
+--Zombie Leg
+object_tangible_furniture_all_shared_undead_leg = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_undead_leg.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_undead_leg, "object/tangible/furniture/all/shared_undead_leg.iff")
