@@ -6471,3 +6471,8 @@ object_tangible_deed_pet_deed_shared_kashyyyk_bantha_deed = SharedTangibleObject
 	clientTemplateFileName = "object/tangible/deed/pet_deed/shared_kashyyyk_bantha_deed.iff"
 }
 ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_kashyyyk_bantha_deed, "object/tangible/deed/pet_deed/shared_kashyyyk_bantha_deed.iff")
+
+object_tangible_deed_pet_deed_shared_skeletal_tauntaun_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/pet_deed/shared_skeletal_tauntaun_deed.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_skeletal_tauntaun_deed, "object/tangible/deed/pet_deed/shared_skeletal_tauntaun_deed.iff")

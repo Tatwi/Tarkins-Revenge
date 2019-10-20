@@ -839,7 +839,7 @@
 #include "RequestSpaceTrainerCommand.h"
 
 #include "TarkinCommand.h"
-
+#include "WearCostumeCommand.h"
 
 #endif /* COMMANDSNEW_H_ */
 

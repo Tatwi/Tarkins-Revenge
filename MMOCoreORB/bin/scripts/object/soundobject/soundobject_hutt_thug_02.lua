@@ -1,0 +1,5 @@
+object_soundobject_soundobject_hutt_thug_02 = object_soundobject_shared_soundobject_hutt_thug_02:new {
+
+}
+
+ObjectTemplates:addTemplate(object_soundobject_soundobject_hutt_thug_02, "object/soundobject/soundobject_hutt_thug_02.iff")

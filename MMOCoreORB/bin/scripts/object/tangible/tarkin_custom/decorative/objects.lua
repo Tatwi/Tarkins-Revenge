@@ -2414,3 +2414,68 @@ object_tangible_tarkin_custom_decorative_shared_tatooine_marker_sign = SharedTan
 }
 ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_decorative_shared_tatooine_marker_sign, "object/tangible/tarkin_custom/decorative/shared_tatooine_marker_sign.iff")
 
+--Bith Skeleton
+object_tangible_tarkin_custom_decorative_shared_skeleton_bith_headandbody = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tarkin_custom/decorative/shared_skeleton_bith_headandbody.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_decorative_shared_skeleton_bith_headandbody, "object/tangible/tarkin_custom/decorative/shared_skeleton_bith_headandbody.iff")
+
+--Human Skeleton
+object_tangible_tarkin_custom_decorative_shared_skeleton_human_headandbody = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tarkin_custom/decorative/shared_skeleton_human_headandbody.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_decorative_shared_skeleton_human_headandbody, "object/tangible/tarkin_custom/decorative/shared_skeleton_human_headandbody.iff")
+
+--Human Skeleton
+object_tangible_tarkin_custom_decorative_shared_skeleton_human_body = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tarkin_custom/decorative/shared_skeleton_human_body.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_decorative_shared_skeleton_human_body, "object/tangible/tarkin_custom/decorative/shared_skeleton_human_body.iff")
+
+--Human Skeleton
+object_tangible_tarkin_custom_decorative_shared_skeleton_human_corpse = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tarkin_custom/decorative/shared_skeleton_human_corpse.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_decorative_shared_skeleton_human_corpse, "object/tangible/tarkin_custom/decorative/shared_skeleton_human_corpse.iff")
+
+--Ithorian Skeleton
+object_tangible_tarkin_custom_decorative_shared_skeleton_ithorian_headandbody = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tarkin_custom/decorative/shared_skeleton_ithorian_headandbody.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_decorative_shared_skeleton_ithorian_headandbody, "object/tangible/tarkin_custom/decorative/shared_skeleton_ithorian_headandbody.iff")
+
+--Wookiee Skeleton
+object_tangible_tarkin_custom_decorative_shared_bones_wookie_s01 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tarkin_custom/decorative/shared_bones_wookie_s01.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_decorative_shared_bones_wookie_s01, "object/tangible/tarkin_custom/decorative/shared_bones_wookie_s01.iff")
+
+--Wookiee Skeleton
+object_tangible_tarkin_custom_decorative_shared_bones_wookie_s02 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tarkin_custom/decorative/shared_bones_wookie_s02.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_decorative_shared_bones_wookie_s02, "object/tangible/tarkin_custom/decorative/shared_bones_wookie_s02.iff")
+
+--Wookiee Skeleton
+object_tangible_tarkin_custom_decorative_shared_bones_wookie_s03 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tarkin_custom/decorative/shared_bones_wookie_s03.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_decorative_shared_bones_wookie_s03, "object/tangible/tarkin_custom/decorative/shared_bones_wookie_s03.iff")
+
+--Human Skeleton
+object_tangible_tarkin_custom_decorative_shared_item_collection_bones = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tarkin_custom/decorative/shared_item_collection_bones.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_decorative_shared_item_collection_bones, "object/tangible/tarkin_custom/decorative/shared_item_collection_bones.iff")
+
+--Bith Skull
+object_tangible_tarkin_custom_decorative_shared_skeleton_bith_head = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tarkin_custom/decorative/shared_skeleton_bith_head.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_decorative_shared_skeleton_bith_head, "object/tangible/tarkin_custom/decorative/shared_skeleton_bith_head.iff")
+
+--Ithorian Skull
+object_tangible_tarkin_custom_decorative_shared_skeleton_ithorian_head = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tarkin_custom/decorative/shared_skeleton_ithorian_head.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_decorative_shared_skeleton_ithorian_head, "object/tangible/tarkin_custom/decorative/shared_skeleton_ithorian_head.iff")

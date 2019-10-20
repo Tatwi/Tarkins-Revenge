@@ -3225,3 +3225,15 @@ object_soundobject_shared_soundobject_wind_power_generator = SharedStaticObjectT
 }
 
 ObjectTemplates:addClientTemplate(object_soundobject_shared_soundobject_wind_power_generator, "object/soundobject/shared_soundobject_wind_power_generator.iff")
+
+object_soundobject_shared_soundobject_insect_swarm_lrg = SharedStaticObjectTemplate:new {
+	clientTemplateFileName = "object/soundobject/shared_soundobject_insect_swarm_lrg.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_soundobject_shared_soundobject_insect_swarm_lrg, "object/soundobject/shared_soundobject_insect_swarm_lrg.iff")
+
+object_soundobject_shared_soundobject_hutt_thug_02 = SharedStaticObjectTemplate:new {
+	clientTemplateFileName = "object/soundobject/shared_soundobject_hutt_thug_02.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_soundobject_shared_soundobject_hutt_thug_02, "object/soundobject/shared_soundobject_hutt_thug_02.iff")

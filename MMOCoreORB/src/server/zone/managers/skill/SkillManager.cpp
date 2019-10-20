@@ -119,6 +119,14 @@ void SkillManager::loadClientData() {
 		abilityMap.put("startDance+theatrical", new Ability("startDance+theatrical"));
 	if (!abilityMap.containsKey("startDance+theatrical2"))
 		abilityMap.put("startDance+theatrical2", new Ability("startDance+theatrical2"));
+	if (!abilityMap.containsKey("startMusic+dirge"))
+		abilityMap.put("startMusic+dirge", new Ability("startMusic+dirge"));
+
+	// Tarkin's Revenge Costumes
+	if (!abilityMap.containsKey("wearCostume+player+skeleton"))
+		abilityMap.put("wearCostume+player+skeleton", new Ability("wearCostume+player+skeleton"));
+	if (!abilityMap.containsKey("wearCostume+player+undead"))
+		abilityMap.put("wearCostume+player+undead", new Ability("wearCostume+player+undead"));
 
 	loadXpLimits();
 

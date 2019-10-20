@@ -11996,3 +11996,21 @@ object_static_particle_shared_pt_webber = SharedStaticObjectTemplate:new {
 }
 
 ObjectTemplates:addClientTemplate(object_static_particle_shared_pt_webber, "object/static/particle/shared_pt_webber.iff")
+
+object_static_particle_shared_pt_halloween_ghost_fog = SharedStaticObjectTemplate:new {
+	clientTemplateFileName = "object/static/particle/shared_pt_halloween_ghost_fog.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_static_particle_shared_pt_halloween_ghost_fog, "object/static/particle/shared_pt_halloween_ghost_fog.iff")
+
+object_static_particle_shared_pt_halloween_ghost_fog2 = SharedStaticObjectTemplate:new {
+	clientTemplateFileName = "object/static/particle/shared_pt_halloween_ghost_fog2.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_static_particle_shared_pt_halloween_ghost_fog2, "object/static/particle/shared_pt_halloween_ghost_fog2.iff")
+
+object_static_particle_shared_pt_ground_fog_optimized = SharedStaticObjectTemplate:new {
+	clientTemplateFileName = "object/static/particle/shared_pt_ground_fog_optimized.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_static_particle_shared_pt_ground_fog_optimized, "object/static/particle/shared_pt_ground_fog_optimized.iff")

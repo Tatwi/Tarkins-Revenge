@@ -740,3 +740,10 @@ object_draft_schematic_vehicle_civilian_shared_xj6_air_speeder = SharedDraftSche
 }
 
 ObjectTemplates:addClientTemplate(object_draft_schematic_vehicle_civilian_shared_xj6_air_speeder, "object/draft_schematic/vehicle/civilian/shared_xj6_air_speeder.iff")
+
+--Ghostly Flash Speeder
+object_draft_schematic_vehicle_civilian_shared_ghost_flash_speeder = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/vehicle/civilian/shared_ghost_flash_speeder.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_vehicle_civilian_shared_ghost_flash_speeder, "object/draft_schematic/vehicle/civilian/shared_ghost_flash_speeder.iff")

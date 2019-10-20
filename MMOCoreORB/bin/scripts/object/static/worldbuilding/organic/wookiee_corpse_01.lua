@@ -1,0 +1,4 @@
+object_static_worldbuilding_organic_wookiee_corpse_01 = object_static_worldbuilding_organic_shared_wookiee_corpse_01:new {
+
+} ObjectTemplates:addTemplate(object_static_worldbuilding_organic_wookiee_corpse_01, "object/static/worldbuilding/organic/wookiee_corpse_01.iff")
+

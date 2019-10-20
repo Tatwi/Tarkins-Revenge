@@ -321,4 +321,9 @@ housePlopTable = {
 			"Starport","object/building/tatooine/starport_tatooine.iff",
 		}
 	},
+	{catName = "Tarkin Custom Buildings",
+		 items = {
+			"Halloween Event Bunker", "object/building/tarkin_custom/tarkin_bunker_halloween.iff",
+		}
+	},
 }

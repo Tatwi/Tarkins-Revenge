@@ -73,7 +73,7 @@ public:
 
 		int playerXp = ghost->getExperience(xpType);
 
-		if (playerXp == 0) {
+		if (playerXp == 0 && xpAmount != 0) {
 			UnicodeString type = stringIdManager->getStringId("@exp_n:" + xpType);
 			StringIdChatParameter stringID("item/xp_purchase", "msg_no_xp"); // You cannot learn from this item. You do not have any %TO experience.
 			stringID.setTO(type);

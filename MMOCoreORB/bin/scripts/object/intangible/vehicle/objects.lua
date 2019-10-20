@@ -570,3 +570,9 @@ object_intangible_vehicle_shared_xj6_air_speeder_pcd = SharedIntangibleObjectTem
 	clientTemplateFileName = "object/intangible/vehicle/shared_xj6_air_speeder_pcd.iff"
 }
 ObjectTemplates:addClientTemplate(object_intangible_vehicle_shared_xj6_air_speeder_pcd, "object/intangible/vehicle/shared_xj6_air_speeder_pcd.iff")
+
+--Ghostly Flash Speeder
+object_intangible_vehicle_shared_ghost_speederbike_flash_pcd = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/vehicle/shared_ghost_speederbike_flash_pcd.iff"
+}
+ObjectTemplates:addClientTemplate(object_intangible_vehicle_shared_ghost_speederbike_flash_pcd, "object/intangible/vehicle/shared_ghost_speederbike_flash_pcd.iff")

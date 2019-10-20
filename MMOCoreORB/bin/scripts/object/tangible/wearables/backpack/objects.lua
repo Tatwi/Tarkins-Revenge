@@ -641,3 +641,9 @@ object_tangible_wearables_backpack_shared_backpack_s06_elite = SharedTangibleObj
 }
 
 ObjectTemplates:addClientTemplate(object_tangible_wearables_backpack_shared_backpack_s06_elite, "object/tangible/wearables/backpack/shared_backpack_s06_elite.iff")
+
+object_tangible_wearables_backpack_shared_back_gmf_wings = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/backpack/shared_back_gmf_wings.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_wearables_backpack_shared_back_gmf_wings, "object/tangible/wearables/backpack/shared_back_gmf_wings.iff")
