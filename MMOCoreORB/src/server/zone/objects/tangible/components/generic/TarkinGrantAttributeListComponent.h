@@ -32,6 +32,22 @@ public:
 			alm->insertAttribute("skill_required", skillNeeded);
 		}
 
+		String speciesNeeded = templateData->getRequiredSpecies();
+		
+		if (speciesNeeded !="") {
+			speciesNeeded = "@player_species:species_" + speciesNeeded;
+			UnicodeString species = stringIdManager->getStringId(speciesNeeded.hashCode());
+			alm->insertAttribute("species_required", speciesNeeded);			
+		}		
+		
+		String genderNeeded = templateData->getRequiredGender();
+				
+		if (genderNeeded !="") {
+			genderNeeded = "@ui_cmnty:gender_" + genderNeeded;
+			UnicodeString gender = stringIdManager->getStringId(genderNeeded.hashCode());
+			alm->insertAttribute("gender_required", genderNeeded);			
+		}
+
 	}
 
 };

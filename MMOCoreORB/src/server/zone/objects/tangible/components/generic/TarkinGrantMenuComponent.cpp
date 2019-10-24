@@ -70,6 +70,27 @@ int TarkinGrantMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, C
 			return 0;
 		}
 
+		String speciesNeeded = templateData->getRequiredSpecies();
+		
+		if(!speciesNeeded.isEmpty() && player->getSpecies() != (Integer::valueOf(speciesNeeded))) {
+			UnicodeString species = stringIdManager->getStringId("@player_species:species_" + speciesNeeded);
+			StringIdChatParameter speciesStringID("item/xp_purchase", "msg_no_species"); // You do not meet the species requirements to learn from this item. You must be of the %RT species.
+			speciesStringID.setTO(species);
+			player->sendSystemMessage(speciesStringID);
+			return 0;
+		}		
+		
+		String genderNeeded = templateData->getRequiredGender();
+		
+		if(!genderNeeded.isEmpty() && player->getGender() != (Integer::valueOf(genderNeeded))) {
+			if (genderNeeded == "0") {
+				player->sendSystemMessage("You do not meet the gender requirements to learn from this item. You must be of the Male gender.");
+			} else if (genderNeeded == "1") {
+				player->sendSystemMessage("You do not meet the gender requirements to learn from this item. You must be of the Female gender.");
+			}
+			return 0;
+		}		
+
 		String grantType = templateData->getGrantType();
 		String grantName = templateData->getGrantName();
 

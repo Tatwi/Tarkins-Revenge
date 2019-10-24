@@ -15,6 +15,8 @@ class TarkinGrantTemplate: public SharedTangibleObjectTemplate {
 protected:
 
 	String requiredSkill;
+	String requiredSpecies;
+	String requiredGender;
 	String grantType, grantName;
 	bool noRemove;
 
@@ -22,6 +24,8 @@ protected:
 public:
 	TarkinGrantTemplate() {
 		requiredSkill = "";
+		requiredSpecies = "";
+		requiredGender = "";
 		grantType = "";
 		grantName = "";
 		noRemove = false;
@@ -36,6 +40,8 @@ public:
 		SharedTangibleObjectTemplate::readObject(templateData);
 
 		requiredSkill = templateData->getStringField("requiredSkill");
+		requiredSpecies = templateData->getStringField("requiredSpecies");
+		requiredGender = templateData->getStringField("requiredGender");	
 		grantType = templateData->getStringField("grantType");
 		grantName = templateData->getStringField("grantName");
 		noRemove = templateData->getBooleanField("noRemove");
@@ -44,6 +50,14 @@ public:
 
 	const String& getRequiredSkill() {
 		return requiredSkill;
+	}
+
+	const String& getRequiredSpecies() {
+		return requiredSpecies;
+	}
+
+	const String& getRequiredGender() {
+		return requiredGender;
 	}
 
 	const String& getGrantType() {

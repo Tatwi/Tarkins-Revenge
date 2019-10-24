@@ -66,7 +66,7 @@ public:
 		
 		String templateString = "";
 		String templateName = "";	
-		
+
 		// Otherwise, look up the mobile template associated with the ability they used from a Lua table, and apply the appearance to the player
 		Lua* lua = new Lua();
 		lua->init();
@@ -86,7 +86,7 @@ public:
 				}	
 			}
 		}
-		delete lua;	
+		delete lua;
 		
 		if (templateString == "") {
 			return GENERALERROR;
@@ -105,6 +105,15 @@ public:
 		Locker cLocker(creature);
 
 		creature->setAlternateAppearance(templateName, true);
+
+		// Rezone players using a species costume, to force their hair, clothes, and equipped items to appear
+		if (templateName.contains("species_")){
+			Zone* zone = creature->getZone();
+
+			if (zone != NULL) {
+				creature->switchZone(zone->getZoneName(), creature->getPositionX(), creature->getPositionZ(), creature->getPositionY(), creature->getParentID());
+			}
+		}
 		
 		return SUCCESS;
 	}
