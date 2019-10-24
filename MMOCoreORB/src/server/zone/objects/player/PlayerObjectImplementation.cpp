@@ -264,8 +264,10 @@ void PlayerObjectImplementation::unload() {
 
 	creature->clearCombatState(true);
 
-	creature->setAlternateAppearance("", false);
-
+	// Tarkin's Revenge change, to make costumes persist through logging out
+	if (!creature->getAlternateAppearance().contains("costume")) {
+		creature->setAlternateAppearance("", false);
+	}
 	creature->stopEntertaining();
 
 	ManagedReference<TradeSession*> tradeContainer = creature->getActiveSession(SessionFacadeType::TRADE).castTo<TradeSession*>();
