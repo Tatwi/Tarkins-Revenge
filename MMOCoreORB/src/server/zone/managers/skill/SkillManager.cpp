@@ -159,8 +159,8 @@ void SkillManager::loadClientData() {
 		abilityMap.put("wearCostume+player+quarrenmale", new Ability("wearCostume+player+quarrenmale"));
 	if (!abilityMap.containsKey("wearCostume+player+weequaymale"))
 		abilityMap.put("wearCostume+player+weequaymale", new Ability("wearCostume+player+weequaymale"));
-	if (!abilityMap.containsKey("wearCostume+player+nautolianmale"))
-		abilityMap.put("wearCostume+player+nautolianmale", new Ability("wearCostume+player+nautolianmale"));
+	if (!abilityMap.containsKey("wearCostume+player+nautolanmale"))
+		abilityMap.put("wearCostume+player+nautolanmale", new Ability("wearCostume+player+nautolanmale"));
 	if (!abilityMap.containsKey("wearCostume+player+arconamale"))
 		abilityMap.put("wearCostume+player+arconamale", new Ability("wearCostume+player+arconamale"));
 	if (!abilityMap.containsKey("wearCostume+player+gotalmale"))
