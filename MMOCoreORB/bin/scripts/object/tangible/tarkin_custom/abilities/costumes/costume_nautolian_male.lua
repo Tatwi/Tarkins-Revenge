@@ -6,7 +6,7 @@ object_tangible_tarkin_custom_abilities_costumes_costume_nautolian_male = object
 	requiredSpecies = "0",
 	requiredGender = "0",	
 	grantType = "ability",
-	grantName = "wearCostume+player+nautolianmale",
+	grantName = "wearCostume+player+nautolanmale",
 	noTrade = 0,
 	noRemove = false
 }

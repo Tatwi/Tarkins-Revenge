@@ -9597,7 +9597,7 @@
 				wearcostume+player+niktomale='/styles.icon.music.niktomale'
 				wearcostume+player+quarrenmale='/styles.icon.music.quarrenmale'
 				wearcostume+player+weequaymale='/styles.icon.music.weequaymale'
-				wearcostume+player+nautolianmale='/styles.icon.music.nautolianmale'
+				wearcostume+player+nautolanmale='/styles.icon.music.nautolanmale'
 				wearcostume+player+arconamale='/styles.icon.music.arconamale'
 				wearcostume+player+gotalmale='/styles.icon.music.gotalmale'
 				wearcostume+player+klaatumale='/styles.icon.music.klaatumale'
@@ -12833,7 +12833,7 @@
 					SourceRect='353,305,400,352'
 				/>	
 				<ImageStyle
-					Name='nautolianmale'
+					Name='nautolanmale'
 					Source='ui_new_icons_temp11'
 					SourceRect='401,305,448,352'
 				/>	
@@ -45351,7 +45351,7 @@
 					wearcostume+player+niktomale='/styles.icon.music.niktomale'
 					wearcostume+player+quarrenmale='/styles.icon.music.quarrenmale'
 					wearcostume+player+weequaymale='/styles.icon.music.weequaymale'
-					wearcostume+player+nautolianmale='/styles.icon.music.nautolianmale'
+					wearcostume+player+nautolanmale='/styles.icon.music.nautolanmale'
 					wearcostume+player+arconamale='/styles.icon.music.arconamale'
 					wearcostume+player+gotalmale='/styles.icon.music.gotalmale'
 					wearcostume+player+klaatumale='/styles.icon.music.klaatumale'
@@ -48683,7 +48683,7 @@
 						SourceRect='353,305,400,352'
 					/>	
 					<ImageStyle
-						Name='nautolianmale'
+						Name='nautolanmale'
 						Source='ui_new_icons_temp11'
 						SourceRect='401,305,448,352'
 					/>	
