@@ -7839,3 +7839,8 @@ object_intangible_pet_shared_tcg_peko_peko_mount = SharedIntangibleObjectTemplat
 	clientTemplateFileName = "object/intangible/pet/shared_tcg_peko_peko_mount.iff"
 }
 ObjectTemplates:addClientTemplate(object_intangible_pet_shared_tcg_peko_peko_mount, "object/intangible/pet/shared_tcg_peko_peko_mount.iff")
+
+object_intangible_pet_shared_skeletal_tauntaun = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/pet/shared_skeletal_tauntaun.iff"
+}
+ObjectTemplates:addClientTemplate(object_intangible_pet_shared_skeletal_tauntaun, "object/intangible/pet/shared_skeletal_tauntaun.iff")

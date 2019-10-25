@@ -565,3 +565,13 @@ includeFile("groups/tarkin_custom/wedding_scav_hunt/wed_scav_item_7.lua")
 includeFile("groups/tarkin_custom/wedding_scav_hunt/wed_scav_item_8.lua")
 includeFile("groups/tarkin_custom/wedding_scav_hunt/wed_scav_item_9.lua")
 includeFile("groups/tarkin_custom/wedding_scav_hunt/wed_scav_item_10.lua")
+
+--Halloween Dungeon
+includeFile("groups/tarkin_custom/halloween_death_troopers.lua")
+includeFile("groups/tarkin_custom/halloween_forage_worms.lua")
+includeFile("groups/tarkin_custom/halloween_gackle_bats.lua")
+includeFile("groups/tarkin_custom/halloween_ghosts.lua")
+includeFile("groups/tarkin_custom/halloween_skeletons.lua")
+includeFile("groups/tarkin_custom/halloween_spiders.lua")
+includeFile("groups/tarkin_custom/halloween_vorpal_durnis.lua")
+includeFile("groups/tarkin_custom/halloween_zombies.lua")

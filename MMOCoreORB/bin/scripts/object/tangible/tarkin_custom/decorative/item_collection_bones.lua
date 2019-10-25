@@ -1,0 +1,5 @@
+object_tangible_tarkin_custom_decorative_item_collection_bones = object_tangible_tarkin_custom_decorative_shared_item_collection_bones:new {
+
+}
+
+ObjectTemplates:addTemplate(object_tangible_tarkin_custom_decorative_item_collection_bones, "object/tangible/tarkin_custom/decorative/item_collection_bones.iff")

@@ -752,3 +752,10 @@ object_tangible_deed_vehicle_deed_shared_swamp_speeder_deed = SharedTangibleObje
 
 ObjectTemplates:addClientTemplate(object_tangible_deed_vehicle_deed_shared_swamp_speeder_deed, "object/tangible/deed/vehicle_deed/shared_swamp_speeder_deed.iff")
 
+--Ghostly Flash Speeder Deed
+--Swamp Speeder Deed
+object_tangible_deed_vehicle_deed_shared_ghost_speederbike_flash_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/vehicle_deed/shared_ghost_speederbike_flash_deed.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_deed_vehicle_deed_shared_ghost_speederbike_flash_deed, "object/tangible/deed/vehicle_deed/shared_ghost_speederbike_flash_deed.iff")

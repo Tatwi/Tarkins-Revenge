@@ -146,3 +146,6 @@ includeFile("tangible/event_perk/halloween_skull_candle_02.lua")
 includeFile("tangible/event_perk/halloween_song_book.lua")
 includeFile("tangible/event_perk/frn_hologram_data_disk_s01.lua")
 includeFile("tangible/event_perk/frn_hologram_data_disk_s02.lua")
+includeFile("tangible/event_perk/gmf_crafted_bat_pheromone.lua")
+includeFile("tangible/event_perk/gmf_crafted_spider_pheromone.lua")
+

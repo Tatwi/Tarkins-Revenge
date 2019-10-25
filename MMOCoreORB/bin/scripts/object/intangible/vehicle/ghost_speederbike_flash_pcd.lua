@@ -1,0 +1,4 @@
+object_intangible_vehicle_ghost_speederbike_flash_pcd = object_intangible_vehicle_shared_ghost_speederbike_flash_pcd:new {
+
+}
+ObjectTemplates:addTemplate(object_intangible_vehicle_ghost_speederbike_flash_pcd, "object/intangible/vehicle/ghost_speederbike_flash_pcd.iff")

@@ -105,7 +105,13 @@ function junkShopOwnerConvoHandler:sendPurchaseSui(pPlayer, pSui, eventIndex, ar
 
 	sui.setTitle("Items Available:")
 
-	local promptText = "Select the item you would like to purchase from the salesman."
+	local promptText = ""
+	if(selectedCategory == "species_costumes") then
+		promptText = "Select the costume you would like to purchase from the salesman. \n\nPlease note, species costumes are only wearable by HUMANS, and are gender-specific."	
+	else 
+		promptText = "Select the item you would like to purchase from the salesman."
+	end
+
 	sui.setPrompt(promptText)
 
 	for i = 1,  #categoryData, 1 do
@@ -183,5 +189,7 @@ function junkShopOwnerConvoHandler:getCategoryDataTable(category)
 		return palettePostersWearable
 	elseif category =="be_palette_posters" then
 		return palettePostersBE
+	elseif category =="species_costumes" then
+		return speciesCostumes
 	end
 end

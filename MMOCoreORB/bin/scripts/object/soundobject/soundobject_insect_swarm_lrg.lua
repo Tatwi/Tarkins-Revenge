@@ -1,0 +1,5 @@
+object_soundobject_soundobject_insect_swarm_lrg = object_soundobject_shared_soundobject_insect_swarm_lrg:new {
+
+}
+
+ObjectTemplates:addTemplate(object_soundobject_soundobject_insect_swarm_lrg, "object/soundobject/soundobject_insect_swarm_lrg.iff")

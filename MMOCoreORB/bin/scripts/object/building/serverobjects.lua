@@ -56,5 +56,6 @@ includeFile("building/player/serverobjects.lua")
 includeFile("building/poi/serverobjects.lua")
 includeFile("building/tatooine/serverobjects.lua")
 includeFile("building/yavin/serverobjects.lua")
+includeFile("building/tarkin_custom/serverobjects.lua")
 
 -- Server Objects

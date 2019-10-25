@@ -412,6 +412,17 @@ includeFile("tangible/tarkin_custom/decorative/tarkin_wanted_poster_zabrak_male.
 includeFile("tangible/tarkin_custom/decorative/mun_kash_signpost_primitive_pointer_small_s01.lua")
 includeFile("tangible/tarkin_custom/decorative/mun_kash_signpost_refined_pointer_small_s01.lua")
 includeFile("tangible/tarkin_custom/decorative/tatooine_marker_sign.lua")
+includeFile("tangible/tarkin_custom/decorative/skeleton_bith_headandbody.lua")
+includeFile("tangible/tarkin_custom/decorative/skeleton_human_headandbody.lua")
+includeFile("tangible/tarkin_custom/decorative/skeleton_human_body.lua")
+includeFile("tangible/tarkin_custom/decorative/skeleton_human_corpse.lua")
+includeFile("tangible/tarkin_custom/decorative/skeleton_ithorian_headandbody.lua")
+includeFile("tangible/tarkin_custom/decorative/bones_wookie_s01.lua")
+includeFile("tangible/tarkin_custom/decorative/bones_wookie_s02.lua")
+includeFile("tangible/tarkin_custom/decorative/bones_wookie_s03.lua")
+includeFile("tangible/tarkin_custom/decorative/item_collection_bones.lua")
+includeFile("tangible/tarkin_custom/decorative/skeleton_bith_head.lua")
+includeFile("tangible/tarkin_custom/decorative/skeleton_ithorian_head.lua")
 
 --Disagreeable Shader
 --includeFile("tangible/tarkin_custom/decorative/exarkun_sarcophagus.lua")

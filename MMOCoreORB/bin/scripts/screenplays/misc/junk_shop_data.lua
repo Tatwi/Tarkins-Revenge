@@ -7,6 +7,7 @@
 junkShopCategories = {
 	{displayText = "Palette Posters for Wearables", saleCategory = "wearable_palette_posters"},
 	{displayText = "Palette Posters for BE Creatures", saleCategory = "be_palette_posters"},
+	{displayText = "Species Costumes (For Humans Only)", saleCategory = "species_costumes"},
 }
 
 palettePostersWearable = {
@@ -59,4 +60,32 @@ palettePostersBE = {
 		{displayText = "@frn_n:tarkin_painting_palette_uwari_beetle", itemPath = "object/tangible/tarkin_custom/decorative/painting_tarkin_palette_uwari_beetle.iff", itemCost = 1000},
 		{displayText = "@frn_n:tarkin_painting_palette_veermok", itemPath = "object/tangible/tarkin_custom/decorative/painting_tarkin_palette_veermok.iff", itemCost = 1000},
 		{displayText = "@frn_n:tarkin_painting_palette_walluga", itemPath = "object/tangible/tarkin_custom/decorative/painting_tarkin_palette_walluga.iff", itemCost = 1000},
+}
+
+speciesCostumes = {
+		{displayText = "@item_n:costume_kit_aqualish_f_01", itemPath = "object/tangible/tarkin_custom/abilities/costumes/costume_aqualish_s01_female.iff", itemCost = 1000},
+		{displayText = "@item_n:costume_kit_aqualish_f_02", itemPath = "object/tangible/tarkin_custom/abilities/costumes/costume_aqualish_s02_female.iff", itemCost = 1000},
+		{displayText = "@item_n:costume_kit_aqualish_f_03", itemPath = "object/tangible/tarkin_custom/abilities/costumes/costume_aqualish_s03_female.iff", itemCost = 1000},
+		{displayText = "@item_n:costume_kit_bith_f", itemPath = "object/tangible/tarkin_custom/abilities/costumes/costume_bith_female.iff", itemCost = 1000},
+		{displayText = "@item_n:costume_kit_chiss_f", itemPath = "object/tangible/tarkin_custom/abilities/costumes/costume_chiss_female.iff", itemCost = 1000},
+		{displayText = "@item_n:costume_kit_nightsister_f", itemPath = "object/tangible/tarkin_custom/abilities/costumes/costume_nightsister_female.iff", itemCost = 1000},
+		{displayText = "@item_n:costume_kit_smc_f", itemPath = "object/tangible/tarkin_custom/abilities/costumes/costume_smc_female.iff", itemCost = 1000},
+		{displayText = "@item_n:costume_kit_aqualish_m_01", itemPath = "object/tangible/tarkin_custom/abilities/costumes/costume_aqualish_s01_male.iff", itemCost = 1000},
+		{displayText = "@item_n:costume_kit_aqualish_m_02", itemPath = "object/tangible/tarkin_custom/abilities/costumes/costume_aqualish_s02_male.iff", itemCost = 1000},
+		{displayText = "@item_n:costume_kit_aqualish_m_03", itemPath = "object/tangible/tarkin_custom/abilities/costumes/costume_aqualish_s03_male.iff", itemCost = 1000},
+		{displayText = "@item_n:costume_kit_arcona_m", itemPath = "object/tangible/tarkin_custom/abilities/costumes/costume_arcona_male.iff", itemCost = 1000},
+		{displayText = "@item_n:costume_kit_bith_m", itemPath = "object/tangible/tarkin_custom/abilities/costumes/costume_bith_male.iff", itemCost = 1000},
+		{displayText = "@item_n:costume_kit_chiss_m", itemPath = "object/tangible/tarkin_custom/abilities/costumes/costume_chiss_male.iff", itemCost = 1000},
+		{displayText = "@item_n:costume_kit_devaronian_m", itemPath = "object/tangible/tarkin_custom/abilities/costumes/costume_devaronian_male.iff", itemCost = 1000},
+		{displayText = "@item_n:costume_kit_gotal_m", itemPath = "object/tangible/tarkin_custom/abilities/costumes/costume_gotal_male.iff", itemCost = 1000},
+		{displayText = "@item_n:costume_kit_gran_m", itemPath = "object/tangible/tarkin_custom/abilities/costumes/costume_gran_male.iff", itemCost = 1000},	
+		{displayText = "@item_n:costume_kit_ishi_tib_m", itemPath = "object/tangible/tarkin_custom/abilities/costumes/costume_ishi_tib_male.iff", itemCost = 1000},		
+		{displayText = "@item_n:costume_kit_klaatu_m", itemPath = "object/tangible/tarkin_custom/abilities/costumes/costume_klaatu_male.iff", itemCost = 1000},				
+		{displayText = "@item_n:costume_kit_marauder_m_01", itemPath = "object/tangible/tarkin_custom/abilities/costumes/costume_marauder_male_s01.iff", itemCost = 1000},	
+		{displayText = "@item_n:costume_kit_marauder_m_02", itemPath = "object/tangible/tarkin_custom/abilities/costumes/costume_marauder_male_s02.iff", itemCost = 1000},	
+		{displayText = "@item_n:costume_kit_marauder_m_03", itemPath = "object/tangible/tarkin_custom/abilities/costumes/costume_marauder_male_s03.iff", itemCost = 1000},
+		{displayText = "@item_n:costume_kit_nautolan_m", itemPath = "object/tangible/tarkin_custom/abilities/costumes/costume_nautolian_male.iff", itemCost = 1000},		
+		{displayText = "@item_n:costume_kit_nikto_m", itemPath = "object/tangible/tarkin_custom/abilities/costumes/costume_nikto_male.iff", itemCost = 1000},
+		{displayText = "@item_n:costume_kit_quarren_m", itemPath = "object/tangible/tarkin_custom/abilities/costumes/costume_quarren_male.iff", itemCost = 1000},
+		{displayText = "@item_n:costume_kit_weequay_m", itemPath = "object/tangible/tarkin_custom/abilities/costumes/costume_weequay_male.iff", itemCost = 1000},
 }

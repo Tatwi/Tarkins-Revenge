@@ -119,6 +119,64 @@ void SkillManager::loadClientData() {
 		abilityMap.put("startDance+theatrical", new Ability("startDance+theatrical"));
 	if (!abilityMap.containsKey("startDance+theatrical2"))
 		abilityMap.put("startDance+theatrical2", new Ability("startDance+theatrical2"));
+	if (!abilityMap.containsKey("startMusic+dirge"))
+		abilityMap.put("startMusic+dirge", new Ability("startMusic+dirge"));
+
+	// Tarkin's Revenge Costumes
+	if (!abilityMap.containsKey("wearCostume+player+skeleton"))
+		abilityMap.put("wearCostume+player+skeleton", new Ability("wearCostume+player+skeleton"));
+	if (!abilityMap.containsKey("wearCostume+player+undead"))
+		abilityMap.put("wearCostume+player+undead", new Ability("wearCostume+player+undead"));
+	if (!abilityMap.containsKey("wearCostume+player+chissmale"))
+		abilityMap.put("wearCostume+player+chissmale", new Ability("wearCostume+player+chissmale"));
+	if (!abilityMap.containsKey("wearCostume+player+chissfemale"))
+		abilityMap.put("wearCostume+player+chissfemale", new Ability("wearCostume+player+chissfemale"));
+	if (!abilityMap.containsKey("wearCostume+player+aqualishmale1"))
+		abilityMap.put("wearCostume+player+aqualishmale1", new Ability("wearCostume+player+aqualishmale1"));
+	if (!abilityMap.containsKey("wearCostume+player+aqualishmale2"))
+		abilityMap.put("wearCostume+player+aqualishmale2", new Ability("wearCostume+player+aqualishmale2"));
+	if (!abilityMap.containsKey("wearCostume+player+aqualishmale3"))
+		abilityMap.put("wearCostume+player+aqualishmale3", new Ability("wearCostume+player+aqualishmale3"));
+	if (!abilityMap.containsKey("wearCostume+player+aqualishfemale1"))
+		abilityMap.put("wearCostume+player+aqualishfemale1", new Ability("wearCostume+player+aqualishfemale1"));
+	if (!abilityMap.containsKey("wearCostume+player+aqualishfemale2"))
+		abilityMap.put("wearCostume+player+aqualishfemale2", new Ability("wearCostume+player+aqualishfemale2"));
+	if (!abilityMap.containsKey("wearCostume+player+aqualishfemale3"))
+		abilityMap.put("wearCostume+player+aqualishfemale3", new Ability("wearCostume+player+aqualishfemale3"));
+	if (!abilityMap.containsKey("wearCostume+player+bithmale"))
+		abilityMap.put("wearCostume+player+bithmale", new Ability("wearCostume+player+bithmale"));
+	if (!abilityMap.containsKey("wearCostume+player+bithfemale"))
+		abilityMap.put("wearCostume+player+bithfemale", new Ability("wearCostume+player+bithfemale"));
+	if (!abilityMap.containsKey("wearCostume+player+devaronianmale"))
+		abilityMap.put("wearCostume+player+devaronianmale", new Ability("wearCostume+player+devaronianmale"));
+	if (!abilityMap.containsKey("wearCostume+player+granmale"))
+		abilityMap.put("wearCostume+player+granmale", new Ability("wearCostume+player+granmale"));
+	if (!abilityMap.containsKey("wearCostume+player+ishitibmale"))
+		abilityMap.put("wearCostume+player+ishitibmale", new Ability("wearCostume+player+ishitibmale"));
+	if (!abilityMap.containsKey("wearCostume+player+niktomale"))
+		abilityMap.put("wearCostume+player+niktomale", new Ability("wearCostume+player+niktomale"));
+	if (!abilityMap.containsKey("wearCostume+player+quarrenmale"))
+		abilityMap.put("wearCostume+player+quarrenmale", new Ability("wearCostume+player+quarrenmale"));
+	if (!abilityMap.containsKey("wearCostume+player+weequaymale"))
+		abilityMap.put("wearCostume+player+weequaymale", new Ability("wearCostume+player+weequaymale"));
+	if (!abilityMap.containsKey("wearCostume+player+nautolanmale"))
+		abilityMap.put("wearCostume+player+nautolanmale", new Ability("wearCostume+player+nautolanmale"));
+	if (!abilityMap.containsKey("wearCostume+player+arconamale"))
+		abilityMap.put("wearCostume+player+arconamale", new Ability("wearCostume+player+arconamale"));
+	if (!abilityMap.containsKey("wearCostume+player+gotalmale"))
+		abilityMap.put("wearCostume+player+gotalmale", new Ability("wearCostume+player+gotalmale"));
+	if (!abilityMap.containsKey("wearCostume+player+klaatumale"))
+		abilityMap.put("wearCostume+player+klaatumale", new Ability("wearCostume+player+klaatumale"));
+	if (!abilityMap.containsKey("wearCostume+player+maraudermale1"))
+		abilityMap.put("wearCostume+player+maraudermale1", new Ability("wearCostume+player+maraudermale1"));
+	if (!abilityMap.containsKey("wearCostume+player+maraudermale21"))
+		abilityMap.put("wearCostume+player+maraudermale2", new Ability("wearCostume+player+maraudermale2"));
+	if (!abilityMap.containsKey("wearCostume+player+maraudermale3"))
+		abilityMap.put("wearCostume+player+maraudermale3", new Ability("wearCostume+player+maraudermale3"));
+	if (!abilityMap.containsKey("wearCostume+player+nightsisterfemale"))
+		abilityMap.put("wearCostume+player+nightsisterfemale", new Ability("wearCostume+player+nightsisterfemale"));
+	if (!abilityMap.containsKey("wearCostume+player+smcfemale"))
+		abilityMap.put("wearCostume+player+smcfemale", new Ability("wearCostume+player+smcfemale"));
 
 	loadXpLimits();
 

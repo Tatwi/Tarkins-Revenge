@@ -1086,3 +1086,10 @@ object_mobile_vehicle_shared_xj6_air_speeder = SharedCreatureObjectTemplate:new 
 }
 ObjectTemplates:addClientTemplate(object_mobile_vehicle_shared_xj6_air_speeder, "object/mobile/vehicle/shared_xj6_air_speeder.iff")
 
+--Ghostly Flash Speeder
+object_mobile_vehicle_shared_ghost_speederbike_flash = SharedCreatureObjectTemplate:new {
+	clientTemplateFileName = "object/mobile/vehicle/shared_ghost_speederbike_flash.iff"
+}
+ObjectTemplates:addClientTemplate(object_mobile_vehicle_shared_ghost_speederbike_flash, "object/mobile/vehicle/shared_ghost_speederbike_flash.iff")
+
+

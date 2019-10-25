@@ -1,0 +1,3 @@
+object_tangible_event_perk_gmf_crafted_spider_pheromone = object_tangible_event_perk_shared_gmf_crafted_spider_pheromone:new {
+}
+ObjectTemplates:addTemplate(object_tangible_event_perk_gmf_crafted_spider_pheromone, "object/tangible/event_perk/gmf_crafted_spider_pheromone.iff")
