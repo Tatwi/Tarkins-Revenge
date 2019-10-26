@@ -43,7 +43,7 @@ costumes = {
 	"player+niktomale", "object/mobile/shared_costume_species_nikto_m.iff",
 	"player+quarrenmale", "object/mobile/shared_costume_species_quarren_m.iff",
 	"player+weequaymale", "object/mobile/shared_costume_species_weequay_m.iff",
-	"player+nautolianmale", "object/mobile/shared_costume_species_nautolian_m.iff",
+	"player+nautolanmale", "object/mobile/shared_costume_species_nautolian_m.iff",
 	"player+arconamale", "object/mobile/shared_costume_species_arcona_m.iff",
 	"player+gotalmale", "object/mobile/shared_costume_species_gotal_m.iff",
 	"player+klaatumale", "object/mobile/shared_costume_species_klaatu_m.iff",
