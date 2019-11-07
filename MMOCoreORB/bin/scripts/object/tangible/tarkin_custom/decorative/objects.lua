@@ -2479,3 +2479,69 @@ object_tangible_tarkin_custom_decorative_shared_skeleton_ithorian_head = SharedT
 	clientTemplateFileName = "object/tangible/tarkin_custom/decorative/shared_skeleton_ithorian_head.iff"
 }
 ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_decorative_shared_skeleton_ithorian_head, "object/tangible/tarkin_custom/decorative/shared_skeleton_ithorian_head.iff")
+
+--GCW Imperial Signpost
+object_tangible_tarkin_custom_decorative_shared_tarkin_gcw_signpost_imp = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tarkin_custom/decorative/shared_tarkin_gcw_signpost_imp.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_decorative_shared_tarkin_gcw_signpost_imp, "object/tangible/tarkin_custom/decorative/shared_tarkin_gcw_signpost_imp.iff")
+
+--GCW Defaced Imperial Signpost
+object_tangible_tarkin_custom_decorative_shared_tarkin_gcw_signpost_imp_defaced = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tarkin_custom/decorative/shared_tarkin_gcw_signpost_imp_defaced.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_decorative_shared_tarkin_gcw_signpost_imp_defaced, "object/tangible/tarkin_custom/decorative/shared_tarkin_gcw_signpost_imp_defaced.iff")
+
+--GCW Rebel Signpost
+object_tangible_tarkin_custom_decorative_shared_tarkin_gcw_signpost_reb = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tarkin_custom/decorative/shared_tarkin_gcw_signpost_reb.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_decorative_shared_tarkin_gcw_signpost_reb, "object/tangible/tarkin_custom/decorative/shared_tarkin_gcw_signpost_reb.iff")
+
+--GCW Defaced Rebel Signpost
+object_tangible_tarkin_custom_decorative_shared_tarkin_gcw_signpost_reb_defaced = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tarkin_custom/decorative/shared_tarkin_gcw_signpost_reb_defaced.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_decorative_shared_tarkin_gcw_signpost_reb_defaced, "object/tangible/tarkin_custom/decorative/shared_tarkin_gcw_signpost_reb_defaced.iff")
+
+--GCW Standing Imperial Flag
+object_tangible_tarkin_custom_decorative_shared_tarkin_gcw_flag_imp_standing = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tarkin_custom/decorative/shared_tarkin_gcw_flag_imp_standing.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_decorative_shared_tarkin_gcw_flag_imp_standing, "object/tangible/tarkin_custom/decorative/shared_tarkin_gcw_flag_imp_standing.iff")
+
+--GCW Decorative Imperial Flag
+object_tangible_tarkin_custom_decorative_shared_tarkin_gcw_flag_imp_deco = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tarkin_custom/decorative/shared_tarkin_gcw_flag_imp_deco.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_decorative_shared_tarkin_gcw_flag_imp_deco, "object/tangible/tarkin_custom/decorative/shared_tarkin_gcw_flag_imp_deco.iff")
+
+--GCW Standing Rebel Flag
+object_tangible_tarkin_custom_decorative_shared_tarkin_gcw_flag_reb_standing = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tarkin_custom/decorative/shared_tarkin_gcw_flag_reb_standing.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_decorative_shared_tarkin_gcw_flag_reb_standing, "object/tangible/tarkin_custom/decorative/shared_tarkin_gcw_flag_reb_standing.iff")
+
+--GCW Decorative Rebel Flag
+object_tangible_tarkin_custom_decorative_shared_tarkin_gcw_flag_reb_deco = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tarkin_custom/decorative/shared_tarkin_gcw_flag_reb_deco.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_decorative_shared_tarkin_gcw_flag_reb_deco, "object/tangible/tarkin_custom/decorative/shared_tarkin_gcw_flag_reb_deco.iff")
+
+--GCW DNA Override Terminal
+object_tangible_tarkin_custom_decorative_shared_tarkin_gcw_dna_override_terminal = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tarkin_custom/decorative/shared_tarkin_gcw_dna_override_terminal.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_decorative_shared_tarkin_gcw_dna_override_terminal, "object/tangible/tarkin_custom/decorative/shared_tarkin_gcw_dna_override_terminal.iff")
+
+--GCW First DNA Sample Terminal
+object_tangible_tarkin_custom_decorative_shared_tarkin_gcw_first_dna_terminal = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tarkin_custom/decorative/shared_tarkin_gcw_first_dna_terminal.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_decorative_shared_tarkin_gcw_first_dna_terminal, "object/tangible/tarkin_custom/decorative/shared_tarkin_gcw_first_dna_terminal.iff")
+
+--GCW Second DNA Sample Terminal
+object_tangible_tarkin_custom_decorative_shared_tarkin_gcw_second_dna_terminal = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tarkin_custom/decorative/shared_tarkin_gcw_second_dna_terminal.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_decorative_shared_tarkin_gcw_second_dna_terminal, "object/tangible/tarkin_custom/decorative/shared_tarkin_gcw_second_dna_terminal.iff")

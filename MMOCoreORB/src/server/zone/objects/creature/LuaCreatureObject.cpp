@@ -145,6 +145,7 @@ Luna<LuaCreatureObject>::RegType LuaCreatureObject::Register[] = {
 		{ "emptyStomach", &LuaCreatureObject::emptyStomach },
 		{ "getActivePetsSize", &LuaCreatureObject::getActivePetsSize },
 		{ "getActivePet", &LuaCreatureObject::getActivePet },
+		{ "getGroupLeader", &LuaCreatureObject::getGroupLeader },
 		{ 0, 0 }
 };
 
@@ -1187,4 +1188,34 @@ int LuaCreatureObject::getActivePet(lua_State* L) {
 		
 	lua_pushlightuserdata(L, pet);
  	return 1;	
+}
+
+/*
+* Tarkin's Revenge
+* Get the creatureObject of the group leader
+* lua: CreatureObject(pPlayer):getGroupLeader()
+*/
+int LuaCreatureObject::getGroupLeader(lua_State* L) {
+	Locker locker(realObject);
+	
+	GroupObject* group = realObject->getGroup();
+
+	if (group == NULL) {
+		realObject->info("LuaCreatureObject::getGroupLeader group is NULL.");
+		lua_pushnil(L);	
+		return 1;
+	}
+
+	Locker lock(group, realObject);
+	
+	Reference<CreatureObject*> leader = group->getLeader();
+	
+	if (leader == NULL) {
+		realObject->info("LuaCreatureObject::getGroupLeader leader is NULL.");
+		lua_pushnil(L);	
+	} else {
+		leader->_setUpdated(true);
+		lua_pushlightuserdata(L, leader);
+	}
+	return 1;
 }

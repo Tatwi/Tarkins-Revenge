@@ -206,6 +206,7 @@ namespace server {
 		static int adminPlaceStructure(lua_State* L);
 		static int setStructureOwner(lua_State* L);
 		static int hasEnoughLots(lua_State* L);
+		static int dropServerEvent(lua_State* L);
 
 	private:
 		void setupLuaPackagePath(Lua* luaEngine);

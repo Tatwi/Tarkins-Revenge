@@ -9,6 +9,7 @@
 #include "FactionMap.h"
 #include "server/zone/objects/player/PlayerObject.h"
 #include "templates/manager/TemplateManager.h"
+#include "server/zone/managers/director/DirectorManager.h"
 
 FactionManager::FactionManager() {
 	setLoggingName("FactionManager");
@@ -129,6 +130,15 @@ void FactionManager::awardFactionStanding(CreatureObject* player, const String& 
 	bool gcw = false;
 	if (factionName == "rebel" || factionName == "imperial") {
 		gcw = true;
+
+		//Tarkin's Revenge War Games Event
+		Lua* lua = DirectorManager::instance()->getLuaInstance();
+
+		Reference<LuaFunction*> NewYearNewRegimeScreenplay = lua->createFunction("NewYearNewRegimeScreenplay", "determinePvEPoints", 0);
+		*NewYearNewRegimeScreenplay << player;
+		*NewYearNewRegimeScreenplay << factionName;
+
+		NewYearNewRegimeScreenplay->callFunction();
 	}
 
 	//Gain faction standing to enemies of the creature.
@@ -170,6 +180,15 @@ void FactionManager::awardPvpFactionPoints(TangibleObject* killer, CreatureObjec
 
 			killedGhost->decreaseFactionStanding("rebel", 45);
 		}
+
+		//Tarkin's Revenge War Games Event
+		Lua* lua = DirectorManager::instance()->getLuaInstance();
+
+		Reference<LuaFunction*> NewYearNewRegimeScreenplay = lua->createFunction("NewYearNewRegimeScreenplay", "determinePvPPoints", 0);
+		*NewYearNewRegimeScreenplay << killerCreature;
+		*NewYearNewRegimeScreenplay << destructedObject;
+
+		NewYearNewRegimeScreenplay->callFunction();
 	}
 }
 

@@ -1,0 +1,9 @@
+object_static_worldbuilding_furniture_shared_ui_faction_imperial_small = SharedStaticObjectTemplate:new {
+	clientTemplateFileName = "object/static/worldbuilding/furniture/shared_ui_faction_imperial_small.iff"
+}
+ObjectTemplates:addClientTemplate(object_static_worldbuilding_furniture_shared_ui_faction_imperial_small, "object/static/worldbuilding/furniture/shared_ui_faction_imperial_small.iff")
+
+object_static_worldbuilding_furniture_shared_ui_faction_rebel_small = SharedStaticObjectTemplate:new {
+	clientTemplateFileName = "object/static/worldbuilding/furniture/shared_ui_faction_rebel_small.iff"
+}
+ObjectTemplates:addClientTemplate(object_static_worldbuilding_furniture_shared_ui_faction_rebel_small, "object/static/worldbuilding/furniture/shared_ui_faction_rebel_small.iff")

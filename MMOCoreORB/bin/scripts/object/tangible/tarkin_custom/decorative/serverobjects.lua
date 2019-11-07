@@ -424,6 +424,19 @@ includeFile("tangible/tarkin_custom/decorative/item_collection_bones.lua")
 includeFile("tangible/tarkin_custom/decorative/skeleton_bith_head.lua")
 includeFile("tangible/tarkin_custom/decorative/skeleton_ithorian_head.lua")
 
+--GCW Event Items
+includeFile("tangible/tarkin_custom/decorative/tarkin_gcw_signpost_imp.lua")
+includeFile("tangible/tarkin_custom/decorative/tarkin_gcw_signpost_imp_defaced.lua")
+includeFile("tangible/tarkin_custom/decorative/tarkin_gcw_signpost_reb.lua")
+includeFile("tangible/tarkin_custom/decorative/tarkin_gcw_signpost_reb_defaced.lua")
+includeFile("tangible/tarkin_custom/decorative/tarkin_gcw_flag_imp_standing.lua")
+includeFile("tangible/tarkin_custom/decorative/tarkin_gcw_flag_imp_deco.lua")
+includeFile("tangible/tarkin_custom/decorative/tarkin_gcw_flag_reb_standing.lua")
+includeFile("tangible/tarkin_custom/decorative/tarkin_gcw_flag_reb_deco.lua")
+includeFile("tangible/tarkin_custom/decorative/tarkin_gcw_dna_override_terminal.lua")
+includeFile("tangible/tarkin_custom/decorative/tarkin_gcw_first_dna_terminal.lua")
+includeFile("tangible/tarkin_custom/decorative/tarkin_gcw_second_dna_terminal.lua")
+
 --Disagreeable Shader
 --includeFile("tangible/tarkin_custom/decorative/exarkun_sarcophagus.lua")
 
