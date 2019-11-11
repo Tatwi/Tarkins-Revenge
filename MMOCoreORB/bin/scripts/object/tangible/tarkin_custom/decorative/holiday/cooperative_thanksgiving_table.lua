@@ -1,0 +1,5 @@
+object_tangible_tarkin_custom_decorative_holiday_cooperative_thanksgiving_table = object_tangible_tarkin_custom_decorative_holiday_shared_cooperative_thanksgiving_table:new {
+	objectMenuComponent = "CooperativeThanksgivingTableObjectMenuComponent"
+}
+
+ObjectTemplates:addTemplate(object_tangible_tarkin_custom_decorative_holiday_cooperative_thanksgiving_table, "object/tangible/tarkin_custom/decorative/holiday/cooperative_thanksgiving_table.iff")

@@ -2479,3 +2479,16 @@ object_tangible_tarkin_custom_decorative_shared_skeleton_ithorian_head = SharedT
 	clientTemplateFileName = "object/tangible/tarkin_custom/decorative/shared_skeleton_ithorian_head.iff"
 }
 ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_decorative_shared_skeleton_ithorian_head, "object/tangible/tarkin_custom/decorative/shared_skeleton_ithorian_head.iff")
+
+--Glutton's Reward Painting
+object_tangible_tarkin_custom_decorative_shared_painting_gluttons_reward = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tarkin_custom/decorative/shared_painting_gluttons_reward.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_decorative_shared_painting_gluttons_reward, "object/tangible/tarkin_custom/decorative/shared_painting_gluttons_reward.iff")
+
+--Fall-Themed Rug
+object_tangible_tarkin_custom_decorative_shared_thanksgiving_reward_rug = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tarkin_custom/decorative/shared_thanksgiving_reward_rug.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_decorative_shared_thanksgiving_reward_rug, "object/tangible/tarkin_custom/decorative/shared_thanksgiving_reward_rug.iff")
+

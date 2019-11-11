@@ -126,6 +126,13 @@ namespace creature {
 		int emptyStomach(lua_State* L);
 		int getActivePetsSize(lua_State* L);
 		int getActivePet(lua_State* L);
+
+		// Tarkin's Revenge Custom Lua Calls
+		int getFoodFilling(lua_State* L);
+		int getDrinkFilling(lua_State* L);
+		int setFoodFilling(lua_State* L);
+		int setDrinkFilling(lua_State* L);
+
 	private:
 		// The pointer to the 'real object' defined in object.cc
 		CreatureObject* realObject;

@@ -1,0 +1,5 @@
+object_tangible_tarkin_custom_statted_thanksgiving_reward_salty_snackbox = object_tangible_tarkin_custom_statted_shared_thanksgiving_reward_salty_snackbox:new {
+	objectMenuComponent = "SaltySnackboxObjectMenuComponent"
+}
+
+ObjectTemplates:addTemplate(object_tangible_tarkin_custom_statted_thanksgiving_reward_salty_snackbox, "object/tangible/tarkin_custom/statted/thanksgiving_reward_salty_snackbox.iff")
