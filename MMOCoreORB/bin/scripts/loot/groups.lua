@@ -575,3 +575,6 @@ includeFile("groups/tarkin_custom/halloween_skeletons.lua")
 includeFile("groups/tarkin_custom/halloween_spiders.lua")
 includeFile("groups/tarkin_custom/halloween_vorpal_durnis.lua")
 includeFile("groups/tarkin_custom/halloween_zombies.lua")
+
+--Thanksgiving
+includeFile("groups/tarkin_custom/thanksgiving_food.lua")

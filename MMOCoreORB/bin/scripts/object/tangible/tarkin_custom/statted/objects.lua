@@ -61,3 +61,16 @@ object_tangible_tarkin_custom_statted_shared_pet_customization = SharedTangibleO
 	clientTemplateFileName = "object/tangible/tarkin_custom/statted/shared_pet_customization.iff"
 }
 ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_statted_shared_pet_customization, "object/tangible/tarkin_custom/statted/shared_pet_customization.iff")
+
+--Retsa-Seltzer
+object_tangible_tarkin_custom_statted_shared_thanksgiving_reward_retsa_seltzer = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tarkin_custom/statted/shared_thanksgiving_reward_retsa_seltzer.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_statted_shared_thanksgiving_reward_retsa_seltzer, "object/tangible/tarkin_custom/statted/shared_thanksgiving_reward_retsa_seltzer.iff")
+
+--Salty Snackbox
+object_tangible_tarkin_custom_statted_shared_thanksgiving_reward_salty_snackbox = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tarkin_custom/statted/shared_thanksgiving_reward_salty_snackbox.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_statted_shared_thanksgiving_reward_salty_snackbox, "object/tangible/tarkin_custom/statted/shared_thanksgiving_reward_salty_snackbox.iff")
+

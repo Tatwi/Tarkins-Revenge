@@ -2063,3 +2063,10 @@ object_tangible_furniture_decorative_shared_hologram_xwing = SharedTangibleObjec
 
 ObjectTemplates:addClientTemplate(object_tangible_furniture_decorative_shared_hologram_xwing, "object/tangible/furniture/decorative/shared_hologram_xwing.iff")
 
+--Jedi Banner
+object_tangible_furniture_decorative_shared_banner_jedi = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/decorative/shared_banner_jedi.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_decorative_shared_banner_jedi, "object/tangible/furniture/decorative/shared_banner_jedi.iff")
+

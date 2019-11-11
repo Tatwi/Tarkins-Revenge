@@ -1,0 +1,5 @@
+object_tangible_tarkin_custom_decorative_holiday_thanksgiving_food_shaak_sandwich = object_tangible_tarkin_custom_decorative_holiday_shared_thanksgiving_food_shaak_sandwich:new {
+
+}
+
+ObjectTemplates:addTemplate(object_tangible_tarkin_custom_decorative_holiday_thanksgiving_food_shaak_sandwich, "object/tangible/tarkin_custom/decorative/holiday/thanksgiving_food_shaak_sandwich.iff")

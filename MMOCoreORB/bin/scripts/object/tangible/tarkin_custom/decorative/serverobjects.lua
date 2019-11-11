@@ -1,3 +1,6 @@
+--Children folder includes
+includeFile("tangible/tarkin_custom/decorative/holiday/serverobjects.lua")
+
 --Server object includes
 includeFile("tangible/tarkin_custom/decorative/target_dummy.lua")
 includeFile("tangible/tarkin_custom/decorative/bristly_divider.lua")
@@ -409,6 +412,8 @@ includeFile("tangible/tarkin_custom/decorative/tarkin_wanted_poster_wookiee_fema
 includeFile("tangible/tarkin_custom/decorative/tarkin_wanted_poster_wookiee_male.lua")
 includeFile("tangible/tarkin_custom/decorative/tarkin_wanted_poster_zabrak_female.lua")
 includeFile("tangible/tarkin_custom/decorative/tarkin_wanted_poster_zabrak_male.lua")
+
+
 includeFile("tangible/tarkin_custom/decorative/mun_kash_signpost_primitive_pointer_small_s01.lua")
 includeFile("tangible/tarkin_custom/decorative/mun_kash_signpost_refined_pointer_small_s01.lua")
 includeFile("tangible/tarkin_custom/decorative/tatooine_marker_sign.lua")
@@ -423,6 +428,8 @@ includeFile("tangible/tarkin_custom/decorative/bones_wookie_s03.lua")
 includeFile("tangible/tarkin_custom/decorative/item_collection_bones.lua")
 includeFile("tangible/tarkin_custom/decorative/skeleton_bith_head.lua")
 includeFile("tangible/tarkin_custom/decorative/skeleton_ithorian_head.lua")
+includeFile("tangible/tarkin_custom/decorative/painting_gluttons_reward.lua")
+includeFile("tangible/tarkin_custom/decorative/thanksgiving_reward_rug.lua")
 
 --Disagreeable Shader
 --includeFile("tangible/tarkin_custom/decorative/exarkun_sarcophagus.lua")
