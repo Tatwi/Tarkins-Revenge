@@ -125,8 +125,8 @@ object_weapon_melee_2h_sword_2h_sword_blacksun_hack = object_weapon_melee_2h_swo
 	experimentalWeights = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
 	experimentalGroupTitles = {"null", "null", "expDamage", "expDamage", "expDamage", "expDamage", "exp_durability", "expRange", "expRange", "null", "expRange", "null", "expEffeciency", "expEffeciency", "expEffeciency"},
 	experimentalSubGroupTitles = {"null", "null", "mindamage", "maxdamage", "attackspeed", "woundchance", "hitpoints", "zerorangemod", "maxrangemod", "midrange", "midrangemod", "maxrange", "attackhealthcost", "attackactioncost", "attackmindcost"},
-	experimentalMin = {0, 0, 58, 178, 5.2, 12, 750, -22, -18, 3, -28, 6, 78, 48, 12},
-	experimentalMax = {0, 0, 112, 246, 3.8, 24, 1500, 8, 12, 3, 2, 6, 46, 32, 4},
+	experimentalMin = {0, 0, 58, 210, 5.2, 12, 750, -22, -18, 3, -28, 6, 78, 48, 12},
+	experimentalMax = {0, 0, 112, 350, 3.8, 24, 1500, 8, 12, 3, 2, 6, 46, 32, 4},
 	experimentalPrecision = {0, 0, 0, 0, 1, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0},
 	experimentalCombineType = {0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
 }
