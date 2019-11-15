@@ -36,6 +36,7 @@ public:
 		String args = arguments.toString();
 
 		// Do some wangjangling to make sure when players try to put on costumes in the vicinity of other players wearing costumes, it recognized the arguments used
+
 		if (!args.contains("player ") && args != "remove")
 			args = "player+" + args;
 
