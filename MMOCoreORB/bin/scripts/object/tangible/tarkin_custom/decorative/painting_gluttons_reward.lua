@@ -1,0 +1,6 @@
+object_tangible_tarkin_custom_decorative_painting_gluttons_reward = object_tangible_tarkin_custom_decorative_shared_painting_gluttons_reward:new {
+
+}
+
+ObjectTemplates:addTemplate(object_tangible_tarkin_custom_decorative_painting_gluttons_reward, "object/tangible/tarkin_custom/decorative/painting_gluttons_reward.iff")
+

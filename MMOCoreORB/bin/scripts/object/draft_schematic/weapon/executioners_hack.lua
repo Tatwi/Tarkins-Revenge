@@ -62,12 +62,12 @@ object_draft_schematic_weapon_executioners_hack = object_draft_schematic_weapon_
    customizationStringNames = {},
    customizationDefaults = {},
 
-   ingredientTemplateNames = {"craft_weapon_ingredients_n", "craft_weapon_ingredients_n", "craft_weapon_ingredients_n"},
-   ingredientTitleNames = {"sword_core_jacket", "grip", "omnipotent_sword_core"},
-   ingredientSlotType = {0, 0, 1},
-   resourceTypes = {"steel_carbonite", "aluminum_phrik", "object/tangible/component/weapon/shared_geonosian_sword_core.iff"},
-   resourceQuantities = {60, 30, 2},
-   contribution = {100, 100, 100},
+   ingredientTemplateNames = {"craft_weapon_ingredients_n", "craft_weapon_ingredients_n", "craft_weapon_ingredients_n", "craft_weapon_ingredients_n"},
+   ingredientTitleNames = {"sword_core_jacket", "grip", "omnipotent_sword_core", "jacketed_sword_core"},
+   ingredientSlotType = {0, 0, 1, 3},
+   resourceTypes = {"steel_carbonite", "aluminum_phrik", "object/tangible/component/weapon/shared_geonosian_sword_core.iff", "object/tangible/component/weapon/shared_sword_core.iff"},
+   resourceQuantities = {60, 30, 2, 1},
+   contribution = {100, 100, 100, 100},
 
 
    targetTemplate = "object/weapon/melee/2h_sword/2h_sword_blacksun_hack.iff",

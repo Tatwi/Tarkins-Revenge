@@ -60,23 +60,17 @@ public:
  
         ManagedReference<SceneObject*> rootParent = obj->getRootParent();
         ManagedReference<SceneObject*> creatureParent = creature->getRootParent();
- 
-        if (creatureParent == NULL || !creatureParent->isBuildingObject()) {
+        BuildingObject* buildingObject = cast<BuildingObject*>( creatureParent.get());
+
+        if (creatureParent == NULL || !creatureParent->isBuildingObject() || rootParent != creatureParent || buildingObject->containsChildObject(obj) ) {
             if (ghost->getAdminLevel() >= 15) {
                 creature->sendSystemMessage("Ingoring Building Check - God"); //What do you want to move?
             } else {
                 creature->sendSystemMessage("@player_structure:must_be_in_building"); //You must be in a building to do that.
-                return GENERALERROR;
-                BuildingObject* buildingObject = cast<BuildingObject*>( creatureParent.get());
+
  
-                if (buildingObject == NULL || rootParent != buildingObject || buildingObject->containsChildObject(obj)) {
-                        creature->sendSystemMessage("@player_structure:move_what"); //What do you want to move?
-			if (buildingObject == NULL)
-				creature->sendSystemMessage("Please report this message to the administrator: buildingObject appears to be null.");	
-			else if (rootParent != buildingObject)
-				creature->sendSystemMessage("Please report this message to the administrator: rootParent does not equal buildingObject.");
-			else
-				creature->sendSystemMessage("Please report this message to the administrator: buildingObject contains child object (obj).");				
+                 if (buildingObject == NULL || obj->getRootParent() != buildingObject ) {
+                        creature->sendSystemMessage("@player_structure:move_what"); //What do you want to move?				
                         return GENERALERROR;
                 }
  
@@ -89,6 +83,7 @@ public:
                     creature->sendSystemMessage("@player_structure:no_move_hq"); // You may not move or rotate objects inside a factional headquarters.
                     return GENERALERROR;
                 }
+                return GENERALERROR;
             }
         }
  

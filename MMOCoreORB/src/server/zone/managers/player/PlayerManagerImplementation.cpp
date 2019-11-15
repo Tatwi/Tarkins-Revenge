@@ -110,7 +110,6 @@
 #include "server/zone/managers/frs/FrsManager.h"
 #include "server/zone/managers/statistics/StatisticsManager.h"
 
-
 PlayerManagerImplementation::PlayerManagerImplementation(ZoneServer* zoneServer, ZoneProcessServer* impl) :
 										Logger("PlayerManager") {
 
@@ -1948,60 +1947,192 @@ bool PlayerManagerImplementation::checkEncumbrancies(CreatureObject* player, Arm
 	int focus = player->getHAM(CreatureAttribute::FOCUS);
 	int willpower = player->getHAM(CreatureAttribute::WILLPOWER);
 
-	int healthEncumb = armor->getHealthEncumbrance();
-	int actionEncumb = armor->getActionEncumbrance();
-	int mindEncumb = armor->getMindEncumbrance();
+	/* Tarkin's Revenge
+	Encumbrance for hitLocations with multiple equipped armor parts (arms and legs) will now use an average of the encumbrances of the relevant armor parts, rather than the sum of all the encumbrances.  Players will be able to wear full suits of armor (or however many additional pieces they wish) at the encumbrance cost of four pieces, instead of nine.  Mini suits will not be affected, they will work exactly as they do now.
+	   
+	Note: If we had used this calculation from the beginning, I would have gone about applying armor encumbrances similarly to the "standard" way, by removing the previous average, then adding the new average to a running total of creature encumbrance.  But implementing now, when we may have players in game already wearing multiple pieces of armor that were equipped before the change, would mess up the calculations when adding/removing, because there's no good way of telling whether the armor piece was equipped at full encumbrance (before the change), or at averaged encumbrance (after the change) so we can't accurately determine what number we should remove from the running total.  Therefore, we are going to calculate the total encumbrance for all equipped armor pieces under the new system when armor is equipped or unequipped, remove the effects of the currently applied encumberance, and then apply the new, recalculated encumbrance and its effects.	*/
 
-	if (healthEncumb <= 0 && actionEncumb <= 0 && mindEncumb <= 0)
+	int armorHealthEncumb = Math::max(0, armor->getHealthEncumbrance());
+	int armorActionEncumb = Math::max(0, armor->getActionEncumbrance());
+	int armorMindEncumb = Math::max(0, armor->getMindEncumbrance());
+
+	int chestHealthEncumb = 0;
+	int chestActionEncumb = 0;
+	int chestMindEncumb = 0;
+	int headHealthEncumb = 0;
+	int headActionEncumb = 0;
+	int headMindEncumb = 0;
+	int armsHealthEncumb = 0;
+	int armsActionEncumb = 0;
+	int armsMindEncumb = 0;
+	int legsHealthEncumb = 0;
+	int legsActionEncumb = 0;
+	int legsMindEncumb = 0;
+	int armsCounter = 0;
+	int legsCounter = 0;
+
+	ManagedReference<SceneObject*> hat = player->getSlottedObject("hat");
+	if (hat != NULL && hat->isArmorObject()) {
+		ArmorObject* helmet = hat.castTo<ArmorObject*>();
+		if (helmet!= NULL && helmet->getHitLocation() != 11 ) { // Disregard Wookiee chestplates, which also cover the head
+			headHealthEncumb = headHealthEncumb + Math::max(0, helmet->getHealthEncumbrance());
+			headActionEncumb = headActionEncumb + Math::max(0, helmet->getActionEncumbrance());
+			headMindEncumb = headMindEncumb + Math::max(0, helmet->getMindEncumbrance());
+		}
+	}
+
+	ManagedReference<SceneObject*> chest2 = player->getSlottedObject("chest2");
+	if (chest2 != NULL && chest2->isArmorObject()) {
+		ArmorObject* chestplate = chest2.castTo<ArmorObject*>();
+		if (chestplate != NULL) {
+			chestHealthEncumb = chestHealthEncumb + Math::max(0, chestplate->getHealthEncumbrance());
+			chestActionEncumb = chestActionEncumb + Math::max(0, chestplate->getActionEncumbrance());
+			chestMindEncumb = chestMindEncumb + Math::max(0, chestplate->getMindEncumbrance());
+		}
+	}
+
+	ManagedReference<SceneObject*> bicep_l = player->getSlottedObject("bicep_l");
+	if (bicep_l != NULL && bicep_l->isArmorObject()) {
+		ArmorObject* leftBicep = bicep_l.castTo<ArmorObject*>();
+		if (leftBicep != NULL && leftBicep->getHitLocation() != 0x3 ) { // Disregard Ubese chestplates, which also cover the arms
+			armsHealthEncumb = armsHealthEncumb + Math::max(0, leftBicep->getHealthEncumbrance());
+			armsActionEncumb = armsActionEncumb + Math::max(0, leftBicep->getActionEncumbrance());
+			armsMindEncumb = armsMindEncumb + Math::max(0, leftBicep->getMindEncumbrance());
+			armsCounter++;
+		}
+	}
+
+	ManagedReference<SceneObject*> bicep_r = player->getSlottedObject("bicep_r");
+	if (bicep_r != NULL && bicep_r->isArmorObject()) {
+		ArmorObject* rightBicep = bicep_r.castTo<ArmorObject*>();
+		if (rightBicep != NULL && rightBicep->getHitLocation() != 0x3) { // Disregard Ubese chestplates, which also cover the arms
+			armsHealthEncumb = armsHealthEncumb + Math::max(0, rightBicep->getHealthEncumbrance());
+			armsActionEncumb = armsActionEncumb + Math::max(0, rightBicep->getActionEncumbrance());
+			armsMindEncumb = armsMindEncumb + Math::max(0, rightBicep->getMindEncumbrance());
+			armsCounter++;
+		}
+	}
+
+	ManagedReference<SceneObject*> bracer_upper_l = player->getSlottedObject("bracer_upper_l");
+	if (bracer_upper_l != NULL && bracer_upper_l->isArmorObject()) {
+		ArmorObject* leftBracer = bracer_upper_l.castTo<ArmorObject*>();
+		if (leftBracer != NULL && leftBracer->getHitLocation() != 0x3 ) { // Disregard Ubese chestplates, which also cover the arms
+			armsHealthEncumb = armsHealthEncumb + Math::max(0, leftBracer->getHealthEncumbrance());
+			armsActionEncumb = armsActionEncumb + Math::max(0, leftBracer->getActionEncumbrance());
+			armsMindEncumb = armsMindEncumb + Math::max(0, leftBracer->getMindEncumbrance());
+			armsCounter++;
+		}
+	}
+
+	ManagedReference<SceneObject*> bracer_upper_r = player->getSlottedObject("bracer_upper_r");
+	if (bracer_upper_r != NULL && bracer_upper_r->isArmorObject()) {
+		ArmorObject* rightBracer = bracer_upper_r.castTo<ArmorObject*>();
+		if (rightBracer != NULL && rightBracer->getHitLocation() != 0x3) { // Disregard Ubese chestplates, which also cover the arms
+			armsHealthEncumb = armsHealthEncumb + Math::max(0, rightBracer->getHealthEncumbrance());
+			armsActionEncumb = armsActionEncumb + Math::max(0, rightBracer->getActionEncumbrance());
+			armsMindEncumb = armsMindEncumb + Math::max(0, rightBracer->getMindEncumbrance());
+			armsCounter++;
+		}
+	}
+
+	ManagedReference<SceneObject*> gloves = player->getSlottedObject("gloves");
+	if (gloves != NULL && gloves->isArmorObject()) {
+		ArmorObject* gloveArmor = gloves.castTo<ArmorObject*>();
+		if (gloveArmor != NULL && gloveArmor->getHitLocation() != 0x3) { // Disregard Ubese chestplates, which also cover the arms
+			armsHealthEncumb = armsHealthEncumb + Math::max(0, gloveArmor->getHealthEncumbrance());
+			armsActionEncumb = armsActionEncumb + Math::max(0, gloveArmor->getActionEncumbrance());
+			armsMindEncumb = armsMindEncumb + Math::max(0, gloveArmor->getMindEncumbrance());
+			armsCounter++;
+		}
+	}
+	
+	ManagedReference<SceneObject*> pants1 = player->getSlottedObject("pants1");
+	if (pants1 != NULL && pants1->isArmorObject()) {
+		ArmorObject* leggings = pants1.castTo<ArmorObject*>();
+		if (leggings != NULL) {
+			legsHealthEncumb = legsHealthEncumb + Math::max(0, leggings->getHealthEncumbrance());
+			legsActionEncumb = legsActionEncumb + Math::max(0, leggings->getActionEncumbrance());
+			legsMindEncumb = legsMindEncumb + Math::max(0, leggings->getMindEncumbrance());
+			legsCounter++;
+		}
+	}
+
+	ManagedReference<SceneObject*> shoes = player->getSlottedObject("shoes");
+	if (shoes != NULL && shoes->isArmorObject()) {
+		ArmorObject* boots = shoes.castTo<ArmorObject*>();
+		if (boots != NULL) {
+			legsHealthEncumb = legsHealthEncumb + Math::max(0, boots->getHealthEncumbrance());
+			legsActionEncumb = legsActionEncumb + Math::max(0, boots->getActionEncumbrance());
+			legsMindEncumb = legsMindEncumb + Math::max(0, boots->getMindEncumbrance());
+			legsCounter++;
+		}
+	}
+
+	int wornHealthEncumb = chestHealthEncumb + headHealthEncumb + (armsHealthEncumb/Math::max(1, armsCounter)) + (legsHealthEncumb/Math::max(1, legsCounter));
+	int wornActionEncumb = chestActionEncumb + headActionEncumb + (armsActionEncumb/Math::max(1, armsCounter)) + (legsActionEncumb/Math::max(1, legsCounter));
+	int wornMindEncumb = chestMindEncumb + headMindEncumb + (armsMindEncumb/Math::max(1, armsCounter)) + (legsMindEncumb/Math::max(1, legsCounter));
+
+	int newHealthEncumb = wornHealthEncumb + armorHealthEncumb;
+	int newActionEncumb = wornActionEncumb + armorActionEncumb;
+	int newMindEncumb = wornMindEncumb + armorMindEncumb;
+
+	if (newHealthEncumb <= 0 && newActionEncumb <= 0 && newMindEncumb <= 0)
 		return true;
 
-	if (healthEncumb >= strength || healthEncumb >= constitution ||
-			actionEncumb >= quickness || actionEncumb >= stamina ||
-			mindEncumb >= focus || mindEncumb >= willpower) {
+	strength = strength + wornHealthEncumb;
+	constitution = constitution + wornHealthEncumb;
+	quickness = quickness + wornActionEncumb;
+	stamina = stamina + wornActionEncumb;
+	focus = focus + wornMindEncumb;
+	willpower = willpower + wornMindEncumb;
+
+	if (newHealthEncumb >= strength || newHealthEncumb >= constitution ||
+			newActionEncumb >= quickness || newActionEncumb >= stamina ||
+			newMindEncumb >= focus || newMindEncumb >= willpower) {
 		player->sendSystemMessage("@system_msg:equip_armor_fail"); // You are not healthy enough to wear this armor!
 
-		if (healthEncumb >= strength) {
-			int statStr = (healthEncumb - strength) + 1;
+		if (newHealthEncumb >= strength) {
+			int statStr = (newHealthEncumb - strength) + 1;
 			StringIdChatParameter params("@system_msg:equip_armor_fail_prose"); // You need %DI more %TT to wear this armor.
 			params.setDI(statStr);
 			params.setTT("@att_n:strength");
 			player->sendSystemMessage(params);
 		}
 
-		if (healthEncumb >= constitution) {
-			int statCon = (healthEncumb - constitution) + 1;
+		if (newHealthEncumb >= constitution) {
+			int statCon = (newHealthEncumb - constitution) + 1;
 			StringIdChatParameter params("@system_msg:equip_armor_fail_prose");
 			params.setDI(statCon);
 			params.setTT("@att_n:constitution");
 			player->sendSystemMessage(params);
 		}
 
-		if (actionEncumb >= quickness) {
-			int statQuick = (actionEncumb - quickness) + 1;
+		if (newActionEncumb >= quickness) {
+			int statQuick = (newActionEncumb - quickness) + 1;
 			StringIdChatParameter params("@system_msg:equip_armor_fail_prose");
 			params.setDI(statQuick);
 			params.setTT("@att_n:quickness");
 			player->sendSystemMessage(params);
 		}
 
-		if (actionEncumb >= stamina) {
-			int statStam = (actionEncumb - stamina) + 1;
+		if (newActionEncumb >= stamina) {
+			int statStam = (newActionEncumb - stamina) + 1;
 			StringIdChatParameter params("@system_msg:equip_armor_fail_prose");
 			params.setDI(statStam);
 			params.setTT("@att_n:stamina");
 			player->sendSystemMessage(params);
 		}
 
-		if (mindEncumb >= focus) {
-			int statFoc = (mindEncumb - focus) + 1;
+		if (newMindEncumb >= focus) {
+			int statFoc = (newMindEncumb - focus) + 1;
 			StringIdChatParameter params("@system_msg:equip_armor_fail_prose");
 			params.setDI(statFoc);
 			params.setTT("@att_n:focus");
 			player->sendSystemMessage(params);
 		}
 
-		if (mindEncumb >= willpower) {
-			int statWill = (mindEncumb - willpower) + 1;
+		if (newMindEncumb >= willpower) {
+			int statWill = (newMindEncumb - willpower) + 1;
 			StringIdChatParameter params("@system_msg:equip_armor_fail_prose");
 			params.setDI(statWill);
 			params.setTT("@att_n:willpower");
@@ -2015,59 +2146,351 @@ bool PlayerManagerImplementation::checkEncumbrancies(CreatureObject* player, Arm
 }
 
 void PlayerManagerImplementation::applyEncumbrancies(CreatureObject* player, ArmorObject* armor) {
-	int healthEncumb = Math::max(0, armor->getHealthEncumbrance());
-	int actionEncumb = Math::max(0, armor->getActionEncumbrance());
-	int mindEncumb = Math::max(0, armor->getMindEncumbrance());
+	/* Tarkin's Revenge
+	Encumbrance for hitLocations with multiple equipped armor parts (arms and legs) will now use an average of the encumbrances of the relevant armor parts, rather than the sum of all the encumbrances.  Players will be able to wear full suits of armor (or however many additional pieces they wish) at the encumbrance cost of four pieces, instead of nine.  Mini suits will not be affected, they will work exactly as they do now.
+	   
+	Note: If we had used this calculation from the beginning, I would have gone about applying armor encumbrances similarly to the "standard" way, by removing the previous average, then adding the new average to a running total of creature encumbrance.  But implementing now, when we may have players in game already wearing multiple pieces of armor that were equipped before the change, would mess up the calculations when adding/removing, because there's no good way of telling whether the armor piece was equipped at full encumbrance (before the change), or at averaged encumbrance (after the change) so we can't accurately determine what number we should remove from the running total.  Therefore, we are going to calculate the total encumbrance for all equipped armor pieces under the new system when armor is equipped or unequipped, remove the effects of the currently applied encumberance, and then apply the new, recalculated encumbrance and its effects.	*/
 
-	player->addEncumbrance(CreatureEncumbrance::HEALTH, healthEncumb, true);
-	player->addEncumbrance(CreatureEncumbrance::ACTION, actionEncumb, true);
-	player->addEncumbrance(CreatureEncumbrance::MIND, mindEncumb, true);
+	int armorHealthEncumb = Math::max(0, armor->getHealthEncumbrance());
+	int armorActionEncumb = Math::max(0, armor->getActionEncumbrance());
+	int armorMindEncumb = Math::max(0, armor->getMindEncumbrance());
 
-	player->inflictDamage(player, CreatureAttribute::STRENGTH, healthEncumb, true);
-	player->addMaxHAM(CreatureAttribute::STRENGTH, -healthEncumb, true);
+	uint8 armorHitLocation = armor->getHitLocation();
 
-	player->inflictDamage(player, CreatureAttribute::CONSTITUTION, healthEncumb, true);
-	player->addMaxHAM(CreatureAttribute::CONSTITUTION, -healthEncumb, true);
+	int chestHealthEncumb = 0;
+	int chestActionEncumb = 0;
+	int chestMindEncumb = 0;
+	int headHealthEncumb = 0;
+	int headActionEncumb = 0;
+	int headMindEncumb = 0;
+	int armsHealthEncumb = 0;
+	int armsActionEncumb = 0;
+	int armsMindEncumb = 0;
+	int legsHealthEncumb = 0;
+	int legsActionEncumb = 0;
+	int legsMindEncumb = 0;
+	int armsCounter = 0;
+	int legsCounter = 0;
+	
+	// First get sum of encumbrance of all equipped armor pieces, by hit location
+	// Chest and Head can only have 1 piece of armor, don't increment a counter
+	ManagedReference<SceneObject*> hat = player->getSlottedObject("hat");
+	if (hat != NULL && hat->isArmorObject()) {
+		ArmorObject* helmet = hat.castTo<ArmorObject*>();
+		if (helmet!= NULL && helmet->getHitLocation() != 11 ) { // Disregard Wookiee chestplates, which also cover the head
+			headHealthEncumb = headHealthEncumb + Math::max(0, helmet->getHealthEncumbrance());
+			headActionEncumb = headActionEncumb + Math::max(0, helmet->getActionEncumbrance());
+			headMindEncumb = headMindEncumb + Math::max(0, helmet->getMindEncumbrance());
+		}
+	}
 
-	player->inflictDamage(player, CreatureAttribute::QUICKNESS, actionEncumb, true);
-	player->addMaxHAM(CreatureAttribute::QUICKNESS, -actionEncumb, true);
+	ManagedReference<SceneObject*> chest2 = player->getSlottedObject("chest2");
+	if (chest2 != NULL && chest2->isArmorObject()) {
+		ArmorObject* chestplate = chest2.castTo<ArmorObject*>();
+		if (chestplate != NULL) {
+			chestHealthEncumb = chestHealthEncumb + Math::max(0, chestplate->getHealthEncumbrance());
+			chestActionEncumb = chestActionEncumb + Math::max(0, chestplate->getActionEncumbrance());
+			chestMindEncumb = chestMindEncumb + Math::max(0, chestplate->getMindEncumbrance());
+		}
+	}
 
-	player->inflictDamage(player, CreatureAttribute::STAMINA, actionEncumb, true);
-	player->addMaxHAM(CreatureAttribute::STAMINA, -actionEncumb, true);
+	ManagedReference<SceneObject*> bicep_l = player->getSlottedObject("bicep_l");
+	if (bicep_l != NULL && bicep_l->isArmorObject()) {
+		ArmorObject* leftBicep = bicep_l.castTo<ArmorObject*>();
+		if (leftBicep != NULL && leftBicep->getHitLocation() != 0x3 ) { // Disregard Ubese chestplates, which also cover the arms
+			armsHealthEncumb = armsHealthEncumb + Math::max(0, leftBicep->getHealthEncumbrance());
+			armsActionEncumb = armsActionEncumb + Math::max(0, leftBicep->getActionEncumbrance());
+			armsMindEncumb = armsMindEncumb + Math::max(0, leftBicep->getMindEncumbrance());
+			armsCounter++;
+		}
+	}
 
-	player->inflictDamage(player, CreatureAttribute::FOCUS, mindEncumb, true);
-	player->addMaxHAM(CreatureAttribute::FOCUS, -mindEncumb, true);
+	ManagedReference<SceneObject*> bicep_r = player->getSlottedObject("bicep_r");
+	if (bicep_r != NULL && bicep_r->isArmorObject()) {
+		ArmorObject* rightBicep = bicep_r.castTo<ArmorObject*>();
+		if (rightBicep != NULL && rightBicep->getHitLocation() != 0x3) { // Disregard Ubese chestplates, which also cover the arms
+			armsHealthEncumb = armsHealthEncumb + Math::max(0, rightBicep->getHealthEncumbrance());
+			armsActionEncumb = armsActionEncumb + Math::max(0, rightBicep->getActionEncumbrance());
+			armsMindEncumb = armsMindEncumb + Math::max(0, rightBicep->getMindEncumbrance());
+			armsCounter++;
+		}
+	}
 
-	player->inflictDamage(player, CreatureAttribute::WILLPOWER, mindEncumb, true);
-	player->addMaxHAM(CreatureAttribute::WILLPOWER, -mindEncumb, true);
+	ManagedReference<SceneObject*> bracer_upper_l = player->getSlottedObject("bracer_upper_l");
+	if (bracer_upper_l != NULL && bracer_upper_l->isArmorObject()) {
+		ArmorObject* leftBracer = bracer_upper_l.castTo<ArmorObject*>();
+		if (leftBracer != NULL && leftBracer->getHitLocation() != 0x3 ) { // Disregard Ubese chestplates, which also cover the arms
+			armsHealthEncumb = armsHealthEncumb + Math::max(0, leftBracer->getHealthEncumbrance());
+			armsActionEncumb = armsActionEncumb + Math::max(0, leftBracer->getActionEncumbrance());
+			armsMindEncumb = armsMindEncumb + Math::max(0, leftBracer->getMindEncumbrance());
+			armsCounter++;
+		}
+	}
+
+	ManagedReference<SceneObject*> bracer_upper_r = player->getSlottedObject("bracer_upper_r");
+	if (bracer_upper_r != NULL && bracer_upper_r->isArmorObject()) {
+		ArmorObject* rightBracer = bracer_upper_r.castTo<ArmorObject*>();
+		if (rightBracer != NULL && rightBracer->getHitLocation() != 0x3) { // Disregard Ubese chestplates, which also cover the arms
+			armsHealthEncumb = armsHealthEncumb + Math::max(0, rightBracer->getHealthEncumbrance());
+			armsActionEncumb = armsActionEncumb + Math::max(0, rightBracer->getActionEncumbrance());
+			armsMindEncumb = armsMindEncumb + Math::max(0, rightBracer->getMindEncumbrance());
+			armsCounter++;
+		}
+	}
+
+	ManagedReference<SceneObject*> gloves = player->getSlottedObject("gloves");
+	if (gloves != NULL && gloves->isArmorObject()) {
+		ArmorObject* gloveArmor = gloves.castTo<ArmorObject*>();
+		if (gloveArmor != NULL && gloveArmor->getHitLocation() != 0x3) { // Disregard Ubese chestplates, which also cover the arms
+			armsHealthEncumb = armsHealthEncumb + Math::max(0, gloveArmor->getHealthEncumbrance());
+			armsActionEncumb = armsActionEncumb + Math::max(0, gloveArmor->getActionEncumbrance());
+			armsMindEncumb = armsMindEncumb + Math::max(0, gloveArmor->getMindEncumbrance());
+			armsCounter++;
+		}
+	}
+	
+	ManagedReference<SceneObject*> pants1 = player->getSlottedObject("pants1");
+	if (pants1 != NULL && pants1->isArmorObject()) {
+		ArmorObject* leggings = pants1.castTo<ArmorObject*>();
+		if (leggings != NULL) {
+			legsHealthEncumb = legsHealthEncumb + Math::max(0, leggings->getHealthEncumbrance());
+			legsActionEncumb = legsActionEncumb + Math::max(0, leggings->getActionEncumbrance());
+			legsMindEncumb = legsMindEncumb + Math::max(0, leggings->getMindEncumbrance());
+			legsCounter++;
+		}
+	}
+
+	ManagedReference<SceneObject*> shoes = player->getSlottedObject("shoes");
+	if (shoes != NULL && shoes->isArmorObject()) {
+		ArmorObject* boots = shoes.castTo<ArmorObject*>();
+		if (boots != NULL) {
+			legsHealthEncumb = legsHealthEncumb + Math::max(0, boots->getHealthEncumbrance());
+			legsActionEncumb = legsActionEncumb + Math::max(0, boots->getActionEncumbrance());
+			legsMindEncumb = legsMindEncumb + Math::max(0, boots->getMindEncumbrance());
+			legsCounter++;
+		}
+	}
+
+	// Next, calculate the encumbrance totals we will be applying to the player using our averaged calculation method.
+	int newHealthEncumb = chestHealthEncumb + headHealthEncumb + trunc(armsHealthEncumb/Math::max(1, armsCounter)) + trunc(legsHealthEncumb/Math::max(1, legsCounter));
+	int newActionEncumb = chestActionEncumb + headActionEncumb + trunc(armsActionEncumb/Math::max(1, armsCounter)) + trunc(legsActionEncumb/Math::max(1, legsCounter));
+	int newMindEncumb = chestMindEncumb + headMindEncumb + trunc(armsMindEncumb/Math::max(1, armsCounter)) + trunc(legsMindEncumb/Math::max(1, legsCounter));
+
+	// Get currently applied encumbrances
+	int currentHealthEncumb = player->getEncumbrance(CreatureEncumbrance::HEALTH);
+	int currentActionEncumb = player->getEncumbrance(CreatureEncumbrance::ACTION);
+	int currentMindEncumb = player->getEncumbrance(CreatureEncumbrance::MIND);
+
+	// Set new encumbrances
+	player->setEncumbrance(CreatureEncumbrance::HEALTH, newHealthEncumb, true);
+	player->setEncumbrance(CreatureEncumbrance::ACTION, newActionEncumb, true);
+	player->setEncumbrance(CreatureEncumbrance::MIND, newMindEncumb, true);
+
+	// Remove currently applied encumbrance effects
+	player->addMaxHAM(CreatureAttribute::STRENGTH, currentHealthEncumb, true);
+	player->healDamage(player, CreatureAttribute::STRENGTH, currentHealthEncumb, true);
+	player->addMaxHAM(CreatureAttribute::CONSTITUTION, currentHealthEncumb, true);
+	player->healDamage(player, CreatureAttribute::CONSTITUTION, currentHealthEncumb, true);
+	player->addMaxHAM(CreatureAttribute::QUICKNESS, currentActionEncumb, true);
+	player->healDamage(player, CreatureAttribute::QUICKNESS, currentActionEncumb, true);
+	player->addMaxHAM(CreatureAttribute::STAMINA, currentActionEncumb, true);
+	player->healDamage(player, CreatureAttribute::STAMINA, currentActionEncumb, true);
+	player->addMaxHAM(CreatureAttribute::FOCUS, currentMindEncumb, true);
+	player->healDamage(player, CreatureAttribute::FOCUS, currentMindEncumb, true);
+	player->addMaxHAM(CreatureAttribute::WILLPOWER, currentMindEncumb, true);
+	player->healDamage(player, CreatureAttribute::WILLPOWER, currentMindEncumb, true);
+
+	// Apply new, recalculated encumbrance effects
+	player->inflictDamage(player, CreatureAttribute::STRENGTH, newHealthEncumb, true);
+	player->addMaxHAM(CreatureAttribute::STRENGTH, -newHealthEncumb, true);		
+	player->inflictDamage(player, CreatureAttribute::CONSTITUTION, newHealthEncumb, true);
+	player->addMaxHAM(CreatureAttribute::CONSTITUTION, -newHealthEncumb, true);
+	player->inflictDamage(player, CreatureAttribute::QUICKNESS, newActionEncumb, true);
+	player->addMaxHAM(CreatureAttribute::QUICKNESS, -newActionEncumb, true);
+	player->inflictDamage(player, CreatureAttribute::STAMINA, newActionEncumb, true);
+	player->addMaxHAM(CreatureAttribute::STAMINA, -newActionEncumb, true);
+	player->inflictDamage(player, CreatureAttribute::FOCUS, newMindEncumb, true);
+	player->addMaxHAM(CreatureAttribute::FOCUS, -newMindEncumb, true);
+	player->inflictDamage(player, CreatureAttribute::WILLPOWER, newMindEncumb, true);
+	player->addMaxHAM(CreatureAttribute::WILLPOWER, -newMindEncumb, true);
 }
 
 void PlayerManagerImplementation::removeEncumbrancies(CreatureObject* player, ArmorObject* armor) {
-	int healthEncumb = Math::max(0, armor->getHealthEncumbrance());
-	int actionEncumb = Math::max(0, armor->getActionEncumbrance());
-	int mindEncumb = Math::max(0, armor->getMindEncumbrance());
+	/* Tarkin's Revenge
+	Encumbrance for hitLocations with multiple equipped armor parts (arms and legs) will now use an average of the encumbrances of the relevant armor parts, rather than the sum of all the encumbrances.  Players will be able to wear full suits of armor (or however many additional pieces they wish) at the encumbrance cost of four pieces, instead of nine.  Mini suits will not be affected, they will work exactly as they do now.
+	   
+	Note: If we had used this calculation from the beginning, I would have gone about applying armor encumbrances similarly to the "standard" way, by removing the previous average, then adding the new average to a running total of creature encumbrance.  But implementing now, when we may have players in game already wearing multiple pieces of armor that were equipped before the change, would mess up the calculations when adding/removing, because there's no good way of telling whether the armor piece was equipped at full encumbrance (before the change), or at averaged encumbrance (after the change) so we can't accurately determine what number we should remove from the running total.  Therefore, we are going to calculate the total encumbrance for all equipped armor pieces under the new system when armor is equipped or unequipped, remove the effects of the currently applied encumberance, and then apply the new, recalculated encumbrance and its effects.	*/
 
-	player->addEncumbrance(CreatureEncumbrance::HEALTH, -healthEncumb, true);
-	player->addEncumbrance(CreatureEncumbrance::ACTION, -actionEncumb, true);
-	player->addEncumbrance(CreatureEncumbrance::MIND, -mindEncumb, true);
+	int armorHealthEncumb = Math::max(0, armor->getHealthEncumbrance());
+	int armorActionEncumb = Math::max(0, armor->getActionEncumbrance());
+	int armorMindEncumb = Math::max(0, armor->getMindEncumbrance());
 
-	player->addMaxHAM(CreatureAttribute::STRENGTH, healthEncumb, true);
-	player->healDamage(player, CreatureAttribute::STRENGTH, healthEncumb, true);
+	uint8 armorHitLocation = armor->getHitLocation();
 
-	player->addMaxHAM(CreatureAttribute::CONSTITUTION, healthEncumb, true);
-	player->healDamage(player, CreatureAttribute::CONSTITUTION, healthEncumb, true);
+	int chestHealthEncumb = 0;
+	int chestActionEncumb = 0;
+	int chestMindEncumb = 0;
+	int headHealthEncumb = 0;
+	int headActionEncumb = 0;
+	int headMindEncumb = 0;
+	int armsHealthEncumb = 0;
+	int armsActionEncumb = 0;
+	int armsMindEncumb = 0;
+	int legsHealthEncumb = 0;
+	int legsActionEncumb = 0;
+	int legsMindEncumb = 0;
+	int armsCounter = 0;
+	int legsCounter = 0;
 
-	player->addMaxHAM(CreatureAttribute::QUICKNESS, actionEncumb, true);
-	player->healDamage(player, CreatureAttribute::QUICKNESS, actionEncumb, true);
+	// Caclulate encumbrances for only the armors the player still has equipped, and set their encumbrance and HAM values accordingly. Player stats could potentially go in the negative to wear the remaining armor, as removing a very light piece might actually raise the average on the remaining pieces above what the player has stats to cover.  This is similar to when a buff wears off and armor remains equipped that the player doesn't have enough secondary stats to actually equip.  We decided to accept that effect in this case as well.
+	
+	
+	// First get sum of encumbrance of all equipped armor pieces
+	// Chest and Head can only have 1 piece of armor, don't increment a counter
+	ManagedReference<SceneObject*> hat = player->getSlottedObject("hat");
+	if (hat != NULL && hat->isArmorObject()) {
+		ArmorObject* helmet = hat.castTo<ArmorObject*>();
+		if (helmet!= NULL && helmet->getHitLocation() != 11 ) { // Disregard Wookiee chestplates, which also cover the head
+			headHealthEncumb = headHealthEncumb + Math::max(0, helmet->getHealthEncumbrance());
+			headActionEncumb = headActionEncumb + Math::max(0, helmet->getActionEncumbrance());
+			headMindEncumb = headMindEncumb + Math::max(0, helmet->getMindEncumbrance());
+		}
+	}
 
-	player->addMaxHAM(CreatureAttribute::STAMINA, actionEncumb, true);
-	player->healDamage(player, CreatureAttribute::STAMINA, actionEncumb, true);
+	ManagedReference<SceneObject*> chest2 = player->getSlottedObject("chest2");
+	if (chest2 != NULL && chest2->isArmorObject()) {
+		ArmorObject* chestplate = chest2.castTo<ArmorObject*>();
+		if (chestplate != NULL) {
+			chestHealthEncumb = chestHealthEncumb + Math::max(0, chestplate->getHealthEncumbrance());
+			chestActionEncumb = chestActionEncumb + Math::max(0, chestplate->getActionEncumbrance());
+			chestMindEncumb = chestMindEncumb + Math::max(0, chestplate->getMindEncumbrance());
+		}
+	}
 
-	player->addMaxHAM(CreatureAttribute::FOCUS, mindEncumb, true);
-	player->healDamage(player, CreatureAttribute::FOCUS, mindEncumb, true);
+	ManagedReference<SceneObject*> bicep_l = player->getSlottedObject("bicep_l");
+	if (bicep_l != NULL && bicep_l->isArmorObject()) {
+		ArmorObject* leftBicep = bicep_l.castTo<ArmorObject*>();
+		if (leftBicep != NULL && leftBicep->getHitLocation() != 0x3 ) { // Disregard Ubese chestplates, which also cover the arms
+			armsHealthEncumb = armsHealthEncumb + Math::max(0, leftBicep->getHealthEncumbrance());
+			armsActionEncumb = armsActionEncumb + Math::max(0, leftBicep->getActionEncumbrance());
+			armsMindEncumb = armsMindEncumb + Math::max(0, leftBicep->getMindEncumbrance());
+			armsCounter++;
+		}
+	}
 
-	player->addMaxHAM(CreatureAttribute::WILLPOWER, mindEncumb, true);
-	player->healDamage(player, CreatureAttribute::WILLPOWER, mindEncumb, true);
+	ManagedReference<SceneObject*> bicep_r = player->getSlottedObject("bicep_r");
+	if (bicep_r != NULL && bicep_r->isArmorObject()) {
+		ArmorObject* rightBicep = bicep_r.castTo<ArmorObject*>();
+		if (rightBicep != NULL && rightBicep->getHitLocation() != 0x3) { // Disregard Ubese chestplates, which also cover the arms
+			armsHealthEncumb = armsHealthEncumb + Math::max(0, rightBicep->getHealthEncumbrance());
+			armsActionEncumb = armsActionEncumb + Math::max(0, rightBicep->getActionEncumbrance());
+			armsMindEncumb = armsMindEncumb + Math::max(0, rightBicep->getMindEncumbrance());
+			armsCounter++;
+		}
+	}
+
+	ManagedReference<SceneObject*> bracer_upper_l = player->getSlottedObject("bracer_upper_l");
+	if (bracer_upper_l != NULL && bracer_upper_l->isArmorObject()) {
+		ArmorObject* leftBracer = bracer_upper_l.castTo<ArmorObject*>();
+		if (leftBracer != NULL && leftBracer->getHitLocation() != 0x3 ) { // Disregard Ubese chestplates, which also cover the arms
+			armsHealthEncumb = armsHealthEncumb + Math::max(0, leftBracer->getHealthEncumbrance());
+			armsActionEncumb = armsActionEncumb + Math::max(0, leftBracer->getActionEncumbrance());
+			armsMindEncumb = armsMindEncumb + Math::max(0, leftBracer->getMindEncumbrance());
+			armsCounter++;
+		}
+	}
+
+	ManagedReference<SceneObject*> bracer_upper_r = player->getSlottedObject("bracer_upper_r");
+	if (bracer_upper_r != NULL && bracer_upper_r->isArmorObject()) {
+		ArmorObject* rightBracer = bracer_upper_r.castTo<ArmorObject*>();
+		if (rightBracer != NULL && rightBracer->getHitLocation() != 0x3) { // Disregard Ubese chestplates, which also cover the arms
+			armsHealthEncumb = armsHealthEncumb + Math::max(0, rightBracer->getHealthEncumbrance());
+			armsActionEncumb = armsActionEncumb + Math::max(0, rightBracer->getActionEncumbrance());
+			armsMindEncumb = armsMindEncumb + Math::max(0, rightBracer->getMindEncumbrance());
+			armsCounter++;
+		}
+	}
+
+	ManagedReference<SceneObject*> gloves = player->getSlottedObject("gloves");
+	if (gloves != NULL && gloves->isArmorObject()) {
+		ArmorObject* gloveArmor = gloves.castTo<ArmorObject*>();
+		if (gloveArmor != NULL && gloveArmor->getHitLocation() != 0x3) { // Disregard Ubese chestplates, which also cover the arms
+			armsHealthEncumb = armsHealthEncumb + Math::max(0, gloveArmor->getHealthEncumbrance());
+			armsActionEncumb = armsActionEncumb + Math::max(0, gloveArmor->getActionEncumbrance());
+			armsMindEncumb = armsMindEncumb + Math::max(0, gloveArmor->getMindEncumbrance());
+			armsCounter++;
+		}
+	}
+	
+	ManagedReference<SceneObject*> pants1 = player->getSlottedObject("pants1");
+	if (pants1 != NULL && pants1->isArmorObject()) {
+		ArmorObject* leggings = pants1.castTo<ArmorObject*>();
+		if (leggings != NULL) {
+			legsHealthEncumb = legsHealthEncumb + Math::max(0, leggings->getHealthEncumbrance());
+			legsActionEncumb = legsActionEncumb + Math::max(0, leggings->getActionEncumbrance());
+			legsMindEncumb = legsMindEncumb + Math::max(0, leggings->getMindEncumbrance());
+			legsCounter++;
+		}
+	}
+
+	ManagedReference<SceneObject*> shoes = player->getSlottedObject("shoes");
+	if (shoes != NULL && shoes->isArmorObject()) {
+		ArmorObject* boots = shoes.castTo<ArmorObject*>();
+		if (boots != NULL) {
+			legsHealthEncumb = legsHealthEncumb + Math::max(0, boots->getHealthEncumbrance());
+			legsActionEncumb = legsActionEncumb + Math::max(0, boots->getActionEncumbrance());
+			legsMindEncumb = legsMindEncumb + Math::max(0, boots->getMindEncumbrance());
+			legsCounter++;
+		}
+	}
+
+	// Next, calculate the encumbrance totals we will be applying to the player using our averaged calculation method. 
+	int newHealthEncumb = chestHealthEncumb + headHealthEncumb + trunc(armsHealthEncumb/Math::max(1, armsCounter)) + trunc(legsHealthEncumb/Math::max(1, legsCounter));
+	int newActionEncumb = chestActionEncumb + headActionEncumb + trunc(armsActionEncumb/Math::max(1, armsCounter)) + trunc(legsActionEncumb/Math::max(1, legsCounter));
+	int newMindEncumb = chestMindEncumb + headMindEncumb + trunc(armsMindEncumb/Math::max(1, armsCounter)) + trunc(legsMindEncumb/Math::max(1, legsCounter));
+
+	// Get currently applied encumbrances
+	int currentHealthEncumb = player->getEncumbrance(CreatureEncumbrance::HEALTH);
+	int currentActionEncumb = player->getEncumbrance(CreatureEncumbrance::ACTION);
+	int currentMindEncumb = player->getEncumbrance(CreatureEncumbrance::MIND);
+
+	// Zero out encumbrances
+	player->setEncumbrance(CreatureEncumbrance::HEALTH, 0, true);
+	player->setEncumbrance(CreatureEncumbrance::ACTION, 0, true);
+	player->setEncumbrance(CreatureEncumbrance::MIND, 0, true);
+
+	// Remove encumbrance effects from before the armor was unequipped
+	player->addMaxHAM(CreatureAttribute::STRENGTH, currentHealthEncumb, true);
+	player->healDamage(player, CreatureAttribute::STRENGTH, currentHealthEncumb, true);
+	player->addMaxHAM(CreatureAttribute::CONSTITUTION, currentHealthEncumb, true);
+	player->healDamage(player, CreatureAttribute::CONSTITUTION, currentHealthEncumb, true);
+	player->addMaxHAM(CreatureAttribute::QUICKNESS, currentActionEncumb, true);
+	player->healDamage(player, CreatureAttribute::QUICKNESS, currentActionEncumb, true);
+	player->addMaxHAM(CreatureAttribute::STAMINA, currentActionEncumb, true);
+	player->healDamage(player, CreatureAttribute::STAMINA, currentActionEncumb, true);
+	player->addMaxHAM(CreatureAttribute::FOCUS, currentMindEncumb, true);
+	player->healDamage(player, CreatureAttribute::FOCUS, currentMindEncumb, true);
+	player->addMaxHAM(CreatureAttribute::WILLPOWER, currentMindEncumb, true);
+	player->healDamage(player, CreatureAttribute::WILLPOWER, currentMindEncumb, true);
+
+	// Set new encumbrances
+	player->setEncumbrance(CreatureEncumbrance::HEALTH, newHealthEncumb, true);
+	player->setEncumbrance(CreatureEncumbrance::ACTION, newActionEncumb, true);
+	player->setEncumbrance(CreatureEncumbrance::MIND, newMindEncumb, true);
+
+	// Apply the newly calculated encumbrance effects
+	player->inflictDamage(player, CreatureAttribute::STRENGTH, Math::min(newHealthEncumb, player->getHAM(CreatureAttribute::STRENGTH)-1), true);
+	player->addMaxHAM(CreatureAttribute::STRENGTH, -newHealthEncumb, true);		
+	player->inflictDamage(player, CreatureAttribute::CONSTITUTION, Math::min(newHealthEncumb, player->getHAM(CreatureAttribute::CONSTITUTION)-1), true);
+	player->addMaxHAM(CreatureAttribute::CONSTITUTION, -newHealthEncumb, true);
+	player->inflictDamage(player, CreatureAttribute::QUICKNESS, Math::min(newActionEncumb, player->getHAM(CreatureAttribute::QUICKNESS)-1), true);
+	player->addMaxHAM(CreatureAttribute::QUICKNESS, -newActionEncumb, true);
+	player->inflictDamage(player, CreatureAttribute::STAMINA, Math::min(newActionEncumb, player->getHAM(CreatureAttribute::STAMINA)-1), true);
+	player->addMaxHAM(CreatureAttribute::STAMINA, -newActionEncumb, true);
+	player->inflictDamage(player, CreatureAttribute::FOCUS, Math::min(newMindEncumb, player->getHAM(CreatureAttribute::FOCUS)-1), true);
+	player->addMaxHAM(CreatureAttribute::FOCUS, -newMindEncumb, true);
+	player->inflictDamage(player, CreatureAttribute::WILLPOWER, Math::min(newMindEncumb, player->getHAM(CreatureAttribute::WILLPOWER)-1), true);
+	player->addMaxHAM(CreatureAttribute::WILLPOWER, -newMindEncumb, true); 
 }
 
 void PlayerManagerImplementation::awardBadge(PlayerObject* ghost, uint32 badgeId) {

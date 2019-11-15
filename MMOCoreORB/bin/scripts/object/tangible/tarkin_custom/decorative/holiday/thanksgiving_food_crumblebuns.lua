@@ -1,0 +1,5 @@
+object_tangible_tarkin_custom_decorative_holiday_thanksgiving_food_crumblebuns = object_tangible_tarkin_custom_decorative_holiday_shared_thanksgiving_food_crumblebuns:new {
+
+}
+
+ObjectTemplates:addTemplate(object_tangible_tarkin_custom_decorative_holiday_thanksgiving_food_crumblebuns, "object/tangible/tarkin_custom/decorative/holiday/thanksgiving_food_crumblebuns.iff")

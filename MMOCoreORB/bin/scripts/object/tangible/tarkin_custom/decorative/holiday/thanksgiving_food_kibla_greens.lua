@@ -1,0 +1,5 @@
+object_tangible_tarkin_custom_decorative_holiday_thanksgiving_food_kibla_greens = object_tangible_tarkin_custom_decorative_holiday_shared_thanksgiving_food_kibla_greens:new {
+
+}
+
+ObjectTemplates:addTemplate(object_tangible_tarkin_custom_decorative_holiday_thanksgiving_food_kibla_greens, "object/tangible/tarkin_custom/decorative/holiday/thanksgiving_food_kibla_greens.iff")

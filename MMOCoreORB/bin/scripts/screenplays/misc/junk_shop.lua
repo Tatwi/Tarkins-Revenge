@@ -107,8 +107,10 @@ function junkShopOwnerConvoHandler:sendPurchaseSui(pPlayer, pSui, eventIndex, ar
 
 	local promptText = ""
 	if(selectedCategory == "species_costumes") then
-		promptText = "Select the costume you would like to purchase from the salesman. \n\nPlease note, species costumes are only wearable by HUMANS, and are gender-specific."	
-	else 
+		promptText = "Select the costume you would like to purchase from the salesman. \n\nPlease note, species costumes are only wearable by HUMANS, and are gender-specific."
+	elseif(selectedCategory == "rp_imp_armor" or selectedCategory == "rp_reb_armor") then
+		promptText = "These decomissioned armors offer no protection, have no encumbrance or factional requirements, and do not have sockests.  They are solely for roleplay and appearance purposes."
+	else
 		promptText = "Select the item you would like to purchase from the salesman."
 	end
 
@@ -191,5 +193,9 @@ function junkShopOwnerConvoHandler:getCategoryDataTable(category)
 		return palettePostersBE
 	elseif category =="species_costumes" then
 		return speciesCostumes
+	elseif category =="rp_imp_armor" then
+		return rpImpArmor
+	elseif category =="rp_reb_armor" then
+		return rpRebArmor
 	end
 end

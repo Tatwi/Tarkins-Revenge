@@ -681,6 +681,8 @@ includeFile("caves/lok_kimogila_cave.lua")
 includeFile("tools/tarkin_housing_system.lua")
 includeFile("tools/mission_direction_choice.lua")
 includeFile("tools/tarkin_costume_table.lua")
+includeFile("tools/tarkin_lib.lua")
+includeFile("tools/tarkin_custom_menu_components.lua")
 
 --Tarkin Custom City
 includeFile("cities/tarkin_custom/tarkin_tatooine_mos_entha.lua")
@@ -719,6 +721,7 @@ includeFile("events/tarkin_custom/tarkin_world_boss.lua")
 includeFile("events/tarkin_custom/spawn_points_table.lua")
 --includeFile("events/tarkin_custom/bad_easter_bunny_terror.lua")
 --includeFile("events/tarkin_custom/rasps_of_death.lua")
+includeFile("events/tarkin_custom/cooperative_thanksgiving.lua")
 
 --Tarkin Custom Event Conversation Handlers
 includeFile("events/tarkin_custom/conversations/weddingScavHuntConvoHandler.lua")
