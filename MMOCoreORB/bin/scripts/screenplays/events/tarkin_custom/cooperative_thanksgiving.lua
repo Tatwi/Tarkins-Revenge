@@ -300,15 +300,15 @@ end
 
 function CooperativeThanksgivingScreenplay:hasContributed(pPlayer)
 	if (pPlayer == nil) then
-		return true
+		return false
 	end
 
 	local playerID = tostring(SceneObject(pPlayer):getObjectID())	
-	local contribuedList = getQuestStatus("cooperative_thanksgiving:contributedList")
+	local contributedList = getQuestStatus("cooperative_thanksgiving:contributedList")
 	local list = ""
 	
-	if (contribuedList ~= nil and contribuedList ~= "") then
-		list = TarkinLib:splitString(contribuedList, ",")
+	if (contributedList ~= nil and contributedList ~= "") then
+		list = TarkinLib:splitString(contributedList, ",")
 		for i = 1, #list, 1 do
 			if (list[i] == playerID) then
 				return true
