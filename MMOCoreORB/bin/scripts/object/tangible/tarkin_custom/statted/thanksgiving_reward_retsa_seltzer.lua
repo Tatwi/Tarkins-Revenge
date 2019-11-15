@@ -1,0 +1,5 @@
+object_tangible_tarkin_custom_statted_thanksgiving_reward_retsa_seltzer = object_tangible_tarkin_custom_statted_shared_thanksgiving_reward_retsa_seltzer:new {
+	objectMenuComponent = "RetsaSeltzerObjectMenuComponent"
+}
+
+ObjectTemplates:addTemplate(object_tangible_tarkin_custom_statted_thanksgiving_reward_retsa_seltzer, "object/tangible/tarkin_custom/statted/thanksgiving_reward_retsa_seltzer.iff")

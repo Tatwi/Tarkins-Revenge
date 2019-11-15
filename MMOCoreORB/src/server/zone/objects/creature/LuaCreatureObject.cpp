@@ -145,6 +145,13 @@ Luna<LuaCreatureObject>::RegType LuaCreatureObject::Register[] = {
 		{ "emptyStomach", &LuaCreatureObject::emptyStomach },
 		{ "getActivePetsSize", &LuaCreatureObject::getActivePetsSize },
 		{ "getActivePet", &LuaCreatureObject::getActivePet },
+
+		// Tarkin's Revenge Custom Lua Calls
+		{ "getFoodFilling", &LuaCreatureObject::getFoodFilling },
+		{ "getDrinkFilling", &LuaCreatureObject::getDrinkFilling },
+		{ "setFoodFilling", &LuaCreatureObject::setFoodFilling },
+		{ "setDrinkFilling", &LuaCreatureObject::setDrinkFilling },
+
 		{ 0, 0 }
 };
 
@@ -1187,4 +1194,80 @@ int LuaCreatureObject::getActivePet(lua_State* L) {
 		
 	lua_pushlightuserdata(L, pet);
  	return 1;	
+}
+
+/*
+* Tarkin's Revenge
+* Returns the player's "food" filling
+* lua: CreatureObject(pPlayer):getFoodFilling()
+*/
+ int LuaCreatureObject::getFoodFilling(lua_State* L) {
+	
+	if (!realObject->isPlayerCreature())
+		return 0;
+	
+	Reference<PlayerObject*> player = realObject->getPlayerObject();
+	
+	int filling = player->getFoodFilling();
+
+	lua_pushnumber(L, filling);
+
+	return 1;
+}
+
+/*
+* Tarkin's Revenge
+* Returns the player's "drink" filling
+* lua: CreatureObject(pPlayer):getDrinkFilling()
+*/
+ int LuaCreatureObject::getDrinkFilling(lua_State* L) {
+	
+	if (!realObject->isPlayerCreature())
+		return 0;
+	
+	Reference<PlayerObject*> player = realObject->getPlayerObject();
+	
+	int filling = player->getDrinkFilling();
+
+	lua_pushnumber(L, filling);
+
+	return 1;
+}
+
+/*
+* Tarkin's Revenge
+* Sets the player's "food" filling
+* lua: CreatureObject(pPlayer):setFoodFilling(amount)
+*/
+ int LuaCreatureObject::setFoodFilling(lua_State* L) {
+	
+	if (!realObject->isPlayerCreature())
+		return 0;
+
+	int amount = lua_tointeger(L, -1);
+	
+	Reference<PlayerObject*> player = realObject->getPlayerObject();
+	
+	player->setFoodFilling(amount);
+
+	return 1;
+}
+
+/*
+* Tarkin's Revenge
+* Sets the player's "drink" filling
+* lua: CreatureObject(pPlayer):setDrinkFilling(amount)
+*/
+ int LuaCreatureObject::setDrinkFilling(lua_State* L) {
+	
+	if (!realObject->isPlayerCreature())
+		return 0;
+	
+	int amount = lua_tointeger(L, -1);
+	
+	Reference<PlayerObject*> player = realObject->getPlayerObject();
+	
+	player->setDrinkFilling(amount);
+
+	return 1;
 }
