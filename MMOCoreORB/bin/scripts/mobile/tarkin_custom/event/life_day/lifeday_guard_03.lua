@@ -1,0 +1,35 @@
+lifeday_guard_03 = Creature:new {
+	customName = "a Wookiee guard",
+	socialGroup = "",
+	faction = "",
+	level = 100,
+	chanceHit = 1,
+	damageMin = 645,
+	damageMax = 1000,
+	baseXp = 9429,
+	baseHAM = 24000,
+	baseHAMmax = 30000,
+	armor = 0,
+	resists = {0,0,0,0,0,0,0,0,-1},
+	meatType = "",
+	meatAmount = 0,
+	hideType = "",
+	hideAmount = 0,
+	boneType = "",
+	boneAmount = 0,
+	milk = 0,
+	tamingChance = 0,
+	ferocity = 0,
+	pvpBitmask = NONE,
+	creatureBitmask = NONE,
+	optionsBitmask = INVULNERABLE,
+	diet = HERBIVORE,
+
+	templates = {"object/mobile/ep3/wookiee_spirit_healer_01.iff"},
+	lootGroups = {},
+	weapons = {},
+	conversationTemplate = "",
+	attacks = {}
+}
+
+CreatureTemplates:addCreatureTemplate(lifeday_guard_03, "lifeday_guard_03")

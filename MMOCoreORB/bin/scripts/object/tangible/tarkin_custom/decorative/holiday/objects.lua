@@ -257,3 +257,49 @@ object_tangible_tarkin_custom_decorative_holiday_shared_cooperative_thanksgiving
 	clientTemplateFileName = "object/tangible/tarkin_custom/decorative/holiday/shared_cooperative_thanksgiving_table.iff"
 }
 ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_decorative_holiday_shared_cooperative_thanksgiving_table, "object/tangible/tarkin_custom/decorative/holiday/shared_cooperative_thanksgiving_table.iff")
+
+object_tangible_tarkin_custom_decorative_holiday_shared_mystical_lifeday_orb = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tarkin_custom/decorative/holiday/shared_mystical_lifeday_orb.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_decorative_holiday_shared_mystical_lifeday_orb, "object/tangible/tarkin_custom/decorative/holiday/shared_mystical_lifeday_orb.iff")
+
+object_tangible_tarkin_custom_decorative_holiday_shared_life_day_2019_gift = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tarkin_custom/decorative/holiday/shared_life_day_2019_gift.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_decorative_holiday_shared_life_day_2019_gift, "object/tangible/tarkin_custom/decorative/holiday/shared_life_day_2019_gift.iff")
+
+
+object_tangible_tarkin_custom_decorative_holiday_shared_life_day_tree_dressed_usable = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tarkin_custom/decorative/holiday/shared_life_day_tree_dressed_usable.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_decorative_holiday_shared_life_day_tree_dressed_usable, "object/tangible/tarkin_custom/decorative/holiday/shared_life_day_tree_dressed_usable.iff")
+
+object_tangible_tarkin_custom_decorative_holiday_shared_life_day_poem = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tarkin_custom/decorative/holiday/shared_life_day_poem.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_decorative_holiday_shared_life_day_poem, "object/tangible/tarkin_custom/decorative/holiday/shared_life_day_poem.iff")
+
+object_tangible_tarkin_custom_decorative_holiday_shared_life_day_feather = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tarkin_custom/decorative/holiday/shared_life_day_feather.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_decorative_holiday_shared_life_day_feather, "object/tangible/tarkin_custom/decorative/holiday/shared_life_day_feather.iff")
+
+object_tangible_tarkin_custom_decorative_holiday_shared_life_day_egg = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tarkin_custom/decorative/holiday/shared_life_day_egg.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_decorative_holiday_shared_life_day_egg, "object/tangible/tarkin_custom/decorative/holiday/shared_life_day_egg.iff")
+
+object_tangible_tarkin_custom_decorative_holiday_shared_life_day_egg_cracked = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tarkin_custom/decorative/holiday/shared_life_day_egg_cracked.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_decorative_holiday_shared_life_day_egg_cracked, "object/tangible/tarkin_custom/decorative/holiday/shared_life_day_egg_cracked.iff")
+
+object_tangible_tarkin_custom_decorative_holiday_shared_life_day_ashes = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tarkin_custom/decorative/holiday/shared_life_day_ashes.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_decorative_holiday_shared_life_day_ashes, "object/tangible/tarkin_custom/decorative/holiday/shared_life_day_ashes.iff")
+
+object_tangible_tarkin_custom_decorative_holiday_shared_life_day_ashes_empty = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tarkin_custom/decorative/holiday/shared_life_day_ashes_empty.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_decorative_holiday_shared_life_day_ashes_empty, "object/tangible/tarkin_custom/decorative/holiday/shared_life_day_ashes_empty.iff")

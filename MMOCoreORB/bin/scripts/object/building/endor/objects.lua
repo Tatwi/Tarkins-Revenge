@@ -1104,3 +1104,9 @@ object_building_endor_shared_endr_lake_rail8m = SharedStaticObjectTemplate:new {
 }
 
 ObjectTemplates:addClientTemplate(object_building_endor_shared_endr_lake_rail8m, "object/building/endor/shared_endr_lake_rail8m.iff")
+
+object_building_endor_shared_endor_tiki_torch_no_light= SharedStaticObjectTemplate:new {
+	clientTemplateFileName = "object/building/endor/shared_endor_tiki_torch_no_light.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_building_endor_shared_endor_tiki_torch_no_light, "object/building/endor/shared_endor_tiki_torch_no_light.iff")

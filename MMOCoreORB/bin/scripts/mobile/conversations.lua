@@ -300,3 +300,6 @@ includeFile("conversations/misc/tarkin_crafting_trainer_conv.lua")
 includeFile("conversations/misc/weddingScavHuntConvoTemplate.lua")
 includeFile("conversations/misc/junkShopOwnerConvoTemplate.lua")
 includeFile("conversations/misc/halloweenHostage2019ConvoTemplate.lua")
+includeFile("conversations/misc/LifeDayDreamsAttilochitConvoTemplate.lua")
+includeFile("conversations/misc/LifeDayDreamsReyyruaConvoTemplate.lua")
+

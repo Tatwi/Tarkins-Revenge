@@ -53,3 +53,13 @@ includeFile("tangible/tarkin_custom/decorative/holiday/thanksgiving_food_bantha_
 includeFile("tangible/tarkin_custom/decorative/holiday/thanksgiving_food_jerba_cheese.lua")
 includeFile("tangible/tarkin_custom/decorative/holiday/thanksgiving_food_shaak_sandwich.lua")
 includeFile("tangible/tarkin_custom/decorative/holiday/cooperative_thanksgiving_table.lua")
+includeFile("tangible/tarkin_custom/decorative/holiday/mystical_lifeday_orb.lua")
+includeFile("tangible/tarkin_custom/decorative/holiday/life_day_2019_gift.lua")
+includeFile("tangible/tarkin_custom/decorative/holiday/life_day_tree_dressed_usable.lua")
+includeFile("tangible/tarkin_custom/decorative/holiday/life_day_poem.lua")
+includeFile("tangible/tarkin_custom/decorative/holiday/life_day_feather.lua")
+includeFile("tangible/tarkin_custom/decorative/holiday/life_day_egg.lua")
+includeFile("tangible/tarkin_custom/decorative/holiday/life_day_egg_cracked.lua")
+includeFile("tangible/tarkin_custom/decorative/holiday/life_day_ashes.lua")
+includeFile("tangible/tarkin_custom/decorative/holiday/life_day_ashes_empty.lua")
+
