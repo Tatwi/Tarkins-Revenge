@@ -11,11 +11,11 @@ LifeDayDreamsReyyruaConvoHandler = conv_handler:new {}
 function LifeDayDreamsReyyruaConvoHandler:getInitialScreen(pPlayer, pNpc, pConvTemplate)
 	local convoTemplate = LuaConversationTemplate(pConvTemplate)
 
-	if (readScreenPlayData(pPlayer, "LifeDayDreamsScreenplay", "oldReyyrua") == "0") then
+	if (readScreenPlayData(pPlayer, "LifeDayDreamsScreenplay", "reyyruaQuest") == "0") then
 		return convoTemplate:getScreen("reyyrua_15")
-	elseif (readScreenPlayData(pPlayer, "LifeDayDreamsScreenplay", "oldReyyrua") == "1") then
+	elseif (readScreenPlayData(pPlayer, "LifeDayDreamsScreenplay", "reyyruaQuest") == "1") then
 		return convoTemplate:getScreen("reyyrua_16")
-	elseif (readScreenPlayData(pPlayer, "LifeDayDreamsScreenplay", "oldReyyrua") == "2") then
+	elseif (readScreenPlayData(pPlayer, "LifeDayDreamsScreenplay", "reyyruaQuest") == "2") then
 		return convoTemplate:getScreen("reyyrua_final")		
 	else		
 		return convoTemplate:getScreen("reyyrua_intro")
@@ -26,8 +26,6 @@ function LifeDayDreamsReyyruaConvoHandler:runScreenHandlers(pConvTemplate, pPlay
 	local screen = LuaConversationScreen(pConvScreen)
 	local screenID = screen:getScreenID()
 	local pGhost = CreatureObject(pPlayer):getPlayerObject()
-	local pInventory = CreatureObject(pPlayer):getSlottedObject("inventory")
-	local pReward = ""
 
 	if (pGhost == nil) then
 		return pConvScreen

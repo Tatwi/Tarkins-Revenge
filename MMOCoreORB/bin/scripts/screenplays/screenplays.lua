@@ -729,10 +729,14 @@ includeFile("events/tarkin_custom/conversations/weddingScavHuntConvoHandler.lua"
 includeFile("events/tarkin_custom/conversations/halloweenHostage2019ConvoHandler.lua")
 includeFile("events/tarkin_custom/conversations/LifeDayDreamsAttilochitConvoHandler.lua")
 includeFile("events/tarkin_custom/conversations/LifeDayDreamsReyyruaConvoHandler.lua")
+includeFile("events/tarkin_custom/conversations/LifeDayDreamsShorbaccaConvoHandler.lua")
+includeFile("events/tarkin_custom/conversations/LifeDayDreamsBaccaConvoHandler.lua")
 
 --Tarkin Custom Misc
+includeFile("misc/home_for_the_holidays.lua")
 includeFile("misc/junk_shop.lua")
 includeFile("misc/junk_shop_data.lua")
+
 
 -- Custom content - Loads last to allow for overrides
 includeFile("../custom_scripts/screenplays/screenplays.lua")

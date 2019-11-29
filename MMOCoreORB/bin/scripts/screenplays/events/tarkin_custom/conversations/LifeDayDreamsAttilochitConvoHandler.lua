@@ -28,9 +28,9 @@ function LifeDayDreamsAttilochitConvoHandler:getInitialScreen(pPlayer, pNpc, pCo
 	elseif (readScreenPlayData(pPlayer, "LifeDayDreamsScreenplay", "requiredItem:bolotaur_fang") == "0") then
 		return convoTemplate:getScreen("attilochit_check_bolotaur")
 	elseif (readScreenPlayData(pPlayer, "LifeDayDreamsScreenplay", "requiredItem:bolotaur_fang") == "1") then
-		if(readScreenPlayData(pPlayer, "LifeDayDreamsScreenplay", "attilochitComplete") == "0") then
+		if(readScreenPlayData(pPlayer, "LifeDayDreamsScreenplay", "attilochitQuest") == "0") then
 			return convoTemplate:getScreen("attilochit_offer_mount")
-		elseif(readScreenPlayData(pPlayer, "LifeDayDreamsScreenplay", "attilochitComplete") == "1") then
+		elseif(readScreenPlayData(pPlayer, "LifeDayDreamsScreenplay", "attilochitQuest") == "1") then
 			return convoTemplate:getScreen("attilochit_complete")
 		else
 			return convoTemplate:getScreen("attilochit_bolotaur_done")
@@ -58,8 +58,6 @@ function LifeDayDreamsAttilochitConvoHandler:runScreenHandlers(pConvTemplate, pP
 	local screen = LuaConversationScreen(pConvScreen)
 	local screenID = screen:getScreenID()
 	local pGhost = CreatureObject(pPlayer):getPlayerObject()
-	local pInventory = CreatureObject(pPlayer):getSlottedObject("inventory")
-	local pReward = ""
 
 	if (pGhost == nil) then
 		return pConvScreen

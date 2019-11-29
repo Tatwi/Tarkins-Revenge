@@ -8461,3 +8461,8 @@ object_tangible_loot_loot_schematic_shared_ghost_flash_speeder_schematic = Share
 	clientTemplateFileName = "object/tangible/loot/loot_schematic/shared_ghost_flash_speeder_schematic.iff"
 }
 ObjectTemplates:addClientTemplate(object_tangible_loot_loot_schematic_shared_ghost_flash_speeder_schematic, "object/tangible/loot/loot_schematic/shared_ghost_flash_speeder_schematic.iff")
+
+object_tangible_loot_loot_schematic_shared_chest_of_holding_schematic = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/loot/loot_schematic/shared_chest_of_holding_schematic.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_loot_loot_schematic_shared_chest_of_holding_schematic, "object/tangible/loot/loot_schematic/shared_chest_of_holding_schematic.iff")

@@ -302,4 +302,6 @@ includeFile("conversations/misc/junkShopOwnerConvoTemplate.lua")
 includeFile("conversations/misc/halloweenHostage2019ConvoTemplate.lua")
 includeFile("conversations/misc/LifeDayDreamsAttilochitConvoTemplate.lua")
 includeFile("conversations/misc/LifeDayDreamsReyyruaConvoTemplate.lua")
+includeFile("conversations/misc/LifeDayDreamsShorbaccaConvoTemplate.lua")
+includeFile("conversations/misc/LifeDayDreamsBaccaConvoTemplate.lua")
 

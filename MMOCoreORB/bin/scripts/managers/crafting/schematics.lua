@@ -2731,5 +2731,8 @@ schematics = {
 	{path="object/draft_schematic/item/tarkin_custom/wanted_poster_human_female.iff"},
 
 	--Pet Grooming Kit
-	{path="object/draft_schematic/item/tarkin_custom/pet_customization_kit.iff"}
+	{path="object/draft_schematic/item/tarkin_custom/pet_customization_kit.iff"},
+
+	--Chest of Holding
+	{path="object/draft_schematic/furniture/tarkin_custom/chest_of_holding.iff"}
 };
