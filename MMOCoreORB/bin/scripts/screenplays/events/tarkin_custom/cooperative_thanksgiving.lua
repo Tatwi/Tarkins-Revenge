@@ -22,12 +22,12 @@ CooperativeThanksgivingScreenplay = ScreenPlay:new {
 	--Config Values
 local eventStartTime = os.time{ year=2019, month=11, day=28, hour=12, min=0 } --Go live: 11/28/2019, noon  
 local eventCleanupTime = os.time{ year=2019, month=12, day=1, hour=23, min=59 }  --Despawn the feast table and mobiles: 12/1/2019, 11:59 PM 
-local pharplesToSpawn = 300 --Number of mobiles this screenplay will spawn 
+local pharplesToSpawn = 60 --Number of mobiles this screenplay will spawn 
 local secondsToDespawn = 3600 --Number of seconds before a mobile will despawn if it has not been killed (1h = 3,600s)
-local secondsToRespawn = 120 --Number of seconds before a mobile will respawn after it has been killed (2m = 120s)
+local secondsToRespawn = 30 --Number of seconds before a mobile will respawn after it has been killed (2m = 120s)
 	
 local SpawnPointsTable = {
-	{ planet = "corellia", xRef = -224, yRef = -4558, maxRadius = 650 }, --Coronet
+	{ planet = "corellia", xRef = -170, yRef = -4715, maxRadius = 650 }, --Coronet
 	}
 	
 local mobileTemplates =  { "thanksgiving_pharple" }
@@ -97,7 +97,7 @@ local rewards = {
 	{ itemPath = "object/tangible/tarkin_custom/abilities/badges/tarkin_badge_thanksgiving_2019.iff", name = "completedFeastReward" },
 	{ itemPath = "object/tangible/tarkin_custom/decorative/painting_gluttons_reward.iff", name = "items200Reward" },
 	{ itemPath = "object/tangible/tarkin_custom/decorative/thanksgiving_reward_rug.iff", name = "items500Reward" },
-	{ itemPath = "object/ttangible/tarkin_custom/statted/thanksgiving_reward_retsa_seltzer.iff", name = "items1000Reward" },
+	{ itemPath = "object/tangible/tarkin_custom/statted/thanksgiving_reward_retsa_seltzer.iff", name = "items1000Reward" },
 	{ itemPath = "object/tangible/tarkin_custom/statted/thanksgiving_reward_salty_snackbox.iff", name = "items2000Reward" },
 }
 
@@ -507,6 +507,11 @@ function CooperativeThanksgivingScreenplay:giveReward(pPlayer, reward)
 		return
 	end
 
+	if (self:hasClaimed(pPlayer, reward) == true) then
+			CreatureObject(pPlayer):sendSystemMessage("You may only claim this reward once.")
+			return
+	end	
+
 	local pInventory = CreatureObject(pPlayer):getSlottedObject("inventory")
 
 	if (pInventory == nil) then
@@ -528,10 +533,13 @@ function CooperativeThanksgivingScreenplay:giveReward(pPlayer, reward)
 	
 	if (pPath ~= nil and pPath ~= "") then
 		local pReward = giveItem(pInventory, pPath, -1)
-		self:writeToClaimedList(pPlayer, reward)		
+		if (pReward ~= nil) then
+			CreatureObject(pPlayer):sendSystemMessage("Your reward has been placed in your inventory")
+			self:writeToClaimedList(pPlayer, reward)
+		end		
 	end
 	
-	CreatureObject(pPlayer):sendSystemMessage("Your reward, " .. SceneObject(pReward):getCustomObjectName() .. ", has been placed in your inventory")
+
 end
 
 function CooperativeThanksgivingScreenplay:spawnMobiles()
@@ -631,6 +639,10 @@ function CooperativeThanksgivingScreenplay:despawnMobile(pMobile)
 	return 1
 end
 
+function CooperativeThanksgivingScreenplay:deleteOneThousandList()
+	removeQuestStatus("cooperative_thanksgiving:claimedList:items1000Reward")
+end
+
 function CooperativeThanksgivingScreenplay:isThanksgivingEventEnabled()
 	if (os.difftime(eventStartTime, os.time()) <= 0 and os.difftime(eventCleanupTime, os.time()) > 0) then
 		return true
@@ -669,9 +681,13 @@ function CooperativeThanksgivingTableObjectMenuComponent:fillObjectMenuResponse(
 			menuResponse:addRadialMenuItem(119, 3, "Claim 1000 Contributions Reward")	
 		end	
 
-		if (tonumber(getQuestStatus("cooperative_thanksgiving:numContributions")) >= 2000 and CooperativeThanksgivingScreenplay:hasClaimed(pPlayer, "items1000Reward") == false) then	
+		if (tonumber(getQuestStatus("cooperative_thanksgiving:numContributions")) >= 2000 and CooperativeThanksgivingScreenplay:hasClaimed(pPlayer, "items2000Reward") == false) then	
 			menuResponse:addRadialMenuItem(120, 3, "Claim 2000 Contributions Reward")	
 		end	
+	end
+	if (CreatureObject(pPlayer):hasSkill("tarkin_admin_01")) then
+		menuResponse:addRadialMenuItem(121, 3, "Reset the 1000 reward DEBUG")
+		menuResponse:addRadialMenuItem(122, 3, "DespawnMobiles DEBUG")
 	end
 end
 
@@ -702,6 +718,14 @@ function CooperativeThanksgivingTableObjectMenuComponent:handleObjectMenuSelect(
 
 	if (selectedID == 120) then 
 		CooperativeThanksgivingScreenplay:giveReward(pPlayer, "items2000Reward")
+	end
+
+	if (selectedID == 121) then 
+		CooperativeThanksgivingScreenplay:deleteOneThousandList()
+	end
+
+	if (selectedID == 122) then 
+		CooperativeThanksgivingScreenplay:despawnMobiles()
 	end
 	return 1
 end
