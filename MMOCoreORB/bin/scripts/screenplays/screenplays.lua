@@ -681,7 +681,6 @@ includeFile("caves/lok_kimogila_cave.lua")
 includeFile("tools/tarkin_housing_system.lua")
 includeFile("tools/mission_direction_choice.lua")
 includeFile("tools/tarkin_costume_table.lua")
-includeFile("tools/tarkin_lib.lua")
 includeFile("tools/tarkin_custom_menu_components.lua")
 
 --Tarkin Custom City
