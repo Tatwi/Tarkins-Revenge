@@ -110,4 +110,6 @@ includeFile("tangible/furniture/decorative/event_chewbacca_toy.lua")
 includeFile("tangible/furniture/decorative/hologram_nebulon_frigate.lua")
 includeFile("tangible/furniture/decorative/hologram_xwing.lua")
 includeFile("tangible/furniture/decorative/banner_jedi.lua")
+includeFile("tangible/furniture/decorative/event_lifeday07_plant.lua")
+
 

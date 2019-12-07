@@ -320,3 +320,10 @@ object_tangible_storyteller_prop_shared_pr_eqp_bacta_tank_lg = SharedTangibleObj
 }
 
 ObjectTemplates:addClientTemplate(object_tangible_storyteller_prop_shared_pr_eqp_bacta_tank_lg, "object/tangible/storyteller/prop/shared_pr_eqp_bacta_tank_lg.iff")
+
+--Life Day Presents
+object_tangible_storyteller_prop_shared_pr_lifeday_presents = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/storyteller/prop/shared_pr_lifeday_presents.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_storyteller_prop_shared_pr_lifeday_presents, "object/tangible/storyteller/prop/shared_pr_lifeday_presents.iff")

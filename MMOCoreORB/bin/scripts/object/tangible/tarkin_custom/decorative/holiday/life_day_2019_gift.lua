@@ -1,0 +1,5 @@
+object_tangible_tarkin_custom_decorative_holiday_life_day_2019_gift = object_tangible_tarkin_custom_decorative_holiday_shared_life_day_2019_gift:new {
+	objectMenuComponent = "LifeDay2019GiftObjectMenuComponent"
+}
+
+ObjectTemplates:addTemplate(object_tangible_tarkin_custom_decorative_holiday_life_day_2019_gift, "object/tangible/tarkin_custom/decorative/holiday/life_day_2019_gift.iff")

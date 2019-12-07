@@ -63,3 +63,5 @@ includeFile("building/endor/endr_lake_rail16m.lua")
 includeFile("building/endor/endr_lake_rail2m.lua")
 includeFile("building/endor/endr_lake_rail4m.lua")
 includeFile("building/endor/endr_lake_rail8m.lua")
+includeFile("building/endor/endor_tiki_torch_no_light.lua")
+

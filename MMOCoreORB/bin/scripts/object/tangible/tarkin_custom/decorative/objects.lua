@@ -2492,3 +2492,8 @@ object_tangible_tarkin_custom_decorative_shared_thanksgiving_reward_rug = Shared
 }
 ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_decorative_shared_thanksgiving_reward_rug, "object/tangible/tarkin_custom/decorative/shared_thanksgiving_reward_rug.iff")
 
+--Chest of Holding
+object_tangible_tarkin_custom_decorative_shared_tarkin_custom_chest_of_holding = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tarkin_custom/decorative/shared_tarkin_custom_chest_of_holding.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_decorative_shared_tarkin_custom_chest_of_holding, "object/tangible/tarkin_custom/decorative/shared_tarkin_custom_chest_of_holding.iff")
