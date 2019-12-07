@@ -1,0 +1,5 @@
+object_tangible_tarkin_custom_statted_lifeday_reward_sea_recycler = object_tangible_tarkin_custom_statted_shared_lifeday_reward_sea_recycler:new {
+	objectMenuComponent = "SeaRecyclerMenuComponent"
+}
+
+ObjectTemplates:addTemplate(object_tangible_tarkin_custom_statted_lifeday_reward_sea_recycler, "object/tangible/tarkin_custom/statted/lifeday_reward_sea_recycler.iff")

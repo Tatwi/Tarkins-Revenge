@@ -16455,3 +16455,137 @@ object_static_item_shared_wp_rifle_tusken_combined = SharedStaticObjectTemplate:
 }
 
 ObjectTemplates:addClientTemplate(object_static_item_shared_wp_rifle_tusken_combined, "object/static/item/shared_wp_rifle_tusken_combined.iff")
+
+
+object_static_item_shared_eqp_camping_cot_s2 = SharedStaticObjectTemplate:new {
+	clientTemplateFileName = "object/static/item/shared_eqp_camping_cot_s2.iff"
+}
+ObjectTemplates:addClientTemplate(object_static_item_shared_eqp_camping_cot_s2, "object/static/item/shared_eqp_camping_cot_s2.iff")
+
+
+object_static_item_shared_eqp_camping_cot_s3 = SharedStaticObjectTemplate:new {
+	clientTemplateFileName = "object/static/item/shared_eqp_camping_cot_s3.iff"
+}
+ObjectTemplates:addClientTemplate(object_static_item_shared_eqp_camping_cot_s3, "object/static/item/shared_eqp_camping_cot_s3.iff")
+
+
+object_static_item_shared_eqp_camping_crate_s1 = SharedStaticObjectTemplate:new {
+	clientTemplateFileName = "object/static/item/shared_eqp_camping_crate_s1.iff"
+}
+ObjectTemplates:addClientTemplate(object_static_item_shared_eqp_camping_crate_s1, "object/static/item/shared_eqp_camping_crate_s1.iff")
+
+object_static_item_shared_eqp_camping_grill_s1 = SharedStaticObjectTemplate:new {
+	clientTemplateFileName = "object/static/item/shared_eqp_camping_grill_s1.iff"
+}
+ObjectTemplates:addClientTemplate(object_static_item_shared_eqp_camping_grill_s1, "object/static/item/shared_eqp_camping_grill_s1.iff")
+
+
+object_static_item_shared_eqp_camping_grill_s2 = SharedStaticObjectTemplate:new {
+	clientTemplateFileName = "object/static/item/shared_eqp_camping_grill_s2.iff"
+}
+ObjectTemplates:addClientTemplate(object_static_item_shared_eqp_camping_grill_s2, "object/static/item/shared_eqp_camping_grill_s2.iff")
+
+
+object_static_item_shared_eqp_camping_pavilion_s1 = SharedStaticObjectTemplate:new {
+	clientTemplateFileName = "object/static/item/shared_eqp_camping_pavilion_s1.iff"
+}
+ObjectTemplates:addClientTemplate(object_static_item_shared_eqp_camping_pavilion_s1, "object/static/item/shared_eqp_camping_pavilion_s1.iff")
+
+
+object_static_item_shared_eqp_camping_pavilion_s2 = SharedStaticObjectTemplate:new {
+	clientTemplateFileName = "object/static/item/shared_eqp_camping_pavilion_s2.iff"
+}
+ObjectTemplates:addClientTemplate(object_static_item_shared_eqp_camping_pavilion_s2, "object/static/item/shared_eqp_camping_pavilion_s2.iff")
+
+
+object_static_item_shared_eqp_camping_tent_s3 = SharedStaticObjectTemplate:new {
+	clientTemplateFileName = "object/static/item/shared_eqp_camping_tent_s3.iff"
+}
+ObjectTemplates:addClientTemplate(object_static_item_shared_eqp_camping_tent_s3, "object/static/item/shared_eqp_camping_tent_s3.iff")
+
+
+object_static_item_shared_eqp_camping_tent_s4 = SharedStaticObjectTemplate:new {
+	clientTemplateFileName = "object/static/item/shared_eqp_camping_tent_s4.iff"
+}
+ObjectTemplates:addClientTemplate(object_static_item_shared_eqp_camping_tent_s4, "object/static/item/shared_eqp_camping_tent_s4.iff")
+
+object_static_item_shared_lair_wooden_tent = SharedStaticObjectTemplate:new {
+	clientTemplateFileName = "object/static/item/shared_lair_wooden_tent.iff"
+}
+ObjectTemplates:addClientTemplate(object_static_item_shared_lair_wooden_tent, "object/static/item/shared_lair_wooden_tent.iff")
+
+object_static_item_shared_lair_wooden_tent_destroyed = SharedStaticObjectTemplate:new {
+	clientTemplateFileName = "object/static/item/shared_lair_wooden_tent_destroyed.iff"
+}
+ObjectTemplates:addClientTemplate(object_static_item_shared_lair_wooden_tent_destroyed, "object/static/item/shared_lair_wooden_tent_destroyed.iff")
+
+object_static_item_shared_lair_firepit = SharedStaticObjectTemplate:new {
+	clientTemplateFileName = "object/static/item/shared_lair_firepit.iff"
+}
+ObjectTemplates:addClientTemplate(object_static_item_shared_lair_firepit, "object/static/item/shared_lair_firepit.iff")
+
+object_static_item_shared_lair_leaf_mound = SharedStaticObjectTemplate:new {
+	clientTemplateFileName = "object/static/item/shared_lair_leaf_mound.iff"
+}
+ObjectTemplates:addClientTemplate(object_static_item_shared_lair_leaf_mound, "object/static/item/shared_lair_leaf_mound.iff")
+
+object_static_item_shared_lair_bramble = SharedStaticObjectTemplate:new {
+	clientTemplateFileName = "object/static/item/shared_lair_bramble.iff"
+}
+ObjectTemplates:addClientTemplate(object_static_item_shared_lair_bramble, "object/static/item/shared_lair_bramble.iff")
+
+object_static_item_shared_wp_carbine_bothan_bola = SharedStaticObjectTemplate:new {
+	clientTemplateFileName = "object/static/item/shared_wp_carbine_bothan_bola.iff"
+}
+ObjectTemplates:addClientTemplate(object_static_item_shared_wp_carbine_bothan_bola, "object/static/item/shared_wp_carbine_bothan_bola.iff")
+
+object_static_item_shared_wp_mle_2h_kashyyyk_sword = SharedStaticObjectTemplate:new {
+	clientTemplateFileName = "object/static/item/shared_wp_mle_2h_kashyyyk_sword.iff"
+}
+ObjectTemplates:addClientTemplate(object_static_item_shared_wp_mle_2h_kashyyyk_sword, "object/static/item/shared_wp_mle_2h_kashyyyk_sword.iff")
+
+object_static_item_shared_wp_mle_2h_sword_massassi = SharedStaticObjectTemplate:new {
+	clientTemplateFileName = "object/static/item/shared_wp_mle_2h_sword_massassi.iff"
+}
+ObjectTemplates:addClientTemplate(object_static_item_shared_wp_mle_2h_sword_massassi, "object/static/item/shared_wp_mle_2h_sword_massassi.iff")
+
+object_static_item_shared_wp_mle_lance_kashyyyk_bladestick = SharedStaticObjectTemplate:new {
+	clientTemplateFileName = "object/static/item/shared_wp_mle_lance_kashyyyk_bladestick.iff"
+}
+ObjectTemplates:addClientTemplate(object_static_item_shared_wp_mle_lance_kashyyyk_bladestick, "object/static/item/shared_wp_mle_lance_kashyyyk_bladestick.iff")
+
+object_static_item_shared_wp_mle_lance_massassi = SharedStaticObjectTemplate:new {
+	clientTemplateFileName = "object/static/item/shared_wp_mle_lance_massassi.iff"
+}
+ObjectTemplates:addClientTemplate(object_static_item_shared_wp_mle_lance_massassi, "object/static/item/shared_wp_mle_lance_massassi.iff")
+
+object_static_item_shared_wp_mle_sword_massassi = SharedStaticObjectTemplate:new {
+	clientTemplateFileName = "object/static/item/shared_wp_mle_sword_massassi.iff"
+}
+ObjectTemplates:addClientTemplate(object_static_item_shared_wp_mle_sword_massassi, "object/static/item/shared_wp_mle_sword_massassi.iff")
+
+object_static_item_shared_wp_rifle_adventurer = SharedStaticObjectTemplate:new {
+	clientTemplateFileName = "object/static/item/shared_wp_rifle_adventurer.iff"
+}
+ObjectTemplates:addClientTemplate(object_static_item_shared_wp_rifle_adventurer, "object/static/item/shared_wp_rifle_adventurer.iff")
+
+object_static_item_shared_lair_mouf = SharedStaticObjectTemplate:new {
+	clientTemplateFileName = "object/static/item/shared_lair_mouf.iff"
+}
+ObjectTemplates:addClientTemplate(object_static_item_shared_lair_mouf, "object/static/item/shared_lair_mouf.iff")
+
+object_static_item_shared_lair_walluga = SharedStaticObjectTemplate:new {
+	clientTemplateFileName = "object/static/item/shared_lair_walluga.iff"
+}
+ObjectTemplates:addClientTemplate(object_static_item_shared_lair_walluga, "object/static/item/shared_lair_walluga.iff")
+
+object_static_item_shared_lair_webweaver = SharedStaticObjectTemplate:new {
+	clientTemplateFileName = "object/static/item/shared_lair_webweaver.iff"
+}
+ObjectTemplates:addClientTemplate(object_static_item_shared_lair_webweaver, "object/static/item/shared_lair_webweaver.iff")
+
+object_static_item_shared_lair_uller = SharedStaticObjectTemplate:new {
+	clientTemplateFileName = "object/static/item/shared_lair_uller.iff"
+}
+ObjectTemplates:addClientTemplate(object_static_item_shared_lair_uller, "object/static/item/shared_lair_uller.iff")
+

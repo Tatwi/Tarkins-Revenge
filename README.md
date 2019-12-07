@@ -50,9 +50,12 @@ Tatwi, for the contributions he made through the various iterations of Tarkin: /
 
 Devereux (Github: Trakaa) for fixes correcting decrimenting of manufacturing schematics, making mind heal work on stims, recoloring armor with multiple palettes, making current resource list export in a format compatible with swgcraft, and Version 1 of our Launcher, on Tarkin II.
 
-Taylaria for some work on mobile templates on Tarkin II, and for Wanted Poster artwork.
+Tay for some work on mobile templates on Tarkin II, wanted poster artwork, rug designs, conversations, real artist recruitment, inspiration, and general Lua grunt-work.
+
+Lanko for conversation and quest design work.
 
 SealGunman for our knee-jerk hatred of Fixer, thanks to crashing our server repeatedly due to a screenplay bug on Tarkin II.
+
 
 Sources and inspiration from other servers:
 
@@ -79,6 +82,8 @@ scscofield for work on optional BE tissue slots in Wookiee clothing items.
 The Mod the Galaxy team for the use of their TRE files.
 
 Timbab for The Jawa Toolbox, which was so useful for opening up our cities.
+
+Lasko for Kashyyyk help & assets.
 
 Unsure: Serverwide announcements of important events like pvp kills, new server joins, etc.  We encountered this playing on Remastered and used this idea here on Tarkin's Revenge, but I don't believe the idea originated there.  Let us know if you know for certain where this idea originated.
 

@@ -1,0 +1,5 @@
+object_tangible_tarkin_custom_decorative_quest_kashyyyk_bantha_head = object_tangible_tarkin_custom_decorative_quest_shared_kashyyyk_bantha_head:new {
+
+}
+
+ObjectTemplates:addTemplate(object_tangible_tarkin_custom_decorative_quest_kashyyyk_bantha_head, "object/tangible/tarkin_custom/decorative/quest/kashyyyk_bantha_head.iff")

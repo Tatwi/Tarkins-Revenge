@@ -158,8 +158,10 @@
 #include "server/zone/objects/tangible/components/CentrifugeTrayMenuComponent.h"
 #include "server/zone/objects/tangible/components/CombinerUnitMenuComponent.h"
 #include "server/zone/objects/tangible/components/PetGroomingKitObjectMenuComponent.h"
+#include "server/zone/objects/tangible/components/SeaRecyclerMenuComponent.h"
 #include "server/zone/objects/tangible/components/generic/TarkinGrantMenuComponent.h"
 #include "server/zone/objects/tangible/components/generic/TarkinGrantAttributeListComponent.h"
+
 
 ComponentManager::ComponentManager() {
 	components.put("ContainerComponent", new ContainerComponent());
@@ -368,4 +370,5 @@ ComponentManager::ComponentManager() {
 	components.put("PetGroomingKitObjectMenuComponent", new PetGroomingKitObjectMenuComponent());
 	components.put("TarkinGrantAttributeListComponent", new TarkinGrantAttributeListComponent());
 	components.put("TarkinGrantMenuComponent", new TarkinGrantMenuComponent());
+	components.put("SeaRecyclerMenuComponent", new SeaRecyclerMenuComponent());
 }

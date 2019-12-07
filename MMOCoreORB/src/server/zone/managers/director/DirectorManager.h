@@ -206,6 +206,10 @@ namespace server {
 		static int adminPlaceStructure(lua_State* L);
 		static int setStructureOwner(lua_State* L);
 		static int hasEnoughLots(lua_State* L);
+		static int getCityRegionName(lua_State* L);
+		static int spawnBaby(lua_State* L);
+		static int forceTameBaby(lua_State* L);
+		static int setCustomization(lua_State* L);
 
 	private:
 		void setupLuaPackagePath(Lua* luaEngine);

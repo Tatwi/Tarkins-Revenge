@@ -1,0 +1,5 @@
+object_tangible_tarkin_custom_decorative_quest_bolotaur_head = object_tangible_tarkin_custom_decorative_quest_shared_bolotaur_head:new {
+
+}
+
+ObjectTemplates:addTemplate(object_tangible_tarkin_custom_decorative_quest_bolotaur_head, "object/tangible/tarkin_custom/decorative/quest/bolotaur_head.iff")
