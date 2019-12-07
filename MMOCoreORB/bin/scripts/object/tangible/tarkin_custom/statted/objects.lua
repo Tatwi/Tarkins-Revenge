@@ -74,3 +74,14 @@ object_tangible_tarkin_custom_statted_shared_thanksgiving_reward_salty_snackbox 
 }
 ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_statted_shared_thanksgiving_reward_salty_snackbox, "object/tangible/tarkin_custom/statted/shared_thanksgiving_reward_salty_snackbox.iff")
 
+--Home For The Holidays
+object_tangible_tarkin_custom_statted_shared_lifeday_reward_home_for_the_holidays = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tarkin_custom/statted/shared_lifeday_reward_home_for_the_holidays.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_statted_shared_lifeday_reward_home_for_the_holidays, "object/tangible/tarkin_custom/statted/shared_lifeday_reward_home_for_the_holidays.iff")
+
+--SEA Recycler
+object_tangible_tarkin_custom_statted_shared_lifeday_reward_sea_recycler = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tarkin_custom/statted/shared_lifeday_reward_sea_recycler.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_statted_shared_lifeday_reward_sea_recycler, "object/tangible/tarkin_custom/statted/shared_lifeday_reward_sea_recycler.iff")

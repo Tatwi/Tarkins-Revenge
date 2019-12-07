@@ -1,0 +1,4 @@
+object_tangible_tarkin_custom_decorative_holiday_life_day_egg_cracked = object_tangible_tarkin_custom_decorative_holiday_shared_life_day_egg_cracked:new {
+}
+
+ObjectTemplates:addTemplate(object_tangible_tarkin_custom_decorative_holiday_life_day_egg_cracked, "object/tangible/tarkin_custom/decorative/holiday/life_day_egg_cracked.iff")

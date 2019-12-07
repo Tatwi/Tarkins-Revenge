@@ -719,17 +719,25 @@ includeFile("caves/yavin4_temple_exar_kun.lua")
 --Tarkin Custom Event
 includeFile("events/tarkin_custom/tarkin_world_boss.lua")
 includeFile("events/tarkin_custom/spawn_points_table.lua")
---includeFile("events/tarkin_custom/bad_easter_bunny_terror.lua")
---includeFile("events/tarkin_custom/rasps_of_death.lua")
-includeFile("events/tarkin_custom/cooperative_thanksgiving.lua")
+--includeFile("events/tarkin_custom/bad_easter_bunny_terror.lua") --Easter 2019
+--includeFile("events/tarkin_custom/rasps_of_death.lua") --Summer 2019
+includeFile("events/tarkin_custom/cooperative_thanksgiving.lua") --Thanksgiving 2019
+includeFile("events/tarkin_custom/lifeday_dreams.lua") --Life Day 2019
 
 --Tarkin Custom Event Conversation Handlers
 includeFile("events/tarkin_custom/conversations/weddingScavHuntConvoHandler.lua")
 includeFile("events/tarkin_custom/conversations/halloweenHostage2019ConvoHandler.lua")
+includeFile("events/tarkin_custom/conversations/LifeDayDreamsAttilochitConvoHandler.lua")
+includeFile("events/tarkin_custom/conversations/LifeDayDreamsReyyruaConvoHandler.lua")
+includeFile("events/tarkin_custom/conversations/LifeDayDreamsShorbaccaConvoHandler.lua")
+includeFile("events/tarkin_custom/conversations/LifeDayDreamsBaccaConvoHandler.lua")
+includeFile("events/tarkin_custom/conversations/LifeDayDreamsArritharConvoHandler.lua")
 
 --Tarkin Custom Misc
+includeFile("misc/home_for_the_holidays.lua")
 includeFile("misc/junk_shop.lua")
 includeFile("misc/junk_shop_data.lua")
+
 
 -- Custom content - Loads last to allow for overrides
 includeFile("../custom_scripts/screenplays/screenplays.lua")

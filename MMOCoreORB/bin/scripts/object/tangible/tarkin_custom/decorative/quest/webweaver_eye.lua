@@ -1,0 +1,5 @@
+object_tangible_tarkin_custom_decorative_quest_webweaver_eye = object_tangible_tarkin_custom_decorative_quest_shared_webweaver_eye:new {
+
+}
+
+ObjectTemplates:addTemplate(object_tangible_tarkin_custom_decorative_quest_webweaver_eye, "object/tangible/tarkin_custom/decorative/quest/webweaver_eye.iff")

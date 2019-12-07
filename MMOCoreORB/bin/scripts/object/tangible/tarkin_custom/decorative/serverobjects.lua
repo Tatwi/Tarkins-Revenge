@@ -1,5 +1,6 @@
 --Children folder includes
 includeFile("tangible/tarkin_custom/decorative/holiday/serverobjects.lua")
+includeFile("tangible/tarkin_custom/decorative/quest/serverobjects.lua")
 
 --Server object includes
 includeFile("tangible/tarkin_custom/decorative/target_dummy.lua")
@@ -430,6 +431,7 @@ includeFile("tangible/tarkin_custom/decorative/skeleton_bith_head.lua")
 includeFile("tangible/tarkin_custom/decorative/skeleton_ithorian_head.lua")
 includeFile("tangible/tarkin_custom/decorative/painting_gluttons_reward.lua")
 includeFile("tangible/tarkin_custom/decorative/thanksgiving_reward_rug.lua")
+includeFile("tangible/tarkin_custom/decorative/tarkin_custom_chest_of_holding.lua")
 
 --Disagreeable Shader
 --includeFile("tangible/tarkin_custom/decorative/exarkun_sarcophagus.lua")

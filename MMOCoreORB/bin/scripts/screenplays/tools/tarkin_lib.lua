@@ -31,3 +31,10 @@ function TarkinLib:splitString(string, delimiter)
 	table.insert( outResults, string.sub( string, start ) )
 	return outResults
 end
+
+function TarkinLib:isEligibleState(pPlayer)
+	if (pPlayer == nil or CreatureObject(pPlayer):isIncapacitated() or CreatureObject(pPlayer):isDead() or CreatureObject(pPlayer):getPosture() ~= UPRIGHT or CreatureObject(pPlayer):hasState() == RIDINGMOUNT) then
+		return false
+	end
+	return true
+end

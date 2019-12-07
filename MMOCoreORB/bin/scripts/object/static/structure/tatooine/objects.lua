@@ -3713,3 +3713,9 @@ object_static_structure_tatooine_shared_wall_ruined_tatooine_small_style_01 = Sh
 }
 
 ObjectTemplates:addClientTemplate(object_static_structure_tatooine_shared_wall_ruined_tatooine_small_style_01, "object/static/structure/tatooine/shared_wall_ruined_tatooine_small_style_01.iff")
+
+object_static_structure_tatooine_shared_wall_tatooine_large_style_8000= SharedStaticObjectTemplate:new {
+	clientTemplateFileName = "object/static/structure/tatooine/shared_wall_tatooine_large_style_8000.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_static_structure_tatooine_shared_wall_tatooine_large_style_8000, "object/static/structure/tatooine/shared_wall_tatooine_large_style_8000.iff")
