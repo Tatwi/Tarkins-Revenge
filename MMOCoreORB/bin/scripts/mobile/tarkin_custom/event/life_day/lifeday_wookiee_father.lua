@@ -1,5 +1,5 @@
 lifeday_wookiee_father = Creature:new {
-	customName = "Arritharr",
+	customName = "Arrithar",
 	socialGroup = "",
 	faction = "",
 	level = 100,
@@ -22,14 +22,14 @@ lifeday_wookiee_father = Creature:new {
 	ferocity = 0,
 	pvpBitmask = NONE,
 	creatureBitmask = NONE,
-	optionsBitmask = INVULNERABLE + INTERESTING,
+	optionsBitmask = INVULNERABLE + CONVERSABLE + INTERESTING,
 	diet = HERBIVORE,
 	scale = 1.2,
 
 	templates = {"object/mobile/space_comm_wke_pirate_03.iff"},
 	lootGroups = {},
 	weapons = {},
-	conversationTemplate = "",
+	conversationTemplate = "LifeDayDreamsArritharConvoTemplate",
 	attacks = {}
 }
 

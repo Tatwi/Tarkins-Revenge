@@ -731,6 +731,7 @@ includeFile("events/tarkin_custom/conversations/LifeDayDreamsAttilochitConvoHand
 includeFile("events/tarkin_custom/conversations/LifeDayDreamsReyyruaConvoHandler.lua")
 includeFile("events/tarkin_custom/conversations/LifeDayDreamsShorbaccaConvoHandler.lua")
 includeFile("events/tarkin_custom/conversations/LifeDayDreamsBaccaConvoHandler.lua")
+includeFile("events/tarkin_custom/conversations/LifeDayDreamsArritharConvoHandler.lua")
 
 --Tarkin Custom Misc
 includeFile("misc/home_for_the_holidays.lua")

@@ -696,6 +696,28 @@ parent.treebg.enabled=visible'
 							</Page>
 							<Page
 								BackgroundColor='#FFFFFF'
+								Name='dreamland'
+								OpacityRelativeMin='0.50'
+								PackLocation='nfn,nfn'
+								PackSize='a,a'
+								RStyleDefault='rs_default'
+								ScrollExtent='485,440'
+								Size='485,440'
+								Visible='false'
+							>
+								<Image
+									BackgroundColor='#FFFFFF'
+									Name='a'
+									PackSize='a,a'
+									ScrollExtent='485,440'
+									Size='485,440'
+									SourceRect='0,0,1024,1024'
+									SourceResource='ui_map_dreamland'
+									VisualEditLock='true'
+								/>
+							</Page>
+							<Page
+								BackgroundColor='#FFFFFF'
 								Name='dantooine'
 								OpacityRelativeMin='0.50'
 								PackLocation='nfn,nfn'
@@ -735,6 +757,50 @@ parent.treebg.enabled=visible'
 									Size='485,440'
 									SourceRect='0,0,4096,4096'
 									SourceResource='ui_map_endor'
+									VisualEditLock='true'
+								/>
+							</Page>
+							<Page
+								BackgroundColor='#FFFFFF'
+								Name='kashyyyk'
+								OpacityRelativeMin='0.50'
+								PackLocation='nfn,nfn'
+								PackSize='a,a'
+								RStyleDefault='rs_default'
+								ScrollExtent='485,440'
+								Size='485,440'
+								Visible='false'
+							>
+								<Image
+									BackgroundColor='#FFFFFF'
+									Name='a'
+									PackSize='a,a'
+									ScrollExtent='485,440'
+									Size='485,440'
+									SourceRect='0,0,2048,2048'
+									SourceResource='ui_map_kashyyyk_main'
+									VisualEditLock='true'
+								/>
+							</Page>
+							<Page
+								BackgroundColor='#FFFFFF'
+								Name='kashyyyk_main'
+								OpacityRelativeMin='0.50'
+								PackLocation='nfn,nfn'
+								PackSize='a,a'
+								RStyleDefault='rs_default'
+								ScrollExtent='485,440'
+								Size='485,440'
+								Visible='false'
+							>
+								<Image
+									BackgroundColor='#FFFFFF'
+									Name='a'
+									PackSize='a,a'
+									ScrollExtent='485,440'
+									Size='485,440'
+									SourceRect='0,0,2048,2048'
+									SourceResource='ui_map_kashyyyk_main'
 									VisualEditLock='true'
 								/>
 							</Page>

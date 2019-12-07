@@ -1758,6 +1758,17 @@ bool AiAgentImplementation::findNextPosition(float maxDistance, bool walk) {
 		 * PRE-STEP: calculate z if we need to for our target location
 		 */
 
+		// Tarkin's Revenge - if ground position at that location doesn't match the Z position it's trying to give, recalculate the Z
+		float originalZ = targetPosition.getPositionZ();
+		float terrainZ = getZone()->getHeight(targetPosition.getPositionX(), targetPosition.getPositionY());
+	
+		if(targetCoordinateCell == NULL && originalZ != terrainZ){
+			targetMutex.unlock();
+			targetPosition.setPositionZ(getZone()->getHeight(targetPosition.getPositionX(), targetPosition.getPositionY()));
+			targetMutex.lock();
+		}
+		// End Tarkin's Revenge
+
 		if (targetCoordinateCell == NULL && targetPosition.getPositionZ() == 0) {
 			// We are not in a cell, so we need to calculate which Z we want to move to
 			targetMutex.unlock();

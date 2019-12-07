@@ -14,7 +14,7 @@ function LifeDayDreamsReyyruaConvoHandler:getInitialScreen(pPlayer, pNpc, pConvT
 	if (readScreenPlayData(pPlayer, "LifeDayDreamsScreenplay", "reyyruaQuest") == "0") then
 		return convoTemplate:getScreen("reyyrua_15")
 	elseif (readScreenPlayData(pPlayer, "LifeDayDreamsScreenplay", "reyyruaQuest") == "1") then
-		return convoTemplate:getScreen("reyyrua_16")
+		return convoTemplate:getScreen("reyyrua_17")
 	elseif (readScreenPlayData(pPlayer, "LifeDayDreamsScreenplay", "reyyruaQuest") == "2") then
 		return convoTemplate:getScreen("reyyrua_final")		
 	else		

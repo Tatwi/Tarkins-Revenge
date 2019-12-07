@@ -19,7 +19,7 @@ LifeDayDreamsScreenplay = ScreenPlay:new {
 
 --Config Values
 local eventStartTime = os.time{ year=2019, month=11, day=13, hour=6, min=0 } --Go live: 12/14/2019, midnight   { year=2019, month=12, day=14, hour=0, min=0 }
-local eventCleanupTime = os.time{ year=2019, month=11, day=28, hour=11, min=40 }  --End: 1/1/2020, 11:59 PM { year=2020, month=1, day=1, hour=23, min=59 } 
+local eventCleanupTime = os.time{ year=2020, month=1, day=1, hour=23, min=59 } --End: 1/1/2020, 11:59 PM { year=2020, month=1, day=1, hour=23, min=59 } 
 
 local dreamPoint = { planet = "dreamland", x = 0 , y = 0 }
 local defaultBindPoint = { planet = "naboo", x = -4861, y = 4164, cellID = 0 }
@@ -267,8 +267,8 @@ local kashCreatures = {
 	{ planet = "kashyyyk_main", mobile = "lifeday_mouf", x = 826.354, z = 23.9216, y = -525.435, facing = -141, cellID = 0, timer = 120 },
 	{ planet = "kashyyyk_main", mobile = "lifeday_mouf", x = 832.854, z = 23.9216, y = -507.059, facing = 86, cellID = 0, timer = 120 },
 
-	{ planet = "kashyyyk_main", mobile = "lifeday_mouf", x = 632.862, z = 35.4682, y = -417.647, facing = -136, cellID = 0, timer = 120 },
-	{ planet = "kashyyyk_main", mobile = "lifeday_mouf", x = 645.773, z = 40.2494, y = -476.05, facing = 116, cellID = 0, timer = 120 },
+	{ planet = "kashyyyk_main", mobile = "lifeday_mouf", x = 632.862, z = 21.7518, y = -417.647, facing = -136, cellID = 0, timer = 120 },
+	{ planet = "kashyyyk_main", mobile = "lifeday_mouf", x = 645.773, z = 39.6868, y = -476.05, facing = 116, cellID = 0, timer = 120 },
 	{ planet = "kashyyyk_main", mobile = "lifeday_mouf", x = 642.502, z = 35.2927, y = -461.605, facing = -5, cellID = 0, timer = 120 },
 	{ planet = "kashyyyk_main", mobile = "lifeday_mouf", x = 631.272, z = 32.3959, y = -461.951, facing = 92, cellID = 0, timer = 120 },
 	{ planet = "kashyyyk_main", mobile = "lifeday_mouf", x = 650.489, z = 40.988, y = -477.882, facing = -164, cellID = 0, timer = 120 },
@@ -501,6 +501,7 @@ local rewardEggnog = "object/tangible/holiday/life_day/rewards_09/lifeday_decor_
 local rewardShield = "object/tangible/tarkin_custom/decorative/holiday/life_day_rorryyhn_shield.iff"
 local lifeDayOrb = "object/tangible/tarkin_custom/decorative/holiday/mystical_lifeday_orb.iff"
 local lifeDayGift = "object/tangible/tarkin_custom/decorative/holiday/life_day_2019_gift.iff"
+local lifeDayBadge = "object/tangible/tarkin_custom/abilities/badges/tarkin_badge_lifeday_2019.iff"
 
 registerScreenPlay("LifeDayDreamsScreenplay", true)
 
@@ -572,9 +573,10 @@ function LifeDayDreamsScreenplay:cleanupLifeDayEvent()
 				deleteScreenPlayData(pPlayer, "LifeDayDreamsScreenplay", "lifeDayClaimedGift")
 				deleteScreenPlayData(pPlayer, "LifeDayDreamsScreenplay", "attilochitQuest")
 				deleteScreenPlayData(pPlayer, "LifeDayDreamsScreenplay", "reyyruaQuest")
-				deleteScreenPlayData(pPlayer, "LifeDayDreamsScreenplay", "kittharrQuest")
+				deleteScreenPlayData(pPlayer, "LifeDayDreamsScreenplay", "arritharQuest")
 				deleteScreenPlayData(pPlayer, "LifeDayDreamsScreenplay", "shorbaccaQuest")
 				deleteScreenPlayData(pPlayer, "LifeDayDreamsScreenplay", "inNestArea")
+				deleteScreenPlayData(pPlayer, "LifeDayDreamsScreenplay", "birdID")
 
 				for i=1, #questItems, 1 do
 					local item = questItems[i].item
@@ -634,7 +636,11 @@ function LifeDayDreamsScreenplay:spawnMobiles()
 	
 	--Spawn Kashyyyk Creatures
 	for i=1, #kashCreatures, 1 do
-		local pCreature = spawnMobile(kashCreatures[i].planet, kashCreatures[i].mobile, kashCreatures[i].timer, kashCreatures[i].x, kashCreatures[i].z, kashCreatures[i].y, kashCreatures[i].facing, kashCreatures[i].cellID)
+		local pSpawner = spawnMobile(kashCreatures[i].planet, kashCreatures[i].mobile, kashCreatures[i].timer, kashCreatures[i].x, kashCreatures[i].z, kashCreatures[i].y, kashCreatures[i].facing, kashCreatures[i].cellID)
+
+		local zPos = getTerrainHeight(pSpawner, kashCreatures[i].x, kashCreatures[i].y)
+		local pCreature = spawnMobile(kashCreatures[i].planet, kashCreatures[i].mobile, kashCreatures[i].timer, kashCreatures[i].x, zPos, kashCreatures[i].y, kashCreatures[i].facing, kashCreatures[i].cellID)
+		SceneObject(pSpawner):destroyObjectFromWorld()	
 		if (pCreature ~= nil) then
 			writeData("LifeDayDreamsScreenplay:creature:"..tostring(i),SceneObject(pCreature):getObjectID())
 			AiAgent(pCreature):setAiTemplate("")
@@ -797,9 +803,9 @@ function LifeDayDreamsScreenplay:setBindPoint(pPlayer)
 end
 
 function LifeDayDreamsScreenplay:clearBindPointData(pPlayer)
-	deleteScreenplayData(pPlayer, "LifeDayDreamsScreenplay", "lifeDayPlayerBindPlanet")
-	deleteScreenplayData(pPlayer, "LifeDayDreamsScreenplay", "lifeDayPlayerBindXRef")
-	deleteScreenplayData(pPlayer, "LifeDayDreamsScreenplay", "lifeDayPlayerBindYRef")	
+	deleteScreenPlayData(pPlayer, "LifeDayDreamsScreenplay", "lifeDayPlayerBindPlanet")
+	deleteScreenPlayData(pPlayer, "LifeDayDreamsScreenplay", "lifeDayPlayerBindXRef")
+	deleteScreenPlayData(pPlayer, "LifeDayDreamsScreenplay", "lifeDayPlayerBindYRef")	
 end
 
 function LifeDayDreamsScreenplay:startDreamSequence(pPlayer)
@@ -950,30 +956,42 @@ function LifeDayDreamsScreenplay:notifyEnteredKashyyyk(pArea, pPlayer)
 		end
 	end
 	
-	return 1
+	return 0
 end
 
 function LifeDayDreamsScreenplay:notifyEnteredNestArea(pArea, pPlayer)
 	if (pPlayer == nil or not SceneObject(pPlayer):isPlayerCreature()) then
 		return 0
 	end
-	
+
 	writeScreenPlayData(pPlayer, "LifeDayDreamsScreenplay", "inNestArea", 1)
+
+	if (readScreenPlayData(pPlayer, "LifeDayDreamsScreenplay", "arritharQuest") == "0") then
+		CreatureObject(pPlayer):sendSystemMessage("Use the radial menu on Rorryyhn's ashes to scatter them in this area.")
+	end
+
+	if (readScreenPlayData(pPlayer, "LifeDayDreamsScreenplay", "arritharQuest") == "2") then
+		self:spawnNest(pPlayer)
+	end
 	
-	return 1
+	return 0
 end
 
 function LifeDayDreamsScreenplay:notifyExitedNestArea(pArea, pPlayer)
 	if (pPlayer == nil or not SceneObject(pPlayer):isPlayerCreature()) then
 		return 0
 	end
-	
+
+	if (readScreenPlayData(pPlayer, "LifeDayDreamsScreenplay", "arritharQuest") == "2") then
+		self:despawnNest(pPlayer)
+	end
+		
 	deleteScreenPlayData(pPlayer, "LifeDayDreamsScreenplay", "inNestArea")
-	
-	return 1
+
+	return 0
 end
 
-function LifeDayDreamsScreenplay:endDreamSequence()
+function LifeDayDreamsScreenplay:endDreamSequence(pPlayer)
 	if (pPlayer == nil) then
 		return
 	end
@@ -1006,7 +1024,6 @@ function LifeDayDreamsScreenplay:endDreamSequence()
 
 	SceneObject(pPlayer):switchZone(zone, spawnPoint[1], spawnPoint[2], spawnPoint[3], 0)
 	SceneObject(pSpawner):destroyObjectFromWorld()
-	writeToParticipantList(pPlayer)
 	createEvent(7 * 1000, "LifeDayDreamsScreenplay", "sendEndDreamMessage", pPlayer, "")
 	createEvent(12 * 1000, "LifeDayDreamsScreenplay", "sendEndDreamSui", pPlayer, "")
 end
@@ -1024,12 +1041,22 @@ function LifeDayDreamsScreenplay:sendEndDreamSui(pPlayer)
 
 	sui.setTitle("Choose:")
 	sui.setPrompt("Do you wish to wish to wake up and return to your normal life, or do you want to remain in the Kashyyyk dreamland a while longer?")
-	sui.setOkButtonText("Return")
-	sui.setCancelButtonText("stay")
+	sui.setOkButtonText("Return To The Real World")
+	sui.setCancelButtonText("Stay On Kashyyyk")
 	sui.sendTo(pPlayer)
 end
 
 function LifeDayDreamsScreenplay:endDreamSuiCallback(pPlayer, pSui, eventIndex, args)
+	if (pPlayer == nil) then
+		return
+	end
+
+	local pInventory = CreatureObject(pPlayer):getSlottedObject("inventory")
+
+	if (pInventory == nil) then
+		return
+	end
+	
 	local cancelPressed = (eventIndex == 1)
 
 	if (cancelPressed) then
@@ -1041,14 +1068,67 @@ function LifeDayDreamsScreenplay:endDreamSuiCallback(pPlayer, pSui, eventIndex, 
 		return
 	end
 	
-	writeScreenPlayData(pPlayer, "LifeDayDreamsScreenplay", "lifeDayDreamsStatus", 2) 
+	writeScreenPlayData(pPlayer, "LifeDayDreamsScreenplay", "lifeDayDreamsStatus", 2)
+	local pBadge = giveItem(pInventory, lifeDayBadge, -1)
+	if (pBadge ~= nil) then
+		CreatureObject(pPlayer):sendSystemMessage("A Life Day reward badge has been placed in your inventory!")
+	end
 	self:returnToBindPoint(pPlayer)
+end
+
+function LifeDayDreamsScreenplay:giveAshes(pPlayer)
+	if (pPlayer == nil) then
+		return
+	end
+
+	local pInventory = CreatureObject(pPlayer):getSlottedObject("inventory")
+
+	if (pInventory == nil) then
+		return
+	end
+	
+	if (SceneObject(pInventory):isContainerFullRecursive()) then
+		CreatureObject(pPlayer):sendSystemMessage("Your inventory is too full to receive Rorryyhn's ashes.  Make some room, and try again.")
+		return
+	end
+
+	local pGhost = CreatureObject(pPlayer):getPlayerObject()
+	local playerID = CreatureObject(pPlayer):getObjectID()
+	local pAshes = giveItem(pInventory, ashes, -1)
+
+	if (pAshes ~= nil) then
+		local waypointID = PlayerObject(pGhost):addWaypoint("kashyyyk_main", "Scatter Rorryyhn's Ashes", "", -404, 735, WAYPOINTYELLOW, true, true, 0)
+		writeData(playerID .. ":ashesWaypointID", waypointID)
+
+		if (waypointID ~= nil) then
+			CreatureObject(pPlayer):sendSystemMessage("Rorryyhn's ashes have been placed in your inventory. Proceed to the waypoint to scatter them over his favorite hunting grounds.")
+			writeScreenPlayData(pPlayer, "LifeDayDreamsScreenplay", "arritharQuest", 0)
+		else
+			SceneObject(pAshes):destroyObjectFromWorld()
+			SceneObject(pAshes):destroyObjectFromDatabase()			
+		end
+	end
+end
+
+function LifeDayDreamsScreenplay:assignBirdHunt(pPlayer)
+	if (pPlayer == nil) then
+		return
+	end
+
+	local pGhost = CreatureObject(pPlayer):getPlayerObject()
+	local playerID = SceneObject(pPlayer):getObjectID()
+	local waypointID = PlayerObject(pGhost):addWaypoint("kashyyyk_main", "Search for the Shyyyo Bird", "", -404, 735, WAYPOINTYELLOW, true, true, 0)
+	if (waypointID ~= nil) then
+		writeData(playerID .. ":nestWaypointID", waypointID)
+	end
 end
 
 function LifeDayDreamsScreenplay:hatchShyyyoBird(pPlayer)
 	if (pPlayer == nil) then
 		return
 	end
+
+	CreatureObject(pPlayer):sendSystemMessage("The egg begins to quake and shake in your hands.  A crack splits across it, and before you know it, a baby Shyyyo bird emerges.")	
 
 	local randX = getRandomNumber(0, 4)
 	local pShyyyoBird = spawnBaby("kashyyyk_main", "shyyyo_bird", -598 + randX, 18.8235, -131, 175, 0)
@@ -1071,14 +1151,16 @@ function LifeDayDreamsScreenplay:hatchShyyyoBird(pPlayer)
 		if (pPetBird == nil) then
 			local pBirdArea = spawnActiveArea("kashyyyk_main", "object/active_area.iff", SceneObject(pShyyyoBird):getWorldPositionX(), SceneObject(pShyyyoBird):getWorldPositionZ(), SceneObject(pShyyyoBird):getWorldPositionY(), 50, 0) 
 			if pBirdArea ~= nil then
-				CreatureObject(pPlayer):sendSystemMessage("You were unable to tame the Shyyyo bird.  If you want to tame this bird, please correct the reason that you were unable to tame it before you leave the general area.  If you correct the issue, you will tame the bird as you leave.  If have not corrected it, the bird will go free.")	
+				CreatureObject(pPlayer):sendSystemMessage("You were unable to tame the Shyyyo bird.  If you want to tame this bird, please correct the reason that you were unable to tame it before you leave the immediate area.  If you correct the issue, you will tame the bird as you leave.  If have not corrected it, the bird will go free.")	
 				local playerID = SceneObject(pPlayer):getObjectID()
 				createObserver(EXITEDAREA, "LifeDayDreamsScreenplay", "notifyExitedBirdArea", pBirdArea)
 				writeScreenPlayData(pPlayer, "LifeDayDreamsScreenplay", "birdArea", SceneObject(pBirdArea):getObjectID())
 				writeScreenPlayData(pPlayer, "LifeDayDreamsScreenplay", "birdID", birdID)		
 			end
 		else
-			writeScreenPlayData(pPlayer, "LifeDayDreamsScreenplay", "kittharrQuest", 4)
+			AiAgent(pShyyyoBird):setHomeLocation(SceneObject(pPlayer):getPositionX(), SceneObject(pPlayer):getPositionZ(), SceneObject(pPlayer):getPositionY(), SceneObject(pPlayer):getParent())
+			AiAgent(pShyyyoBird):executeBehavior()
+			writeScreenPlayData(pPlayer, "LifeDayDreamsScreenplay", "arritharQuest", 4)
 		end
 	end
 end
@@ -1110,42 +1192,76 @@ function LifeDayDreamsScreenplay:notifyExitedBirdArea(pArea, pPlayer)
 					createEvent(1000, "LifeDayDreamsScreenplay", "destroyObject", pBird, "")
 					createEvent(5000, "LifeDayDreamsScreenplay", "destroyObject", pArea, "")
 					CreatureObject(pPlayer):sendSystemMessage("The Shyyyo bird has gone free.")
-					writeScreenPlayData(pPlayer, "LifeDayDreamsScreenplay", "kittharrQuest", 4)
-					return 1
+					writeScreenPlayData(pPlayer, "LifeDayDreamsScreenplay", "arritharQuest", 4)
+					return 0
 				else
+					AiAgent(pPetBird):setHomeLocation(SceneObject(pPlayer):getPositionX(), SceneObject(pPlayer):getPositionZ(), SceneObject(pPlayer):getPositionY(), SceneObject(pPlayer):getParent())
+					AiAgent(pPetBird):executeBehavior()
 					createEvent(5000, "LifeDayDreamsScreenplay", "destroyObject", pArea, "")
-					return 1
+					writeScreenPlayData(pPlayer, "LifeDayDreamsScreenplay", "arritharQuest", 4)
+					return 0
 				end										
 			else
 				createEvent(5000, "LifeDayDreamsScreenplay", "destroyObject", pArea, "")
-				return 1	
+				writeScreenPlayData(pPlayer, "LifeDayDreamsScreenplay", "arritharQuest", 4)
+				return 0	
 			end
 		else
 			createEvent(5000, "LifeDayDreamsScreenplay", "destroyObject", pArea, "")
-			return 1
+			writeScreenPlayData(pPlayer, "LifeDayDreamsScreenplay", "arritharQuest", 4)
+			return 0
 		end
 	end
-	return 1
+	return 0
 end
 
 function LifeDayDreamsScreenplay:spawnNest(pPlayer)
+	if (pPlayer == nil) then
+		return
+	end
+
 	local playerID = tostring(SceneObject(pPlayer):getObjectID())
 	local pNest = spawnSceneObject(nest.planet, nest.itemPath, nest.x, nest.z, nest.y, nest.cellID, nest.ow, nest.ox, nest.oy, nest.oz)
-	writeData("LifeDayDreamsScreenplay:nest:" .. playerID, SceneObject(pNest):getObjectID())
+	if (pNest ~= nil) then
+		writeData("LifeDayDreamsScreenplay:nest:" .. playerID, SceneObject(pNest):getObjectID())
+		CreatureObject(pPlayer):sendSystemMessage("Have a look around the area and see if you can find more evidence of a Shyyyo bird.")
+	end
 end
 
 function LifeDayDreamsScreenplay:searchNest(pPlayer)
+	if (pPlayer == nil) then
+		return
+	end
+
 	local pInventory = CreatureObject(pPlayer):getSlottedObject("inventory")
-	if (pInventory ~= nil) then
-		if (SceneObject(pInventory):isContainerFullRecursive()) then
-			CreatureObject(pPlayer):sendSystemMessage("Your inventory is too full to search this nest.  Make some room and try again.")
-		else
-			CreatureObject(pPlayer):sendSystemMessage("You reach into the nest, and retrieve a large, still-warm egg.  Perhaps you should consult Kittharr about it.")
-			local pEgg = giveItem(pInventory, egg, -1)
-			if(pEgg ~= nil) then
-				writeScreenPlayData(pPlayer, "LifeDayDreamsScreenplay", "kittharrQuest", 3)
-				createEvent(1000, "LifeDayDreamsScreenplay", "despawnNest", pPlayer, "")
+
+	if (pInventory == nil) then
+		return
+	end
+
+	if (readScreenPlayData(pPlayer, "LifeDayDreamsScreenplay", "arritharQuest") ~= "2") then
+		return
+	end
+	
+	if (SceneObject(pInventory):isContainerFullRecursive()) then
+		CreatureObject(pPlayer):sendSystemMessage("Your inventory is too full to search this nest.  Make some room and try again.")
+	else
+		CreatureObject(pPlayer):sendSystemMessage("You reach into the nest and retrieve a large, still-warm egg.  Perhaps you should consult Arrithar about it.")
+		local pEgg = giveItem(pInventory, egg, -1)
+		if(pEgg ~= nil) then
+			writeScreenPlayData(pPlayer, "LifeDayDreamsScreenplay", "arritharQuest", 3)
+			local pGhost = CreatureObject(pPlayer):getPlayerObject()
+			local playerID = CreatureObject(pPlayer):getObjectID()
+			local oldWaypointID = readData(playerID .. ":nestWaypointID", waypointID)
+
+			if oldWaypointID ~= "" and oldWaypointID ~= nil and oldWaypointID ~= 0 then
+				PlayerObject(pGhost):removeWaypoint(oldWaypointID, true)
+				deleteData(playerID .. ":nestWaypointID")
 			end
+
+			local newWaypointID = PlayerObject(pGhost):addWaypoint("kashyyyk_main", "Return to Arrithar", "", -595.082, -144.376, WAYPOINTYELLOW, true, true, 0)
+			writeData(playerID .. ":arritharWaypointID", newWaypointID)	
+			createEvent(1000, "LifeDayDreamsScreenplay", "despawnNest", pPlayer, "")	
 		end
 	end		
 end
@@ -1155,9 +1271,11 @@ function LifeDayDreamsScreenplay:despawnNest(pPlayer)
 	local nestID = readData("LifeDayDreamsScreenplay:nest:" .. playerID)
 	if ((nestID ~= nil) and (getSceneObject(nestID) ~= nil)) then
 		local pNest = getSceneObject(nestID)
-    		deleteData("LifeDayDreamsScreenplay:nest:" .. playerID)
-       		SceneObject(pNest):destroyObjectFromWorld()
-		SceneObject(pNest):destroyObjectFromDatabase()
+		if (pNest ~= nil) then 
+    			deleteData("LifeDayDreamsScreenplay:nest:" .. playerID)
+       			SceneObject(pNest):destroyObjectFromWorld()
+			SceneObject(pNest):destroyObjectFromDatabase()
+		end
 	end
 end
 
@@ -1297,7 +1415,7 @@ function LifeDayDreamsScreenplay:scatterAshes(pPlayer, pAshes)
 		return
 	end
 
-	if (readScreenPlayData(pPlayer, "LifeDayDreamsScreenplay", "kittharrQuest") ~= "0" or readScreenPlayData(pPlayer, "LifeDayDreamsScreenplay", "inNestArea") ~= "1") then
+	if (readScreenPlayData(pPlayer, "LifeDayDreamsScreenplay", "arritharQuest") ~= "0" or readScreenPlayData(pPlayer, "LifeDayDreamsScreenplay", "inNestArea") ~= "1") then
 		return
 	end
 
@@ -1310,14 +1428,59 @@ function LifeDayDreamsScreenplay:scatterAshes(pPlayer, pAshes)
 
 		local pAshes = getContainerObjectByTemplate(pInventory, ashes, true)
 		if (pAshes ~= nil) then
+			local pGhost = CreatureObject(pPlayer):getPlayerObject()
+			local playerID = CreatureObject(pPlayer):getObjectID()
+			local oldWaypointID = readData(playerID .. ":ashesWaypointID", waypointID)
+
+			if oldWaypointID ~= "" and oldWaypointID ~= nil and oldWaypointID ~= 0 then
+				PlayerObject(pGhost):removeWaypoint(oldWaypointID, true)
+				deleteData(playerID .. ":ashesWaypointID")
+			end
+
+			local newWaypointID = PlayerObject(pGhost):addWaypoint("kashyyyk_main", "Return to Arrithar", "", -595.082, -144.376, WAYPOINTYELLOW, true, true, 0)
+			writeData(playerID .. ":arritharWaypointID", newWaypointID)	
+		
 			SceneObject(pAshes):destroyObjectFromWorld()
 			SceneObject(pAshes):destroyObjectFromDatabase()
 			local pEmptyAshes = giveItem(pInventory, emptyAshes, -1)
-			CreatureObject(pPlayer):sendSystemMessage("You uncork the container and scatter Rorryyhn's ashes to the winds.  While doing so, you happen to notice a large blue feather that stands out from its surroundings, and you pick it up.  Perhaps Kittharr would know something about it.")
+			CreatureObject(pPlayer):sendSystemMessage("You uncork the container and scatter Rorryyhn's ashes to the winds.  While doing so, you happen to notice a large blue feather that stands out from its surroundings, and you pick it up.  Perhaps Arrithar would know something about it.")
 			local pFeather = giveItem(pInventory, feather, -1)
-			writeScreenPlayData(pPlayer, "LifeDayDreamsScreenplay", "kittharrQuest", 1)	
+			writeScreenPlayData(pPlayer, "LifeDayDreamsScreenplay", "arritharQuest", 1)	
 		end
 	end
+end
+
+function LifeDayDreamsScreenplay:giveShield(pPlayer)
+	if (pPlayer == nil) then
+		return
+	end
+
+	local pInventory = CreatureObject(pPlayer):getSlottedObject("inventory")
+
+	if (pInventory == nil) then
+		return
+	end
+
+        if (SceneObject(pInventory):isContainerFullRecursive()) then
+		CreatureObject(pPlayer):sendSystemMessage("Your inventory is too full receive your reward.  Make some room and try again.")
+		return
+	end   
+
+	local pGhost = CreatureObject(pPlayer):getPlayerObject()
+	local playerID = CreatureObject(pPlayer):getObjectID()
+	local waypointID = readData(playerID .. ":arritharWaypointID", waypointID)
+
+	if waypointID ~= "" and waypointID ~= nil and waypointID ~= 0 then
+		PlayerObject(pGhost):removeWaypoint(waypointID, true)
+		deleteData(playerID .. ":arritharWaypointID")
+	end
+
+	local pShield = giveItem(pInventory, rewardShield, -1)
+	if (rewardShield ~= nil) then
+		CreatureObject(pPlayer):sendSystemMessage("Your reward has been placed in your inventory.")
+		writeScreenPlayData(pPlayer, "LifeDayDreamsScreenplay", "arritharQuest", 2)
+	end
+
 end
 
 function LifeDayDreamsScreenplay:completeTrial(pPlayer, head)
@@ -1526,11 +1689,11 @@ function LifeDayDreamsScreenplay:notifyEnteredBaccaArea(pArea, pPlayer)
 		local pBacca = getSceneObject(pBaccaID)
 		if (pBacca ~= nil) then
 			spatialChat(pBacca, "@player_quest:lifeday_2019_bacca_bark") -- "You must agree, Freyyr!  The hrrtayyk seems to have gotten far easier than when I implemented it.  Pups these days have a soft belly.  Look at this one!  Wait...it looks at us."
-			return 1
+			return 0
 		end
 	end
 
-	return 1
+	return 0
 end
 
 function LifeDayDreamsScreenplay:notifyExitedBaccaArea(pArea, pPlayer)
@@ -1567,7 +1730,7 @@ function LifeDayDreamsScreenplay:notifyExitedBaccaArea(pArea, pPlayer)
 		createEvent(10, "LifeDayDreamsScreenplay", "destroyObject", pArea, "")
 	end
 	
-	return 1
+	return 0
 end
 
 function LifeDayDreamsScreenplay:giveShorbaccaRewards(pPlayer)
@@ -1637,20 +1800,27 @@ end
 function LifeDayDreamsScreenplay:hasCompletedAllQuests(pPlayer)
 	--Check if Chief Attilochit quests are done
 	if(readScreenPlayData(pPlayer, "LifeDayDreamsScreenplay", "attilochitQuest") ~= "1") then
+		print("Attilochit false")--debug
 		return false
 	end
 
 	--Check if Reyyrua quest is done
 	if(readScreenPlayData(pPlayer, "LifeDayDreamsScreenplay", "reyyruaQuest") ~= "2") then
+		print("Reyyrua false")--debug
 		return false
 	end	
 	
-	-- Check if Shorbacca quest(s) are done
+	-- Check if Shorbacca quest is done
 	if(readScreenPlayData(pPlayer, "LifeDayDreamsScreenplay", "shorbaccaQuest") ~= "3") then
+		print("Shorbacca false")--debug
 		return false
 	end
 
-	-- Check if Kittharr quest is done
+	-- Check if Arrithar quest is done
+	if(readScreenPlayData(pPlayer, "LifeDayDreamsScreenplay", "arritharQuest") ~= "4") then
+		print("Arrithar false")--debug
+		return false
+	end
 	
 	return true
 end
@@ -1760,11 +1930,12 @@ function LifeDay2019OrbObjectMenuComponent:fillObjectMenuResponse(pOrb, pMenuRes
 	
 	--For the duration of the event, and if the player has not completed the Life Day quests, offer the radial menu to use the orb
 	if (LifeDayDreamsScreenplay:isLifeDayDreamsEventEnabled()== true and TarkinLib:isEligibleState(pPlayer) == true) then
+
 		local lifeDayDreamsStatus = readScreenPlayData(pPlayer, "LifeDayDreamsScreenplay", "lifeDayDreamsStatus")
 		if (SceneObject(pPlayer):getZoneName() ~= "kashyyyk_main") then
 			if ((lifeDayDreamsStatus == nil or lifeDayDreamsStatus == "") and SceneObject(pPlayer):getZoneName() ~= "dreamland") then
 				menuResponse:addRadialMenuItem(20, 3, "Use")
-			elseif (lifeDayDreamsStatus == 0 or lifeDayDreamsStatus == 1) then
+			elseif (lifeDayDreamsStatus == "0" or lifeDayDreamsStatus == "1") then
 				menuResponse:addRadialMenuItem(22, 3, "Use")
 			end
 		end
@@ -1895,7 +2066,7 @@ function WookieeAshesObjectMenuComponent:fillObjectMenuResponse(pAshes, pMenuRes
 		return 0
 	end	
 
-	if (readScreenPlayData(pPlayer, "LifeDayDreamsScreenplay", "kittharrQuest") ~= "0") then
+	if (readScreenPlayData(pPlayer, "LifeDayDreamsScreenplay", "arritharQuest") ~= "0") then
 		return 0
 	end
 	
@@ -1927,7 +2098,7 @@ function NestObjectMenuComponent:fillObjectMenuResponse(pNest, pMenuResponse, pP
 	
 	local menuResponse = LuaObjectMenuResponse(pMenuResponse)
 
-	if (readScreenPlayData(pPlayer, "LifeDayDreamsScreenplay", "kittharrQuest") ~= "2") then
+	if (readScreenPlayData(pPlayer, "LifeDayDreamsScreenplay", "arritharQuest") ~= "2") then
 		return 0
 	end
 	

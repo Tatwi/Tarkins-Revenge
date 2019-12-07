@@ -304,4 +304,5 @@ includeFile("conversations/misc/LifeDayDreamsAttilochitConvoTemplate.lua")
 includeFile("conversations/misc/LifeDayDreamsReyyruaConvoTemplate.lua")
 includeFile("conversations/misc/LifeDayDreamsShorbaccaConvoTemplate.lua")
 includeFile("conversations/misc/LifeDayDreamsBaccaConvoTemplate.lua")
+includeFile("conversations/misc/LifeDayDreamsArritharConvoTemplate.lua")
 
