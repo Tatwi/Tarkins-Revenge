@@ -18,8 +18,8 @@ LifeDayDreamsScreenplay = ScreenPlay:new {
 }
 
 --Config Values
-local eventStartTime = os.time{ year=2019, month=11, day=13, hour=6, min=0 } --Go live: 12/14/2019, midnight   { year=2019, month=12, day=14, hour=0, min=0 }
-local eventCleanupTime = os.time{ year=2020, month=1, day=1, hour=23, min=59 } --End: 1/1/2020, 11:59 PM { year=2020, month=1, day=1, hour=23, min=59 } 
+local eventStartTime = os.time{ year=2019, month=12, day=14, hour=0, min=0 } --Go live: 12/14/2019, midnight   
+local eventCleanupTime = os.time{ year=2020, month=1, day=1, hour=23, min=59 }  --End: 1/1/2020, 11:59 PM 
 
 local dreamPoint = { planet = "dreamland", x = 0 , y = 0 }
 local defaultBindPoint = { planet = "naboo", x = -4861, y = 4164, cellID = 0 }
