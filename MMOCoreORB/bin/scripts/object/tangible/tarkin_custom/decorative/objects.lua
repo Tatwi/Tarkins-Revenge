@@ -2545,3 +2545,81 @@ object_tangible_tarkin_custom_decorative_shared_tarkin_gcw_second_dna_terminal =
 	clientTemplateFileName = "object/tangible/tarkin_custom/decorative/shared_tarkin_gcw_second_dna_terminal.iff"
 }
 ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_decorative_shared_tarkin_gcw_second_dna_terminal, "object/tangible/tarkin_custom/decorative/shared_tarkin_gcw_second_dna_terminal.iff")
+
+--GCW Imperial Membership Chip
+object_tangible_tarkin_custom_decorative_shared_imperial_membership_chip = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tarkin_custom/decorative/shared_imperial_membership_chip.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_decorative_shared_imperial_membership_chip, "object/tangible/tarkin_custom/decorative/shared_imperial_membership_chip.iff")
+
+--GCW Rebel Membership Chip
+object_tangible_tarkin_custom_decorative_shared_rebel_membership_chip = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tarkin_custom/decorative/shared_rebel_membership_chip.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_decorative_shared_rebel_membership_chip, "object/tangible/tarkin_custom/decorative/shared_rebel_membership_chip.iff")
+
+--GCW Shadow Box Reward
+object_tangible_tarkin_custom_decorative_shared_gcw_shadow_box_reward = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tarkin_custom/decorative/shared_gcw_shadow_box_reward.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_decorative_shared_gcw_shadow_box_reward, "object/tangible/tarkin_custom/decorative/shared_gcw_shadow_box_reward.iff")
+
+--GCW Imperial 10,000 Points Reward Painting
+object_tangible_tarkin_custom_decorative_shared_gcw_10000_painting_reward_imp = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tarkin_custom/decorative/shared_gcw_10000_painting_reward_imp.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_decorative_shared_gcw_10000_painting_reward_imp, "object/tangible/tarkin_custom/decorative/shared_gcw_10000_painting_reward_imp.iff")
+
+--GCW Rebel 10,000 Points Reward Painting
+object_tangible_tarkin_custom_decorative_shared_gcw_10000_painting_reward_reb = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tarkin_custom/decorative/shared_gcw_10000_painting_reward_reb.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_decorative_shared_gcw_10000_painting_reward_reb, "object/tangible/tarkin_custom/decorative/shared_gcw_10000_painting_reward_reb.iff")
+
+--GCW Imperial 5,000 Points Reward Painting
+object_tangible_tarkin_custom_decorative_shared_gcw_5000_painting_reward_imp = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tarkin_custom/decorative/shared_gcw_5000_painting_reward_imp.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_decorative_shared_gcw_5000_painting_reward_imp, "object/tangible/tarkin_custom/decorative/shared_gcw_5000_painting_reward_imp.iff")
+
+--GCW Rebel 5,000 Points Reward Painting
+object_tangible_tarkin_custom_decorative_shared_gcw_5000_painting_reward_reb = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tarkin_custom/decorative/shared_gcw_5000_painting_reward_reb.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_decorative_shared_gcw_5000_painting_reward_reb, "object/tangible/tarkin_custom/decorative/shared_gcw_5000_painting_reward_reb.iff")
+
+--GCW Imperial 2,500 Points Reward Painting
+object_tangible_tarkin_custom_decorative_shared_gcw_2500_painting_reward_imp = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tarkin_custom/decorative/shared_gcw_2500_painting_reward_imp.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_decorative_shared_gcw_2500_painting_reward_imp, "object/tangible/tarkin_custom/decorative/shared_gcw_2500_painting_reward_imp.iff")
+
+--GCW Rebel 2,500 Points Reward Painting
+object_tangible_tarkin_custom_decorative_shared_gcw_2500_painting_reward_reb = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tarkin_custom/decorative/shared_gcw_2500_painting_reward_reb.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_decorative_shared_gcw_2500_painting_reward_reb, "object/tangible/tarkin_custom/decorative/shared_gcw_2500_painting_reward_reb.iff")
+
+--GCW Imperial 1,000 Points Reward Painting
+object_tangible_tarkin_custom_decorative_shared_gcw_1000_painting_reward_imp = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tarkin_custom/decorative/shared_gcw_1000_painting_reward_imp.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_decorative_shared_gcw_1000_painting_reward_imp, "object/tangible/tarkin_custom/decorative/shared_gcw_1000_painting_reward_imp.iff")
+
+--GCW Rebel 1,000 Points Reward Painting
+object_tangible_tarkin_custom_decorative_shared_gcw_1000_painting_reward_reb = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tarkin_custom/decorative/shared_gcw_1000_painting_reward_reb.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_decorative_shared_gcw_1000_painting_reward_reb, "object/tangible/tarkin_custom/decorative/shared_gcw_1000_painting_reward_reb.iff")
+
+--GCW Imperial Winner Reward Painting
+object_tangible_tarkin_custom_decorative_shared_gcw_imperial_winner_painting = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tarkin_custom/decorative/shared_gcw_imperial_winner_painting.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_decorative_shared_gcw_imperial_winner_painting, "object/tangible/tarkin_custom/decorative/shared_gcw_imperial_winner_painting.iff")
+
+--GCW Rebel Winner Reward Painting
+object_tangible_tarkin_custom_decorative_shared_gcw_rebel_winner_painting = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tarkin_custom/decorative/shared_gcw_rebel_winner_painting.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_decorative_shared_gcw_rebel_winner_painting, "object/tangible/tarkin_custom/decorative/shared_gcw_rebel_winner_painting.iff")
