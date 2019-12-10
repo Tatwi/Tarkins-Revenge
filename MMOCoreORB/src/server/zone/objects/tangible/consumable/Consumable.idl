@@ -43,6 +43,7 @@ class Consumable extends TangibleObject {
 	protected int foragedFood;
 
 	protected string speciesRestriction;
+	protected string factionRestriction;
 
 	public static final int EFFECT_INSTANT = 0x00;
 	public static final int EFFECT_ATTRIBUTE = 0x01;
@@ -161,4 +162,8 @@ class Consumable extends TangibleObject {
 		return speciesRestriction;
 	}
 
+	@dirty
+	public string getFactionRestriction(){
+		return factionRestriction;
+	}
 }

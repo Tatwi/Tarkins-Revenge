@@ -2623,3 +2623,10 @@ object_tangible_tarkin_custom_decorative_shared_gcw_rebel_winner_painting = Shar
 	clientTemplateFileName = "object/tangible/tarkin_custom/decorative/shared_gcw_rebel_winner_painting.iff"
 }
 ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_decorative_shared_gcw_rebel_winner_painting, "object/tangible/tarkin_custom/decorative/shared_gcw_rebel_winner_painting.iff")
+
+--Scoreboard
+object_tangible_tarkin_custom_decorative_shared_tarkin_scoreboard = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tarkin_custom/decorative/shared_tarkin_scoreboard.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_decorative_shared_tarkin_scoreboard, "object/tangible/tarkin_custom/decorative/shared_tarkin_scoreboard.iff")
+

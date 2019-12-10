@@ -191,7 +191,7 @@ NewYearNewRegimeConvoTemplate:addScreen(new_regime_teach_pve);
 
 new_regime_teach_flag = ConvoScreen:new {
 	id = "new_regime_teach_flag",
-	leftDialog = "@player_quest:new_regime_teach_flag", --If you are a participant and see one of the factional flags out on your travels, you may capture it, and bring it back to me for points!  Your own faction's flags are worth two points, and the opposite faction's flags are worth five points.  Flags may appear in any city that has a starport, even on adventure planets.  Every six hours for the duration of the event, every flag left standing will disappear, and 50 new flags will be generated.
+	leftDialog = "@player_quest:new_regime_teach_flag", --If you are a participant and see one of the factional flags out on your travels, you may capture it, and bring it back to me for points!  Your own faction's flags are worth two points, and the opposite faction's flags are worth five points.  Flags may appear in any city that has a starport, even on adventure planets.  Every six hours for the duration of the event, every flag left standing will disappear, and 100 new flags will be generated.
 	stopConversation = "false",
 	options = {
 		{"@player_quest:new_regime_teach_reply_01", "new_regime_tell_me_more"}, --I have another question.
@@ -262,13 +262,104 @@ new_regime_over_end = ConvoScreen:new {
 }
 NewYearNewRegimeConvoTemplate:addScreen(new_regime_over_end);
 
-new_regime_claim_rewards = ConvoScreen:new { --This is not finished!!!!
+new_regime_claim_rewards = ConvoScreen:new {
 	id = "new_regime_claim_rewards",
 	leftDialog = "@player_quest:new_regime_claim_rewards", --Congratulations, brave soldier!  The following rewards are available to you, you may claim them all.
+	stopConversation = "false",
+	options = {
+		--{"@player_quest:new_regime_new_regime_claim_rewards_reply_01_imp", "new_regime_select_reward_1_imp"}, --Galaxy at War Winner Badge
+		--{"@player_quest:new_regime_new_regime_claim_rewards_reply_02_imp", "new_regime_select_reward_2_imp"}, --Shadow Box Display
+		--{"@player_quest:new_regime_new_regime_claim_rewards_reply_03_imp", "new_regime_select_reward_3_imp"}, --Imperial Vistas Painting
+		--{"@player_quest:new_regime_new_regime_claim_rewards_reply_04_imp", "new_regime_select_reward_4_imp"}, --Order 66 Cookies Schematic
+		--{"@player_quest:new_regime_new_regime_claim_rewards_reply_05_imp", "new_regime_select_reward_5_imp"}, --Interwoven Composite Armor Segment Schematic
+		--{"@player_quest:new_regime_new_regime_claim_rewards_reply_01_reb", "new_regime_select_reward_1_reb"}, --Galaxy at War Winner Badge
+		--{"@player_quest:new_regime_new_regime_claim_rewards_reply_02_reb", "new_regime_select_reward_2_reb"}, --Shadow Box Display
+		--{"@player_quest:new_regime_new_regime_claim_rewards_reply_03_reb", "new_regime_select_reward_3_reb"}, --Rebel Vistas Painting
+		--{"@player_quest:new_regime_new_regime_claim_rewards_reply_04_reb", "new_regime_select_reward_4_reb"}, --Death Star Destruction Soda Schematic
+		--{"@player_quest:new_regime_new_regime_claim_rewards_reply_05_reb", "new_regime_select_reward_5_reb"}, --Interwoven Composite Armor Segment Schematic
+	}
+}
+NewYearNewRegimeConvoTemplate:addScreen(new_regime_claim_rewards);
+
+new_regime_select_reward_1_imp = ConvoScreen:new {
+	id = "new_regime_select_reward_1_imp",
+	leftDialog = "@player_quest:new_regime_select_reward_1_imp", --Luck and success to you in the new year!
 	stopConversation = "true",
 	options = {}
 }
-NewYearNewRegimeConvoTemplate:addScreen(new_regime_claim_rewards);
+NewYearNewRegimeConvoTemplate:addScreen(new_regime_select_reward_1_imp);
+
+new_regime_select_reward_2_imp = ConvoScreen:new {
+	id = "new_regime_select_reward_2_imp",
+	leftDialog = "@player_quest:new_regime_select_reward_2_imp", --Luck and success to you in the new year!
+	stopConversation = "true",
+	options = {}
+}
+NewYearNewRegimeConvoTemplate:addScreen(new_regime_select_reward_2_imp);
+
+new_regime_select_reward_3_imp = ConvoScreen:new {
+	id = "new_regime_select_reward_3_imp",
+	leftDialog = "@player_quest:new_regime_select_reward_3_imp", --Luck and success to you in the new year!
+	stopConversation = "true",
+	options = {}
+}
+NewYearNewRegimeConvoTemplate:addScreen(new_regime_select_reward_3_imp);
+
+new_regime_select_reward_4_imp = ConvoScreen:new {
+	id = "new_regime_select_reward_4_imp",
+	leftDialog = "@player_quest:new_regime_select_reward_4_imp", --Luck and success to you in the new year!
+	stopConversation = "true",
+	options = {}
+}
+NewYearNewRegimeConvoTemplate:addScreen(new_regime_select_reward_4_imp);
+
+new_regime_select_reward_5_imp = ConvoScreen:new {
+	id = "new_regime_select_reward_5_imp",
+	leftDialog = "@player_quest:new_regime_select_reward_5_imp", --Luck and success to you in the new year!
+	stopConversation = "true",
+	options = {}
+}
+NewYearNewRegimeConvoTemplate:addScreen(new_regime_select_reward_5_imp);
+
+new_regime_select_reward_1_reb = ConvoScreen:new {
+	id = "new_regime_select_reward_1_reb",
+	leftDialog = "@player_quest:new_regime_select_reward_1_reb", --Luck and success to you in the new year!
+	stopConversation = "true",
+	options = {}
+}
+NewYearNewRegimeConvoTemplate:addScreen(new_regime_select_reward_1_reb);
+
+new_regime_select_reward_2_reb = ConvoScreen:new {
+	id = "new_regime_select_reward_2_reb",
+	leftDialog = "@player_quest:new_regime_select_reward_2_reb", --Luck and success to you in the new year!
+	stopConversation = "true",
+	options = {}
+}
+NewYearNewRegimeConvoTemplate:addScreen(new_regime_select_reward_2_reb);
+
+new_regime_select_reward_3_reb = ConvoScreen:new {
+	id = "new_regime_select_reward_3_reb",
+	leftDialog = "@player_quest:new_regime_select_reward_3_reb", --Luck and success to you in the new year!
+	stopConversation = "true",
+	options = {}
+}
+NewYearNewRegimeConvoTemplate:addScreen(new_regime_select_reward_3_reb);
+
+new_regime_select_reward_4_reb = ConvoScreen:new {
+	id = "new_regime_select_reward_4_reb",
+	leftDialog = "@player_quest:new_regime_select_reward_4_reb", --Luck and success to you in the new year!
+	stopConversation = "true",
+	options = {}
+}
+NewYearNewRegimeConvoTemplate:addScreen(new_regime_select_reward_4_reb);
+
+new_regime_select_reward_5_reb = ConvoScreen:new {
+	id = "new_regime_select_reward_5_reb",
+	leftDialog = "@player_quest:new_regime_select_reward_5_reb", --Luck and success to you in the new year!
+	stopConversation = "true",
+	options = {}
+}
+NewYearNewRegimeConvoTemplate:addScreen(new_regime_select_reward_5_reb);
 
 new_regime_admin_reset = ConvoScreen:new { --FOR TESTING ONLY
 	id = "new_regime_admin_reset",

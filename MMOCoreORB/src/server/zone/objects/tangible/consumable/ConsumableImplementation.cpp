@@ -15,6 +15,7 @@
 #include "server/zone/packets/scene/AttributeListMessage.h"
 #include "templates/tangible/ConsumableTemplate.h"
 #include "server/zone/managers/player/PlayerManager.h"
+#include "server/zone/objects/player/FactionStatus.h"
 
 void ConsumableImplementation::loadTemplateData(SharedObjectTemplate* templateData) {
 	TangibleObjectImplementation::loadTemplateData(templateData);
@@ -50,6 +51,8 @@ void ConsumableImplementation::loadTemplateData(SharedObjectTemplate* templateDa
 	foragedFood = consumable->getForagedFood();
 
 	speciesRestriction = consumable->getSpeciesRestriction();
+
+	factionRestriction = consumable->getFactionRestriction();
 }
 
 void ConsumableImplementation::updateCraftingValues(CraftingValues* values, bool firstUpdate) {
@@ -121,6 +124,11 @@ int ConsumableImplementation::handleObjectMenuSelect(CreatureObject* player, byt
 	}
 
 	PlayerObject* ghost = player->getPlayerObject();
+
+	if ((factionRestriction == "Imperial" && (player->getFactionStatus() == FactionStatus::ONLEAVE || !player->isImperial())) || (factionRestriction == "Rebel" && (player->getFactionStatus() == FactionStatus::ONLEAVE || !player->isRebel()))) {
+		player->sendSystemMessage("You do not meet the faction requirements to use this item.");
+		return 0;	
+	}
 
 	String raceName = player->getSpeciesName();
 
@@ -615,4 +623,12 @@ void ConsumableImplementation::fillAttributeList(AttributeListMessage* alm, Crea
 		else
 			alm->insertAttribute("race_restriction", "@obj_attr_n:species" + speciesRestriction);
 	}
+
+	if (!factionRestriction.isEmpty()) {
+		if (factionRestriction == "Rebel")
+			alm->insertAttribute("faction_restriction", "@obj_attr_n:rebel");
+		else if (factionRestriction == "Imperial")
+			alm->insertAttribute("faction_restriction", "@obj_attr_n:imperial");
+	}
 }
+

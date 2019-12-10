@@ -32,6 +32,7 @@ class ConsumableTemplate : public SharedTangibleObjectTemplate {
 	uint32 buffCRC;
 
 	String speciesRestriction;
+	String factionRestriction;
 
 	int consumableType;
 	int foragedFood;
@@ -109,6 +110,7 @@ public:
 		buffCRC = templateData->getIntField("buffCRC");
 
 		speciesRestriction = templateData->getStringField("speciesRestriction");
+		factionRestriction = templateData->getStringField("factionRestriction");
 		//consumableType = templateData->getIntField("consumableType");
 		foragedFood = templateData->getIntField("foragedFood");
     }
@@ -189,6 +191,9 @@ public:
 		return speciesRestriction;
 	}
 
+	inline String& getFactionRestriction() {
+		return factionRestriction;
+	}
 };
 
 

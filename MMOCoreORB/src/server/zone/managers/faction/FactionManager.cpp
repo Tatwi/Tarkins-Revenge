@@ -156,8 +156,18 @@ void FactionManager::awardFactionStanding(CreatureObject* player, const String& 
 
 		if (!enemyFaction.isPlayerAllowed())
 			continue;
+	
+		//Tarkin's Revenge
+		float buffMultiplier = 1.f;
+
+		if (player->hasBuff(BuffCRC::FOOD_FACTION_INCREASE))
+			buffMultiplier += player->getSkillModFromBuffs("faction_increase") / 100.f;
+	
+		gain *= buffMultiplier;
 
 		ghost->increaseFactionStanding(enemy, gain);
+
+		player->notifyObservers(ObserverEventType::FACTIONAWARDED, player, gain);
 	}
 }
 

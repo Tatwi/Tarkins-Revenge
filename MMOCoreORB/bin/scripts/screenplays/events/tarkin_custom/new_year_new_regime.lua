@@ -24,19 +24,50 @@ NewYearNewRegimeScreenplay = ScreenPlay:new {
 local eventStartTime = os.time{ year=2020, month=1, day=1, hour=0, min=0 } --Go live: 1/1/2020, midnight  
 local eventEndTime = os.time{ year=2020, month=1, day=31, hour=23, min=59 } --Stop the points-earning phase: 1/31/2020, 11:59 PM 
 local eventCleanupTime = os.time{ year=2020, month=2, day=29, hour=23, min=59 }  --Despawn the quest giver: 2/29/2020, 11:59 PM 
-local timeToDespawnFlag =  6 * 60 * 60 * 1000 -- 6 hours
+local timeToDespawnFlag =   6 * 60 * 60 * 1000 -- 6 hours
 local timeToDespawnSignpost =  1 * 24 * 60 * 60 * 1000 -- 1 day
-local numFlagsToSpawn = 50  --number of flags plus signposts should be less than total number of locations defined in new_regime_data
+local numFlagsToSpawn = 100  --number of flags plus signposts should be less than total number of locations defined in new_regime_data
 local numSignpostsToSpawn = 20
+local daysPassedSinceEnd = math.ceil((((os.time() - eventEndTime)/ 60) / 60) / 24)
 local buildingID = 610000478
 
---points values for various activities
+-- Points values for various activities
 local pvpPointsValue = 100
 local pvePointsValue = 2
 local captureSameFlagPointsValue = 2
 local captureOpposingFlagPointsValue = 5
 local sliceSignpostPointsValue = 10
 local flipBasePointsValue = 500
+
+-- Rewards
+local imperialChip = "object/tangible/tarkin_custom/decorative/imperial_membership_chip.iff"
+local rebelChip = "object/tangible/tarkin_custom/decorative/rebel_membership_chip.iff"
+
+local imp1000Reward = "object/tangible/tarkin_custom/decorative/gcw_1000_painting_reward_imp.iff"
+local imp2500Reward = "object/tangible/tarkin_custom/decorative/gcw_2500_painting_reward_imp.iff"
+local imp5000Reward = "object/tangible/tarkin_custom/decorative/gcw_5000_painting_reward_imp.iff"
+local imp10000Reward = "object/tangible/tarkin_custom/decorative/gcw_10000_painting_reward_imp.iff"
+
+local reb1000Reward = "object/tangible/tarkin_custom/decorative/gcw_1000_painting_reward_reb.iff"
+local reb2500Reward = "object/tangible/tarkin_custom/decorative/gcw_2500_painting_reward_reb.iff"
+local reb5000Reward = "object/tangible/tarkin_custom/decorative/gcw_5000_painting_reward_reb.iff"
+local reb10000Reward = "object/tangible/tarkin_custom/decorative/gcw_10000_painting_reward_reb.iff"
+
+local impRewards = {
+	"object/tangible/tarkin_custom/abilities/badges/tarkin_badge_imp_new_year_new_regime.iff",
+	"object/tangible/tarkin_custom/decorative/gcw_shadow_box_reward.iff",
+	"object/tangible/tarkin_custom/decorative/gcw_imperial_winner_painting.iff",
+	"object/tangible/loot/loot_schematic/gcw_reward_food_imperial_schematic.iff",
+	"object/tangible/loot/loot_schematic/armor_segment_gcw_reward_schematic.iff"
+}
+
+local rebRewards = {
+	"object/tangible/tarkin_custom/abilities/badges/tarkin_badge_reb_new_year_new_regime.iff",
+	"object/tangible/tarkin_custom/decorative/gcw_shadow_box_reward.iff",
+	"object/tangible/tarkin_custom/decorative/gcw_rebel_winner_painting.iff",
+	"object/tangible/loot/loot_schematic/gcw_reward_drink_rebel_schematic.iff",
+	"object/tangible/loot/loot_schematic/armor_segment_gcw_reward_schematic.iff"
+}
 --------------------------------------------------------
 
 registerScreenPlay("NewYearNewRegimeScreenplay", true)
@@ -60,6 +91,10 @@ local screenplayStationaryObjects = {
 	{ path = "object/static/item/item_tapestry_rebel.iff", planet = "tatooine", x = 1278.78, z = 7, y = 2909.28, cellID = 0, ow = 0.707107, ox = 0, oy = -0.707107, oz = 0 },
 }
 
+local scoreboard = {
+	{ path = "object/tangible/tarkin_custom/decorative/tarkin_scoreboard.iff", planet = "tatooine", x = 1245.68, z = 8.90312, y = 2958.44, cellID = 0, ow = 0, ox = 0, oy = -1, oz = 0 },
+}
+
 function NewYearNewRegimeScreenplay:start()	
 	local pBuilding = getSceneObject(buildingID)
 	if (pBuilding ~= nil) then 
@@ -80,8 +115,10 @@ function NewYearNewRegimeScreenplay:start()
 		else
 			rescheduleServerEvent("NewYearNewRegimeScreenplayStart", os.difftime(eventStartTime, os.time())*1000)
 		end
-	elseif (self:isGcwEventEnabled()== true) then
+	elseif (self:isGcwEventEnabled() == true) then
 		self:startNewYearEvent()
+	elseif (self:isClaimingPeriodEnabled() == true) then
+		self:spawnGameMaster()
 	end
 
 	--Schedule Event End
@@ -101,7 +138,6 @@ function NewYearNewRegimeScreenplay:start()
 			rescheduleServerEvent("NewYearNewRegimeScreenplayCleanup", os.difftime(eventCleanupTime, os.time())*1000)
 		end
 	end
-
 end
 
 function NewYearNewRegimeScreenplay:startNewYearEvent()
@@ -206,6 +242,15 @@ function NewYearNewRegimeScreenplay:cleanupNewYearEvent()
 			if (pPlayer ~= nil) then
 				deleteScreenPlayData(pPlayer, "NewYearNewRegimeScreenplay", "playerPoints")
 				deleteScreenPlayData(pPlayer, "NewYearNewRegimeScreenplay", "playerRedeemedPoints")
+				deleteScreenPlayData(pPlayer, "NewYearNewRegimeScreenplay", "claimed1")
+				deleteScreenPlayData(pPlayer, "NewYearNewRegimeScreenplay", "claimed2")
+				deleteScreenPlayData(pPlayer, "NewYearNewRegimeScreenplay", "claimed3")
+				deleteScreenPlayData(pPlayer, "NewYearNewRegimeScreenplay", "claimed4")
+				deleteScreenPlayData(pPlayer, "NewYearNewRegimeScreenplay", "claimed5")
+				deleteScreenPlayData(pPlayer, "NewYearNewRegimeScreenplay", "reward1000")
+				deleteScreenPlayData(pPlayer, "NewYearNewRegimeScreenplay", "reward2500")
+				deleteScreenPlayData(pPlayer, "NewYearNewRegimeScreenplay", "reward5000")
+				deleteScreenPlayData(pPlayer, "NewYearNewRegimeScreenplay", "reward10000")
 			end
 		end
 	end
@@ -228,14 +273,17 @@ function NewYearNewRegimeScreenplay:spawnGameMaster()
 
 	for i=1, #screenplayStationaryMobiles, 1 do
 		pMobile = spawnMobile(screenplayStationaryMobiles[i].planet, screenplayStationaryMobiles[i].mobile, screenplayStationaryMobiles[i].timer, screenplayStationaryMobiles[i].x, screenplayStationaryMobiles[i].z, screenplayStationaryMobiles[i].y, screenplayStationaryMobiles[i].facing, screenplayStationaryMobiles[i].cellID)
-		writeData(tostring(SceneObject(pMobile):getObjectID())..":stationaryMobileNum", i)
         	writeData("NewYearNewRegimeScreenplay:stationaryMobile:"..tostring(i),SceneObject(pMobile):getObjectID())
 	end
 
 	for i=1, #screenplayStationaryObjects, 1 do
 		pObject = spawnSceneObject(screenplayStationaryObjects[i].planet, screenplayStationaryObjects[i].path, screenplayStationaryObjects[i].x, screenplayStationaryObjects[i].z, screenplayStationaryObjects[i].y, screenplayStationaryObjects[i].cellID, screenplayStationaryObjects[i].ow, screenplayStationaryObjects[i].ox, screenplayStationaryObjects[i].oy, screenplayStationaryObjects[i].oz)
-		writeData(tostring(SceneObject(pObject):getObjectID())..":stationaryObjectNum", i)
         	writeData("NewYearNewRegimeScreenplay:stationaryObject:"..tostring(i),SceneObject(pObject):getObjectID())
+	end
+
+	for i=1, #scoreboard, 1 do
+		pObject = spawnSceneObject(scoreboard[i].planet, scoreboard[i].path, scoreboard[i].x, scoreboard[i].z, scoreboard[i].y, scoreboard[i].cellID, scoreboard[i].ow, scoreboard[i].ox, scoreboard[i].oy, scoreboard[i].oz)
+        	writeData("NewYearNewRegimeScreenplay:scoreboard:"..tostring(i),SceneObject(pObject):getObjectID())
 	end
 end
 
@@ -259,6 +307,17 @@ function NewYearNewRegimeScreenplay:despawnGameMaster()
     		deleteData("NewYearNewRegimeScreenplay:stationaryObject:"..tostring(i))
        	 	SceneObject(pObject):destroyObjectFromWorld()
        	 	SceneObject(pObject):destroyObjectFromDatabase()
+        end
+    end
+
+    for i = 1, #scoreboard, 1 do
+        local scoreboardID = readData("NewYearNewRegimeScreenplay:scoreboard:"..tostring(i))
+        if ((scoreboardID ~= nil) and (getSceneObject(scoreboardID) ~= nil)) then
+        	local pScoreboard = getSceneObject(scoreboardID)
+    		deleteData(tostring(scoreboardID)..":scoreboard")
+    		deleteData("NewYearNewRegimeScreenplay:scoreboard:"..tostring(i))
+       	 	SceneObject(pScoreboard):destroyObjectFromWorld()
+       	 	SceneObject(pScoreboard):destroyObjectFromDatabase()
         end
     end
 
@@ -317,7 +376,7 @@ function NewYearNewRegimeScreenplay:writeToRebelList(pPlayer)
 		list = list .. "," .. accountID
 	end
 
-	setQuestStatus("new_regime:rebelList", list)	
+	setQuestStatus("new_regime:rebelList", list)
 end
 
 function NewYearNewRegimeScreenplay:writeToImperialList(pPlayer)
@@ -353,6 +412,30 @@ function NewYearNewRegimeScreenplay:writeToPointsList(pPlayer)
 	end
 
 	setQuestStatus("new_regime:pointsList", list)
+
+	local pInventory = CreatureObject(pPlayer):getSlottedObject("inventory")
+
+	if (pInventory == nil) then
+		return
+	end
+
+	if (CreatureObject(pPlayer):getFaction() == FACTIONIMPERIAL) then
+		local pReward = giveItem(pInventory, imperialChip, -1)
+
+		if (pReward ~= nil) then
+			SceneObject(pReward):setCustomObjectName(CreatureObject(pPlayer):getFirstName() .. "'s Imperial Membership Chip")
+			CreatureObject(pPlayer):sendSystemMessage("Evidence of your participation in this event has been placed in your inventory.")
+		end
+	elseif (CreatureObject(pPlayer):getFaction() == FACTIONREBEL) then
+		local pReward = giveItem(pInventory, rebelChip, -1)
+		if (pReward ~= nil) then
+			SceneObject(pReward):setCustomObjectName(CreatureObject(pPlayer):getFirstName() .. "'s Rebel Alliance Membership Chip")
+			CreatureObject(pPlayer):sendSystemMessage("Evidence of your participation in this event has been placed in your inventory.")
+		end
+	end
+
+
+
 end
 
 function NewYearNewRegimeScreenplay:writeToFlagList(location)
@@ -1253,6 +1336,159 @@ function NewYearNewRegimeScreenplay:redeemPoints(pPlayer)
 	
 	CreatureObject(pPlayer):sendSystemMessage("You have turned in your points.  You now have " .. playerPoints .. " points, and your faction has " .. totalFactionPoints .. " points.  You have redeemed a total of " .. redeemedPoints .. " points for your faction.")
 
+	local pInventory = CreatureObject(pPlayer):getSlottedObject("inventory")
+
+	if (pInventory == nil) then
+		return
+	end
+
+	-- Earn reward for 1000 points
+	if (redeemedPoints >= 1000 and readScreenPlayData(pPlayer, "NewYearNewRegimeScreenplay", "reward1000") ~= "1") then
+		CreatureObject(pPlayer):sendSystemMessage("You have earned a reward thanks to your generous contributions!")
+		if SceneObject(pInventory):isContainerFullRecursive() then
+			CreatureObject(pPlayer):sendSystemMessage("You do not have enough space in your inventory to claim your reward.  Make some room, and your reward will be granted the next time you redeem points.")
+			return
+		end
+	
+		if(CreatureObject(pPlayer):getFaction() == FACTIONIMPERIAL) then
+			local pReward = giveItem(pInventory, imp1000Reward, -1)
+			if (pReward ~= nil) then
+				writeScreenPlayData(pPlayer, "NewYearNewRegimeScreenplay", "reward1000", "1")
+				CreatureObject(pPlayer):sendSystemMessage("Your reward has been placed in your inventory.")
+			end
+		elseif(CreatureObject(pPlayer):getFaction() == FACTIONREBEL) then
+			local pReward = giveItem(pInventory, reb1000Reward, -1)
+			if (pReward ~= nil) then
+				writeScreenPlayData(pPlayer, "NewYearNewRegimeScreenplay", "reward1000", "1")
+				CreatureObject(pPlayer):sendSystemMessage("Your reward has been placed in your inventory.")
+			end
+		end
+	end
+
+	-- Earn reward for 2500 points
+	if (redeemedPoints >= 2500 and readScreenPlayData(pPlayer, "NewYearNewRegimeScreenplay", "reward2500") ~= "1") then
+		CreatureObject(pPlayer):sendSystemMessage("You have earned a reward thanks to your generous contributions!")
+		if SceneObject(pInventory):isContainerFullRecursive() then
+			CreatureObject(pPlayer):sendSystemMessage("You do not have enough space in your inventory to claim your reward.  Make some room, and your reward will be granted the next time you redeem points.")
+			return
+		end
+	
+		if(CreatureObject(pPlayer):getFaction() == FACTIONIMPERIAL) then
+			local pReward = giveItem(pInventory, imp2500Reward, -1)
+			if (pReward ~= nil) then
+				writeScreenPlayData(pPlayer, "NewYearNewRegimeScreenplay", "reward2500", "1")
+				CreatureObject(pPlayer):sendSystemMessage("Your reward has been placed in your inventory.")
+			end
+		elseif(CreatureObject(pPlayer):getFaction() == FACTIONREBEL) then
+			local pReward = giveItem(pInventory, reb2500Reward, -1)
+			if (pReward ~= nil) then
+				writeScreenPlayData(pPlayer, "NewYearNewRegimeScreenplay", "reward2500", "1")
+				CreatureObject(pPlayer):sendSystemMessage("Your reward has been placed in your inventory.")
+			end
+		end
+	end
+
+	-- Earn reward for 5000 points
+	if (redeemedPoints >= 5000 and readScreenPlayData(pPlayer, "NewYearNewRegimeScreenplay", "reward5000") ~= "1") then
+		CreatureObject(pPlayer):sendSystemMessage("You have earned a reward thanks to your generous contributions!")
+		if SceneObject(pInventory):isContainerFullRecursive() then
+			CreatureObject(pPlayer):sendSystemMessage("You do not have enough space in your inventory to claim your reward.  Make some room, and your reward will be granted the next time you redeem points.")
+			return
+		end
+	
+		if(CreatureObject(pPlayer):getFaction() == FACTIONIMPERIAL) then
+			local pReward = giveItem(pInventory, imp5000Reward, -1)
+			if (pReward ~= nil) then
+				writeScreenPlayData(pPlayer, "NewYearNewRegimeScreenplay", "reward5000", "1")
+				CreatureObject(pPlayer):sendSystemMessage("Your reward has been placed in your inventory.")
+			end
+		elseif(CreatureObject(pPlayer):getFaction() == FACTIONREBEL) then
+			local pReward = giveItem(pInventory, reb5000Reward, -1)
+			if (pReward ~= nil) then
+				writeScreenPlayData(pPlayer, "NewYearNewRegimeScreenplay", "reward5000", "1")
+				CreatureObject(pPlayer):sendSystemMessage("Your reward has been placed in your inventory.")
+			end
+		end
+	end
+
+	-- Earn reward for 10,000 points
+	if (redeemedPoints >= 10000 and readScreenPlayData(pPlayer, "NewYearNewRegimeScreenplay", "reward10000") ~= "1") then
+		CreatureObject(pPlayer):sendSystemMessage("You have earned a reward thanks to your generous contributions!")
+		if SceneObject(pInventory):isContainerFullRecursive() then
+			CreatureObject(pPlayer):sendSystemMessage("You do not have enough space in your inventory to claim your reward.  Make some room, and your reward will be granted the next time you redeem points.")
+			return
+		end
+	
+		if(CreatureObject(pPlayer):getFaction() == FACTIONIMPERIAL) then
+			local pReward = giveItem(pInventory, imp10000Reward, -1)
+			if (pReward ~= nil) then
+				writeScreenPlayData(pPlayer, "NewYearNewRegimeScreenplay", "reward10000", "1")
+				CreatureObject(pPlayer):sendSystemMessage("Your reward has been placed in your inventory.")
+			end
+		elseif(CreatureObject(pPlayer):getFaction() == FACTIONREBEL) then
+			local pReward = giveItem(pInventory, reb10000Reward, -1)
+			if (pReward ~= nil) then
+				writeScreenPlayData(pPlayer, "NewYearNewRegimeScreenplay", "reward10000", "1")
+				CreatureObject(pPlayer):sendSystemMessage("Your reward has been placed in your inventory.")
+			end
+		end
+	end
+
+end
+
+function NewYearNewRegimeScreenplay:isEligibleToClaimRewards(pPlayer)
+	local pGhost = CreatureObject(pPlayer):getPlayerObject()
+
+	-- Cannot claim rewards on characters created after the points-earning phase
+	if (PlayerObject(pGhost):getCharacterAgeInDays() < daysPassedSinceEnd) then
+		return false
+	end
+
+	-- If the account is declared for the winning faction, and the character trying to claim also belongs to that faction, they can claim rewards
+	if ((self:getWinner() == "rebel" and self:isOnRebelList(pPlayer) == true and CreatureObject(pPlayer):getFaction() == FACTIONREBEL) or (self:getWinner() == "imperial" and self:isOnImperialList(pPlayer) == true and CreatureObject(pPlayer):getFaction() == FACTIONIMPERIAL)) then
+		return true
+	end
+	
+	return false
+end
+
+function NewYearNewRegimeScreenplay:claimReward(pPlayer, faction, num)
+	if (pPlayer == nil) then
+		return
+	end
+
+	local pInventory = CreatureObject(pPlayer):getSlottedObject("inventory")
+
+	if (pInventory == nil) then
+		return
+	end
+
+	if SceneObject(pInventory):isContainerFullRecursive() then
+		CreatureObject(pPlayer):sendSystemMessage("Your inventory is too full to claim your reward.  Make some room and try again.")
+		return
+	end
+
+	if (faction == "imperial") then
+		local pReward = giveItem(pInventory, impRewards[num], -1)
+
+		if (pReward ~= nil) then
+			writeScreenPlayData(pPlayer, "NewYearNewRegimeScreenplay", "claimed" .. tostring(num), "1")
+			if(self:isOnPointsList(pPlayer) == false) then
+				self:writeToPointsList(pPlayer)
+			end
+			CreatureObject(pPlayer):sendSystemMessage("Your reward has been placed in your inventory.")
+		end
+	elseif (faction == "rebel") then
+		local pReward = giveItem(pInventory, rebRewards[num], -1)
+
+		if (pReward ~= nil) then
+			writeScreenPlayData(pPlayer, "NewYearNewRegimeScreenplay", "claimed" .. tostring(num), "1")
+			if(self:isOnPointsList(pPlayer) == false) then
+				self:writeToPointsList(pPlayer)
+			end
+			CreatureObject(pPlayer):sendSystemMessage("Your reward has been placed in your inventory.")
+		end
+	end
 end
 
 function NewYearNewRegimeScreenplay:isEligibleState(pPlayer)
@@ -1261,8 +1497,6 @@ function NewYearNewRegimeScreenplay:isEligibleState(pPlayer)
 	end
 	return true
 end
-
-
 
 function NewYearNewRegimeScreenplay:hasFlag(pPlayer)
 	if (pPlayer == nil) then
@@ -1335,7 +1569,16 @@ end
 function NewYearNewRegimeScreenplay:announceScore(pPlayer)
 	local imperialPoints = self:getImperialPoints()
 	local rebelPoints = self:getRebelPoints()
-	CreatureObject(pPlayer):sendSystemMessage("Currently, the Empire has " .. imperialPoints .. " points, and the Alliance has " .. rebelPoints .. " points.  Remember, this only reflects points that have been turned in.  Players may have accumulated points that they have not yet redeemed.")
+
+	local leader = ""
+
+	if (imperialPoints > rebelPoints) then
+		leader = "The Empire is in the lead!  "
+	elseif (rebelPoints > imperialPoints) then
+		leader = "The Rebel Alliance is in the lead!  "
+	end
+		
+	CreatureObject(pPlayer):sendSystemMessage(leader .. "Currently, the Empire has " .. imperialPoints .. " points, and the Alliance has " .. rebelPoints .. " points.  Remember, this only reflects points that have been turned in.  Players may have accumulated points that they have not yet redeemed.")
 end
 
 function NewYearNewRegimeScreenplay:getWinner()
@@ -1395,6 +1638,14 @@ end
 
 function NewYearNewRegimeScreenplay:isGcwEventEnabled()
 	if (os.difftime(eventStartTime, os.time()) <= 0 and os.difftime(eventEndTime, os.time()) > 0) then
+		return true
+	else		
+		return false
+	end
+end
+
+function NewYearNewRegimeScreenplay:isClaimingPeriodEnabled()
+	if (os.difftime(eventEndTime, os.time()) <= 0 and os.difftime(eventCleanupTime, os.time()) > 0) then
 		return true
 	else		
 		return false

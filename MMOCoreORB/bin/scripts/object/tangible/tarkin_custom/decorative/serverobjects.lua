@@ -449,6 +449,7 @@ includeFile("tangible/tarkin_custom/decorative/gcw_1000_painting_reward_imp.lua"
 includeFile("tangible/tarkin_custom/decorative/gcw_1000_painting_reward_reb.lua")
 includeFile("tangible/tarkin_custom/decorative/gcw_imperial_winner_painting.lua")
 includeFile("tangible/tarkin_custom/decorative/gcw_rebel_winner_painting.lua")
+includeFile("tangible/tarkin_custom/decorative/tarkin_scoreboard.lua")
 
 --Disagreeable Shader
 --includeFile("tangible/tarkin_custom/decorative/exarkun_sarcophagus.lua")
