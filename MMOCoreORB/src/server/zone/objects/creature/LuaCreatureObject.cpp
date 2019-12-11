@@ -145,17 +145,13 @@ Luna<LuaCreatureObject>::RegType LuaCreatureObject::Register[] = {
 		{ "emptyStomach", &LuaCreatureObject::emptyStomach },
 		{ "getActivePetsSize", &LuaCreatureObject::getActivePetsSize },
 		{ "getActivePet", &LuaCreatureObject::getActivePet },
-<<<<<<< HEAD
 
 		// Tarkin's Revenge Custom Lua Calls
 		{ "getFoodFilling", &LuaCreatureObject::getFoodFilling },
 		{ "getDrinkFilling", &LuaCreatureObject::getDrinkFilling },
 		{ "setFoodFilling", &LuaCreatureObject::setFoodFilling },
 		{ "setDrinkFilling", &LuaCreatureObject::setDrinkFilling },
-
-=======
 		{ "getGroupLeader", &LuaCreatureObject::getGroupLeader },
->>>>>>> gcw-event
 		{ 0, 0 }
 };
 
@@ -1272,6 +1268,9 @@ int LuaCreatureObject::getActivePet(lua_State* L) {
 	Reference<PlayerObject*> player = realObject->getPlayerObject();
 	
 	player->setDrinkFilling(amount);
+
+	return 1;
+}
 
 /*
 * Tarkin's Revenge
