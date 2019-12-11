@@ -11,7 +11,7 @@
 
 local ObjectManager = require("managers.object.object_manager")
 includeFile("../custom_scripts/screenplays/events/new_regime_data.lua")
-includeFile("tools/tarkin_lib.lua")
+includeFile("../custom_scripts/screenplays/tools/tarkin_lib.lua")
 
 NewYearNewRegimeScreenplay = ScreenPlay:new {
 	numberOfActs = 1,
