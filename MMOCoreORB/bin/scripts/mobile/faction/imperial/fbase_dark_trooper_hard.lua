@@ -12,7 +12,7 @@ fbase_dark_trooper_hard = Creature:new {
 	baseHAM = 24000,
 	baseHAMmax = 30000,
 	armor = 1,
-	resists = {140,20,20,150,150,150,150,-1,-1},
+	resists = {140,120,115,150,150,150,150,125,-1},
 	meatType = "",
 	meatAmount = 0,
 	hideType = "",
@@ -37,7 +37,7 @@ fbase_dark_trooper_hard = Creature:new {
 				{group = "holocron_dark", chance = 150000},
 				{group = "holocron_light", chance = 150000},
 				{group = "weapons_all", chance = 1050000},
-				{group = "armor_all", chance = 1050000},
+				{group = "factional_rebel", chance = 1050000},
 				{group = "clothing_attachments", chance = 1150000},
 				{group = "armor_attachments", chance = 1150000}
 			}

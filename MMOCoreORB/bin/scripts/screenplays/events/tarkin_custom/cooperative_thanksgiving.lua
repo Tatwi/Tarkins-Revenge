@@ -13,7 +13,7 @@
 --////////////////////////////////////////////////////////
 
 local ObjectManager = require("managers.object.object_manager")
-includeFile("tools/tarkin_lib.lua")
+includeFile("../custom_scripts/screenplays/tools/tarkin_lib.lua")
 
 CooperativeThanksgivingScreenplay = ScreenPlay:new {
 	numberOfActs = 1,

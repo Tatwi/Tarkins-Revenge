@@ -85,3 +85,22 @@ object_tangible_tarkin_custom_statted_shared_lifeday_reward_sea_recycler = Share
 	clientTemplateFileName = "object/tangible/tarkin_custom/statted/shared_lifeday_reward_sea_recycler.iff"
 }
 ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_statted_shared_lifeday_reward_sea_recycler, "object/tangible/tarkin_custom/statted/shared_lifeday_reward_sea_recycler.iff")
+
+--Death Star Destruction
+object_tangible_tarkin_custom_statted_shared_gcw_reward_drink_rebel = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tarkin_custom/statted/shared_gcw_reward_drink_rebel.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_statted_shared_gcw_reward_drink_rebel, "object/tangible/tarkin_custom/statted/shared_gcw_reward_drink_rebel.iff")
+
+--Order 66 Cookies
+object_tangible_tarkin_custom_statted_shared_gcw_reward_food_imperial = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tarkin_custom/statted/shared_gcw_reward_food_imperial.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_statted_shared_gcw_reward_food_imperial, "object/tangible/tarkin_custom/statted/shared_gcw_reward_food_imperial.iff")
+
+--Interwoven Composite Segment
+object_tangible_tarkin_custom_statted_shared_armor_segment_gcw_reward = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tarkin_custom/statted/shared_armor_segment_gcw_reward.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_statted_shared_armor_segment_gcw_reward, "object/tangible/tarkin_custom/statted/shared_armor_segment_gcw_reward.iff")
+

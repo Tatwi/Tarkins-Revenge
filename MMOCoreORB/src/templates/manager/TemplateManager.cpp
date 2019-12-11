@@ -681,6 +681,7 @@ void TemplateManager::registerGlobals() {
 	luaTemplatesInstance->setGlobalInt("XPAWARDED", ObserverEventType::XPAWARDED);
 	luaTemplatesInstance->setGlobalInt("SPICEDOWNERACTIVATED", ObserverEventType::SPICEDOWNERACTIVATED);
 	luaTemplatesInstance->setGlobalInt("MEDPACKUSED", ObserverEventType::MEDPACKUSED);
+	luaTemplatesInstance->setGlobalInt("FACTIONAWARDED", ObserverEventType::FACTIONAWARDED);
 
 	luaTemplatesInstance->setGlobalInt("SHOT", SharedObjectTemplate::SHOT);
 	luaTemplatesInstance->setGlobalInt("STOT", SharedObjectTemplate::STOT);
