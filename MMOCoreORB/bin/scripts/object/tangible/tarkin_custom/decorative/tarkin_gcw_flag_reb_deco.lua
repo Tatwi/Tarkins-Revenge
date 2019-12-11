@@ -1,0 +1,5 @@
+object_tangible_tarkin_custom_decorative_tarkin_gcw_flag_reb_deco = object_tangible_tarkin_custom_decorative_shared_tarkin_gcw_flag_reb_deco:new {
+
+}
+
+ObjectTemplates:addTemplate(object_tangible_tarkin_custom_decorative_tarkin_gcw_flag_reb_deco, "object/tangible/tarkin_custom/decorative/tarkin_gcw_flag_reb_deco.iff")

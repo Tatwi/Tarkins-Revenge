@@ -1,0 +1,6 @@
+object_tangible_tarkin_custom_decorative_rebel_membership_chip = object_tangible_tarkin_custom_decorative_shared_rebel_membership_chip:new {
+
+}
+
+ObjectTemplates:addTemplate(object_tangible_tarkin_custom_decorative_rebel_membership_chip, "object/tangible/tarkin_custom/decorative/rebel_membership_chip.iff")
+

@@ -145,6 +145,7 @@ Luna<LuaCreatureObject>::RegType LuaCreatureObject::Register[] = {
 		{ "emptyStomach", &LuaCreatureObject::emptyStomach },
 		{ "getActivePetsSize", &LuaCreatureObject::getActivePetsSize },
 		{ "getActivePet", &LuaCreatureObject::getActivePet },
+<<<<<<< HEAD
 
 		// Tarkin's Revenge Custom Lua Calls
 		{ "getFoodFilling", &LuaCreatureObject::getFoodFilling },
@@ -152,6 +153,9 @@ Luna<LuaCreatureObject>::RegType LuaCreatureObject::Register[] = {
 		{ "setFoodFilling", &LuaCreatureObject::setFoodFilling },
 		{ "setDrinkFilling", &LuaCreatureObject::setDrinkFilling },
 
+=======
+		{ "getGroupLeader", &LuaCreatureObject::getGroupLeader },
+>>>>>>> gcw-event
 		{ 0, 0 }
 };
 
@@ -1269,5 +1273,32 @@ int LuaCreatureObject::getActivePet(lua_State* L) {
 	
 	player->setDrinkFilling(amount);
 
+/*
+* Tarkin's Revenge
+* Get the creatureObject of the group leader
+* lua: CreatureObject(pPlayer):getGroupLeader()
+*/
+int LuaCreatureObject::getGroupLeader(lua_State* L) {
+	Locker locker(realObject);
+	
+	GroupObject* group = realObject->getGroup();
+
+	if (group == NULL) {
+		realObject->info("LuaCreatureObject::getGroupLeader group is NULL.");
+		lua_pushnil(L);	
+		return 1;
+	}
+
+	Locker lock(group, realObject);
+	
+	Reference<CreatureObject*> leader = group->getLeader();
+	
+	if (leader == NULL) {
+		realObject->info("LuaCreatureObject::getGroupLeader leader is NULL.");
+		lua_pushnil(L);	
+	} else {
+		leader->_setUpdated(true);
+		lua_pushlightuserdata(L, leader);
+	}
 	return 1;
 }

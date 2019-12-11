@@ -40,7 +40,7 @@ fbase_rebel_army_captain_hard = Creature:new {
 				{group = "color_crystals", chance = 100000},
 				{group = "junk", chance = 5000000},
 				{group = "weapons_all", chance = 1100000},
-				{group = "armor_all", chance = 1100000},
+				{group = "factional_imperial", chance = 1100000},
 				{group = "clothing_attachments", chance = 1150000},
 				{group = "armor_attachments", chance = 1150000},
 				{group = "rebel_officer_common", chance = 400000}
