@@ -91,7 +91,6 @@ int DestroyStructureSessionImplementation::sendDestroyCode() {
 
 	ManagedReference<SuiInputBox*> sui = new SuiInputBox(player);
 	sui->setCallback(new DestroyStructureCodeSuiCallback(player->getZoneServer()));
-	sui->setUsingObject(structureObject);
 	sui->setPromptTitle("@player_structure:confirm_destruction_t"); //Confirm Structure Deletion
 	sui->setPromptText(entry.toString());
 	sui->setCancelButton(true, "@cancel");
