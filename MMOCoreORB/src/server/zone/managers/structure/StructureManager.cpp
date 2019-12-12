@@ -469,6 +469,15 @@ StructureObject* StructureManager::placeStructure(CreatureObject* creature,
 		strDatabase = "playerstructures";
 	}
 
+	// Tarkin's Revenge - check to deal with house plop houses sometimes spawning several thousand meters below ground
+	if (creature->getPlayerObject()->isPrivileged()) {
+              if (z < -500.f) {
+                             float zPlayerPoint = creature->getZone()->getHeight(creature->getPositionX(), creature->getPositionY());
+                             creature->sendSystemMessage("Error occured with z location.  Correcting from location " + String::valueOf(z) + " to location " + String::valueOf(zPlayerPoint) + ".");
+                             z = zPlayerPoint;
+              }
+	}
+
 	ManagedReference<SceneObject*> obj =
 			ObjectManager::instance()->createObject(
 					structureTemplatePath.hashCode(), persistenceLevel, strDatabase);
