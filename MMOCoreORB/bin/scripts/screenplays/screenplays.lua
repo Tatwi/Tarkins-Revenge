@@ -669,24 +669,23 @@ includeFile("tests/tests.lua")
 -- Server Event Automation
 includeFile("events/ServerEventAutomation.lua")
 
---Tarkin Custom
+--Tarkin Custom Tools
 includeFile("tools/crafting_training_handler.lua")
-includeFile("tools/TarkinBuffTerminal.lua")
 includeFile("tools/house_plop.lua")
-includeFile("tools/tarkin_travel.lua")
+includeFile("tools/mission_direction_choice.lua")
+includeFile("tools/mission_level_choice.lua")
 includeFile("tools/star_tours.lua")
 includeFile("tools/star_tours_table.lua")
-includeFile("tools/mission_level_choice.lua")
-includeFile("caves/lok_kimogila_cave.lua")
-includeFile("tools/tarkin_housing_system.lua")
-includeFile("tools/mission_direction_choice.lua")
+includeFile("tools/TarkinBuffTerminal.lua")
 includeFile("tools/tarkin_costume_table.lua")
 includeFile("tools/tarkin_custom_menu_components.lua")
+includeFile("tools/tarkin_housing_system.lua")
+includeFile("tools/tarkin_travel.lua")
 
 --Tarkin Custom City
-includeFile("cities/tarkin_custom/tarkin_tatooine_mos_entha.lua")
 includeFile("cities/tarkin_custom/tarkin_corellia_coronet.lua")
 includeFile("cities/tarkin_custom/tarkin_naboo_theed.lua")
+includeFile("cities/tarkin_custom/tarkin_tatooine_mos_entha.lua")
 
 --Tarkin Custom Military POIs
 --Imperial
@@ -704,15 +703,16 @@ includeFile("military/imperial/tatooine_imperial_oasis_outpost.lua")
 includeFile("military/imperial/yavin4_imperial_base.lua")
 
 --Rebel
-includeFile("military/rebel/rori_rebel_outpost.lua")
 includeFile("military/rebel/corellia_rebel_hideout.lua")
-includeFile("military/rebel/rori_rebel_military_base.lua")
-includeFile("military/rebel/tatooine_anchorhead_rebel_base.lua")
-includeFile("military/rebel/lok_rebel_safehouse.lua")
-includeFile("military/rebel/talus_rebel_installation.lua")
 includeFile("military/rebel/dantooine_abandoned_rebel_base.lua")
+includeFile("military/rebel/lok_rebel_safehouse.lua")
+includeFile("military/rebel/rori_rebel_military_base.lua")
+includeFile("military/rebel/rori_rebel_outpost.lua")
+includeFile("military/rebel/talus_rebel_installation.lua")
+includeFile("military/rebel/tatooine_anchorhead_rebel_base.lua")
 
 --Tarkin Custom Dungeon
+includeFile("caves/lok_kimogila_cave.lua")
 includeFile("caves/yavin4_temple_exar_kun.lua")
 
 --Tarkin Custom Event
@@ -722,15 +722,17 @@ includeFile("events/tarkin_custom/spawn_points_table.lua")
 --includeFile("events/tarkin_custom/rasps_of_death.lua") --Summer 2019
 includeFile("events/tarkin_custom/cooperative_thanksgiving.lua") --Thanksgiving 2019
 includeFile("events/tarkin_custom/lifeday_dreams.lua") --Life Day 2019
+includeFile("events/tarkin_custom/new_year_new_regime.lua")  --January 2020 (don't deactivate)
 
 --Tarkin Custom Event Conversation Handlers
-includeFile("events/tarkin_custom/conversations/weddingScavHuntConvoHandler.lua")
-includeFile("events/tarkin_custom/conversations/halloweenHostage2019ConvoHandler.lua")
-includeFile("events/tarkin_custom/conversations/LifeDayDreamsAttilochitConvoHandler.lua")
-includeFile("events/tarkin_custom/conversations/LifeDayDreamsReyyruaConvoHandler.lua")
-includeFile("events/tarkin_custom/conversations/LifeDayDreamsShorbaccaConvoHandler.lua")
-includeFile("events/tarkin_custom/conversations/LifeDayDreamsBaccaConvoHandler.lua")
-includeFile("events/tarkin_custom/conversations/LifeDayDreamsArritharConvoHandler.lua")
+--includeFile("events/tarkin_custom/conversations/weddingScavHuntConvoHandler.lua") --Wedding Event, June 2019
+includeFile("events/tarkin_custom/conversations/halloweenHostage2019ConvoHandler.lua") --Halloween 2019
+includeFile("events/tarkin_custom/conversations/LifeDayDreamsAttilochitConvoHandler.lua") --Life Day 2019
+includeFile("events/tarkin_custom/conversations/LifeDayDreamsReyyruaConvoHandler.lua") --Life Day 2019
+includeFile("events/tarkin_custom/conversations/LifeDayDreamsShorbaccaConvoHandler.lua") --Life Day 2019
+includeFile("events/tarkin_custom/conversations/LifeDayDreamsBaccaConvoHandler.lua") --Life Day 2019
+includeFile("events/tarkin_custom/conversations/LifeDayDreamsArritharConvoHandler.lua") --Life Day 2019
+includeFile("events/tarkin_custom/conversations/NewYearNewRegimeConvoHandler.lua") --January 2019
 
 --Tarkin Custom Misc
 includeFile("misc/home_for_the_holidays.lua")

@@ -1,0 +1,5 @@
+object_tangible_tarkin_custom_decorative_gcw_5000_painting_reward_reb = object_tangible_tarkin_custom_decorative_shared_gcw_5000_painting_reward_reb:new {
+
+}
+
+ObjectTemplates:addTemplate(object_tangible_tarkin_custom_decorative_gcw_5000_painting_reward_reb, "object/tangible/tarkin_custom/decorative/gcw_5000_painting_reward_reb.iff")

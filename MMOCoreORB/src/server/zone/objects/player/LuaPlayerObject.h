@@ -90,7 +90,9 @@ namespace player {
 		int setVisibility(lua_State* L);
 		int getPlayedTimeString(lua_State* L);
 
+		// Tarkin's Revenge
 		int getAccountID(lua_State* L);
+
 
 	private:
 		// The pointer to the 'real object' defined in object.cc

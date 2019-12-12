@@ -13,3 +13,7 @@ includeFile("tangible/tarkin_custom/statted/thanksgiving_reward_retsa_seltzer.lu
 includeFile("tangible/tarkin_custom/statted/thanksgiving_reward_salty_snackbox.lua")
 includeFile("tangible/tarkin_custom/statted/lifeday_reward_home_for_the_holidays.lua")
 includeFile("tangible/tarkin_custom/statted/lifeday_reward_sea_recycler.lua")
+includeFile("tangible/tarkin_custom/statted/gcw_reward_food_imperial.lua")
+includeFile("tangible/tarkin_custom/statted/gcw_reward_drink_rebel.lua")
+includeFile("tangible/tarkin_custom/statted/armor_segment_gcw_reward.lua")
+

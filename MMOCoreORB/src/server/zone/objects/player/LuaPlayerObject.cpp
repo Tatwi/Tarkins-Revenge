@@ -82,6 +82,7 @@ Luna<LuaPlayerObject>::RegType LuaPlayerObject::Register[] = {
 		{ "startSlicingSession", &LuaPlayerObject::startSlicingSession },
 		{ "setVisibility", &LuaPlayerObject::setVisibility },
 		{ "getPlayedTimeString", &LuaPlayerObject::getPlayedTimeString },
+
 		//Tarkin's Revenge
 		{ "getAccountID", &LuaPlayerObject::getAccountID },
 		{ 0, 0 }

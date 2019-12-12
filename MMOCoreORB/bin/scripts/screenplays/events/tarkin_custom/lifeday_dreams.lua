@@ -10,7 +10,7 @@
 --/////////////////////////////////////////////////////////
 
 local ObjectManager = require("managers.object.object_manager")
-includeFile("tools/tarkin_lib.lua")
+includeFile("../custom_scripts/screenplays/tools/tarkin_lib.lua")
 
 LifeDayDreamsScreenplay = ScreenPlay:new {
 	numberOfActs = 1,
@@ -18,8 +18,8 @@ LifeDayDreamsScreenplay = ScreenPlay:new {
 }
 
 --Config Values
-local eventStartTime = os.time{ year=2019, month=12, day=14, hour=0, min=0 } --Go live: 12/14/2019, midnight   
-local eventCleanupTime = os.time{ year=2020, month=1, day=1, hour=23, min=59 }  --End: 1/1/2020, 11:59 PM 
+local eventStartTime = os.time{ year=2019, month=12, day=14, hour=0, min=0 } --Go live: 12/14/2019, midnight
+local eventCleanupTime = os.time{ year=2020, month=1, day=1, hour=23, min=59 }  --End: 1/1/2020, 11:59 PM
 
 local dreamPoint = { planet = "dreamland", x = 0 , y = 0 }
 local defaultBindPoint = { planet = "naboo", x = -4861, y = 4164, cellID = 0 }
@@ -1836,11 +1836,13 @@ function LifeDayDreamsScreenplay:claimGift(pPlayer)
 	local giftClaimed = readScreenPlayData(pPlayer, "LifeDayDreamsScreenplay", "lifeDayClaimedGift")
 
 	if (giftClaimed ~= nil and giftClaimed ~= "") then
-		CreatureObject(pPlayer):sendSystemMessage("You already claimed your gift.")	
+		CreatureObject(pPlayer):sendSystemMessage("You already claimed your gift.  No cheating!")
+		return
 	end
 
 	if (numGiftsClaimed ~= nil and numGiftsClaimed ~= "" and numGiftsClaimed >= 5) then
 		CreatureObject(pPlayer):sendSystemMessage("You have already claimed a gift on five characters.  That's all you get!")	
+		return
 	end
 	
 	local pInventory = CreatureObject(pPlayer):getSlottedObject("inventory")

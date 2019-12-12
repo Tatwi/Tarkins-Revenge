@@ -12,7 +12,7 @@ fbase_stormtrooper_squad_leader_hard = Creature:new {
 	baseHAM = 16500,
 	baseHAMmax = 24000,
 	armor = 1,
-	resists = {110,110,140,25,25,25,25,-1,-1},
+	resists = {110,110,40,40,130,40,130,-1,-1},
 	meatType = "",
 	meatAmount = 0,
 	hideType = "",
@@ -35,7 +35,7 @@ fbase_stormtrooper_squad_leader_hard = Creature:new {
 				{group = "color_crystals", chance = 100000},
 				{group = "junk", chance = 5000000},
 				{group = "weapons_all", chance = 1200000},
-				{group = "armor_all", chance = 1200000},
+				{group = "factional_rebel", chance = 1200000},
 				{group = "clothing_attachments", chance = 1150000},
 				{group = "armor_attachments", chance = 1150000},
 				{group = "stormtrooper_common", chance = 200000}

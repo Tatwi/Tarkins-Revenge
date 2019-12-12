@@ -203,9 +203,11 @@ namespace server {
 		static int getSchematicItemName(lua_State* L);
 		static int getBadgeListByType(lua_State* L);
 
+		// Tarkin's Revenge
 		static int adminPlaceStructure(lua_State* L);
 		static int setStructureOwner(lua_State* L);
 		static int hasEnoughLots(lua_State* L);
+		static int dropServerEvent(lua_State* L);
 		static int getCityRegionName(lua_State* L);
 		static int spawnBaby(lua_State* L);
 		static int forceTameBaby(lua_State* L);

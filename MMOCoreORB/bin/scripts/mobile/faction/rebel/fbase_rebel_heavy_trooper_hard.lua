@@ -22,8 +22,8 @@ fbase_rebel_heavy_trooper_hard = Creature:new {
 	milk = 0,
 	tamingChance = 0,
 	ferocity = 0,
-	pvpBitmask = ATTACKABLE,
-	creatureBitmask = PACK + STALKER + KILLER,
+	pvpBitmask = ATTACKABLE + OVERT,
+	creatureBitmask = PACK + KILLER,
 	optionsBitmask = AIENABLED,
 	diet = HERBIVORE,
 
@@ -40,7 +40,7 @@ fbase_rebel_heavy_trooper_hard = Creature:new {
 				{group = "holocron_dark", chance = 150000},
 				{group = "holocron_light", chance = 150000},
 				{group = "weapons_all", chance = 1050000},
-				{group = "armor_all", chance = 1050000},
+				{group = "factional_imperial", chance = 1050000},
 				{group = "clothing_attachments", chance = 1150000},
 				{group = "armor_attachments", chance = 1150000}
 			}

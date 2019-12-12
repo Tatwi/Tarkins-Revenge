@@ -426,6 +426,7 @@ void DirectorManager::initializeLuaEngine(Lua* luaEngine) {
 	lua_register(luaEngine->getLuaState(), "adminPlaceStructure", adminPlaceStructure);
 	lua_register(luaEngine->getLuaState(), "setStructureOwner", setStructureOwner);
 	lua_register(luaEngine->getLuaState(), "hasEnoughLots", hasEnoughLots);
+	lua_register(luaEngine->getLuaState(), "dropServerEvent", dropServerEvent);
 	lua_register(luaEngine->getLuaState(), "getCityRegionName", getCityRegionName);
 	lua_register(luaEngine->getLuaState(), "spawnBaby", spawnBaby);
 	lua_register(luaEngine->getLuaState(), "forceTameBaby", forceTameBaby);	
@@ -3808,6 +3809,30 @@ int DirectorManager::setStructureOwner(lua_State* L) {
 
 /*
 * Tarkin's Revenge
+* Cancel a server event
+* lua: dropServerEvent(serverEvent)
+*/
+int DirectorManager::dropServerEvent(lua_State* L) {
+	if (checkArgumentCount(L, 1) == 1) {
+		String err = "incorrect number of arguments passed to DirectorManager::dropServerEvent";
+		printTraceError(L, err);
+		ERROR_CODE = INCORRECT_ARGUMENTS;
+		return 0;
+	}
+
+	String eventName = lua_tostring(L, -1);
+
+	Reference<PersistentEvent*> pEvent = getServerEvent(eventName);
+
+	if (pEvent != NULL) {
+		dropServerEventReference(eventName);
+		return 1;
+	}
+	return 0;
+}
+
+/*
+* Tarkin's Revenge
 * Get the name of the city region where an object is
 * lua: getCityRegionName(pObject)
 */
@@ -3895,7 +3920,6 @@ int DirectorManager::spawnBaby(lua_State* L) {
 
 	return 1;
 }
-
 
 /*
 * Tarkin's Revenge
