@@ -24,12 +24,16 @@ public:
 		if (session == NULL)
 			return;
 
-		if (cancelPressed) {
-			session->cancelSession();
-			return;
+		// Tarkin's Revenge	
+		if (!player->getPlayerObject()->isStaff()) {
+			if (cancelPressed) {
+				session->cancelSession();
+				return;
+			}
 		}
 
 		session->sendDestroyCode();
+
 	}
 };
 
