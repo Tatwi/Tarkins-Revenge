@@ -21,7 +21,7 @@ NewYearNewRegimeScreenplay = ScreenPlay:new {
 
 --CONFIG
 --------------------------------------------------------
-local eventStartTime = os.time{ year=2020, month=1, day=1, hour=0, min=0 } --Go live: 1/1/2020, midnight  
+local eventStartTime = os.time{ year=2020, month=1, day=1, hour=0, min=0 } --Go live: 1/1/2020, midnight
 local eventEndTime = os.time{ year=2020, month=1, day=31, hour=23, min=59 } --Stop the points-earning phase: 1/31/2020, 11:59 PM 
 local eventCleanupTime = os.time{ year=2020, month=2, day=29, hour=23, min=59 }  --Despawn the quest giver: 2/29/2020, 11:59 PM 
 local timeToDespawnFlag =   6 * 60 * 60 * 1000 -- 6 hours
@@ -268,22 +268,27 @@ function NewYearNewRegimeScreenplay:cleanupNewYearEvent()
 end
 
 function NewYearNewRegimeScreenplay:spawnGameMaster()
-	local pMobile
-	local pObject
 
 	for i=1, #screenplayStationaryMobiles, 1 do
-		pMobile = spawnMobile(screenplayStationaryMobiles[i].planet, screenplayStationaryMobiles[i].mobile, screenplayStationaryMobiles[i].timer, screenplayStationaryMobiles[i].x, screenplayStationaryMobiles[i].z, screenplayStationaryMobiles[i].y, screenplayStationaryMobiles[i].facing, screenplayStationaryMobiles[i].cellID)
-        	writeData("NewYearNewRegimeScreenplay:stationaryMobile:"..tostring(i),SceneObject(pMobile):getObjectID())
+		local pMobile = spawnMobile(screenplayStationaryMobiles[i].planet, screenplayStationaryMobiles[i].mobile, screenplayStationaryMobiles[i].timer, screenplayStationaryMobiles[i].x, screenplayStationaryMobiles[i].z, screenplayStationaryMobiles[i].y, screenplayStationaryMobiles[i].facing, screenplayStationaryMobiles[i].cellID)
+		if (pMobile ~= nil) then
+        		writeData("NewYearNewRegimeScreenplay:stationaryMobile:"..tostring(i),SceneObject(pMobile):getObjectID())
+		end
 	end
 
 	for i=1, #screenplayStationaryObjects, 1 do
-		pObject = spawnSceneObject(screenplayStationaryObjects[i].planet, screenplayStationaryObjects[i].path, screenplayStationaryObjects[i].x, screenplayStationaryObjects[i].z, screenplayStationaryObjects[i].y, screenplayStationaryObjects[i].cellID, screenplayStationaryObjects[i].ow, screenplayStationaryObjects[i].ox, screenplayStationaryObjects[i].oy, screenplayStationaryObjects[i].oz)
-        	writeData("NewYearNewRegimeScreenplay:stationaryObject:"..tostring(i),SceneObject(pObject):getObjectID())
+		local pObject = spawnSceneObject(screenplayStationaryObjects[i].planet, screenplayStationaryObjects[i].path, screenplayStationaryObjects[i].x, screenplayStationaryObjects[i].z, screenplayStationaryObjects[i].y, screenplayStationaryObjects[i].cellID, screenplayStationaryObjects[i].ow, screenplayStationaryObjects[i].ox, screenplayStationaryObjects[i].oy, screenplayStationaryObjects[i].oz)
+		if (pObject ~= nil) then
+        		writeData("NewYearNewRegimeScreenplay:stationaryObject:"..tostring(i),SceneObject(pObject):getObjectID())
+		end
 	end
 
 	for i=1, #scoreboard, 1 do
-		pObject = spawnSceneObject(scoreboard[i].planet, scoreboard[i].path, scoreboard[i].x, scoreboard[i].z, scoreboard[i].y, scoreboard[i].cellID, scoreboard[i].ow, scoreboard[i].ox, scoreboard[i].oy, scoreboard[i].oz)
-        	writeData("NewYearNewRegimeScreenplay:scoreboard:"..tostring(i),SceneObject(pObject):getObjectID())
+		local pScoreboard = spawnSceneObject(scoreboard[i].planet, scoreboard[i].path, scoreboard[i].x, scoreboard[i].z, scoreboard[i].y, scoreboard[i].cellID, scoreboard[i].ow, scoreboard[i].ox, scoreboard[i].oy, scoreboard[i].oz)
+		if (pScoreboard ~= nil) then
+        		writeData("NewYearNewRegimeScreenplay:scoreboard:"..tostring(i),SceneObject(pScoreboard):getObjectID())
+			TangibleObject(pScoreboard):setLuaStringData("scoreboardName", "new_year_new_regime_scoreboard")
+		end
 	end
 end
 
@@ -1333,6 +1338,8 @@ function NewYearNewRegimeScreenplay:redeemPoints(pPlayer)
 
 	playerPoints = self:getPlayerPoints(pPlayer)
 	redeemedPoints = self:getPlayerRedeemedPoints(pPlayer)
+
+	TarkinLib:writeToScoreboardList(pPlayer, "new_year_new_regime_scoreboard", redeemedPoints)
 	
 	CreatureObject(pPlayer):sendSystemMessage("You have turned in your points.  You now have " .. playerPoints .. " points, and your faction has " .. totalFactionPoints .. " points.  You have redeemed a total of " .. redeemedPoints .. " points for your faction.")
 
