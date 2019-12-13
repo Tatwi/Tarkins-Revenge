@@ -121,3 +121,4 @@ includeFile("static/structure/tatooine/wall_pristine_tatooine_tall_style_01.lua"
 includeFile("static/structure/tatooine/wall_ruined_tatooine_large_style_01.lua")
 includeFile("static/structure/tatooine/wall_ruined_tatooine_large_style_02.lua")
 includeFile("static/structure/tatooine/wall_ruined_tatooine_small_style_01.lua")
+includeFile("static/structure/tatooine/wall_tatooine_large_style_8000.lua")

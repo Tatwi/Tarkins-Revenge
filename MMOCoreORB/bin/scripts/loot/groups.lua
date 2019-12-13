@@ -578,3 +578,21 @@ includeFile("groups/tarkin_custom/halloween_zombies.lua")
 
 --Thanksgiving
 includeFile("groups/tarkin_custom/thanksgiving_food.lua")
+
+--Life Day
+includeFile("groups/tarkin_custom/lifeday_kash_bantha_pelt.lua")
+includeFile("groups/tarkin_custom/lifeday_kash_bantha_head.lua")
+includeFile("groups/tarkin_custom/lifeday_mouf_paw.lua")
+includeFile("groups/tarkin_custom/lifeday_mouf_head.lua")
+includeFile("groups/tarkin_custom/lifeday_webweaver_eye.lua")
+includeFile("groups/tarkin_custom/lifeday_webweaver_head.lua")
+includeFile("groups/tarkin_custom/lifeday_walluga_ear.lua")
+includeFile("groups/tarkin_custom/lifeday_walluga_head.lua")
+includeFile("groups/tarkin_custom/lifeday_minstyngar_horn.lua")
+includeFile("groups/tarkin_custom/lifeday_minstyngar_head.lua")
+includeFile("groups/tarkin_custom/lifeday_bolotaur_fang.lua")
+includeFile("groups/tarkin_custom/lifeday_bolotaur_head.lua")
+includeFile("groups/tarkin_custom/lifeday_uller_horn.lua")
+includeFile("groups/tarkin_custom/lifeday_uller_head.lua")
+includeFile("groups/tarkin_custom/lifeday_kkorrwrot_leg.lua")
+includeFile("groups/tarkin_custom/lifeday_kkorrwrot_head.lua")

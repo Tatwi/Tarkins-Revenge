@@ -37,3 +37,6 @@ includeFile("draft_schematic/furniture/tarkin_custom/aurebesh_forn.lua")
 includeFile("draft_schematic/furniture/tarkin_custom/aurebesh_leth.lua")
 includeFile("draft_schematic/furniture/tarkin_custom/aurebesh_peth.lua")
 includeFile("draft_schematic/furniture/tarkin_custom/aurebesh_usk.lua")
+
+--Chest of Holding
+includeFile("draft_schematic/furniture/tarkin_custom/chest_of_holding.lua")

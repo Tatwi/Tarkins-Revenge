@@ -1,0 +1,5 @@
+object_tangible_tarkin_custom_decorative_gcw_imperial_winner_painting = object_tangible_tarkin_custom_decorative_shared_gcw_imperial_winner_painting:new {
+
+}
+
+ObjectTemplates:addTemplate(object_tangible_tarkin_custom_decorative_gcw_imperial_winner_painting, "object/tangible/tarkin_custom/decorative/gcw_imperial_winner_painting.iff")

@@ -132,6 +132,7 @@ namespace creature {
 		int getDrinkFilling(lua_State* L);
 		int setFoodFilling(lua_State* L);
 		int setDrinkFilling(lua_State* L);
+		int getGroupLeader(lua_State* L);
 
 	private:
 		// The pointer to the 'real object' defined in object.cc

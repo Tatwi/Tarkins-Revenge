@@ -136,7 +136,7 @@ housePlopTable = {
 			"Relaxation House","object/building/player/relaxation_house.iff",
 			"Sandcrawler House","object/building/player/sandcrawler_house.iff",
 			"Sith Meditation Room","object/building/player/sith_house.iff",
-			"Singing Mountain Hut","object/building/player/sm_hut_house.iff",
+			"Singing Mountain Hut","object/building/player/sm_hut.iff",
 			"Small Tatooine Windowed","object/building/player/tatooine_small_window_s01.iff",
 			"Kashyyyk Tree House","object/building/player/tree_house.iff",
 			"Vehicle Garage","object/building/player/vehicle_house.iff",

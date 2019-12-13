@@ -1,5 +1,6 @@
 --Children folder includes
 includeFile("tangible/tarkin_custom/decorative/holiday/serverobjects.lua")
+includeFile("tangible/tarkin_custom/decorative/quest/serverobjects.lua")
 
 --Server object includes
 includeFile("tangible/tarkin_custom/decorative/target_dummy.lua")
@@ -430,6 +431,34 @@ includeFile("tangible/tarkin_custom/decorative/skeleton_bith_head.lua")
 includeFile("tangible/tarkin_custom/decorative/skeleton_ithorian_head.lua")
 includeFile("tangible/tarkin_custom/decorative/painting_gluttons_reward.lua")
 includeFile("tangible/tarkin_custom/decorative/thanksgiving_reward_rug.lua")
+includeFile("tangible/tarkin_custom/decorative/tarkin_custom_chest_of_holding.lua")
+
+--GCW Event Items
+includeFile("tangible/tarkin_custom/decorative/tarkin_gcw_signpost_imp.lua")
+includeFile("tangible/tarkin_custom/decorative/tarkin_gcw_signpost_imp_defaced.lua")
+includeFile("tangible/tarkin_custom/decorative/tarkin_gcw_signpost_reb.lua")
+includeFile("tangible/tarkin_custom/decorative/tarkin_gcw_signpost_reb_defaced.lua")
+includeFile("tangible/tarkin_custom/decorative/tarkin_gcw_flag_imp_standing.lua")
+includeFile("tangible/tarkin_custom/decorative/tarkin_gcw_flag_imp_deco.lua")
+includeFile("tangible/tarkin_custom/decorative/tarkin_gcw_flag_reb_standing.lua")
+includeFile("tangible/tarkin_custom/decorative/tarkin_gcw_flag_reb_deco.lua")
+includeFile("tangible/tarkin_custom/decorative/tarkin_gcw_dna_override_terminal.lua")
+includeFile("tangible/tarkin_custom/decorative/tarkin_gcw_first_dna_terminal.lua")
+includeFile("tangible/tarkin_custom/decorative/tarkin_gcw_second_dna_terminal.lua")
+includeFile("tangible/tarkin_custom/decorative/imperial_membership_chip.lua")
+includeFile("tangible/tarkin_custom/decorative/rebel_membership_chip.lua")
+includeFile("tangible/tarkin_custom/decorative/gcw_shadow_box_reward.lua")
+includeFile("tangible/tarkin_custom/decorative/gcw_10000_painting_reward_imp.lua")
+includeFile("tangible/tarkin_custom/decorative/gcw_10000_painting_reward_reb.lua")
+includeFile("tangible/tarkin_custom/decorative/gcw_5000_painting_reward_imp.lua")
+includeFile("tangible/tarkin_custom/decorative/gcw_5000_painting_reward_reb.lua")
+includeFile("tangible/tarkin_custom/decorative/gcw_2500_painting_reward_imp.lua")
+includeFile("tangible/tarkin_custom/decorative/gcw_2500_painting_reward_reb.lua")
+includeFile("tangible/tarkin_custom/decorative/gcw_1000_painting_reward_imp.lua")
+includeFile("tangible/tarkin_custom/decorative/gcw_1000_painting_reward_reb.lua")
+includeFile("tangible/tarkin_custom/decorative/gcw_imperial_winner_painting.lua")
+includeFile("tangible/tarkin_custom/decorative/gcw_rebel_winner_painting.lua")
+includeFile("tangible/tarkin_custom/decorative/tarkin_scoreboard.lua")
 
 --Disagreeable Shader
 --includeFile("tangible/tarkin_custom/decorative/exarkun_sarcophagus.lua")

@@ -184,3 +184,25 @@ object_draft_schematic_item_tarkin_custom_shared_pet_customization_kit = SharedD
 }
 
 ObjectTemplates:addClientTemplate(object_draft_schematic_item_tarkin_custom_shared_pet_customization_kit, "object/draft_schematic/item/tarkin_custom/shared_pet_customization_kit.iff")
+
+--Death Star Destruction
+object_draft_schematic_item_tarkin_custom_shared_gcw_reward_drink_rebel = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/item/tarkin_custom/shared_gcw_reward_drink_rebel.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_item_tarkin_custom_shared_gcw_reward_drink_rebel, "object/draft_schematic/item/tarkin_custom/shared_gcw_reward_drink_rebel.iff")
+
+--Order 66 Cookies
+object_draft_schematic_item_tarkin_custom_shared_gcw_reward_food_imperial = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/item/tarkin_custom/shared_gcw_reward_food_imperial.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_item_tarkin_custom_shared_gcw_reward_food_imperial, "object/draft_schematic/item/tarkin_custom/shared_gcw_reward_food_imperial.iff")
+
+--Interwoven Composite Segment
+object_draft_schematic_item_tarkin_custom_shared_armor_segment_gcw_reward = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/item/tarkin_custom/shared_armor_segment_gcw_reward.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_item_tarkin_custom_shared_armor_segment_gcw_reward, "object/draft_schematic/item/tarkin_custom/shared_armor_segment_gcw_reward.iff")
+
