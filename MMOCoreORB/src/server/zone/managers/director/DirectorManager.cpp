@@ -89,6 +89,7 @@
 #include "server/zone/objects/intangible/TheaterObject.h"
 #include "server/zone/objects/tangible/misc/ContractCrate.h"
 #include "server/zone/managers/crafting/schematicmap/SchematicMap.h"
+#include "server/zone/objects/creature/ai/Creature.h"
 
 int DirectorManager::DEBUG_MODE = 0;
 int DirectorManager::ERROR_CODE = NO_ERROR;
@@ -421,9 +422,15 @@ void DirectorManager::initializeLuaEngine(Lua* luaEngine) {
 	lua_register(luaEngine->getLuaState(), "getSchematicItemName", getSchematicItemName);
 	lua_register(luaEngine->getLuaState(), "getBadgeListByType", getBadgeListByType);
 
+	//Tarkin's Revenge
 	lua_register(luaEngine->getLuaState(), "adminPlaceStructure", adminPlaceStructure);
 	lua_register(luaEngine->getLuaState(), "setStructureOwner", setStructureOwner);
 	lua_register(luaEngine->getLuaState(), "hasEnoughLots", hasEnoughLots);
+	lua_register(luaEngine->getLuaState(), "dropServerEvent", dropServerEvent);
+	lua_register(luaEngine->getLuaState(), "getCityRegionName", getCityRegionName);
+	lua_register(luaEngine->getLuaState(), "spawnBaby", spawnBaby);
+	lua_register(luaEngine->getLuaState(), "forceTameBaby", forceTameBaby);	
+	lua_register(luaEngine->getLuaState(), "setCustomization", setCustomization);
 
 	//Navigation Mesh Management
 	lua_register(luaEngine->getLuaState(), "createNavMesh", createNavMesh);
@@ -3798,4 +3805,389 @@ int DirectorManager::setStructureOwner(lua_State* L) {
 	}
 	
 	return 0;
+}
+
+/*
+* Tarkin's Revenge
+* Cancel a server event
+* lua: dropServerEvent(serverEvent)
+*/
+int DirectorManager::dropServerEvent(lua_State* L) {
+	if (checkArgumentCount(L, 1) == 1) {
+		String err = "incorrect number of arguments passed to DirectorManager::dropServerEvent";
+		printTraceError(L, err);
+		ERROR_CODE = INCORRECT_ARGUMENTS;
+		return 0;
+	}
+
+	String eventName = lua_tostring(L, -1);
+
+	Reference<PersistentEvent*> pEvent = getServerEvent(eventName);
+
+	if (pEvent != NULL) {
+		dropServerEventReference(eventName);
+		return 1;
+	}
+	return 0;
+}
+
+/*
+* Tarkin's Revenge
+* Get the name of the city region where an object is
+* lua: getCityRegionName(pObject)
+*/
+int DirectorManager::getCityRegionName(lua_State* L) {
+	if (checkArgumentCount(L, 1) == 1) {
+		String err = "incorrect number of arguments passed to DirectorManager::getCityRegionName";
+		printTraceError(L, err);
+		ERROR_CODE = INCORRECT_ARGUMENTS;
+		return 0;
+	}
+
+	Reference<SceneObject*> object = (SceneObject*) lua_touserdata(L, -1);
+
+	ManagedReference<CityRegion*> region = object->getCityRegion().get();
+	String regionName = "";
+
+	if (region != NULL) {
+		regionName = region->getRegionName();
+	}
+
+	lua_pushstring(L, regionName.toCharArray());
+
+	return 1;
+}
+
+/*
+* Tarkin's Revenge
+* Spawn a mobile as a baby
+* lua: spawnBaby(zone, mobile, x, z, y, heading, cellID)
+*/
+
+int DirectorManager::spawnBaby(lua_State* L) {
+	int numberOfArguments = lua_gettop(L);
+	if (numberOfArguments != 7) {
+		String err = "incorrect number of arguments passed to DirectorManager::spawnBaby";
+		printTraceError(L, err);
+		ERROR_CODE = INCORRECT_ARGUMENTS;
+		return 0;
+	}
+
+	bool randomRespawn = false;
+	uint64 parentID;
+	float x, y, z, heading;
+	String mobile, zoneid;
+
+	parentID = lua_tointeger(L, -1);
+	heading = lua_tonumber(L, -2);
+	y = lua_tonumber(L, -3);
+	z = lua_tonumber(L, -4);
+	x = lua_tonumber(L, -5);
+	mobile = lua_tostring(L, -6);
+	zoneid = lua_tostring(L, -7);
+
+	ZoneServer* zoneServer = ServerCore::getZoneServer();
+
+	Zone* zone = zoneServer->getZone(zoneid);
+
+	if (zone == NULL) {
+		lua_pushnil(L);
+		return 1;
+	}
+
+	CreatureManager* creatureManager = zone->getCreatureManager();
+
+	CreatureObject* creature = creatureManager->spawnCreatureAsBaby(mobile.hashCode(), x, z, y, parentID);
+
+	if (creature == NULL) {
+		String err = "could not spawn mobile " + mobile;
+		printTraceError(L, err);
+
+		lua_pushnil(L);
+	} else {
+		Locker locker(creature);
+
+		creature->updateDirection(Math::deg2rad(heading));
+
+		if (creature->isAiAgent()) {
+			AiAgent* ai = cast<AiAgent*>(creature);
+			ai->activateLoad("stationary");
+		}
+
+		creature->_setUpdated(true); //mark updated so the GC doesnt delete it while in LUA
+		lua_pushlightuserdata(L, creature);
+	}
+
+	return 1;
+}
+
+/*
+* Tarkin's Revenge
+* Forciby tame a baby creature, bypassing the need for creature handler, as part of an event reward.  All the other checks remain in place.
+* lua: forceTameBaby(pPlayer, creatureID, adult)
+*/
+
+int DirectorManager::forceTameBaby(lua_State* L) {
+	int numberOfArguments = lua_gettop(L);
+	if (numberOfArguments != 3) {
+		String err = "incorrect number of arguments passed to DirectorManager::forceTameBaby";
+		printTraceError(L, err);
+		ERROR_CODE = INCORRECT_ARGUMENTS;
+		return 0;
+	}
+	
+	bool adult = lua_toboolean(L, -1);
+	uint64 objectID = lua_tointeger(L, -2);
+	CreatureObject* player = (CreatureObject*) lua_touserdata(L, -3);
+	ZoneServer* zoneServer = ServerCore::getZoneServer();
+	Reference<SceneObject*> object = zoneServer->getObject(objectID);
+
+	if (object == NULL || !object->isCreature()) {
+		player->sendSystemMessage("@pet/pet_menu:sys_cant_tame"); // You can't tame that
+		lua_pushnil(L);
+		return 1;
+	}
+
+	Creature* creature = cast<Creature*>(object.get());
+
+	Zone* zone = player->getZone();
+
+	if (zone == NULL) {
+		lua_pushnil(L);
+		return 1;
+	}
+
+	if(player->getPendingTask("tame_pet") != NULL) {
+		player->sendSystemMessage("You are already taming a pet");
+		lua_pushnil(L);
+		return 1;
+	}
+
+	if(player->getPendingTask("call_pet") != NULL) {
+		player->sendSystemMessage("You cannot tame a pet while another is being called");
+		lua_pushnil(L);
+		return 1;
+	}
+
+	CreatureTemplate* creatureTemplate = creature->getCreatureTemplate();
+
+	if (creatureTemplate == NULL) {
+		lua_pushnil(L);
+		return 1;
+	}
+
+	int templateLevel = creatureTemplate->getLevel();
+	int maxLevelofPets = player->getSkillMod("tame_level");
+
+	if (maxLevelofPets < 10)
+		maxLevelofPets = 10;
+
+	if (templateLevel > maxLevelofPets) {
+		player->sendSystemMessage("@pet/pet_menu:sys_lack_skill"); // You lack the skill to be able to tame that creature.
+		lua_pushnil(L);
+		return 1;
+	}
+
+	if ((creature->isVicious() && player->getSkillMod("tame_aggro") < 1)) {
+		player->sendSystemMessage("@pet/pet_menu:sys_lack_skill"); // You lack the skill to be able to tame that creature.
+		lua_pushnil(L);
+		return 1;
+	}
+	
+	SceneObject* datapad = player->getSlottedObject("datapad");
+
+	if (datapad == NULL) {
+		lua_pushnil(L);
+		return 1;
+	}
+
+	if (datapad->getContainerObjectsSize() >= datapad->getContainerVolumeLimit()) {
+		player->sendSystemMessage("@faction_recruiter:datapad_full"); // Your datapad is full. You must first free some space.
+		lua_pushnil(L);
+		return 1;
+	}
+
+	ManagedReference<PlayerManager*> playerManager = zoneServer->getPlayerManager();
+
+	int numberStored = 0;
+	int maxStoredPets = playerManager->getBaseStoredCreaturePets() + player->getSkillMod("stored_pets");
+
+	for (int i = 0; i < datapad->getContainerObjectsSize(); ++i) {
+		ManagedReference<SceneObject*> object = datapad->getContainerObject(i);
+
+		if (object != NULL && object->isPetControlDevice()) {
+			PetControlDevice* device = cast<PetControlDevice*>( object.get());
+
+			if (device->getPetType() == PetManager::CREATUREPET) {
+				if (++numberStored >= maxStoredPets) {
+					player->sendSystemMessage("@pet/pet_menu:sys_too_many_stored"); // There are too many pets stored in this container. Release some of them to make room for more.
+					lua_pushnil(L);
+					return 1;
+				}
+
+			}
+		}
+	}
+
+	ManagedReference<PlayerObject*> ghost = player->getPlayerObject();
+
+	int currentlySpawned = 0;
+	int spawnedLevel = 0;
+	int level = creature->getLevel();
+	int maxPets = player->getSkillMod("keep_creature");
+
+	for (int i = 0; i < ghost->getActivePetsSize(); ++i) {
+		ManagedReference<AiAgent*> object = ghost->getActivePet(i);
+
+		if (object != NULL) {
+			ManagedReference<PetControlDevice*> pcd = object->getControlDevice().get().castTo<PetControlDevice*>();
+
+			if (pcd == NULL || pcd->getPetType() != PetManager::CREATUREPET) {
+				player->sendSystemMessage("This creature does not have a valid pet control device");		
+				lua_pushnil(L);
+				return 1;
+			}
+
+			if (++currentlySpawned >= maxPets) {
+				player->sendSystemMessage("@pet/pet_menu:too_many"); // You can't control any more pets. Store one first
+				lua_pushnil(L);
+				return 1;
+			}
+
+			spawnedLevel += object->getLevel();
+
+			if ((spawnedLevel + level) >= maxLevelofPets) {
+				player->sendSystemMessage("Taming this pet would exceed your control level ability.");
+				lua_pushnil(L);
+				return 1;
+			}
+		}
+	}
+
+	Locker clocker(creature);
+
+	int mask = creature->getPvpStatusBitmask();
+	creature->setPvpStatusBitmask(0, true);
+
+	if (creature->isAiAgent()) {
+		AiAgent* agent = cast<AiAgent*>(creature);
+		agent->activateLoad("wait");
+	}
+
+	zoneServer = player->getZoneServer();
+
+	String objectString = creature->getControlDeviceTemplate();
+	if (objectString == "")
+		objectString = "object/intangible/pet/pet_control.iff";
+
+	ObjectManager* objectManager = zoneServer->getObjectManager();
+		
+	if (playerManager == NULL || objectManager == NULL) {
+		creature->setPvpStatusBitmask(mask, true);
+		lua_pushnil(L);
+		return 1;
+	}
+
+	ManagedReference<PetControlDevice*> controlDevice = zoneServer->createObject(objectString.hashCode(), 1).castTo<PetControlDevice*>();
+
+	if (controlDevice == NULL) {
+		creature->setPvpStatusBitmask(mask, true);
+		lua_pushnil(L);
+		return 1;
+	}
+
+	Locker deviceLocker(controlDevice);
+
+	controlDevice->setControlledObject(creature);
+
+	StringId s;
+	s.setStringId(creature->getObjectName()->getFullPath());
+
+	controlDevice->setObjectName(s, false);
+	controlDevice->setPetType(PetManager::CREATUREPET);
+	controlDevice->setMaxVitality(100);
+	controlDevice->setVitality(100);
+	controlDevice->setGrowthStage(1);
+	controlDevice->updateStatus(1);
+	controlDevice->setCustomObjectName(creature->getCustomObjectName(), true);
+
+	if (!datapad->transferObject(controlDevice, -1)) {
+		creature->setPvpStatusBitmask(mask, true);
+		controlDevice->destroyObjectFromDatabase(true);
+		lua_pushnil(L);
+		return 1;
+	}
+	
+	objectManager->persistSceneObjectsRecursively(creature, 1);
+
+	if (adult) {
+		controlDevice->growPet(player, true, true);
+	}
+
+	creature->setControlDevice(controlDevice);
+	creature->setObjectMenuComponent("PetMenuComponent");
+	creature->setCreatureLink(player);
+	creature->setFaction(player->getFaction());
+
+	if (player->getPvpStatusBitmask() & CreatureFlag::PLAYER)
+		creature->setPvpStatusBitmask(player->getPvpStatusBitmask() - CreatureFlag::PLAYER, false);
+	else
+		creature->setPvpStatusBitmask(player->getPvpStatusBitmask(), false);
+
+	creature->setBaby(false);
+
+	if (creature->isAiAgent()) {
+		AiAgent* agent = cast<AiAgent*>(creature);
+		ManagedReference<CellObject*> parent = player->getParent().get().castTo<CellObject*>();
+
+		agent->setLairTemplateCRC(0);
+		agent->setFollowObject(player);
+		agent->storeFollowObject();
+
+		agent->setHomeLocation(player->getPositionX(), player->getPositionZ(), player->getPositionY(), parent);
+		agent->setNextStepPosition(player->getPositionX(), player->getPositionZ(), player->getPositionY(), parent);
+		agent->clearPatrolPoints();
+
+		agent->setCreatureBitmask(CreatureFlag::PET);
+		agent->activateLoad("");
+	}
+
+	creature->getZone()->broadcastObject(creature, true);
+	datapad->broadcastObject(controlDevice, true);
+
+	ghost->addToActivePets(creature);
+	player->sendSystemMessage("@hireling/hireling:taming_success"); // You successfully tame the creature.
+	creature->showFlyText("npc_reaction/flytext","success", 0, 204, 0);  // You tame the creature.
+
+	lua_pushlightuserdata(L, creature);
+	return 1;
+}
+
+/*
+* Tarkin's Revenge
+* Sets customization variables
+* lua: setCustomization(name, val)
+*/
+int DirectorManager::setCustomization(lua_State* L) {
+	int numberOfArguments = lua_gettop(L);
+	if (numberOfArguments != 3) {
+		String err = "incorrect number of arguments passed to DirectorManager::setCustomization";
+		printTraceError(L, err);
+		ERROR_CODE = INCORRECT_ARGUMENTS;
+		return 0;
+	}
+	
+	int val = lua_tointeger(L, -1);
+	String name = lua_tostring(L, -2);
+	Creature* creature = (Creature*) lua_touserdata(L, -3);
+	
+	if (creature == NULL || !creature->isCreature()){
+		lua_pushnil(L);
+		return 1;
+	}
+	
+	Locker clocker(creature);	
+	creature->setCustomizationVariable( name, val, true );
+	lua_pushlightuserdata(L, creature);
+	return 1;
 }

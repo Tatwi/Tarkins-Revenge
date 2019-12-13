@@ -74,3 +74,33 @@ object_tangible_tarkin_custom_statted_shared_thanksgiving_reward_salty_snackbox 
 }
 ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_statted_shared_thanksgiving_reward_salty_snackbox, "object/tangible/tarkin_custom/statted/shared_thanksgiving_reward_salty_snackbox.iff")
 
+--Home For The Holidays
+object_tangible_tarkin_custom_statted_shared_lifeday_reward_home_for_the_holidays = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tarkin_custom/statted/shared_lifeday_reward_home_for_the_holidays.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_statted_shared_lifeday_reward_home_for_the_holidays, "object/tangible/tarkin_custom/statted/shared_lifeday_reward_home_for_the_holidays.iff")
+
+--SEA Recycler
+object_tangible_tarkin_custom_statted_shared_lifeday_reward_sea_recycler = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tarkin_custom/statted/shared_lifeday_reward_sea_recycler.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_statted_shared_lifeday_reward_sea_recycler, "object/tangible/tarkin_custom/statted/shared_lifeday_reward_sea_recycler.iff")
+
+--Death Star Destruction
+object_tangible_tarkin_custom_statted_shared_gcw_reward_drink_rebel = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tarkin_custom/statted/shared_gcw_reward_drink_rebel.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_statted_shared_gcw_reward_drink_rebel, "object/tangible/tarkin_custom/statted/shared_gcw_reward_drink_rebel.iff")
+
+--Order 66 Cookies
+object_tangible_tarkin_custom_statted_shared_gcw_reward_food_imperial = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tarkin_custom/statted/shared_gcw_reward_food_imperial.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_statted_shared_gcw_reward_food_imperial, "object/tangible/tarkin_custom/statted/shared_gcw_reward_food_imperial.iff")
+
+--Interwoven Composite Segment
+object_tangible_tarkin_custom_statted_shared_armor_segment_gcw_reward = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tarkin_custom/statted/shared_armor_segment_gcw_reward.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_tarkin_custom_statted_shared_armor_segment_gcw_reward, "object/tangible/tarkin_custom/statted/shared_armor_segment_gcw_reward.iff")
+

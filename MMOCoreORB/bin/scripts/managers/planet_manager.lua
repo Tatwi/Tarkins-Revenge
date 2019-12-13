@@ -710,3 +710,8 @@ dungeon1 = {
 	weatherEnabled = 0,
 	gcwEnabled = 0,
 }
+
+kashyyyk_main = {
+	weatherEnabled = 0,
+	gcwEnabled = 0,
+}

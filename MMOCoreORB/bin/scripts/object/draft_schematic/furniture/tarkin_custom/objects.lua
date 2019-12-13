@@ -190,3 +190,9 @@ object_draft_schematic_furniture_tarkin_custom_shared_aurebesh_usk = SharedDraft
 	clientTemplateFileName = "object/draft_schematic/furniture/tarkin_custom/shared_aurebesh_usk.iff"
 }
 ObjectTemplates:addClientTemplate(object_draft_schematic_furniture_tarkin_custom_shared_aurebesh_usk, "object/draft_schematic/furniture/tarkin_custom/shared_aurebesh_usk.iff")
+
+--Chest of Holding
+object_draft_schematic_furniture_tarkin_custom_shared_chest_of_holding = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/furniture/tarkin_custom/shared_chest_of_holding.iff"
+}
+ObjectTemplates:addClientTemplate(object_draft_schematic_furniture_tarkin_custom_shared_chest_of_holding, "object/draft_schematic/furniture/tarkin_custom/shared_chest_of_holding.iff")

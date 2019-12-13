@@ -13,7 +13,7 @@ TarkinLib = ScreenPlay:new {
 	screenplayName = "TarkinLib",
 }
 
-registerScreenPlay("TarkinLib", true)
+registerScreenPlay("NewYearNewRegimeScreenplay", true)
 
 function TarkinLib:start()
 --do nothing
@@ -31,3 +31,4 @@ function TarkinLib:splitString(string, delimiter)
 	table.insert( outResults, string.sub( string, start ) )
 	return outResults
 end
+

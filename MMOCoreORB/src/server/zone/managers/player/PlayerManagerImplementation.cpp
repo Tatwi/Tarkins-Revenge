@@ -3703,7 +3703,7 @@ SceneObject* PlayerManagerImplementation::getInRangeStructureWithAdminRights(Cre
 	}
 
 	StructureObject* structure = NULL;
-	float distance = 16000;
+	float distance = 19000;
 
 	Zone* zone = creature->getZone();
 
@@ -3735,7 +3735,9 @@ SceneObject* PlayerManagerImplementation::getInRangeStructureWithAdminRights(Cre
 		}
 	}
 
-	if (distance < 25)
+	if (creature->getPlayerObject()->isPrivileged()) {
+		return structure;
+	} else if (distance < 25)
 		return structure;
 
 	return NULL;
@@ -3750,7 +3752,7 @@ StructureObject* PlayerManagerImplementation::getInRangeOwnedStructure(CreatureO
 		return NULL;
 
 	ManagedReference<StructureObject*> closestStructure = NULL;
-	float closestDistance = 16000.f;
+	float closestDistance = 19000.f;
 
 	for (int i = 0; i < ghost->getTotalOwnedStructureCount(); ++i) {
 		uint64 oid = ghost->getOwnedStructure(i);

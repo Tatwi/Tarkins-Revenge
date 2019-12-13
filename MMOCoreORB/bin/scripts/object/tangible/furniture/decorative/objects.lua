@@ -2070,3 +2070,9 @@ object_tangible_furniture_decorative_shared_banner_jedi = SharedTangibleObjectTe
 
 ObjectTemplates:addClientTemplate(object_tangible_furniture_decorative_shared_banner_jedi, "object/tangible/furniture/decorative/shared_banner_jedi.iff")
 
+--Lifeday Plant
+object_tangible_furniture_decorative_shared_event_lifeday07_plant = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/decorative/shared_event_lifeday07_plant.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_decorative_shared_event_lifeday07_plant, "object/tangible/furniture/decorative/shared_event_lifeday07_plant.iff")

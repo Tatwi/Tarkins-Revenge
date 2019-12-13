@@ -1,0 +1,5 @@
+object_tangible_tarkin_custom_decorative_quest_kkowrrot_leg = object_tangible_tarkin_custom_decorative_quest_shared_kkowrrot_leg:new {
+
+}
+
+ObjectTemplates:addTemplate(object_tangible_tarkin_custom_decorative_quest_kkowrrot_leg, "object/tangible/tarkin_custom/decorative/quest/kkowrrot_leg.iff")

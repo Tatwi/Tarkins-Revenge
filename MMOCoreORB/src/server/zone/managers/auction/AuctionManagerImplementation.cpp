@@ -906,7 +906,7 @@ void AuctionManagerImplementation::doInstantBuy(CreatureObject* player, AuctionI
 	
 	// Skim % of vendor sale into vendor maint
 	int skim = 0;
-	
+
 	if (!item->isOnBazaar() && item->getPrice() > 10){
 		VendorDataComponent* vendorData = NULL;
 		DataObjectComponentReference* data = vendor->getDataObjectComponent();
@@ -914,12 +914,14 @@ void AuctionManagerImplementation::doInstantBuy(CreatureObject* player, AuctionI
 			vendorData = cast<VendorDataComponent*>(data->get());
 
 		if(vendorData != NULL){
-			skim = item->getPrice() * 0.05; // 5%
+			if(vendorData->getOwnershipRightsOf(seller) == 0) {	// Only skim if the seller is the vendor owner, not on offers to someone else's vendor
+				skim = item->getPrice() * 0.05; // 5%
 			
-			if(skim > 100000) // Respecting hard cap in VendorData handlePayMaintanence()
-				skim = 100000;
+				if(skim > 100000) // Respecting hard cap in VendorData handlePayMaintanence()
+					skim = 100000;
 				
-			vendorData->skimMaintanence(skim);
+				vendorData->skimMaintanence(skim);
+			}
 		}
 	}
 

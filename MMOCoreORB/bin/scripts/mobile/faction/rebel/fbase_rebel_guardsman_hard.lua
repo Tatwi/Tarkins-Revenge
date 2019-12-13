@@ -12,7 +12,7 @@ fbase_rebel_guardsman_hard = Creature:new {
 	baseHAM = 13500,
 	baseHAMmax = 19000,
 	armor = 1,
-	resists = {30,30,30,130,30,130,-1,-1,-1},
+	resists = {110,110,140,25,25,25,25,-1,-1},
 	meatType = "",
 	meatAmount = 0,
 	hideType = "",
@@ -41,7 +41,7 @@ fbase_rebel_guardsman_hard = Creature:new {
 				{group = "color_crystals", chance = 200000},
 				{group = "junk", chance = 5000000},
 				{group = "weapons_all", chance = 1250000},
-				{group = "armor_all", chance = 1250000},
+				{group = "factional_imperial", chance = 1250000},
 				{group = "clothing_attachments", chance = 1150000},
 				{group = "armor_attachments", chance = 1150000}
 			}

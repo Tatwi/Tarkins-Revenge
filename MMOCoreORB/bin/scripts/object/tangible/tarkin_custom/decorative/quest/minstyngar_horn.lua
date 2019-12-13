@@ -1,0 +1,5 @@
+object_tangible_tarkin_custom_decorative_quest_minstyngar_horn = object_tangible_tarkin_custom_decorative_quest_shared_minstyngar_horn:new {
+
+}
+
+ObjectTemplates:addTemplate(object_tangible_tarkin_custom_decorative_quest_minstyngar_horn, "object/tangible/tarkin_custom/decorative/quest/minstyngar_horn.iff")
