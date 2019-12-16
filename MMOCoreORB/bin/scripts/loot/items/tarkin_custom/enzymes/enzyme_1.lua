@@ -5,6 +5,7 @@ enzyme_1 = {
 	directObjectTemplate = "object/tangible/loot/beast/enzyme_1.iff",
 	craftingValues = {
 		{"enzyme_color",0,10,0},
+		{"enzyme_type",1,1,0},
 	},
 	customizationStringNames = {},
 	customizationValues = {},
