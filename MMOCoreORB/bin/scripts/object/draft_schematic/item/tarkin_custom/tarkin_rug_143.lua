@@ -1,3 +1,4 @@
+--Copyright (C) 2019 <Tarkin's Revenge>
 object_draft_schematic_item_tarkin_custom_tarkin_rug_143 = object_draft_schematic_item_tarkin_custom_shared_tarkin_rug_143:new {
 
 	templateType = DRAFTSCHEMATIC,
