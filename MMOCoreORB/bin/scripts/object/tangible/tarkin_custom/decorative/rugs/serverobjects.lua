@@ -1,3 +1,4 @@
+--Copyright (C) 2019 <Tarkin's Revenge>
 --Children folder includes
 
 -- Server Objects

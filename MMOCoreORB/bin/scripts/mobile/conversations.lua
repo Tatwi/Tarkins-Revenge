@@ -296,14 +296,16 @@ includeFile("conversations/junk_dealer/junk_dealer_sheani_conv.lua")
 includeFile("conversations/junk_dealer/junk_dealer_sneg_conv.lua")
 
 --Tarkin Custom
-includeFile("conversations/misc/tarkin_crafting_trainer_conv.lua")
-includeFile("conversations/misc/weddingScavHuntConvoTemplate.lua")
-includeFile("conversations/misc/junkShopOwnerConvoTemplate.lua")
 includeFile("conversations/misc/halloweenHostage2019ConvoTemplate.lua")
+includeFile("conversations/misc/junkShopOwnerConvoTemplate.lua")
 includeFile("conversations/misc/LifeDayDreamsAttilochitConvoTemplate.lua")
 includeFile("conversations/misc/LifeDayDreamsReyyruaConvoTemplate.lua")
 includeFile("conversations/misc/LifeDayDreamsShorbaccaConvoTemplate.lua")
 includeFile("conversations/misc/LifeDayDreamsBaccaConvoTemplate.lua")
 includeFile("conversations/misc/LifeDayDreamsArritharConvoTemplate.lua")
 includeFile("conversations/misc/NewYearNewRegimeConvoTemplate.lua")
+includeFile("conversations/misc/tarkin_crafting_trainer_conv.lua")
+includeFile("conversations/misc/weddingScavHuntConvoTemplate.lua")
 
+-- Custom content - Loads last to allow for overrides
+includeFile("../custom_scripts/mobile/conversations.lua")
