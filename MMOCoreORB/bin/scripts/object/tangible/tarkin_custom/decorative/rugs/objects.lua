@@ -1,3 +1,4 @@
+--Copyright (C) 2019 <Tarkin's Revenge>
 object_tangible_tarkin_custom_decorative_rugs_shared_tarkin_rug_01 = SharedTangibleObjectTemplate:new {
 	clientTemplateFileName = "object/tangible/tarkin_custom/decorative/rugs/shared_tarkin_rug_01.iff"
 }

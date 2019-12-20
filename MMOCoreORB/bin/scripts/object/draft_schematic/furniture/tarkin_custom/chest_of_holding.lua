@@ -1,3 +1,4 @@
+--Copyright (C) 2019 <Tarkin's Revenge>
 object_draft_schematic_furniture_tarkin_custom_chest_of_holding = object_draft_schematic_furniture_tarkin_custom_shared_chest_of_holding:new {
 
 	templateType = DRAFTSCHEMATIC,
@@ -7,7 +8,7 @@ object_draft_schematic_furniture_tarkin_custom_chest_of_holding = object_draft_s
 	craftingToolTab = 512, -- (See DraftSchematicObjectTemplate.h)
 	complexity = 11,
 	size = 2,
-	factoryCrateSize = 10,
+	factoryCrateSize = 0,
 
 	xpType = "crafting_structure_general",
 	xp = 720,

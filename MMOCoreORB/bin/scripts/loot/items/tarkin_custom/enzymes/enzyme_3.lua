@@ -7,6 +7,7 @@ enzyme_3 = {
 		{"enzyme_color",31,31,0},
 		{"enzyme_purity",1,11,0},
 		{"enzyme_mutagen",1,11,0},
+		{"enzyme_type",3,3,0},
 	},
 	customizationStringNames = {},
 	customizationValues = {},
