@@ -8482,3 +8482,174 @@ object_tangible_loot_loot_schematic_shared_armor_segment_gcw_reward_schematic = 
 }
 ObjectTemplates:addClientTemplate(object_tangible_loot_loot_schematic_shared_armor_segment_gcw_reward_schematic, "object/tangible/loot/loot_schematic/shared_armor_segment_gcw_reward_schematic.iff")
 
+object_tangible_loot_loot_schematic_shared_tarkin_rug_01_schematic = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/loot/loot_schematic/shared_tarkin_rug_01_schematic.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_loot_loot_schematic_shared_tarkin_rug_01_schematic, "object/tangible/loot/loot_schematic/shared_tarkin_rug_01_schematic.iff")
+
+
+object_tangible_loot_loot_schematic_shared_tarkin_rug_61_schematic = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/loot/loot_schematic/shared_tarkin_rug_61_schematic.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_loot_loot_schematic_shared_tarkin_rug_61_schematic, "object/tangible/loot/loot_schematic/shared_tarkin_rug_61_schematic.iff")
+
+
+object_tangible_loot_loot_schematic_shared_tarkin_rug_98_schematic = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/loot/loot_schematic/shared_tarkin_rug_98_schematic.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_loot_loot_schematic_shared_tarkin_rug_98_schematic, "object/tangible/loot/loot_schematic/shared_tarkin_rug_98_schematic.iff")
+
+object_tangible_loot_loot_schematic_shared_tarkin_rug_143_schematic = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/loot/loot_schematic/shared_tarkin_rug_143_schematic.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_loot_loot_schematic_shared_tarkin_rug_143_schematic, "object/tangible/loot/loot_schematic/shared_tarkin_rug_143_schematic.iff")
+
+object_tangible_loot_loot_schematic_shared_tarkin_rug_161_schematic = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/loot/loot_schematic/shared_tarkin_rug_161_schematic.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_loot_loot_schematic_shared_tarkin_rug_161_schematic, "object/tangible/loot/loot_schematic/shared_tarkin_rug_161_schematic.iff")
+
+object_tangible_loot_loot_schematic_shared_tarkin_rug_04_schematic = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/loot/loot_schematic/shared_tarkin_rug_04_schematic.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_loot_loot_schematic_shared_tarkin_rug_04_schematic, "object/tangible/loot/loot_schematic/shared_tarkin_rug_04_schematic.iff")
+
+object_tangible_loot_loot_schematic_shared_tarkin_rug_135_schematic = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/loot/loot_schematic/shared_tarkin_rug_135_schematic.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_loot_loot_schematic_shared_tarkin_rug_135_schematic, "object/tangible/loot/loot_schematic/shared_tarkin_rug_135_schematic.iff")
+
+object_tangible_loot_loot_schematic_shared_tarkin_rug_100_schematic = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/loot/loot_schematic/shared_tarkin_rug_100_schematic.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_loot_loot_schematic_shared_tarkin_rug_100_schematic, "object/tangible/loot/loot_schematic/shared_tarkin_rug_100_schematic.iff")
+
+object_tangible_loot_loot_schematic_shared_tarkin_rug_64_schematic = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/loot/loot_schematic/shared_tarkin_rug_64_schematic.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_loot_loot_schematic_shared_tarkin_rug_64_schematic, "object/tangible/loot/loot_schematic/shared_tarkin_rug_64_schematic.iff")
+
+object_tangible_loot_loot_schematic_shared_tarkin_rug_56_schematic = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/loot/loot_schematic/shared_tarkin_rug_56_schematic.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_loot_loot_schematic_shared_tarkin_rug_56_schematic, "object/tangible/loot/loot_schematic/shared_tarkin_rug_56_schematic.iff")
+
+object_tangible_loot_loot_schematic_shared_tarkin_rug_81_schematic = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/loot/loot_schematic/shared_tarkin_rug_81_schematic.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_loot_loot_schematic_shared_tarkin_rug_81_schematic, "object/tangible/loot/loot_schematic/shared_tarkin_rug_81_schematic.iff")
+
+object_tangible_loot_loot_schematic_shared_tarkin_rug_03_schematic = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/loot/loot_schematic/shared_tarkin_rug_03_schematic.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_loot_loot_schematic_shared_tarkin_rug_03_schematic, "object/tangible/loot/loot_schematic/shared_tarkin_rug_03_schematic.iff")
+
+object_tangible_loot_loot_schematic_shared_tarkin_rug_82_schematic = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/loot/loot_schematic/shared_tarkin_rug_82_schematic.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_loot_loot_schematic_shared_tarkin_rug_82_schematic, "object/tangible/loot/loot_schematic/shared_tarkin_rug_82_schematic.iff")
+
+object_tangible_loot_loot_schematic_shared_tarkin_rug_94_schematic = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/loot/loot_schematic/shared_tarkin_rug_94_schematic.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_loot_loot_schematic_shared_tarkin_rug_94_schematic, "object/tangible/loot/loot_schematic/shared_tarkin_rug_94_schematic.iff")
+
+object_tangible_loot_loot_schematic_shared_tarkin_rug_21_schematic = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/loot/loot_schematic/shared_tarkin_rug_21_schematic.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_loot_loot_schematic_shared_tarkin_rug_21_schematic, "object/tangible/loot/loot_schematic/shared_tarkin_rug_21_schematic.iff")
+
+object_tangible_loot_loot_schematic_shared_tarkin_rug_67_schematic = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/loot/loot_schematic/shared_tarkin_rug_67_schematic.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_loot_loot_schematic_shared_tarkin_rug_67_schematic, "object/tangible/loot/loot_schematic/shared_tarkin_rug_67_schematic.iff")
+
+object_tangible_loot_loot_schematic_shared_tarkin_rug_113_schematic = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/loot/loot_schematic/shared_tarkin_rug_113_schematic.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_loot_loot_schematic_shared_tarkin_rug_113_schematic, "object/tangible/loot/loot_schematic/shared_tarkin_rug_113_schematic.iff")
+
+object_tangible_loot_loot_schematic_shared_tarkin_rug_87_schematic = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/loot/loot_schematic/shared_tarkin_rug_87_schematic.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_loot_loot_schematic_shared_tarkin_rug_87_schematic, "object/tangible/loot/loot_schematic/shared_tarkin_rug_87_schematic.iff")
+
+object_tangible_loot_loot_schematic_shared_tarkin_rug_148_schematic = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/loot/loot_schematic/shared_tarkin_rug_148_schematic.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_loot_loot_schematic_shared_tarkin_rug_148_schematic, "object/tangible/loot/loot_schematic/shared_tarkin_rug_148_schematic.iff")
+
+object_tangible_loot_loot_schematic_shared_tarkin_rug_86_schematic = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/loot/loot_schematic/shared_tarkin_rug_86_schematic.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_loot_loot_schematic_shared_tarkin_rug_86_schematic, "object/tangible/loot/loot_schematic/shared_tarkin_rug_86_schematic.iff")
+
+object_tangible_loot_loot_schematic_shared_tarkin_rug_42_schematic = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/loot/loot_schematic/shared_tarkin_rug_42_schematic.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_loot_loot_schematic_shared_tarkin_rug_42_schematic, "object/tangible/loot/loot_schematic/shared_tarkin_rug_42_schematic.iff")
+
+object_tangible_loot_loot_schematic_shared_tarkin_rug_36_schematic = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/loot/loot_schematic/shared_tarkin_rug_36_schematic.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_loot_loot_schematic_shared_tarkin_rug_36_schematic, "object/tangible/loot/loot_schematic/shared_tarkin_rug_36_schematic.iff")
+
+object_tangible_loot_loot_schematic_shared_tarkin_rug_02_schematic = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/loot/loot_schematic/shared_tarkin_rug_02_schematic.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_loot_loot_schematic_shared_tarkin_rug_02_schematic, "object/tangible/loot/loot_schematic/shared_tarkin_rug_02_schematic.iff")
+
+object_tangible_loot_loot_schematic_shared_tarkin_rug_117_schematic = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/loot/loot_schematic/shared_tarkin_rug_117_schematic.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_loot_loot_schematic_shared_tarkin_rug_117_schematic, "object/tangible/loot/loot_schematic/shared_tarkin_rug_117_schematic.iff")
+
+object_tangible_loot_loot_schematic_shared_tarkin_rug_77_schematic = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/loot/loot_schematic/shared_tarkin_rug_77_schematic.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_loot_loot_schematic_shared_tarkin_rug_77_schematic, "object/tangible/loot/loot_schematic/shared_tarkin_rug_77_schematic.iff")
+
+object_tangible_loot_loot_schematic_shared_tarkin_rug_32_schematic = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/loot/loot_schematic/shared_tarkin_rug_32_schematic.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_loot_loot_schematic_shared_tarkin_rug_32_schematic, "object/tangible/loot/loot_schematic/shared_tarkin_rug_32_schematic.iff")
+
+object_tangible_loot_loot_schematic_shared_tarkin_rug_103_schematic = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/loot/loot_schematic/shared_tarkin_rug_103_schematic.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_loot_loot_schematic_shared_tarkin_rug_103_schematic, "object/tangible/loot/loot_schematic/shared_tarkin_rug_103_schematic.iff")
+
+object_tangible_loot_loot_schematic_shared_tarkin_rug_43_schematic = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/loot/loot_schematic/shared_tarkin_rug_43_schematic.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_loot_loot_schematic_shared_tarkin_rug_43_schematic, "object/tangible/loot/loot_schematic/shared_tarkin_rug_43_schematic.iff")
+
+object_tangible_loot_loot_schematic_shared_tarkin_rug_170_schematic = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/loot/loot_schematic/shared_tarkin_rug_170_schematic.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_loot_loot_schematic_shared_tarkin_rug_170_schematic, "object/tangible/loot/loot_schematic/shared_tarkin_rug_170_schematic.iff")
+
+object_tangible_loot_loot_schematic_shared_tarkin_rug_120_schematic = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/loot/loot_schematic/shared_tarkin_rug_120_schematic.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_loot_loot_schematic_shared_tarkin_rug_120_schematic, "object/tangible/loot/loot_schematic/shared_tarkin_rug_120_schematic.iff")
+
+object_tangible_loot_loot_schematic_shared_tarkin_rug_153_schematic = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/loot/loot_schematic/shared_tarkin_rug_153_schematic.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_loot_loot_schematic_shared_tarkin_rug_153_schematic, "object/tangible/loot/loot_schematic/shared_tarkin_rug_153_schematic.iff")
+
+object_tangible_loot_loot_schematic_shared_tarkin_rug_138_schematic = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/loot/loot_schematic/shared_tarkin_rug_138_schematic.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_loot_loot_schematic_shared_tarkin_rug_138_schematic, "object/tangible/loot/loot_schematic/shared_tarkin_rug_138_schematic.iff")
+
+object_tangible_loot_loot_schematic_shared_tarkin_rug_169_schematic = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/loot/loot_schematic/shared_tarkin_rug_169_schematic.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_loot_loot_schematic_shared_tarkin_rug_169_schematic, "object/tangible/loot/loot_schematic/shared_tarkin_rug_169_schematic.iff")
+
+object_tangible_loot_loot_schematic_shared_tarkin_rug_123_schematic = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/loot/loot_schematic/shared_tarkin_rug_123_schematic.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_loot_loot_schematic_shared_tarkin_rug_123_schematic, "object/tangible/loot/loot_schematic/shared_tarkin_rug_123_schematic.iff")
