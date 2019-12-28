@@ -85,5 +85,7 @@ Timbab for The Jawa Toolbox, which was so useful for opening up our cities.
 
 Lasko for Kashyyyk help & assets.
 
+Mafeesh Moushkella for skirt SEA fix.
+
 Unsure: Serverwide announcements of important events like pvp kills, new server joins, etc.  We encountered this playing on Remastered and used this idea here on Tarkin's Revenge, but I don't believe the idea originated there.  Let us know if you know for certain where this idea originated.
 
