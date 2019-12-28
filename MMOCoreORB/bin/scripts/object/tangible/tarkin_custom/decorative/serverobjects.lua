@@ -1,6 +1,7 @@
 --Children folder includes
 includeFile("tangible/tarkin_custom/decorative/holiday/serverobjects.lua")
 includeFile("tangible/tarkin_custom/decorative/quest/serverobjects.lua")
+includeFile("tangible/tarkin_custom/decorative/rugs/serverobjects.lua")
 
 --Server object includes
 includeFile("tangible/tarkin_custom/decorative/target_dummy.lua")
