@@ -98,7 +98,7 @@ mountSpeedData = {
 	{"appearance/kai_tok_hue.sat", 17, 1.286, 180, 600},
 	{"appearance/gulginaw_hue.sat", 17, 1.286, 180, 600},
 	{"appearance/perlek_hue.sat", 17, 1.286, 180, 600},
-	{"appearance/reptilian_flier_hue.sat", 17, 1.286, 180, 600},
+	{"appearance/reptilian_flyer_hue.sat", 17, 1.286, 180, 600},
 	{"appearance/condor_dragon_hue.sat", 17, 1.286, 180, 600},
 	{"appearance/blistmok.sat", 17, 1.544, 120, 600},
 	{"appearance/tauntaun_skeli.sat", 17, 1.544, 120, 600}
