@@ -54,7 +54,7 @@ object_building_player_player_house_generic_medium_style_02 = object_building_pl
 	},
 	childObjects = {
 		{templateFile = "object/tangible/sign/player/house_address.iff", x = 5.13, z = 2.25, y = 7.91, ox = 0, oy = 1, oz = 0, ow = 0, cellid = -1, containmentType = -1},
-		{templateFile = "object/tangible/terminal/terminal_player_structure.iff", x = 6.00125, z = 0.625, y = 6.79454, ox = 0, oy = 1, oz = 0, ow = 0, cellid = 1, containmentType = -1},
+		{templateFile = "object/tangible/terminal/terminal_player_structure.iff", x = 6.08713, z = 0.625, y = 6.09983, ox = 0, oy = 1, oz = 0, ow = 0, cellid = 1, containmentType = -1},
 	},
 	shopSigns = {
 		{templateFile = "object/tangible/sign/player/house_address.iff", x = 5.13, z = 2.25, y = 7.91, ox = 0, oy = 1, oz = 0, ow = 0, cellid = -1, containmentType = -1, requiredSkill = "", suiItem = "@player_structure:house_address"},
