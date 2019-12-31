@@ -1134,7 +1134,7 @@ function LifeDayDreamsScreenplay:hatchShyyyoBird(pPlayer)
 	local pShyyyoBird = spawnBaby("kashyyyk_main", "shyyyo_bird", -598 + randX, 18.8235, -131, 175, 0)
 	
 	if (pShyyyoBird ~= nil) then
-		CreatureObject(pShyyyoBird):setOptionBit(INVULNERABLE)
+		CreatureObject(pShyyyoBird):setOptionBit(NONE)
 
 		local pInventory = CreatureObject(pPlayer):getSlottedObject("inventory")
 		if (pInventory ~= nil) then
