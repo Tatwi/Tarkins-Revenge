@@ -180,15 +180,23 @@ void ForageManagerImplementation::finishForaging(CreatureObject* player, int for
 		break;
 	default:
 		skillMod = 20;
-		chance = (int)(15 + (skillMod * 0.6));
+		chance = (int)(15 + (skillMod * 0.6)); // This is always 27...
 		break;
 	}
+	
+	// Bonus for searching on dangerous planets
+	if (chance < 80){
+		String planet = player->getZone()->getZoneName();
+		if (planet == "dathomir"){
+			chance += 7;
+		} else if (planet == "endor"){
+			chance += 5;
+		} else if (planet == "yavin4"){
+			chance += 5;
+		}
+	}
 
-	//Determine if player finds an item.
-	if (chance > 125) //There could possibly be +foraging skill tapes.
-		chance = 125;
-
-	if (System::random(80) > chance) {
+	if (System::random(100) > chance) {
 		if (forageType == ForageManager::SHELLFISH)
 			player->sendSystemMessage("@harvesting:found_nothing");
 		else if (forageType == ForageManager::LAIR)
@@ -334,6 +342,59 @@ bool ForageManagerImplementation::forageGiveItems(CreatureObject* player, int fo
 		lootManager->createLoot(inventory, lootGroup, level);
 
 	} else if (forageType == ForageManager::LAIR) { //Lair Search
+		/* Tarkin's Revenge 2020
+		 * By Tatwi
+		 * Balance the usefuless of egg resources with that of the crafting
+		 * components that are important to Bio-Engineers.
+		 */
+		float forageSkill = player->getSkillMod("foraging");
+		float creatureHarvestingSkill = player->getSkillMod("creature_harvesting");
+		int eggResChance = Math::max(15, (int)(forageSkill + creatureHarvestingSkill/2));
+	
+		// Give egg resources.
+		if (System::random(100) <  eggResChance){
+			resName = "meat_egg";
+			if(forageGiveResource(player, forageX, forageY, planet, resName)) {
+				player->sendSystemMessage("@lair_n:found_eggs");
+			} else {
+				player->sendSystemMessage("@lair_n:found_nothing");
+				return false;
+			}
+			
+			// We found eggs, but did we also find something else?
+			if (System::random(100) > Math::min(90, (int)creatureHarvestingSkill))
+				return true;
+		}
+		
+		int baseChance = 96;
+		
+		// Bio-Engineers have slightly higher chance of finding a Creature Egg
+		if (player->hasSkill("outdoors_bio_engineer_master")){
+			baseChance = 92;
+		} else if (player->hasSkill("outdoors_bio_engineer_novice")){
+			baseChance = 94;
+		}
+		
+		// Which loot item?
+		if (System::random(100) < baseChance){
+			// Live Creatures
+			lootGroup = "forage_live_creatures";
+			player->sendSystemMessage("@lair_n:found_bugs");
+		} else {
+			// Creature Egg
+			lootGroup = "creature_eggs";
+			player->sendSystemMessage("You have found a strange, large egg inside the lair.");
+		}
+			
+		if(!lootManager->createLoot(inventory, lootGroup, level)) {
+			player->sendSystemMessage("Unable to create loot for lootgroup " + lootGroup);
+			return false;
+		}
+		
+		return true;
+		
+		/* ============================================
+		
 		dice = System::random(109);
 		level = 1;
 
@@ -366,6 +427,7 @@ bool ForageManagerImplementation::forageGiveItems(CreatureObject* player, int fo
 		}
 
 		return true;
+		*/
 	}
 
 	player->sendSystemMessage("@skl_use:sys_forage_success");
