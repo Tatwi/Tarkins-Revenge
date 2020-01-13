@@ -12,6 +12,7 @@
 #include "server/zone/objects/draftschematic/DraftSchematic.h"
 #include "server/zone/objects/tangible/attachment/Attachment.h"
 #include "server/zone/managers/skill/SkillModManager.h"
+#include "server/zone/managers/stringid/StringIdManager.h"
 
 /**
  * Rename for clarity/convenience
@@ -175,23 +176,29 @@ void WearableObjectImplementation::applyAttachment(CreatureObject* player,
 				iterator.getNextKeyAndValue(statName, newValue);
 				sortedMods.put( ModSortingHelper( statName, newValue));
 			}
-
-			// Select the next mod in the SEA, sorted high-to-low. If that skill mod is already on the
-			// wearable, with higher or equal value, don't apply and continue. Break once one mod
-			// is applied.
-			for( int i = 0; i < sortedMods.size(); i++ ) {
-				String modName = sortedMods.elementAt(i).getKey();
-				int modValue = sortedMods.elementAt(i).getValue();
-
-				int existingValue = -26;
-				if(wearableSkillMods.contains(modName))
-					existingValue = wearableSkillMods.get(modName);
-
-				if( modValue > existingValue) {
-					wearableSkillMods.put( modName, modValue );
-					break;
+			
+			/* Tarkin's Revenge
+			 * Our SEAs only have 1 stat
+			 * - Reject new SEA if the item already has that mod and the new SEA's value would not be an improvement.
+			 * - Upgrade exiting value if it is the same, at the cost of a socket (normal SWG).
+			 */ 
+			String modName = sortedMods.elementAt(0).getKey();
+			int modValue = sortedMods.elementAt(0).getValue();
+			
+			if(wearableSkillMods.contains(modName)){
+				StringIdManager* stringIdManager = StringIdManager::instance();
+				UnicodeString hrName = stringIdManager->getStringId("@stat_n:" + modName);
+				
+				if(modValue <= wearableSkillMods.get(modName)){
+					player->sendSystemMessage("Item already contains " + hrName + " greater than or equal to " + String::valueOf(modValue));
+					return;
+				} else {
+					player->sendSystemMessage("The item's " + hrName + " skill has been upgraded from " + String::valueOf(wearableSkillMods.get(modName)) + " to " + String::valueOf(modValue) + " at the cost of 1 socket.");
 				}
 			}
+			
+			// Apply the upgrade
+			wearableSkillMods.put( modName, modValue );
 		}
 
 		usedSocketCount++;
