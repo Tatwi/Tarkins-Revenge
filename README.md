@@ -4,7 +4,7 @@ This repository contains my older contributions to the Tarkin's Revenge project.
 
 You may notice that some of the new submissions from myself and others are missing certain custom Lua script files. Unfortunately, this action was taken as a measure to protect the rights to our content. Some people have used our unique works and disregarded the GNU AFFERO GENERAL PUBLIC LICENSE, in some cases going so far as to intentionally present our unique works as their own; The few ruin it for the many.  
 
-With that said, I will continue to provide my open source software as learning resource for others, as I have done for many years. I strongly believe that the world is a better place when knowledge is shared. See the link below for documentation related to the SWGEmu codebase.  
+With that said, I will continue to provide my open source software as a learning resource for others, as I have done for many years. I strongly believe that the world is a better place when knowledge is shared. See the link below for documentation related to the SWGEmu codebase.  
 
 ## Tarkin's Revenge
 
