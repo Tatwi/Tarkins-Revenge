@@ -1,6 +1,6 @@
 # My Contributions
 
-This repository contains my older contributions to the Tarkin's Revenge project. The project was moved from [GitHub](https://github.com/TarkinII/Tarkins-Revenge) to [BitBucket](https://bitbucket.org/tarkinsrevenge/tarkins-revenge/src/master/) in fall 2019. In January 2020 I create a fork on BitBucket for my new contributions [here](https://bitbucket.org/tatwi/tarkins-revenge-my-contrib/src/master/).  
+This repository contains my contributions to the Tarkin's Revenge project. The project was moved from [GitHub](https://github.com/TarkinII/Tarkins-Revenge) to [BitBucket](https://bitbucket.org/tarkinsrevenge/tarkins-revenge/src/master/) in fall 2019.
 
 You may notice that some of the new submissions from myself and others are missing certain custom Lua script files. Unfortunately, this action was taken as a measure to protect the rights to our content. Some people have used our unique works and disregarded the GNU AFFERO GENERAL PUBLIC LICENSE, in some cases going so far as to intentionally present our unique works as their own; The few ruin it for the many.  
 
