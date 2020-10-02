@@ -1,10 +1,8 @@
 # My Contributions
 
-This repository is an archive of my contributions to the Tarkin's Revenge project. The project was moved from [GitHub](https://github.com/TarkinII/Tarkins-Revenge) to [BitBucket](https://bitbucket.org/tarkinsrevenge/tarkins-revenge/src/master/) in fall 2019.
+This repository is an archive of my contributions to the Tarkin's Revenge project. The project was moved from [GitHub](https://github.com/TarkinII/Tarkins-Revenge) to [BitBucket](https://bitbucket.org/tarkinsrevenge/tarkins-revenge/src/master/) in fall 2019. **Since that time the GitHub repo for Tarkin's Revenge has been reset to a point before any of the commits I made are listed, thereby erasing the pull request and commit history from GitHub.** However, all of the code changes I worked on and submitted over the years are listed here in the various update/feature branches within this repo and the code can still be seen in their codebase on BitBucket as of October 2020.
 
-You may notice that some of the new submissions from myself and others are missing certain custom Lua script files. Unfortunately, this action was taken as a measure to protect the rights to our content. Some people have used our unique works and disregarded the GNU AFFERO GENERAL PUBLIC LICENSE, in some cases going so far as to intentionally present our unique works as their own; The few ruin it for the many.  
-
-With that said, I will continue to provide my open source software as a learning resource for others, as I have done for many years. I strongly believe that the world is a better place when knowledge is shared. See the link below for documentation related to the SWGEmu codebase.  
+I spent many hundreds of hours programming, testing, researching, learning, and openly sharing my knowledge for various Tarkin related projects between 2014 to 2020, because I wanted to be helpful. And, I was. :)
 
 ## Tarkin's Revenge
 
